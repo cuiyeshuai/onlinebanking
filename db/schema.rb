@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2020_11_17_204936) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "bank_accounts", primary_key: "account_id", id: :serial, force: :cascade do |t|
+  create_table "bank_accounts", force: :cascade do |t|
     t.decimal "amount", precision: 2, null: false
     t.string "currency", null: false
     t.string "type_of_account", null: false
