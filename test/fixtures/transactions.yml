@@ -2,7 +2,7 @@
 
 one:
   currency: MyString
-  amount: 
+  amount: 3.3
   recipient_name: MyString
   recipient: 1
   reference: MyString
@@ -10,7 +10,7 @@ one:
 
 two:
   currency: MyString
-  amount: 
+  amount: 3.3
   recipient_name: MyString
   recipient: 1
   reference: MyString
