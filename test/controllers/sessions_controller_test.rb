@@ -7,7 +7,7 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should redirect_to success page with correct username and password" do
-    post '/login', params: {username:"Jiaqing", password:"123456"}
+    post '/login', params: {username:"MyString1", password:"123456"}
     assert_redirected_to(controller: 'sessions', action: 'success')
   end
 

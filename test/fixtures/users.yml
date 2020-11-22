@@ -1,20 +1,20 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  username: Jiaqing
+  username: MyString1
   first_name: MyString
   last_name: MyString
-  password: '123456'
+  password_digest: "$2a$12$QQWIIPONC.Q2kKY/q6rEFeuFTkVWac/sfzn8I0xDTw8H2DmwvQbFG"
   gender: 1
   date_of_birth: 2020-11-17
   phone_number: MyString
   address: MyString
 
 two:
-  username: MyString
+  username: MyString2
   first_name: MyString
   last_name: MyString
-  password: MyString
+  password_digest: "$2a$12$QQWIIPONC.Q2kKY/q6rEFeuFTkVWac/sfzn8I0xDTw8H2DmwvQbFG"
   gender: 1
   date_of_birth: 2020-11-17
   phone_number: MyString
