@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'l_page', to:'l_page#index'
   get 'login', to: 'sessions#login'
   post 'login', to: 'sessions#verification'
   get 'success', to: 'sessions#success'
