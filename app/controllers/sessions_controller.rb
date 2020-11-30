@@ -15,4 +15,5 @@ class SessionsController < ApplicationController
 
   def success
   end
+  
 end
