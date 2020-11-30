@@ -3,13 +3,13 @@ class SessionsController < ApplicationController
   end
 
   def verification
-    @user = User.find_by(username: params[:username])
-    if @user && @user.password == params[:password]
-       session[:user_id] = @user.id
+    @user = User.find_by(username: params[:username].downcase)
+    if @user && @user.authenticate(params[:password])
+       log_in(@user)
 
        redirect_to '/success'
     else
-       redirect_to '/login'
+       render 'login'
     end
   end
 
