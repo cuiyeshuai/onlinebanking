@@ -209,11 +209,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
   bcrypt (~> 3.1.7)
-=======
-  bcrypt
->>>>>>> T2-Create-Public-Login-Page
   bootsnap (>= 1.4.2)
   bootstrap_form (~> 4.0)
   byebug
