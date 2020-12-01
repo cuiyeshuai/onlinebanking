@@ -15,4 +15,11 @@ class SessionsController < ApplicationController
 
   def success
   end
+
+  def destroy 
+    log_out
+    # Redirect to landing page (this redirection is temporary because at the moment landing page is not created)
+    redirect_to "/pages/landing"
+  end
+
 end
