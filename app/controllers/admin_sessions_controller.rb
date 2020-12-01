@@ -1,18 +1,23 @@
 class AdminSessionsController < ApplicationController
-   def login
-   end
- 
-   def verification
-     @admin = Administrator.find_by(username: params[:username])
-     if @admin && @admin.password == params[:password]
-        session[:user_id] = @user.id
- 
-        redirect_to '/success'
-     else
-        redirect_to '/login'
-     end
-   end
- 
-   def success
-   end
+  include AdminSessionsHelper
+  def new
+
+  end
+
+  def create
+    administrator = Administrator.find_by(administratorname: params[:administratorname].downcase)
+    if administrator && administrator.authenticate(params[:password])
+      log_in(administrator)
+      render 'success'
+    else
+      render 'new'
+    end
+  end
+
+  def destroy
+    log_out
+    redirect_to admin_login_path
+  end
+
+
 end
