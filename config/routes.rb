@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'success', to: 'l_page#index'
+
   get '/login', to: 'sessions#login'
   get '/success', to: 'sessions#success'
   post '/login', to: 'sessions#verification'
@@ -13,8 +15,8 @@ Rails.application.routes.draw do
   post'/adminlogin', to: 'admin_sessions#create'
   delete'adminlogout', to: 'admin_sessions#logout'
 
+
   get '/welcome', to: 'welcome#welcomepage'
 
-  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

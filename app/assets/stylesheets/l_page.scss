@@ -1,0 +1,85 @@
+// Place all the styles related to the LPage controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+*{
+	margin: 0;
+	padding: 0;
+}
+
+
+header
+{
+    background-color: #4169E1 ;
+    color:white;
+    height: 8.80vh;
+    text-decoration: none;
+}
+
+
+
+.main-nav{
+    margin-left: 10px;
+    float: left;
+	  list-style: none;
+    color: white;
+    float:left;
+    margin-top: 11px;
+    font-family: "Roboto",sans-serif;
+
+}
+
+.main-nav li{
+
+    padding: 5px 5px;
+    display: inline;
+
+}
+.main-nav li a{
+
+    text-decoration: none;
+    color: black;
+}
+
+
+body{
+
+
+    background-color: white;
+    height: 200hvh;
+}
+
+
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px 20spx;
+  border: 1px solid grey;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical
+}
+
+
+input[type=submit] {
+  background-color: lightgreen;
+  color: black;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+input[type=submit]:hover {
+  background-color: lightgreen;
+}
+
+
+.container {
+  border-radius: 5px;
+  color:black;
+  background-color: lightgray;
+  padding: 20px;
+}
