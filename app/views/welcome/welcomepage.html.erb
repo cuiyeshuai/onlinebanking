@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <div class="header">
+    <h1>My Bank</h1>
+    <p>Welcome to My Bank. Please LogIn below.</p>
+  </div>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+  <title>My Bank</title>
+  <link rel = "stylesheet"
+        type = "text/css"
+        href = "style.css" />
+<body style="background-color:darkslategray;">
+</head>
+
+<body>
+
+
+
+<img src="bank.jpg" alt="bank stock image" style="width:1000px;height:300px;">
+
+<table width="345" border="1" bgcolor="#778899">
+
+  <tr>
+
+    <%= button_to 'User LogIn', {:controller => 'sessions', :action => 'verification'} %>
+
+    <%= button_to 'Admin LogIn', {:controller => 'admin_sessions', :action => 'create'} %>
+
+  </tr>
+
+</table>
+
+</body>
+
+</html>
