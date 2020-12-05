@@ -1,0 +1,24 @@
+<%= link_to("Back to welcome page", {:controller => 'welcome', :action => "welcomepage"})%> <br/>
+<h1> User Management</h1>
+<%= link_to("Create a new user", {:action => "new"})%>
+<table summary="User List">
+  <tr>
+    <th>#</th>
+    <th>Username </th>
+    <th>First name </th>
+    <th>Last name </th>
+    <th>Gender </th>
+  </tr>
+  <% @users.each do |user|%>
+  <tr>
+    <td><%= user.id%></td>
+    <td><%= user.username%></td>
+    <td><%= user.first_name%></td>
+    <td><%= user.last_name%></td>
+    <td><%= @gender[user.gender]%></td>
+    <td><%= link_to("show", user_path(user)) %></td>
+    <td><%= link_to("Edit", edit_user_path(user))%></td>
+    <td><%= link_to("Delete", delete_user_path(user)) %></td>
+  </tr>
+  <% end %>
+</table>

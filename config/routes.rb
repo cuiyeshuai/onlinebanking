@@ -1,5 +1,14 @@
 Rails.application.routes.draw do
 
+
+  root 'welcome#welcomepage'
+
+  resources :users do
+      member do
+        get :delete
+      end
+    end
+
   get 'success', to: 'l_page#index'
 
   get '/login', to: 'sessions#login'

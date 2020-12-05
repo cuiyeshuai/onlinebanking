@@ -1,0 +1,24 @@
+<%= link_to("Back to users index page", users_path)%>
+<h1>Edit the user profile</h1>
+<%= form_for @user do |f|%>
+  <%= f.label :username%><br>
+  <%= f.text_field :username%><br>
+  <%= f.label :password%><br>
+  <%= f.password_field :password%><br>
+  <%= f.label "password confirmation"%><br>
+  <%= f.password_field :password_confirmation%><br>
+  <%= f.label "first name"%> <br>
+  <%= f.text_field :first_name%><br>
+  <%= f.label "last name"%> <br>
+  <%= f.text_field :last_name%><br>
+  <%= f.radio_button :gender, "0"%> Don't want to say
+  <%= f.radio_button :gender, "1"%> Male
+  <%= f.radio_button :gender, "2"%> Female<br/>
+  <%= f.date_select :date_of_birth, :class => "", :start_year => 1900, :end_year => 2020%> <br/>
+  <%= f.label "phone number"%> <br>
+  <%= f.text_field :phone_number%><br>
+  <%= f.label :address%> <br>
+  <%= f.text_field :address%><br>
+  <%= f.submit "Update User Profile" %>
+<%end%>
+<div style="height: 150px;margin: 20px;"></div>

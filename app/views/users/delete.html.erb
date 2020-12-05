@@ -1,0 +1,20 @@
+<%= link_to("Back to users index page", users_path) %>
+<h1>Are your sure to delete this user below from database?</h1>
+<%= form_for(@user, :method => "delete") do |f|%>
+  <%= f.label :username%><br>
+  <%= f.text_field :username, :readonly => true%><br>
+  <%= f.label "first name"%> <br>
+  <%= f.text_field :first_name, :readonly => true%><br>
+  <%= f.label "last name"%> <br>
+  <%= f.text_field :last_name, :readonly => true%><br>
+  <%= f.label "gender"%> <br>
+  <%= f.text_field :gender, :value=> @gender, :readonly => true%> <br/>
+  <%= f.label "date of birth"%><br>
+  <%= f.text_field :date_of_birth, :readonly => true%> <br/>
+  <%= f.label "phone number"%> <br>
+  <%= f.text_field :phone_number, :readonly => true%><br>
+  <%= f.label :address%> <br>
+  <%= f.text_field :address, :readonly => true%><br>
+  <%= f.submit "Delete user" %>
+<%end%>
+<div style="height: 150px;margin: 20px;"></div>
