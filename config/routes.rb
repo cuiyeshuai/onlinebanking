@@ -32,17 +32,9 @@ Rails.application.routes.draw do
     delete '/logout', to: 'sessions#destroy'
   end
 
-  resources :bank_accounts do
-    member do
-      get :delete
-    end
-  end
+  resources :bank_accounts, :only =>[:index, :show]
 
-  resources :transactions do
-    member do
-      get :delete
-    end
-  end
+  resources :transactions, :only => [:index, :show, :new, :create]
 
 
   get 'success', to: 'l_page#index'
