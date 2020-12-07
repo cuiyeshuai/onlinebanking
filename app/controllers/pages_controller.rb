@@ -9,6 +9,11 @@ class PagesController < ApplicationController
         end
     end
 
+    # Custom to show welcome page (for root)
+    def showWelcome
+        render template: "pages/welcomepage"
+    end
+
     
     private 
     # Checks whether the page user has entered exists

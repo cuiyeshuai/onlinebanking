@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'welcome#welcomepage'
+  root 'pages#showWelcome'
+
   namespace :admin do
     root 'sessions#new'
     resources :users do
@@ -47,8 +48,8 @@ Rails.application.routes.draw do
 
   # For static/dummy pages
   get '/pages/:page' => "pages#show"
-
-  get '/welcome', to: 'welcome#welcomepage'
+  # Show welcome page
+  get '/pages/welcomepage' => "pages#showWelcome"
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
