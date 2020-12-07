@@ -1,4 +1,4 @@
-module AdminSessionsHelper
+module Admin::SessionsHelper
   def log_in(administrator)
     session[:administrator_id] = administrator.id
   end
@@ -9,7 +9,7 @@ module AdminSessionsHelper
     end
   end
 
-  def logged_in
+  def logged_in?
     !current_administrator.nil?
   end
 
@@ -18,4 +18,3 @@ module AdminSessionsHelper
   end
 
 end
-

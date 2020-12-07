@@ -25,9 +25,9 @@
 
   <tr>
 
-    <%= button_to 'User LogIn', {:controller => 'sessions', :action => 'verification'} %>
+    <%= link_to 'User LogIn', {:controller => 'sessions', :action => 'login'} %>
 
-    <%= button_to 'Admin LogIn', {:controller => 'admin_sessions', :action => 'create'} %>
+    <%= link_to 'Admin LogIn', {:controller => 'admin_sessions', :action => 'new'} %>
 
   </tr>
 
