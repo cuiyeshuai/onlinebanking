@@ -1,2 +1,25 @@
-<h1>Transactions#new</h1>
-<p>Find me in app/views/transactions/new.html.erb</p>
+<% provide(:title, "New transaction")%>
+    <h1>New transaction</h1>
+    <p>Current account balance: </p>
+
+    <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
+
+    <%= t.label :currency %>
+    <%= t.text_field :currency %>
+    <br/>
+    <%= t.label :amount %>
+    <%= t.text_field :amount %>
+    <br/>
+    <%= t.label :recipient_name %>
+    <%= t.text_field :recipient_name %>
+    <br/>
+    <%= t.label :recipient %>
+    <%= t.text_field :recipient %>
+    <br/>
+    <%= t.label :reference %>
+    <%= t.text_field :reference %>
+    <br/>
+    <%= t.label :bank_account_id%>
+    <%= t.text_field :bank_account_id%>
+    <%= t.submit "Make transaction"%>
+    <%end%>
