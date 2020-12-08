@@ -7,15 +7,15 @@ class Admin::SessionsController < ApplicationController
   def create
     administrator = Administrator.find_by(administratorname: params[:administratorname].downcase)
     if administrator && administrator.authenticate(params[:password])
-      log_in(administrator)
-      redirect_to 'success'
+      log_in_as_administrator(administrator)
+      redirect_to '/admin/dashboard'
     else
       render 'new'
     end
   end
 
   def destroy
-    log_out
+    log_out_from_administrator
     redirect_to 'new'
   end
 end
