@@ -1,2 +1,36 @@
-<h1>Admin::Administrators#new</h1>
-<p>Find me in app/views/admin/administrators/new.html.erb</p>
+<h1>Create a new administrator</h1>
+<%= link_to("Back to administrators index page", admin_administrators_path)%>
+<% flash.each do |type, msg| %>
+  <div>
+    <% msg.split('@').each do |f| %>
+      <%= f =%><br/>
+    <% end %>
+  </div>
+<% end %>
+<%= form_for @administrator, :url=> admin_administrators_path do |f|%>
+  <%= f.label :administratorname%><br>
+  <%= f.text_field :administratorname%><br>
+
+  <%= f.label :password%><br>
+  <%= f.password_field :password%><br>
+  <%= f.label "password confirmation"%><br>
+  <%= f.password_field :password_confirmation%><br>
+
+  <%= f.label "Enable the second secure password"%><br>
+  <%= f.radio_button :second_password_enabled, true%> Enable
+  <%= f.radio_button :second_password_enabled, false, checked:'checked'%> Disable<br/>
+
+
+  <%= f.label "Setup the second secure password if enabled"%><br>
+  <%= f.label "second password"%><br>
+  <%= f.password_field :second_password%><br>
+  <%= f.label "second password confirmation"%><br>
+  <%= f.password_field :second_password_confirmation%><br>
+
+
+  <%= f.submit %>
+<%end%>
+<div style="height: 100px;margin: 20px;"></div>
+<<script type="text/javascript">
+
+</script>

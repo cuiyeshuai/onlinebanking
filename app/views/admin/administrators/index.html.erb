@@ -1,2 +1,19 @@
-<h1>Admin::Administrators#index</h1>
-<p>Find me in app/views/admin/administrators/index.html.erb</p>
+<%= link_to("Back to dashboard", "/admin/dashboard")%> <br/>
+<h1> Administrator Management</h1>
+<%= link_to("Create a new administrator", {:action => "new"})%>
+<table summary="User List">
+  <tr>
+    <th>#</th>
+    <th>Administrator name </th>
+    <th>Second secure password enabled?</th>
+  </tr>
+  <% @administrators.each do |administrator|%>
+  <tr>
+    <td><%= administrator.id%></td>
+    <td><%= administrator.administratorname%></td>
+    <td><%= administrator.second_password_enabled%></td>
+    <td><%= link_to("Edit", edit_admin_administrator_path(administrator))%></td>
+    <td><%= link_to("Delete", delete_admin_administrator_path(administrator)) %></td>
+  </tr>
+  <% end %>
+</table>
