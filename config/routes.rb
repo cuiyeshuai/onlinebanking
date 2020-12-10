@@ -37,13 +37,15 @@ Rails.application.routes.draw do
 
   resources :transactions, :only => [:index, :show, :new, :create]
 
-
+  get 'l_page', to: 'l_page#index'
   get 'success', to: 'l_page#index'
 
   get '/login', to: 'sessions#login'
   get '/success', to: 'sessions#success'
   post '/login', to: 'sessions#verification'
   
+  
+
   # Delete current session
   delete '/logout', to: 'sessions#destroy'
 

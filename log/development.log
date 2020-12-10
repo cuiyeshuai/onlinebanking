@@ -12291,3 +12291,2234 @@ Processing by BankAccountsController#show as HTML
 Completed 200 OK in 54ms (Views: 33.4ms | ActiveRecord: 18.4ms | Allocations: 6596)
 
 
+Started GET "/" for 127.0.0.1 at 2020-12-10 21:32:03 +0000
+  [1m[35m (11.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#showWelcome as HTML
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 65.5ms | Allocations: 1146)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 566ms (Views: 556.9ms | ActiveRecord: 0.0ms | Allocations: 11224)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-10 21:32:09 +0000
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 13.5ms | Allocations: 474)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 47.2ms | ActiveRecord: 0.0ms | Allocations: 5126)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-10 21:32:14 +0000
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"w8EWqZT/7NtYqQhphwh/Ow4NT6OzcBPqAGNgRaVoMnzFK/gn2jB8tCtb2TyhqiZsWWPoEiKBuy26EgZXnkOzGw==", "username"=>"justinas", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "justinas"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://127.0.0.1:3000/success
+Completed 302 Found in 633ms (ActiveRecord: 26.4ms | Allocations: 9358)
+
+
+Started GET "/success" for 127.0.0.1 at 2020-12-10 21:32:15 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (4.1ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 26.8ms | Allocations: 4627)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 92ms (Views: 69.5ms | ActiveRecord: 7.2ms | Allocations: 12187)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 21:32:18 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (6.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 80.4ms | Allocations: 6121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 192ms (Views: 151.8ms | ActiveRecord: 22.5ms | Allocations: 13567)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 21:32:29 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 65.9ms | Allocations: 3312)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 123ms (Views: 119.2ms | ActiveRecord: 2.0ms | Allocations: 9133)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 21:32:36 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1334)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 26ms (Views: 24.0ms | ActiveRecord: 1.5ms | Allocations: 6578)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 21:32:37 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 16.1ms | Allocations: 1333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (6.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 75ms (Views: 66.3ms | ActiveRecord: 6.7ms | Allocations: 6564)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 21:32:39 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (8.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 92ms (Views: 81.9ms | ActiveRecord: 8.9ms | Allocations: 6542)
+
+
+Started GET "/pages/welcomepage" for 127.0.0.1 at 2020-12-10 21:33:22 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"welcomepage"}
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 0.4ms | Allocations: 190)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 0.4ms | Allocations: 5416)
+
+
+Started GET "/pages/welcomepage" for 127.0.0.1 at 2020-12-10 21:33:24 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"welcomepage"}
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 0.4ms | Allocations: 183)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 40ms (Views: 38.2ms | ActiveRecord: 0.5ms | Allocations: 5408)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-10 21:33:25 +0000
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 19.3ms | Allocations: 262)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 110ms (Views: 101.0ms | ActiveRecord: 2.9ms | Allocations: 5465)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-10 21:33:31 +0000
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"GKVPLKLzeMrhWO1iJFJ4xBuyK5fHAsaab5MKcE0YjYQeT6Gi7DzopZKqPDcC8CGTTNyMJlbzbl3V4mxidjMM4w==", "username"=>"justinas", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "justinas"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://127.0.0.1:3000/success
+Completed 302 Found in 285ms (ActiveRecord: 0.3ms | Allocations: 941)
+
+
+Started GET "/success" for 127.0.0.1 at 2020-12-10 21:33:32 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.1ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 8.1ms | Allocations: 774)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 51ms (Views: 45.8ms | ActiveRecord: 1.4ms | Allocations: 6062)
+
+
+Started GET "/success" for 127.0.0.1 at 2020-12-10 21:34:26 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 6.5ms | Allocations: 985)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 67ms (Views: 60.3ms | ActiveRecord: 1.7ms | Allocations: 7457)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:34:28 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/l_page"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:34:51 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/l_page"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:34:56 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/l_page"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:35:08 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/l_page"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:35:10 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/l_page"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:52:25 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/l_page"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:52:29 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/l_page"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:54:18 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.8ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 95.7ms | Allocations: 4598)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (21.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 542ms (Views: 459.8ms | ActiveRecord: 59.3ms | Allocations: 19599)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:54:25 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 6.9ms | Allocations: 770)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 44ms (Views: 40.9ms | ActiveRecord: 0.7ms | Allocations: 6032)
+
+
+Started GET "/pages/welcomepage" for 127.0.0.1 at 2020-12-10 21:54:26 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"welcomepage"}
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1023)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 54ms (Views: 46.0ms | ActiveRecord: 0.4ms | Allocations: 6818)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 21:54:27 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 27.4ms | Allocations: 774)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 110ms (Views: 104.9ms | ActiveRecord: 3.8ms | Allocations: 6046)
+
+
+Started GET "/pages/welcomepage" for 127.0.0.1 at 2020-12-10 21:54:28 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"welcomepage"}
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 0.5ms | Allocations: 182)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (9.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 65ms (Views: 54.0ms | ActiveRecord: 10.0ms | Allocations: 5379)
+
+
+Started GET "/pages/welcomepage" for 127.0.0.1 at 2020-12-10 21:56:06 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"welcomepage"}
+  Rendering pages/welcomepage.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 5.3ms | Allocations: 786)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 35ms (Views: 32.5ms | ActiveRecord: 0.5ms | Allocations: 7098)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-10 21:56:09 +0000
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"YxTx2yrTWYBMKswkikuYV6E8i9xQP9XSNh+EUbpudazBJ5bUy4vZXuX7h8RKJg0kCKeikpHFUE77Gx66cPz/iw=="}
+Redirected to http://127.0.0.1:3000/pages/landing
+Completed 302 Found in 19ms (ActiveRecord: 0.0ms | Allocations: 307)
+
+
+Started GET "/pages/landing" for 127.0.0.1 at 2020-12-10 21:56:09 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"landing"}
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 3.7ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 404 Not Found in 56ms (Views: 52.2ms | ActiveRecord: 0.0ms | Allocations: 4168)
+
+
+Started GET "/pages/landing" for 127.0.0.1 at 2020-12-10 21:59:55 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"landing"}
+  Rendering public/404.html within layouts/application
+  Rendered public/404.html within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 404 Not Found in 15ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 4239)
+
+
+Started GET "/pages/welcomepage" for 127.0.0.1 at 2020-12-10 21:59:57 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"welcomepage"}
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 4.2ms | Allocations: 883)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 45.2ms | ActiveRecord: 0.0ms | Allocations: 4975)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 21:59:59 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.3ms | Allocations: 85)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.2ms | ActiveRecord: 0.0ms | Allocations: 4328)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 21:59:59 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 22.2ms | ActiveRecord: 0.0ms | Allocations: 4085)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:01 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms | Allocations: 4096)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:02 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms | Allocations: 4108)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:04 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.0ms | Allocations: 4080)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:04 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 31.5ms | ActiveRecord: 0.0ms | Allocations: 4092)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:05 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 25.3ms | ActiveRecord: 0.0ms | Allocations: 4088)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:05 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 23ms (Views: 19.9ms | ActiveRecord: 0.0ms | Allocations: 4086)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:06 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 41.3ms | ActiveRecord: 0.0ms | Allocations: 4084)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:06 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 0.0ms | Allocations: 4112)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:07 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.1ms | ActiveRecord: 0.0ms | Allocations: 4080)
+
+
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-10 22:00:25 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 1.0ms | Allocations: 83)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 29.1ms | ActiveRecord: 0.0ms | Allocations: 5372)
+
+
+Started GET "/pages/invest" for 127.0.0.1 at 2020-12-10 22:00:27 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"invest"}
+  Rendering pages/invest.html.erb within layouts/application
+  Rendered pages/invest.html.erb within layouts/application (Duration: 0.7ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 25.3ms | ActiveRecord: 0.0ms | Allocations: 4313)
+
+
+Started GET "/pages/welcomepage" for 127.0.0.1 at 2020-12-10 22:00:28 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"welcomepage"}
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 3.0ms | Allocations: 356)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 44ms (Views: 38.5ms | ActiveRecord: 0.0ms | Allocations: 4588)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-10 22:00:29 +0000
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 450)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 26ms (Views: 24.3ms | ActiveRecord: 0.0ms | Allocations: 5057)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-10 22:00:33 +0000
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"6waliIgEQKM46zge3jkQec6jxmbOq1CU0sI96f93Zyft7EsGxsvQzEsZ6Uv4m0kumc1h119a+FNos1v7xFzmQA==", "username"=>"justinas", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "justinas"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://127.0.0.1:3000/success
+Completed 302 Found in 328ms (ActiveRecord: 10.3ms | Allocations: 8041)
+
+
+Started GET "/success" for 127.0.0.1 at 2020-12-10 22:00:34 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 18.3ms | Allocations: 4371)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 44ms (Views: 33.4ms | ActiveRecord: 1.9ms | Allocations: 11504)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:01:05 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (1.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 55.2ms | Allocations: 5930)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 111ms (Views: 96.7ms | ActiveRecord: 6.4ms | Allocations: 13266)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:01:10 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 16.2ms | Allocations: 1736)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 87ms (Views: 82.4ms | ActiveRecord: 0.4ms | Allocations: 7542)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:06:21 +0000
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/justinas/onlineBanking/app/controllers/transactions_controller.rb:24: syntax error, unexpected `end', expecting ')'
+    end
+    ^~~
+):
+  
+app/controllers/transactions_controller.rb:24: syntax error, unexpected `end', expecting ')'
+app/controllers/transactions_controller.rb:24: syntax error, unexpected `end', expecting ')'
+app/controllers/transactions_controller.rb:24: syntax error, unexpected `end', expecting ')'
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:06:50 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 37.3ms | Allocations: 3372)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 395ms (Views: 324.7ms | ActiveRecord: 17.8ms | Allocations: 28723)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:07:15 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"GsS+pAYuqGzfuQbDX+6s5MvLn8nNXgv6b1r70EpOw7G499mr53YosnZoTSOfgzmXYlC2hwykjmaiXmE7gNxJlg==", "transaction"=>{"currency"=>"EUR", "amount"=>"12", "recipient_name"=>"Trail Ltd", "recipient"=>"Trail Ltd", "reference"=>"For nothing", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+Completed 500 Internal Server Error in 384ms (ActiveRecord: 0.0ms | Allocations: 90826)
+
+
+  
+NameError (undefined local variable or method `bank_account' for #<TransactionsController:0x00007f0ac4dc5110>
+Did you mean?  bank_account_url):
+  
+app/controllers/transactions_controller.rb:15:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:08:21 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"GsS+pAYuqGzfuQbDX+6s5MvLn8nNXgv6b1r70EpOw7G499mr53YosnZoTSOfgzmXYlC2hwykjmaiXmE7gNxJlg==", "transaction"=>{"currency"=>"EUR", "amount"=>"12", "recipient_name"=>"Trail Ltd", "recipient"=>"Trail Ltd", "reference"=>"For nothing", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 5.3ms | Allocations: 1395)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 225ms (Views: 108.7ms | ActiveRecord: 9.0ms | Allocations: 22569)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:08:25 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Jk5cGi7FerSUIqLDe2LgFitoWsb0bT8ijz4YfbZPMWGEfTsVz536aj3z6SO7D3VlgvNziDWXur5COoKWfN27Rg==", "transaction"=>{"currency"=>"EUR", "amount"=>"12", "recipient_name"=>"Trail Ltd", "recipient"=>"Trail Ltd", "reference"=>"as", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 23.9ms | Allocations: 1370)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 77ms (Views: 67.2ms | ActiveRecord: 0.5ms | Allocations: 7540)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:08:27 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 57.8ms | Allocations: 4542)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 167ms (Views: 143.6ms | ActiveRecord: 5.7ms | Allocations: 10810)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:08:29 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (2.1ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 21.1ms | Allocations: 1237)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 123ms (Views: 89.2ms | ActiveRecord: 3.0ms | Allocations: 7802)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:08:31 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 1340)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 70ms (Views: 67.4ms | ActiveRecord: 2.1ms | Allocations: 6569)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:08:47 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"Ru5bhK2Pi04UhnXTSXpVMyuJHBFK8SsHvm8IIMEAzU666gi+ctIl7arugRQsrB+IF8G1VEg7SNsqp9ibo44mHw==", "transaction"=>{"currency"=>"LOL", "amount"=>"12", "recipient_name"=>"Nope", "recipient"=>"Nope", "reference"=>"nop", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 6.5ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 50ms (Views: 37.9ms | ActiveRecord: 2.8ms | Allocations: 7525)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-10 22:09:39 +0000
+Processing by TransactionsController#index as HTML
+  Rendering transactions/index.html.erb within layouts/application
+  Rendered transactions/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 76)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 75ms (Views: 66.9ms | ActiveRecord: 6.9ms | Allocations: 12658)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:09:42 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (2.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 14.7ms | Allocations: 4165)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 41ms (Views: 31.7ms | ActiveRecord: 5.2ms | Allocations: 10811)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:09:43 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 55.9ms | Allocations: 5540)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 106ms (Views: 86.1ms | ActiveRecord: 5.4ms | Allocations: 12454)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:09:45 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 76ms (Views: 70.0ms | ActiveRecord: 3.0ms | Allocations: 6602)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:10:03 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"UOVlixqTrmK7yWHeA9jskvzhys2ZJbrKh0oBMaCXayCs4Taxxc4AwQWhlRlmDqYpwKljiJvv2RYTgtGKwhmAcQ==", "transaction"=>{"currency"=>"EUR", "amount"=>"21", "recipient_name"=>"Tein", "recipient"=>"Tein", "reference"=>"ten", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1303)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/transactions_controller.rb:15:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:23:59 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"UOVlixqTrmK7yWHeA9jskvzhys2ZJbrKh0oBMaCXayCs4Taxxc4AwQWhlRlmDqYpwKljiJvv2RYTgtGKwhmAcQ==", "transaction"=>{"currency"=>"EUR", "amount"=>"21", "recipient_name"=>"Tein", "recipient"=>"Tein", "reference"=>"ten", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 15.2ms | Allocations: 1387)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 153ms (Views: 108.6ms | ActiveRecord: 1.0ms | Allocations: 21369)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:24:02 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.7ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 43.4ms | Allocations: 4196)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 113ms (Views: 104.3ms | ActiveRecord: 1.7ms | Allocations: 9814)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:24:04 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (1.6ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 11.9ms | Allocations: 852)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 79ms (Views: 45.5ms | ActiveRecord: 3.8ms | Allocations: 7012)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:24:05 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 1333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (3.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 107ms (Views: 83.6ms | ActiveRecord: 3.6ms | Allocations: 6539)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:24:20 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"fshJGXVim/2OJP9aCumUvxsLtt1tYRQJ9BEHwB8G092CzBojqj81XjBMC51vP94EJ0MfmG+rd9Vg2dd7fYg4jA==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"Bandyms", "recipient"=>"Bandyms", "reference"=>"bandau", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 7.8ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 66ms (Views: 61.3ms | ActiveRecord: 0.6ms | Allocations: 7530)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:24:22 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"GtT2VyXReFaiKzITb1jZQIbMK3RJcIkZV69rsGQBnPC455FYxIn4iAv6efOvNUwzL1cCOoiKDIWaq/FbrpMW1w==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"Bandyms", "recipient"=>"Bandyms", "reference"=>"", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (9.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 57ms (Views: 44.7ms | ActiveRecord: 9.6ms | Allocations: 7490)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:24:39 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"k24t+3qiIqHgMzIQQQtehNMWR8v7UU/purQoWOTPG5YxXUr0m/qif0niefCBZsv3eo1uhTqrynV3sLKzLl2RsQ==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"Bandyms", "recipient"=>"Bandyms", "reference"=>"", "bank_account_id"=>"2"}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 16ms (Views: 9.9ms | ActiveRecord: 0.3ms | Allocations: 7544)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:24:50 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"n72AXLp2VMGAAGU7Vm/5d+BOl7Yc8HviNwdGm0lPB0A9judTWy7UHynRLtuWAmwESdW++N0K/n76A9xwg92NZw==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"Bandyms", "recipient"=>"Bandyms", "reference"=>"a", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 48ms (Views: 44.2ms | ActiveRecord: 1.1ms | Allocations: 7499)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:24:53 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"qY+xuTBbm74PDDspZO8HgnT07cqrfTOtom6KoD8I00cLvNa20QMbYKbdcMmkgpLx3W/EhGqHtjFvahBL9ZpZYA==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"Bandyms", "recipient"=>"Bandyms", "reference"=>"a", "bank_account_id"=>"2"}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 3.4ms | Allocations: 1367)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 38ms (Views: 35.1ms | ActiveRecord: 0.3ms | Allocations: 7503)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-10 22:27:58 +0000
+Processing by TransactionsController#index as HTML
+  Rendering transactions/index.html.erb within layouts/application
+  Rendered transactions/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 177ms (Views: 152.6ms | ActiveRecord: 17.1ms | Allocations: 12488)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:28:00 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 64.0ms | Allocations: 4181)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 158ms (Views: 126.6ms | ActiveRecord: 11.1ms | Allocations: 10820)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:28:01 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (3.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (3.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 83.8ms | Allocations: 5540)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 192ms (Views: 128.8ms | ActiveRecord: 12.0ms | Allocations: 12456)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:28:03 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 14.7ms | Allocations: 1388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 83ms (Views: 78.7ms | ActiveRecord: 1.9ms | Allocations: 6626)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:28:11 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"g5cF6jf05VOkosowvNNWG27MbDaKeh9C/MfBSTuR0NZ/k1bQ6KlL8BrKPvfZBRygUoTFc4iwfJ5oDxHyWR87hw==", "transaction"=>{"currency"=>"wer", "amount"=>"12", "recipient_name"=>"a", "recipient"=>"a", "reference"=>"a", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1368)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 39ms (Views: 28.9ms | ActiveRecord: 0.6ms | Allocations: 8024)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:28:13 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"M+/xTqUFdJj5Tt5UkwtgvRdM1xm1uVlcoOlKyiD/iyuR3JZBRF30RlCflbRTZvXOvtf+V3RD3MBt7dAh6m0BDA==", "transaction"=>{"currency"=>"wer", "amount"=>"12", "recipient_name"=>"a", "recipient"=>"a", "reference"=>"", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1364)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 72ms (Views: 55.5ms | ActiveRecord: 0.8ms | Allocations: 7493)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:28:20 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"jqauxvkVbUCti81GQZitntNRblXp1qIZvWkq/hv4C9UslcnJGE3tngRahqaB9TjtespHGygsJ4VwbbAV0WqB8g==", "transaction"=>{"currency"=>"wer", "amount"=>"12", "recipient_name"=>"a", "recipient"=>"a", "reference"=>"", "bank_account_id"=>"2"}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 1364)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 100ms (Views: 87.3ms | ActiveRecord: 1.4ms | Allocations: 7494)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:28:23 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"kpLP2ggN5c8aKs0NxmqpMO4ZOjDufaq2brjaeSlue68woajV6VVlEbP7hu0GBzxDR4ITfi+HLyqjvECS4/zxiA==", "transaction"=>{"currency"=>"wer", "amount"=>"12", "recipient_name"=>"a", "recipient"=>"a", "reference"=>"a", "bank_account_id"=>"2"}, "commit"=>"Make transaction"}
+[31mUnpermitted parameters: :reference, :bank_account_id[0m
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1364)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 57ms (Views: 49.2ms | ActiveRecord: 0.3ms | Allocations: 7538)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-10 22:28:55 +0000
+Processing by TransactionsController#index as HTML
+  Rendering transactions/index.html.erb within layouts/application
+  Rendered transactions/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 60ms (Views: 45.8ms | ActiveRecord: 13.7ms | Allocations: 12445)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:28:57 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 24.4ms | Allocations: 4165)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 72ms (Views: 58.1ms | ActiveRecord: 2.0ms | Allocations: 10783)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:28:58 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.7ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (3.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 38.4ms | Allocations: 5556)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 92ms (Views: 62.1ms | ActiveRecord: 8.2ms | Allocations: 12517)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:28:59 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 8.7ms | Allocations: 1388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 68ms (Views: 58.2ms | ActiveRecord: 2.7ms | Allocations: 6599)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:29:08 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"PAl/FBQbkNs5qUMNuxHvBDz+tP7PMkjI99YRQ+mgfvbADSwuy0Y+eIfBt8rex6W/ALYdu834KxRjHsH4iy6Vpw==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"a", "recipient"=>"a", "reference"=>"", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1330)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 39ms (Views: 28.8ms | ActiveRecord: 0.4ms | Allocations: 7823)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:29:19 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"q3DjTk4iLxy/C877YAAiBdPw69IMY8DWEyHa2Sq4wIMJQ4RBr3qvwhbahRugbbd2emvCnM2ZRUreJUAy4CpKpA==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"a", "recipient"=>"a", "reference"=>"a", "bank_account_id"=>"2"}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1330)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 24ms (Views: 20.8ms | ActiveRecord: 0.4ms | Allocations: 7298)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:29:21 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 769)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (6.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 58ms (Views: 49.3ms | ActiveRecord: 8.3ms | Allocations: 6015)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:29:22 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.8ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (0.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 11.5ms | Allocations: 808)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 45ms (Views: 38.2ms | ActiveRecord: 2.3ms | Allocations: 6623)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:33:55 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 20.6ms | Allocations: 5543)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 131ms (Views: 79.4ms | ActiveRecord: 12.0ms | Allocations: 24128)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:33:58 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 8.4ms | Allocations: 776)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 48ms (Views: 44.4ms | ActiveRecord: 2.5ms | Allocations: 6195)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:33:59 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (1.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (10.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 18.5ms | Allocations: 808)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 76ms (Views: 57.6ms | ActiveRecord: 12.4ms | Allocations: 6620)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:34:00 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1395)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 110ms (Views: 67.3ms | ActiveRecord: 1.1ms | Allocations: 6808)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:34:08 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"/ja1wdE4EUO+z2wL3OAZEL0wvsFzk8+/Xnldw3qYTUICMub7DmW/4ACnmMy5NlOrgXgXhHFZrGPKsY14GBamEw==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"a", "recipient"=>"a", "reference"=>"a", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 27ms (Views: 23.6ms | ActiveRecord: 0.5ms | Allocations: 7943)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:34:15 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"qnrhJq/NulSGlUnDk1t0pSJQrhQ1EzRbyyfWnWwq5tsISYYpTpU6ii9EAiNTNuHWi8uHWvTpsccGI0x2prhs/A==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"a", "recipient"=>"a", "reference"=>"a", "bank_account_id"=>"1"}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 8.4ms | Allocations: 1376)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 41ms (Views: 39.1ms | ActiveRecord: 0.3ms | Allocations: 7398)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:38:00 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (2.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 29.2ms | Allocations: 4240)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 97ms (Views: 75.7ms | ActiveRecord: 13.1ms | Allocations: 17870)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:38:02 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (4.1ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:6:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (1.1ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 126.6ms | Allocations: 5539)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 269ms (Views: 225.5ms | ActiveRecord: 11.4ms | Allocations: 12472)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:38:05 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 18.5ms | Allocations: 1395)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 78ms (Views: 70.3ms | ActiveRecord: 0.9ms | Allocations: 6785)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:38:14 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"AIfe1ZjavEv3XUHOvlGUOoCB4eJCegWrmbWugp2TEzj8g43vR4cS6Ek1tQnbh96BvMlIp0CwZncNfX45/x34aQ==", "transaction"=>{"currency"=>"EUR", "amount"=>"1", "recipient_name"=>"as", "recipient"=>"as", "reference"=>"as", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 46.2ms | Allocations: 1382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 133ms (Views: 116.9ms | ActiveRecord: 3.2ms | Allocations: 7951)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:43:39 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 16.3ms | Allocations: 5265)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 95ms (Views: 68.8ms | ActiveRecord: 6.5ms | Allocations: 26079)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:43:41 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (1.7ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (4.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 53.4ms | Allocations: 6120)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 133ms (Views: 80.8ms | ActiveRecord: 18.7ms | Allocations: 13527)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:43:43 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 31.7ms | Allocations: 3325)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 50ms (Views: 48.1ms | ActiveRecord: 1.0ms | Allocations: 9152)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:43:55 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"IWNM6jmH7MBtcHARevvN2eX9pXHTo19Nql9bfaMrj5LdZx/Q5tpCY9MYhNYfLYdi2bUMNNFpPJE+l4vGwaVkww==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"aa", "recipient"=>"aa", "reference"=>"aa", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1389)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 36ms (Views: 26.8ms | ActiveRecord: 0.5ms | Allocations: 8800)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:44:03 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"MNNX7+dTG6DtOak6YBjDRlvNeFRrmRgQxAOBd13GOjqS4DDgBgubfkTo4tqgdVY18lZRGqpjnYwJBxucl1SwHQ==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"aa", "recipient"=>"aa", "reference"=>"aa", "bank_account_id"=>"1"}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 12.5ms | Allocations: 1377)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 49ms (Views: 42.4ms | ActiveRecord: 0.4ms | Allocations: 7435)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-10 22:47:20 +0000
+Processing by TransactionsController#index as HTML
+  Rendering transactions/index.html.erb within layouts/application
+  Rendered transactions/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 79)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 50ms (Views: 45.6ms | ActiveRecord: 3.5ms | Allocations: 12685)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:47:22 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 29.7ms | Allocations: 4165)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 98ms (Views: 73.0ms | ActiveRecord: 5.1ms | Allocations: 10773)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:47:23 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+Completed 500 Internal Server Error in 298ms (ActiveRecord: 0.5ms | Allocations: 90941)
+
+
+  
+NameError (undefined local variable or method `bankAccount' for #<BankAccountsController:0x00007ffb5cda5958>
+Did you mean?  @bankAccount):
+  
+app/helpers/bank_accounts_helper.rb:4:in `set_account'
+app/controllers/bank_accounts_controller.rb:8:in `show'
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:48:00 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (1.1ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (2.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 69.1ms | Allocations: 5545)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 312ms (Views: 211.3ms | ActiveRecord: 36.3ms | Allocations: 24356)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 22:48:03 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 6.1ms | Allocations: 1416)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (3.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 105ms (Views: 100.1ms | ActiveRecord: 3.6ms | Allocations: 6800)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:48:13 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"XX6iWt/kCcTjTvFdukpQA9zlxeX6u0nADgdUQjVal6uhevFgALmnZ10mBZrfnBq44K1soPhxKhyaz4T5V9R8+g==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"aa", "recipient"=>"aa", "reference"=>"aa", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1194)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/transactions_controller.rb:21:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:53:50 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"XX6iWt/kCcTjTvFdukpQA9zlxeX6u0nADgdUQjVal6uhevFgALmnZ10mBZrfnBq44K1soPhxKhyaz4T5V9R8+g==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"aa", "recipient"=>"aa", "reference"=>"aa", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.0ms | Allocations: 6718)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/transactions_controller.rb:21:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:53:59 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"XX6iWt/kCcTjTvFdukpQA9zlxeX6u0nADgdUQjVal6uhevFgALmnZ10mBZrfnBq44K1soPhxKhyaz4T5V9R8+g==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"aa", "recipient"=>"aa", "reference"=>"aa", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 9.1ms | Allocations: 6941)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/transactions_controller.rb:21:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 22:54:11 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"XX6iWt/kCcTjTvFdukpQA9zlxeX6u0nADgdUQjVal6uhevFgALmnZ10mBZrfnBq44K1soPhxKhyaz4T5V9R8+g==", "transaction"=>{"currency"=>"EUR", "amount"=>"2", "recipient_name"=>"aa", "recipient"=>"aa", "reference"=>"aa", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:22:in `create'
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:22:in `create'
+  [1m[36mTransaction Create (21.2ms)[0m  [1m[32mINSERT INTO "transactions" ("currency", "amount", "recipient_name", "recipient", "reference", "bank_account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["currency", "EUR"], ["amount", 2], ["recipient_name", "aa"], ["recipient", 0], ["reference", "aa"], ["bank_account_id", 1], ["created_at", "2020-12-10 22:54:12.084034"], ["updated_at", "2020-12-10 22:54:12.084034"]]
+  ↳ app/controllers/transactions_controller.rb:22:in `create'
+  [1m[35m (15.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transactions_controller.rb:22:in `create'
+  Rendering transactions/create.html.erb within layouts/application
+  Rendered transactions/create.html.erb within layouts/application (Duration: 9.2ms | Allocations: 76)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 225ms (Views: 89.0ms | ActiveRecord: 69.9ms | Allocations: 28054)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 22:54:17 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 783)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 30ms (Views: 20.1ms | ActiveRecord: 0.7ms | Allocations: 6197)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 22:54:18 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.6ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (2.1ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 46.8ms | Allocations: 887)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 88ms (Views: 78.6ms | ActiveRecord: 3.6ms | Allocations: 7025)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 23:01:01 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (1.6ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 31.0ms | Allocations: 5574)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 111ms (Views: 76.6ms | ActiveRecord: 4.0ms | Allocations: 23738)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 23:01:03 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 11.7ms | Allocations: 1395)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (10.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 111ms (Views: 95.8ms | ActiveRecord: 10.5ms | Allocations: 6768)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:01:12 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"JBxA8jbrnOfaALsb+HPtw7bMnUfpdqarWxMPRDFXBcTYGBPI6bYyRGRoT9ydpad4ioQ0Auu8xXfP29//U9nulQ==", "transaction"=>{"currency"=>"EUR", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 24ms (Views: 21.1ms | ActiveRecord: 0.6ms | Allocations: 7967)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:01:15 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"gp5cfPeWMkBR/GzPbdXL35Na3qdbVa88yNxD4AXsQvggrTtzFs6ynvgtJy+tuF6sOsH36ZqvKqAF2NkLz37I3w==", "transaction"=>{"currency"=>"EUR", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 10.7ms | Allocations: 1376)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 48ms (Views: 39.5ms | ActiveRecord: 0.6ms | Allocations: 7404)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-10 23:01:28 +0000
+Processing by TransactionsController#index as HTML
+  Rendering transactions/index.html.erb within layouts/application
+  Rendered transactions/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 84ms (Views: 73.6ms | ActiveRecord: 9.6ms | Allocations: 12532)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 23:01:30 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 37.1ms | Allocations: 4173)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 87ms (Views: 62.6ms | ActiveRecord: 4.4ms | Allocations: 10809)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 23:01:31 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.6ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (4.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 61.8ms | Allocations: 5575)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 191ms (Views: 156.2ms | ActiveRecord: 9.5ms | Allocations: 12500)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 23:01:32 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 34.9ms | Allocations: 1388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 154ms (Views: 150.1ms | ActiveRecord: 1.9ms | Allocations: 6607)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:01:41 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"/zqILK+3jm94nDQrT8MiTnZhTrsPOqz66tm7dUxWviYDPtsWcOogzMb0wOwqFWj1Sinn/g3wzyZ+EWvOLthVdw==", "transaction"=>{"currency"=>"EUR", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 38ms (Views: 29.6ms | ActiveRecord: 2.3ms | Allocations: 7931)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:01:42 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"7bnzOoK4bpbrs8YcZEt7sPqN+AoupmqLFuezzzSXoL9PipQ1Y+DuSEJijfykJu7DUxbRRO9c7xfb4ykk/gUqmA==", "transaction"=>{"currency"=>"EUR", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1376)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 21ms (Views: 14.1ms | ActiveRecord: 0.5ms | Allocations: 7416)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-10 23:03:42 +0000
+Processing by TransactionsController#index as HTML
+  Rendering transactions/index.html.erb within layouts/application
+  Rendered transactions/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (8.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 330ms (Views: 299.4ms | ActiveRecord: 25.6ms | Allocations: 12465)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 23:03:46 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 49.1ms | Allocations: 4165)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 141ms (Views: 103.1ms | ActiveRecord: 8.3ms | Allocations: 10769)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 23:03:47 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (2.8ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (9.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 52.7ms | Allocations: 5591)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 154ms (Views: 84.6ms | ActiveRecord: 31.8ms | Allocations: 12558)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 23:03:49 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 27.0ms | Allocations: 1388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (3.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 177ms (Views: 159.4ms | ActiveRecord: 3.3ms | Allocations: 6595)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:03:57 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"9bXQb18T6oCituQ0rbzNDH7zhGYDzKSEbXMW7RZiklcJsYNVgE5EIxzeEPPIaoe3QrstIwEGx1j5u8ZWdOx5Bg==", "transaction"=>{"currency"=>"EUR", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1382)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 64ms (Views: 55.1ms | ActiveRecord: 0.7ms | Allocations: 7937)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 23:04:42 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (2.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 22.3ms | Allocations: 769)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 54ms (Views: 49.5ms | ActiveRecord: 3.2ms | Allocations: 6009)
+
+
+Started GET "/pages/welcomepage" for 127.0.0.1 at 2020-12-10 23:04:44 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"welcomepage"}
+  Rendering pages/welcomepage.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 17.4ms | Allocations: 796)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 46ms (Views: 44.1ms | ActiveRecord: 0.8ms | Allocations: 6474)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 23:04:44 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 12.7ms | Allocations: 774)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 73ms (Views: 63.4ms | ActiveRecord: 2.1ms | Allocations: 6044)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 23:04:46 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (0.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 18.6ms | Allocations: 849)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 99ms (Views: 93.6ms | ActiveRecord: 1.4ms | Allocations: 6664)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 23:04:47 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 1340)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 66ms (Views: 63.6ms | ActiveRecord: 1.1ms | Allocations: 6561)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:04:56 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"u645Ui1waJiPefokGWYUR07lsR1AFoTWFau1XMzqDoVHqmpo8i3GOzERDuN8sF78cq0YWELc5wqBY2XnrmTl1A==", "transaction"=>{"currency"=>"EUR", "amount"=>"40", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 7.4ms | Allocations: 1376)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 60ms (Views: 58.0ms | ActiveRecord: 0.2ms | Allocations: 7436)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-10 23:06:10 +0000
+Processing by TransactionsController#index as HTML
+  Rendering transactions/index.html.erb within layouts/application
+  Rendered transactions/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 40ms (Views: 33.8ms | ActiveRecord: 5.1ms | Allocations: 12488)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 23:06:12 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (10.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 37.5ms | Allocations: 4165)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 59ms (Views: 41.3ms | ActiveRecord: 13.3ms | Allocations: 10769)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 23:06:12 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (3.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (1.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 48.5ms | Allocations: 5575)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 126ms (Views: 95.8ms | ActiveRecord: 11.3ms | Allocations: 12491)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 23:06:13 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 7.5ms | Allocations: 1388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (5.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 58ms (Views: 47.0ms | ActiveRecord: 5.3ms | Allocations: 6597)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:06:26 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"lVxauES+S7g7FgJ63W7gRILhOvjwocPF9zy+iQNn5tFpWAmCm+PlG4V+9r24uKr/vqmTvfJroBlj9G4yYekNgA==", "transaction"=>{"currency"=>"GBP", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1206)
+
+
+  
+NoMethodError (undefined method `[]' for nil:NilClass):
+  
+app/controllers/transactions_controller.rb:20:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:12:20 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"lVxauES+S7g7FgJ63W7gRILhOvjwocPF9zy+iQNn5tFpWAmCm+PlG4V+9r24uKr/vqmTvfJroBlj9G4yYekNgA==", "transaction"=>{"currency"=>"GBP", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 12.2ms | Allocations: 1416)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 162ms (Views: 84.3ms | ActiveRecord: 2.9ms | Allocations: 21304)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:12:23 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"58FTMSEhwlVb/e66WKuR54pkd/BnNTBO89vUrJiYeaFF8jQ+wHlCi/IspVqYxgSUI/9evqbPtdI+305HUgrzhg==", "transaction"=>{"currency"=>"GBP", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>""}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1390)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 42ms (Views: 39.4ms | ActiveRecord: 0.4ms | Allocations: 7421)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:12:27 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"vYNMGlunb4WPvv4P/WgOATK4jHiVEeF7+FGK+iwqvZgfsCsVuv/vWyZvte89BZtymyOlNlTrZOc1VRAR5rg3vw==", "transaction"=>{"currency"=>"GBP", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>"1"}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1390)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 25ms (Views: 22.6ms | ActiveRecord: 0.3ms | Allocations: 7441)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:12:37 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"VGvrZQFacvCmO1nmlUlHWntGRgpMl7u0W1K3jW+8nYb2WIxq4ALyLg/qEgZVJNIp0t1vRI1tPiiWVi1mpS4XoQ==", "transaction"=>{"currency"=>"GBP", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>"1"}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 36ms (Views: 30.5ms | ActiveRecord: 2.3ms | Allocations: 7420)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 23:12:48 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (2.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 39.9ms | Allocations: 4196)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 89ms (Views: 75.9ms | ActiveRecord: 2.8ms | Allocations: 9818)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 23:12:50 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (1.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (2.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 24.2ms | Allocations: 887)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (5.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 74ms (Views: 55.5ms | ActiveRecord: 9.3ms | Allocations: 7003)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 23:12:51 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1333)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 30ms (Views: 28.5ms | ActiveRecord: 0.3ms | Allocations: 6538)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:13:03 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"0m88aALgLUgUuQ9Pr/T2OJmHDmfKa341rmO5oV7o/doua29S3b2D66rR+4jKIryDpc+nIsihHek6q2kaPGYWiw==", "transaction"=>{"currency"=>"EUR", "amount"=>"1", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>"1"}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 32ms (Views: 28.8ms | ActiveRecord: 0.2ms | Allocations: 7471)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-10 23:13:26 +0000
+Processing by TransactionsController#index as HTML
+  Rendering transactions/index.html.erb within layouts/application
+  Rendered transactions/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 74ms (Views: 67.0ms | ActiveRecord: 6.3ms | Allocations: 12465)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 23:13:28 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 24.8ms | Allocations: 4165)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 72ms (Views: 53.9ms | ActiveRecord: 3.4ms | Allocations: 10771)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 23:13:29 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (1.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 87.2ms | Allocations: 5575)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (6.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 231ms (Views: 201.3ms | ActiveRecord: 13.7ms | Allocations: 12501)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 23:13:30 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 22.3ms | Allocations: 1388)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 60ms (Views: 54.4ms | ActiveRecord: 0.3ms | Allocations: 6611)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:13:42 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"jq3nd9Oeggx/H8HUVgL4ZdVvLEw+OZ8hvQfRi3/B9A5yqbRNDMMsr8F3NRMz1LLe6SeFCTzz/P0pzwEwHU8fXw==", "transaction"=>{"currency"=>"LOL", "amount"=>"2", "recipient_name"=>"bb", "recipient"=>"bb", "reference"=>"bb", "bank_account_id"=>"1"}, "commit"=>"Make transaction"}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:22:in `create'
+  [1m[36mBankAccount Load (0.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:22:in `create'
+  [1m[36mTransaction Create (2.4ms)[0m  [1m[32mINSERT INTO "transactions" ("currency", "amount", "recipient_name", "recipient", "reference", "date", "bank_account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["currency", "LOL"], ["amount", 2], ["recipient_name", "bb"], ["recipient", 0], ["reference", "bb"], ["date", "2020-12-10 23:13:42.927288"], ["bank_account_id", 1], ["created_at", "2020-12-10 23:13:42.959528"], ["updated_at", "2020-12-10 23:13:42.959528"]]
+  ↳ app/controllers/transactions_controller.rb:22:in `create'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transactions_controller.rb:22:in `create'
+  Rendering transactions/create.html.erb within layouts/application
+  Rendered transactions/create.html.erb within layouts/application (Duration: 0.7ms | Allocations: 4)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 123ms (Views: 64.2ms | ActiveRecord: 6.9ms | Allocations: 9754)
+
+
+Started GET "/l_page" for 127.0.0.1 at 2020-12-10 23:13:46 +0000
+Processing by LPageController#index as HTML
+  Rendering l_page/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 5]]
+  ↳ app/views/l_page/index.html.erb:5
+  Rendered l_page/index.html.erb within layouts/application (Duration: 16.4ms | Allocations: 769)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 45ms (Views: 40.1ms | ActiveRecord: 3.4ms | Allocations: 6012)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 23:13:47 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (1.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 11.4ms | Allocations: 887)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 36ms (Views: 31.9ms | ActiveRecord: 2.3ms | Allocations: 6691)
+
+
+Started GET "/bank_accounts/1" for 127.0.0.1 at 2020-12-10 23:14:37 +0000
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:7:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (1.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/bank_accounts/show.html.erb:41
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 35.7ms | Allocations: 5995)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 148ms (Views: 80.1ms | ActiveRecord: 22.9ms | Allocations: 25611)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 23:14:39 +0000
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 24.2ms | Allocations: 1485)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 76ms (Views: 53.1ms | ActiveRecord: 0.9ms | Allocations: 7270)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:14:52 +0000
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"QOdVuRrxbh/OKweqaFxH6NoZwj7PBlEuqI8GF0KvpOa84waDxazAvHBD820Nig1T5lFre83MMvI8R9asICFPtw==", "transaction"=>{"currency"=>"GBP", "amount"=>"1", "recipient_name"=>"cc", "recipient"=>"cc", "reference"=>"cc"}, "commit"=>"Make transaction"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1192)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 28ms (Views: 24.4ms | ActiveRecord: 0.5ms | Allocations: 7747)
+
+
