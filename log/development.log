@@ -10292,3 +10292,183 @@ Completed 500 Internal Server Error in 20ms (ActiveRecord: 3.5ms | Allocations: 
 ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
   
 app/controllers/transactions_controller.rb:15:in `create'
+Started GET "/transactions" for 127.0.0.1 at 2020-12-10 18:38:43 +0800
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TransactionsController#index as HTML
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (2.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" ORDER BY date DESC[0m
+  ↳ app/views/transactions/index.html.erb:11
+  Rendered transactions/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1766)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 53ms (Views: 36.4ms | ActiveRecord: 4.4ms | Allocations: 14840)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 18:38:57 +0800
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 842)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 9.7ms | ActiveRecord: 5.8ms | Allocations: 10307)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 18:39:58 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"HhU1ZYpyTAK4Yf1hEqQH3Rig3mXDWWkFj7X/fnKTLN45IF3j/62OKGtqA5Jeg4ZWS+LNmld8cGPqGoy14FGkWg==", "currency"=>"$", "transaction"=>{"amount"=>"300", "recipient_name"=>"giao", "recipient"=>"1234567", "reference"=>"p"}, "commit"=>"create"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 718)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:15:in `create'
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 18:48:14 +0800
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 615)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 5991)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 18:49:10 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"69jc+70/+iyS3q81r/mU25fCPLRRQZOqTiDxzN7swQ7M7bR9yOA4BkHVUcbj3hVQxIAvS8Vkiswrj4IHTC5Jig==", "transaction"=>{"amount"=>"300", "recipient_name"=>"giao", "recipient"=>"1234567", "reference"=>"p"}, "commit"=>"create"}
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 9.7ms | Allocations: 6656)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:15:in `create'
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 18:55:00 +0800
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.1ms | Allocations: 782)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 6169)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 18:55:18 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"CVaEvWzzvMq+DG+7BaZhhnBEoT2A84HTeKurr3sWlkkuY+w7GSx+4G0HkUhJgeANIwaywhTWmLUdBNhk6dQezQ==", "currency"=>"$", "transaction"=>{"amount"=>"300", "recipient_name"=>"giao", "recipient"=>"1234567", "reference"=>"p"}, "commit"=>"create"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 732)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:15:in `create'
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 18:56:27 +0800
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 342.6ms | Allocations: 135517)
+Completed 500 Internal Server Error in 347ms (ActiveRecord: 0.0ms | Allocations: 136692)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `transaction' for #<#<Class:0x00007fa7581ee4a0>:0x00007fa7581eca60>
+Did you mean?  @transaction):
+     5:   <tr>
+     6:     <th>Currency</th>
+     7:     <td>
+     8:       <%= select_tag(transaction[:currency], options_for_select([["$","$"],["£","£"]])) %>
+     9:     </td>
+    10:   </tr>
+    11:   <tr>
+  
+app/views/transactions/new.html.erb:8
+app/views/transactions/new.html.erb:3
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 18:56:41 +0800
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1207)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2381)
+
+
+  
+ActionView::Template::Error (no implicit conversion of Symbol into Integer):
+     5:   <tr>
+     6:     <th>Currency</th>
+     7:     <td>
+     8:       <%= select_tag(:transaction[:currency], options_for_select([["$","$"],["£","£"]])) %>
+     9:     </td>
+    10:   </tr>
+    11:   <tr>
+  
+app/views/transactions/new.html.erb:8:in `[]'
+app/views/transactions/new.html.erb:8
+app/views/transactions/new.html.erb:3
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-10 18:57:07 +0800
+Processing by TransactionsController#new as HTML
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 706)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.0ms | ActiveRecord: 0.0ms | Allocations: 6088)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 18:58:33 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8gMhmqdghtlNKKDCgKGE84i5F0W0XxYrxa39RKokJVfVNkkc0r9E854jXjHMhgV42/sEuiB6D02gAo6POOat0w==", "currency"=>"$", "transaction"=>{"amount"=>"44", "recipient_name"=>"gsdg", "recipient"=>"222222222", "reference"=>"sdfsdfsfdds"}, "commit"=>"create"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 728)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:15:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 19:00:17 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8gMhmqdghtlNKKDCgKGE84i5F0W0XxYrxa39RKokJVfVNkkc0r9E854jXjHMhgV42/sEuiB6D02gAo6POOat0w==", "currency"=>"$", "transaction"=>{"amount"=>"44", "recipient_name"=>"gsdg", "recipient"=>"222222222", "reference"=>"sdfsdfsfdds"}, "commit"=>"create"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 728)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:15:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 19:00:31 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8gMhmqdghtlNKKDCgKGE84i5F0W0XxYrxa39RKokJVfVNkkc0r9E854jXjHMhgV42/sEuiB6D02gAo6POOat0w==", "currency"=>"$", "transaction"=>{"amount"=>"44", "recipient_name"=>"gsdg", "recipient"=>"222222222", "reference"=>"sdfsdfsfdds"}, "commit"=>"create"}
+Completed 500 Internal Server Error in 1ms (ActiveRecord: 0.0ms | Allocations: 728)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:15:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 19:02:34 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8gMhmqdghtlNKKDCgKGE84i5F0W0XxYrxa39RKokJVfVNkkc0r9E854jXjHMhgV42/sEuiB6D02gAo6POOat0w==", "currency"=>"$", "transaction"=>{"amount"=>"44", "recipient_name"=>"gsdg", "recipient"=>"222222222", "reference"=>"sdfsdfsfdds"}, "commit"=>"create"}
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 7.4ms | Allocations: 6595)
+
+
+  
+ActiveModel::ForbiddenAttributesError (ActiveModel::ForbiddenAttributesError):
+  
+app/controllers/transactions_controller.rb:15:in `create'
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 19:08:08 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8gMhmqdghtlNKKDCgKGE84i5F0W0XxYrxa39RKokJVfVNkkc0r9E854jXjHMhgV42/sEuiB6D02gAo6POOat0w==", "currency"=>"$", "transaction"=>{"amount"=>"44", "recipient_name"=>"gsdg", "recipient"=>"222222222", "reference"=>"sdfsdfsfdds"}, "commit"=>"create"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 728)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 45ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 17007)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:57:02 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8gMhmqdghtlNKKDCgKGE84i5F0W0XxYrxa39RKokJVfVNkkc0r9E854jXjHMhgV42/sEuiB6D02gAo6POOat0w==", "currency"=>"$", "transaction"=>{"amount"=>"44", "recipient_name"=>"gsdg", "recipient"=>"222222222", "reference"=>"sdfsdfsfdds"}, "commit"=>"create"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 499)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 11.3ms | ActiveRecord: 0.0ms | Allocations: 12612)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-10 23:58:04 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"8gMhmqdghtlNKKDCgKGE84i5F0W0XxYrxa39RKokJVfVNkkc0r9E854jXjHMhgV42/sEuiB6D02gAo6POOat0w==", "currency"=>"$", "transaction"=>{"amount"=>"44", "recipient_name"=>"gsdg", "recipient"=>"222222222", "reference"=>"sdfsdfsfdds"}, "commit"=>"create"}
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 482)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 5533)
+
+

@@ -11,11 +11,10 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    params.require(:transaction).permit(:amount, :recipient_name, :recipient, :reference)
-    @transaction = Transaction.new(params[:transaction])
-    @transaction.currency = params[:currency]
+    @transaction = Transaction.new(params.require(:transaction).permit(:amount, :recipient_name, :recipient, :reference))
     @transaction.date = DateTime.current()
     @transaction.updated_at = @transaction.created_at = Time.now()
+    @transaction.currency = params[:currency]
     if @transaction.save 
       redirect_to(transactions_path)
     else 
