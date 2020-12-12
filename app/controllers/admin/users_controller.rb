@@ -29,6 +29,11 @@ class Admin::UsersController < ApplicationController
     if (@user.save)
       redirect_to admin_users_path
     else
+      err = ''
+      @user.errors.messages.each do |f|
+      err += String(f[0])+":"+String(f[1][0]) + "@"
+      end
+      flash.alert = err
       render "new"
     end
 

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root 'sessions#new'
+
     resources :users do
       member do
         get :delete
@@ -28,7 +29,9 @@ Rails.application.routes.draw do
     end
 
     get '/new', to: 'sessions#new'
-    get 'success', to: 'sessions#success'
+    get '/success', to: 'sessions#success'
+    get '/dashboard', to: 'dashboard#index'
+    get 'dashboard/index'
     post '/new', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
   end
@@ -39,6 +42,8 @@ Rails.application.routes.draw do
 
   get 'l_page', to: 'l_page#index'
   get 'success', to: 'l_page#index'
+
+  get '/dashboard', to: 'l_page#index' #new from T9
 
   get '/login', to: 'sessions#login'
   get '/success', to: 'sessions#success'

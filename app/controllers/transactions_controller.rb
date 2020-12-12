@@ -1,9 +1,10 @@
 class TransactionsController < ApplicationController
   include BankAccountsHelper
   def index
+    @transactions = Transaction.order('date DESC')
   end
-
   def show
+    @transaction = Transaction.find(params[:id])
   end
 
   def new
@@ -24,6 +25,18 @@ class TransactionsController < ApplicationController
       redirect_to bank_account_path(session[:current_bank_account_id])
     else
       render 'new'
+  end
+  
+  # NEW from T9
+  def create
+    @transaction = Transaction.new(params.require(:transaction).permit(:amount, :recipient_name, :recipient, :reference))
+    @transaction.date = DateTime.current()
+    @transaction.updated_at = @transaction.created_at = Time.now()
+    @transaction.currency = params[:currency]
+    if @transaction.save 
+      redirect_to(transactions_path)
+    else 
+      render('new')
     end
   end
 

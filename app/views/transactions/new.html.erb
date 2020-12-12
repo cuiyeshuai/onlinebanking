@@ -23,3 +23,36 @@
     <br/>
     <%= t.submit "Make transaction"%>
     <%end%>
+    <!-- New from T9 -->
+<%= link_to  "Abort this transaction", transactions_path %>
+<h2>Make a direct transaction</h2>
+<%= form_for(@transaction, :url => transactions_path, :method => 'post') do |f|%>
+<table>
+  <tr>
+    <th>Currency</th>
+    <td>
+      <select id = "transaction_currency",name = "transaction[currency]">
+        <option value = "$">$</option>
+        <option value = "£">£</option>
+      </select>
+    </td>
+  </tr>
+  <tr>
+    <th>Amount</th>
+    <td><%= f.text_field(:amount) %></td>
+  </tr>
+  <tr>
+    <th>Recipient</th>
+    <td><%= f.text_field(:recipient_name) %></td>
+  </tr>
+  <tr>
+    <th>Recipient's Account</th>
+    <td><%= f.text_field(:recipient)%></td>
+  </tr>
+  <tr>
+    <th>Reference</th>
+    <td><%= f.text_field(:reference) %></td>
+  </tr>
+</table>
+<div><%= f.submit("create") %></div>
+<%end%>

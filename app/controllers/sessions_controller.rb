@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
        log_in(@user)
 
-       redirect_to '/success'
+       redirect_to '/dashboard'
     else
        render 'login'
     end
@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   def success
   end
 
-  def destroy 
+  def destroy
     log_out
     # Redirect to landing page
     redirect_to "/pages/l_page"
