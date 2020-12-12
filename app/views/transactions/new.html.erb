@@ -1,7 +1,9 @@
 <% provide(:title, "New transaction")%>
     <h1>New transaction</h1>
     <p>Current account balance: </p>
-
+<!-- For test --> 
+<h1><%= @bank %></h1>
+<!-- end--> 
     <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
 
     <%= t.label :currency %>

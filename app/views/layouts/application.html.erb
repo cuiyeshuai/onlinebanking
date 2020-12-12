@@ -31,8 +31,8 @@
         <ul class="navbar-nav ml-auto">
           <% if logged_in? %>
           <li class="nav-item m-2">
-          <!-- When bank account page is created change link directory -->
-            <%= link_to "My bank account", "/l_page" %>
+            <%= link_to "Home page", "l_page" %>
+            <%= link_to "My bank account", bank_accounts_path %>
           </li>
           <% end %>
           <li class="nav-item m-2">

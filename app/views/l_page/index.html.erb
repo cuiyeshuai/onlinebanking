@@ -1,14 +1,9 @@
 <% provide(:title, "Dashboard") %>
-          
-<div class="container">
-
-   <% @bankAccounts.each do |acc|%>
-    <div class="row">
-        <div class="col-2"><%= acc.id%></div>
-        <div class="col-2"><%= acc.currency%></div>
-        <div class="col-2"><%= acc.type_of_account%></div>
-        <div class="col-2"><%= acc.amount%></div>
-        <div class="col-2"><%= link_to "Show", bank_account_path(acc), class:"btn btn-primary"%></div>
-    </div>
-    <% end%>
-</div>
+<h1>Welcome USER</h1>
+<p>Some important information and etc.</p>
+<p>Some important information and etc.</p>
+<p>Some important information and etc.</p>
+<%= link_to "Dashboard/My bank accounts", bank_accounts_path, class: "btn btn-primary"%>
+<h1>Some important information and etc.</h1>
+<p>Some important information and etc.</p>
+<p>Some important information and etc.</p>
