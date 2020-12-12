@@ -7,6 +7,7 @@ class Admin::UsersController < ApplicationController
   def show
     @gender = ["-","Male","Female"]
     @user = User.find(params[:id])
+    @bankAccounts = @user.bank_accounts
   end
 
   def new
