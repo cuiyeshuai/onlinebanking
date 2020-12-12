@@ -6,7 +6,9 @@ class BankAccountsController < ApplicationController
 
   def show
     @bankAccount = BankAccount.find(params[:id])
+    # Save chosen bank account
     set_account(@bankAccount)
+    # Update bank account balance
     count_balance(@bankAccount)# Should be removed, for testing
     @transactions = @bankAccount.transactions
   end

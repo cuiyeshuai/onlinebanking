@@ -1,19 +1,23 @@
 <!--link to previous page-->
 <h1>All Transactions</h1>
 <%= link_to("Make a new transaction", new_transaction_path) %>
+<%= link_to("Go back", bank_accounts_path) %>
 <table>
   <tr>
+    <th>Date</th>
     <th>Recipient</th>
     <th>Amount</th>
-    <th>Time</th>
-    <th>Transaction Detail</th>
+    <th>Currency</th>
+    <th>Transaction reference</th>
   </tr>
   <% @transactions.each do |transaction| %>
   <tr>
-    <td><%=transaction.recipient_name%></td>
-    <td><%= transaction.currency + transaction.amount %>
-    <td><%= transaction.time %></td>
-    <td><%= link_to("view", transaction_path(transaction.id))%>
+    <td><%= transaction.date%></td>
+    <td><%= transaction.recipient_name%></td>
+    <td><%= transaction.currency%></td>
+    <td><%= transaction.amount%></td>
+    <td><%= transaction.reference%></td>
+    <td><%= link_to "View", transaction_path(transaction.id), class: "btn btn-primary"%>
   </tr>
   <%end%>
 </table>

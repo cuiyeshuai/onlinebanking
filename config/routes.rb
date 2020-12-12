@@ -43,13 +43,9 @@ Rails.application.routes.draw do
   get 'l_page', to: 'l_page#index'
   get 'success', to: 'l_page#index'
 
-  get '/dashboard', to: 'l_page#index' #new from T9
-
   get '/login', to: 'sessions#login'
   get '/success', to: 'sessions#success'
   post '/login', to: 'sessions#verification'
-  
-  
 
   # Delete current session
   delete '/logout', to: 'sessions#destroy'

@@ -1,5 +1,5 @@
-<%= link_to("All Transactions", transactions_path))%>
-<h2>Transaction Detail</h2>
+<%= link_to "All Transactions", transactions_path, class: "btn btn-primary"%>
+<h2>Transaction Details</h2>
 <table>
   <tr>
     <th>Recipient</th>
@@ -15,10 +15,14 @@
   </tr>
   <tr>
     <th>Amount</th>
-    <td><%= @transaction.currency + @transaction.amount%></td>
+    <td><%= @transaction.amount%></td>
   </tr>
   <tr>
-    <th>Time</th>
-    <td><%= @transaction.created_at%></td>
+    <th>Currency</th>
+    <td><%= @transaction.currency%></td>
+  </tr>
+  <tr>
+    <th>Date</th>
+    <td><%= @transaction.date%></td>
   </tr>
 </table>
