@@ -26,8 +26,6 @@ class Admin::SessionsController < ApplicationController
   def verification
 
 
-
-
   end
 
   def authenticate
@@ -37,6 +35,7 @@ class Admin::SessionsController < ApplicationController
     session.delete(:admin_id_for_further_verfication)
     puts(administrator)
     if administrator && administrator.authenticate_second_password(params[:second_password])
+      log_in_as_administrator(administrator)
       redirect_to '/admin/dashboard'
     else
       render 'verification'
