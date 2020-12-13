@@ -2,43 +2,28 @@ require 'test_helper'
 
 class BankAccountsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get bank_accounts_index_url
+    get bank_accounts_path
     assert_response :success
   end
 
   test "should get show" do
-    get bank_accounts_show_url
+    acc = BankAccount.new
+    acc.amount = 2
+    acc.currency = "EUR"
+    acc.type_of_account = "saings"
+    acc.save
+    get bank_account_path(acc)
     assert_response :success
   end
 
-  test "should get new" do
-    get bank_accounts_new_url
-    assert_response :success
-  end
+  #test "should get new" do
+ #   get bank_accounts_new_url
+  #  assert_response :success
+  #end
 
-  test "should get create" do
-    get bank_accounts_create_url
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get bank_accounts_edit_url
-    assert_response :success
-  end
-
-  test "should get update" do
-    get bank_accounts_update_url
-    assert_response :success
-  end
-
-  test "should get delete" do
-    get bank_accounts_delete_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get bank_accounts_destroy_url
-    assert_response :success
-  end
+ # test "should get create" do
+  #  post bank_accounts_path
+ #  assert_response :missing
+ # end
 
 end
