@@ -9661,3 +9661,506 @@ Migrating to ChangeNumericFieldInBankAccounts (20201212030648)
   [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1 LIMIT $2[0m  [["user_id", 1], ["LIMIT", 11]]
   [1m[36mBankAccount Load (1.7ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
   [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started GET "/" for 127.0.0.1 at 2020-12-13 23:01:11 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.3.4) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.3.4) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/rails/actions" for 127.0.0.1 at 2020-12-13 23:01:16 +0100
+  [1m[35m (3.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3341651547447395700)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeNumericFieldInBankAccounts (20201212030648)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.5ms)[0m  [1m[35mALTER TABLE "bank_accounts" ALTER COLUMN "amount" TYPE decimal(10,2)[0m
+  [1m[36mprimary::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201212030648"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3341651547447395700)[0m
+Started GET "/" for 127.0.0.1 at 2020-12-13 23:01:16 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#welcomepage as HTML
+  Rendering welcome/welcomepage.html.erb within layouts/application
+  Rendered welcome/welcomepage.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1045)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 50ms (Views: 44.6ms | ActiveRecord: 0.0ms | Allocations: 10697)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2020-12-13 23:01:16 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/bank.jpg" for 127.0.0.1 at 2020-12-13 23:01:16 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/bank.jpg"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3341651547447395700)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3341651547447395700)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-12-13 23:01:50 +0100
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by WelcomeController#welcomepage as HTML
+  Rendering welcome/welcomepage.html.erb within layouts/application
+  Rendered welcome/welcomepage.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1164)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 31ms (Views: 25.2ms | ActiveRecord: 0.0ms | Allocations: 11487)
+
+
+Started GET "/style.css" for 127.0.0.1 at 2020-12-13 23:01:50 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/style.css"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/bank.jpg" for 127.0.0.1 at 2020-12-13 23:01:50 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/bank.jpg"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/admin" for 127.0.0.1 at 2020-12-13 23:01:52 +0100
+Processing by Admin::SessionsController#new as HTML
+  Rendering admin/sessions/new.html.erb within layouts/application
+  Rendered admin/sessions/new.html.erb within layouts/application (Duration: 2.2ms | Allocations: 457)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 16.4ms | ActiveRecord: 0.0ms | Allocations: 5241)
+
+
+Started GET "/bank.jpg" for 127.0.0.1 at 2020-12-13 23:01:52 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/bank.jpg"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started POST "/admin/new" for 127.0.0.1 at 2020-12-13 23:01:55 +0100
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"v0oGzDC3Ntde8+D0ILRDxgSyItm583inLj0Fv8cWyB1FzMYLhZ3efCtRiFgrpg6Nad7WnR0+zPzajWfUnTdK5w==", "administratorname"=>"ork1", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mAdministrator Load (0.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."administratorname" = $1 LIMIT $2[0m  [["administratorname", "ork1"], ["LIMIT", 1]]
+  ↳ app/controllers/admin/sessions_controller.rb:8:in `create'
+Redirected to http://localhost:3000/admin/dashboard
+Completed 302 Found in 264ms (ActiveRecord: 12.8ms | Allocations: 5241)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-13 23:01:55 +0100
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/application
+  Rendered admin/dashboard/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 313)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 9.1ms | ActiveRecord: 0.3ms | Allocations: 6212)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-13 23:01:56 +0100
+Processing by Admin::UsersController#index as HTML
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:12
+  Rendered admin/users/index.html.erb within layouts/application (Duration: 35.0ms | Allocations: 7179)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 31.0ms | ActiveRecord: 10.5ms | Allocations: 13297)
+
+
+Started GET "/admin/users/8/edit" for 127.0.0.1 at 2020-12-13 23:02:01 +0100
+Processing by Admin::UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:44:in `edit'
+  Rendering admin/users/edit.html.erb within layouts/application
+  Rendered admin/users/edit.html.erb within layouts/application (Duration: 26.6ms | Allocations: 6685)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 40ms (Views: 34.4ms | ActiveRecord: 0.5ms | Allocations: 11660)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-13 23:02:11 +0100
+Processing by Admin::UsersController#index as HTML
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:12
+  Rendered admin/users/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 839)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 17ms (Views: 14.1ms | ActiveRecord: 1.5ms | Allocations: 4989)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-13 23:02:15 +0100
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/application
+  Rendered admin/dashboard/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 122)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 7ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 5334)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-13 23:02:16 +0100
+Processing by Admin::BankAccountsController#index as HTML
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.7ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 10.5ms | Allocations: 1384)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 27ms (Views: 16.0ms | ActiveRecord: 4.5ms | Allocations: 7245)
+
+
+Started GET "/admin/bank_accounts/new" for 127.0.0.1 at 2020-12-13 23:02:16 +0100
+Processing by Admin::BankAccountsController#new as HTML
+  Rendering admin/bank_accounts/new.html.erb within layouts/application
+  Rendered admin/bank_accounts/new.html.erb within layouts/application (Duration: 13.0ms | Allocations: 2297)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 32.0ms | ActiveRecord: 0.0ms | Allocations: 10120)
+
+
+Started POST "/admin/bank_accounts" for 127.0.0.1 at 2020-12-13 23:02:21 +0100
+Processing by Admin::BankAccountsController#create as HTML
+  Parameters: {"authenticity_token"=>"CNvrcs0sPo8rf4+AM7aa64RjnGnCIOHFZhQzptZwZEyIU+exKuHD2HWWmComvEjzwsJ8obiRa4y98huQSvZfSQ==", "bank_account"=>{"user_id"=>"8", "type_of_account"=>"Normal", "currency"=>"USD", "amount"=>"58"}, "commit"=>"Create Bank account"}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/bank_accounts_controller.rb:21:in `create'
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:21:in `create'
+  [1m[36mBankAccount Create (0.6ms)[0m  [1m[32mINSERT INTO "bank_accounts" ("amount", "currency", "type_of_account", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "account_id"[0m  [["amount", "58.0"], ["currency", "USD"], ["type_of_account", "Normal"], ["user_id", 8], ["created_at", "2020-12-13 22:02:21.848686"], ["updated_at", "2020-12-13 22:02:21.848686"]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:21:in `create'
+  [1m[35m (2.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/bank_accounts_controller.rb:21:in `create'
+Redirected to http://localhost:3000/admin/bank_accounts
+Completed 302 Found in 20ms (ActiveRecord: 5.0ms | Allocations: 6068)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-13 23:02:21 +0100
+Processing by Admin::BankAccountsController#index as HTML
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 835)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 8.6ms | ActiveRecord: 0.5ms | Allocations: 4979)
+
+
+Started GET "/admin/bank_accounts/50/edit" for 127.0.0.1 at 2020-12-13 23:02:23 +0100
+Processing by Admin::BankAccountsController#edit as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:33:in `edit'
+  Rendering admin/bank_accounts/edit.html.erb within layouts/application
+  Rendered admin/bank_accounts/edit.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1516)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.2ms | Allocations: 6453)
+
+
+Started PATCH "/admin/bank_accounts/50" for 127.0.0.1 at 2020-12-13 23:02:26 +0100
+Processing by Admin::BankAccountsController#update as HTML
+  Parameters: {"authenticity_token"=>"nQQwd4JBYEje21M7lspSwhVTYRu7uftaiGWzU/iSYD9jgxiGa39pUSA1XPHSaMiLpFiO+2l4xHxg/UM27KTWLA==", "bank_account"=>{"type_of_account"=>"Normal", "currency"=>"USD", "amount"=>"59"}, "commit"=>"Update bank account", "id"=>"50"}
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:37:in `update'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/bank_accounts_controller.rb:41:in `update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:41:in `update'
+  [1m[36mBankAccount Update (3.2ms)[0m  [1m[33mUPDATE "bank_accounts" SET "amount" = $1, "updated_at" = $2 WHERE "bank_accounts"."account_id" = $3[0m  [["amount", "59.0"], ["updated_at", "2020-12-13 22:02:26.307767"], ["account_id", 50]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:41:in `update'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/bank_accounts_controller.rb:41:in `update'
+Redirected to http://localhost:3000/admin/bank_accounts
+Completed 302 Found in 21ms (ActiveRecord: 5.1ms | Allocations: 4552)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-13 23:02:26 +0100
+Processing by Admin::BankAccountsController#index as HTML
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 822)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.2ms | ActiveRecord: 0.9ms | Allocations: 4968)
+
+
+Started GET "/admin/bank_accounts/50/edit" for 127.0.0.1 at 2020-12-13 23:02:28 +0100
+Processing by Admin::BankAccountsController#edit as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:33:in `edit'
+  Rendering admin/bank_accounts/edit.html.erb within layouts/application
+  Rendered admin/bank_accounts/edit.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1224)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 9ms (Views: 7.3ms | ActiveRecord: 0.4ms | Allocations: 5908)
+
+
+Started PATCH "/admin/bank_accounts/50" for 127.0.0.1 at 2020-12-13 23:02:31 +0100
+Processing by Admin::BankAccountsController#update as HTML
+  Parameters: {"authenticity_token"=>"YadNFly4CYtOtyE6uv4aFscQSdOIymZiIdH9+NqxXamfIGXntYYAkrBZLvD+XIBfdhumM1oLWUTJSQ2dzofrug==", "bank_account"=>{"type_of_account"=>"Student", "currency"=>"USD", "amount"=>"59.0"}, "commit"=>"Update bank account", "id"=>"50"}
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:37:in `update'
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/bank_accounts_controller.rb:41:in `update'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:41:in `update'
+  [1m[36mBankAccount Update (6.0ms)[0m  [1m[33mUPDATE "bank_accounts" SET "type_of_account" = $1, "updated_at" = $2 WHERE "bank_accounts"."account_id" = $3[0m  [["type_of_account", "Student"], ["updated_at", "2020-12-13 22:02:31.646596"], ["account_id", 50]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:41:in `update'
+  [1m[35m (0.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/bank_accounts_controller.rb:41:in `update'
+Redirected to http://localhost:3000/admin/bank_accounts
+Completed 302 Found in 21ms (ActiveRecord: 10.5ms | Allocations: 4490)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-13 23:02:31 +0100
+Processing by Admin::BankAccountsController#index as HTML
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.7ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 815)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 21.6ms | ActiveRecord: 0.7ms | Allocations: 5003)
+
+
+Started GET "/admin/bank_accounts/50" for 127.0.0.1 at 2020-12-13 23:02:33 +0100
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mBankAccount Load (1.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1041)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 21ms (Views: 16.6ms | ActiveRecord: 1.5ms | Allocations: 5892)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-13 23:02:36 +0100
+Processing by Admin::BankAccountsController#index as HTML
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 822)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 20.2ms | ActiveRecord: 0.5ms | Allocations: 4972)
+
+
+Started GET "/admin/bank_accounts/50/delete" for 127.0.0.1 at 2020-12-13 23:02:37 +0100
+Processing by Admin::BankAccountsController#delete as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mBankAccount Load (0.6ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:49:in `delete'
+  Rendering admin/bank_accounts/delete.html.erb within layouts/application
+  Rendered admin/bank_accounts/delete.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1446)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 9.0ms | ActiveRecord: 0.6ms | Allocations: 6270)
+
+
+Started DELETE "/admin/bank_accounts/50" for 127.0.0.1 at 2020-12-13 23:02:39 +0100
+Processing by Admin::BankAccountsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"BdATYFHvjlS0FxHLkndgVgonTb3mvOxIpiFwhv/S4eke14WK4ru9lac6QNpDZX4NtHS8bwUbdR0irDbQWxtJFA==", "bank_account"=>{"user_id"=>"8", "type_of_account"=>"Student", "currency"=>"USD", "amount"=>"59.0"}, "commit"=>"Delete bank account", "id"=>"50"}
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 50], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:53:in `destroy'
+  [1m[35m (2.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/admin/bank_accounts_controller.rb:54:in `destroy'
+  [1m[36mTransaction Load (1.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 50]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:54:in `destroy'
+  [1m[36mBankAccount Destroy (0.4ms)[0m  [1m[31mDELETE FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1[0m  [["account_id", 50]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:54:in `destroy'
+  [1m[35m (2.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/admin/bank_accounts_controller.rb:54:in `destroy'
+Redirected to http://localhost:3000/admin/bank_accounts
+Completed 302 Found in 29ms (ActiveRecord: 10.0ms | Allocations: 6337)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-13 23:02:39 +0100
+Processing by Admin::BankAccountsController#index as HTML
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.8ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 4.2ms | Allocations: 720)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.8ms | Allocations: 4890)
+
+
