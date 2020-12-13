@@ -6,8 +6,13 @@ class TransactionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "transaction should have bank account" do
+    assert_equal bank_accounts(:one), transactions(:one).bank_account
+  end
+
   test "should get show" do
-    get transaction_path(1)
+    transactionId = transactions(:one).id
+    get transaction_path(transactionId)
     assert_response :success
   end
 
@@ -16,13 +21,9 @@ class TransactionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get create" do
+  test "should get transactions create" do
     post transactions_path
     assert_response :success
   end
 
-  test "should get edit" do
-    get transactions_edit_url
-    assert_response :missing
-  end
 end

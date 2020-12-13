@@ -7,6 +7,7 @@ one:
   recipient: 1
   reference: MyString
   date: 2020-11-17 20:48:44
+  bank_account: one
 
 two:
   currency: MyString
@@ -15,3 +16,4 @@ two:
   recipient: 1
   reference: MyString
   date: 2020-11-17 20:48:44
+  bank_account: two

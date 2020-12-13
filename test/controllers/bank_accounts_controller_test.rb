@@ -6,12 +6,12 @@ class BankAccountsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
-    acc = BankAccount.new
-    acc.amount = 2
-    acc.currency = "EUR"
-    acc.type_of_account = "saings"
-    acc.save
+  test "bank account should have user" do
+    assert_equal users(one), bank_accounts(:one).user
+  end
+
+  test "should get bank_account show" do
+    acc = bank_accounts(:one).id
     get bank_account_path(acc)
     assert_response :success
   end
