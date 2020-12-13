@@ -1,0 +1,31 @@
+<h1>Create a new user</h1>
+<%= link_to("Back to users index page", admin_users_path)%>
+<% flash.each do |type, msg| %>
+  <div>
+    <% msg.split('@').each do |f| %>
+      <%= f =%><br/>
+    <% end %>
+  </div>
+<% end %>
+<%= form_for @user, :url=> admin_users_path do |f|%>
+  <%= f.label :username%><br>
+  <%= f.text_field :username%><br>
+  <%= f.label :password%><br>
+  <%= f.password_field :password%><br>
+  <%= f.label "password confirmation"%><br>
+  <%= f.password_field :password_confirmation%><br>
+  <%= f.label "first name"%> <br>
+  <%= f.text_field :first_name%><br>
+  <%= f.label "last name"%> <br>
+  <%= f.text_field :last_name%><br>
+  <%= f.radio_button :gender, "0"%> Don't want to say
+  <%= f.radio_button :gender, "1"%> Male
+  <%= f.radio_button :gender, "2"%> Female<br/>
+  <%= f.date_select :date_of_birth, :class => ""%> <br/>
+  <%= f.label "phone number"%> <br>
+  <%= f.text_field :phone_number%><br>
+  <%= f.label :address%> <br>
+  <%= f.text_field :address%><br>
+  <%= f.submit %>
+<%end%>
+<div style="height: 100px;margin: 20px;"></div>

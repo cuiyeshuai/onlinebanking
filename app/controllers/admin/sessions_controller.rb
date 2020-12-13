@@ -1,5 +1,5 @@
-class AdminSessionsController < ApplicationController
-  include AdminSessionsHelper
+class Admin::SessionsController < ApplicationController
+  include Admin::SessionsHelper
   def new
 
   end
@@ -7,17 +7,15 @@ class AdminSessionsController < ApplicationController
   def create
     administrator = Administrator.find_by(administratorname: params[:administratorname].downcase)
     if administrator && administrator.authenticate(params[:password])
-      log_in(administrator)
-      render 'success'
+      log_in_as_administrator(administrator)
+      redirect_to '/admin/dashboard'
     else
       render 'new'
     end
   end
 
   def destroy
-    log_out
-    redirect_to admin_login_path
+    log_out_from_administrator
+    redirect_to 'new'
   end
-
-
 end

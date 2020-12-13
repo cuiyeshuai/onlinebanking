@@ -1,5 +1,7 @@
+<% provide(:title, "Administrator Login") %>
+
 <h1>Administrator Login</h1>
-   <%= form_for 'adminlogin_path' do %>
+   <%= form_tag '/admin/new' do %>
    <%= label_tag :administratorname%><br>
    <%= text_field_tag :administratorname %><br>
    <%= label_tag :password%><br>

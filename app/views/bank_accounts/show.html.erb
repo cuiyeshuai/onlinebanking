@@ -1,0 +1,55 @@
+<% provide(:title, @bankAccount.type_of_account) %>
+
+<h1><%= @bankAccount.type_of_account%> account</h1>
+<!-- For test --> 
+<h1><%= @bankAcc.id%></h1>
+<!-- end--> 
+<table> 
+    <tr>
+        <th class="p-2"> Account id</th>
+        <th class="p-2"> Currency</th>
+        <th class="p-2"> Type of Account</th>
+        <th class="p-2"> Amount</th>
+    </tr>
+    <tr>
+        <td class="p-2"> <%= @bankAccount.id%></td>
+        <td class="p-2"> <%= @bankAccount.currency%></td>
+        <td class="p-2"> <%= @bankAccount.type_of_account%></td>
+        <td class="p-2"> <%= @bankAccount.amount%></td>
+    </tr>
+</table>
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <%= link_to "New transaction", new_transaction_path, class: "btn btn-primary" %>
+        </div>
+        <div class="col-3">
+            <%= link_to "Transaction History", transactions_path, class: "btn btn-primary"%>
+        </div>
+    </div>
+</div>
+
+<h2>Recent transactions: </h2>
+<table> 
+    <tr>
+        <th class="p-2"> Date</th>
+        <th class="p-2"> Currency</th>
+        <th class="p-2"> Amount</th>
+        <th class="p-2"> Recipient name</th>
+        <th class="p-2"> Recipient</th>
+        <th class="p-2"> Reference</th>
+        <th class="p-2"> Bank account id</th>
+    </tr>
+    <% @transactions.each do |transaction|%>
+    <tr>
+        <td class="p-2"> <%= transaction.date%></td>
+        <td class="p-2"> <%= transaction.currency%></td>
+        <td class="p-2"> <%= transaction.amount%></td>
+        <td class="p-2"> <%= transaction.recipient_name%></td>
+        <td class="p-2"> <%= transaction.recipient%></td>
+        <td class="p-2"> <%= transaction.reference%></td>
+        <td class="p-2"> <%= transaction.bank_account_id%></td>
+        <td class="p-2"> <%= link_to "Show transaction", transaction_path(transaction.id), class: "btn btn-primary"%></td>
+    </tr>
+    <%end%>
+</table>
