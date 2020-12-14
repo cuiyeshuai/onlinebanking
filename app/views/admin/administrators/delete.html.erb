@@ -1,2 +1,14 @@
-<h1>Admin::Administrators#delete</h1>
-<p>Find me in app/views/admin/administrators/delete.html.erb</p>
+<%= link_to("Back to administrators index page", admin_administrators_path)%>
+<h1>Are your sure to delete this administrator below from database?</h1>
+<%= form_for(@administrator, :url=>admin_administrator_path,:method => "delete") do |f|%>
+<%= f.label :administratorname%><br>
+<%= f.text_field :administratorname%><br>
+
+<%= f.label "Enable the second secure password"%><br>
+<%= f.radio_button :second_password_enabled, true%> Enable
+<%= f.radio_button :second_password_enabled, false%> Disable<br/>
+
+
+<%= f.submit "Delete"%>
+<%end%>
+<div style="height: 150px;margin: 20px;"></div>

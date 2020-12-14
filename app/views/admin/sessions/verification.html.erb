@@ -1,2 +1,7 @@
-<h1>Admin::Sessions#verification</h1>
-<p>Find me in app/views/admin/sessions/verification.html.erb</p>
+<h1>Second Secure Password required</h1>
+<p>Please your second secure password!</p>
+ <%= form_tag '/admin/verification' do %>
+ <%= label_tag :second_password%><br>
+ <%= password_field_tag :second_password%><br>
+ <%= submit_tag "Verify"%><br>
+<%end%>

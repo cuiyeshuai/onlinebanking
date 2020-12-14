@@ -21,7 +21,8 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :administrators do
+    resources :administrators, :except=>[:show] do
+
       member do
         get :delete
       end
@@ -29,6 +30,8 @@ Rails.application.routes.draw do
 
     get '/new', to: 'sessions#new'
     get '/success', to: 'sessions#success'
+    get '/verification', to: 'sessions#verification'
+    post '/verification', to: 'sessions#authenticate'
     get '/dashboard', to: 'dashboard#index'
     get 'dashboard/index'
     post '/new', to: 'sessions#create'
