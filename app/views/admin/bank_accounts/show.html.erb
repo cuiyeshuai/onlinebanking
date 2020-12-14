@@ -1,2 +1,20 @@
-<h1>Admin::BankAccounts#show</h1>
-<p>Find me in app/views/admin/bank_accounts/show.html.erb</p>
+<h1>Show the Bank account details</h1>
+<%= link_to("Back to users index page", admin_bank_accounts_path)%>
+<table summary="Bank Accounts">
+  <tr>
+    <th>User Id</th>
+    <th>Account Id</th>
+    <th>Name</th>
+    <th>Currency</th>
+    <th>Amount</th>
+    <th>Type of account</th>
+  </tr>
+  <tr>
+    <td><%= @bankAccount.user_id%></td>
+    <td><%= @bankAccount.account_id%></td>
+    <td><%= link_to(@bankAccount.user.username, admin_user_path(@bankAccount.user_id)) %></td>
+    <td><%= @bankAccount.currency%></td>
+    <td><%= @bankAccount.amount%></td><br>
+    <td><%= @bankAccount.type_of_account%></td>
+  </tr>
+</table>
