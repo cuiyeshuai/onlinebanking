@@ -11,4 +11,9 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get non-existent dummy page" do
+    get '/pages/lol'
+    assert_response :missing
+  end
+
 end

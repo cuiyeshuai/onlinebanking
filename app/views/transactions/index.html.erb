@@ -1,2 +1,23 @@
-<h1>Transactions#index</h1>
-<p>Find me in app/views/transactions/index.html.erb</p>
+<!--link to previous page-->
+<h1>All Transactions</h1>
+<%= link_to("Make a new transaction", new_transaction_path) %>
+<%= link_to("Go back", bank_accounts_path) %>
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Recipient</th>
+    <th>Amount</th>
+    <th>Currency</th>
+    <th>Transaction reference</th>
+  </tr>
+  <% @transactions.each do |transaction| %>
+  <tr>
+    <td><%= transaction.date%></td>
+    <td><%= transaction.recipient_name%></td>
+    <td><%= transaction.currency%></td>
+    <td><%= transaction.amount%></td>
+    <td><%= transaction.reference%></td>
+    <td><%= link_to "View", transaction_path(transaction.id), class: "btn btn-primary"%>
+  </tr>
+  <%end%>
+</table>

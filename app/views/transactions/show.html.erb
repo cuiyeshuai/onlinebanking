@@ -1,2 +1,28 @@
-<h1>Transactions#show</h1>
-<p>Find me in app/views/transactions/show.html.erb</p>
+<%= link_to "All Transactions", transactions_path, class: "btn btn-primary"%>
+<h2>Transaction Details</h2>
+<table>
+  <tr>
+    <th>Recipient</th>
+    <td><%= @transaction.recipient_name%></td>
+  </tr>
+  <tr>
+    <th>Recipient Account</th>
+    <td><%= @transaction.recipient%></td>
+  </tr>
+  <tr>
+    <th>Reference</th>
+    <td><%= @transaction.reference%></td>
+  </tr>
+  <tr>
+    <th>Amount</th>
+    <td><%= @transaction.amount%></td>
+  </tr>
+  <tr>
+    <th>Currency</th>
+    <td><%= @transaction.currency%></td>
+  </tr>
+  <tr>
+    <th>Date</th>
+    <td><%= @transaction.date%></td>
+  </tr>
+</table>

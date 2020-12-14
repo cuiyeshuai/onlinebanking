@@ -1,8 +1,8 @@
 require 'test_helper'
 
 class LPageControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get l_page_index_url
+  test "should get l_page index" do
+    get  l_page_path
     assert_response :success
   end
 
