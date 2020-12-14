@@ -1,4 +1,4 @@
-class BankAccountsController < ApplicationController
+class BankAccountsController < UserController
 
   def index
     @bankAccounts = BankAccount.where(user_id: session[:user_id])
@@ -14,7 +14,7 @@ class BankAccountsController < ApplicationController
   end
 
 
-  private 
+  private
   # Updates the bank acount balance *should be moved to transactions,
   # should be updated after new transaction is made)
   def count_balance(bankAccount)
@@ -22,7 +22,7 @@ class BankAccountsController < ApplicationController
     transactions = bankAccount.transactions
     transactions.each do |t|
       sum+= t.amount
-    end 
+    end
     bankAccount.amount = sum
     bankAccount.save
   end

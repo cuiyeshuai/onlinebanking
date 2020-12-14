@@ -27424,3 +27424,1597 @@ Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 0.8ms | Allocations: 489
 >>>>>>> dev
 
 
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3341651547447395700)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.4ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3341651547447395700)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/transactions" for 127.0.0.1 at 2020-12-15 03:23:36 +0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"20/KW7Tz2Hy52eSajTDiEQ770cmxN/znlwW5rXyqX7U4+JnUigGkFWIa8geOBIcfYrUriQOj+kMXFsFAOjQPqA==", "transaction"=>{"currency"=>"GBP", "amount"=>"100", "recipient_name"=>"Daooo", "recipient"=>"12341231", "reference"=>"For Macbook Air 2020 13 inch"}, "commit"=>"Make transaction"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:27:in `create'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:27:in `create'
+  [1m[36mTransaction Create (1.4ms)[0m  [1m[32mINSERT INTO "transactions" ("currency", "amount", "recipient_name", "recipient", "reference", "date", "bank_account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["currency", "GBP"], ["amount", 100], ["recipient_name", "Daooo"], ["recipient", 12341231], ["reference", "For Macbook Air 2020 13 inch"], ["date", "2020-12-14 19:23:36.835434"], ["bank_account_id", 2], ["created_at", "2020-12-14 19:23:36.854585"], ["updated_at", "2020-12-14 19:23:36.854585"]]
+  ↳ app/controllers/transactions_controller.rb:27:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/transactions_controller.rb:27:in `create'
+Completed 500 Internal Server Error in 62ms (ActiveRecord: 10.1ms | Allocations: 26975)
+
+
+  
+ActiveRecord::RangeError (PG::NumericValueOutOfRange: ERROR:  numeric field overflow
+DETAIL:  A field with precision 2, scale 0 must round to an absolute value less than 10^2.
+):
+  
+app/controllers/transactions_controller.rb:27:in `create'
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-15 03:23:48 +0800
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 19.0ms | Allocations: 3342)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 60ms (Views: 57.5ms | ActiveRecord: 0.3ms | Allocations: 15101)
+
+
+Started POST "/transactions" for 127.0.0.1 at 2020-12-15 03:26:10 +0800
+Processing by TransactionsController#create as HTML
+  Parameters: {"authenticity_token"=>"knHeFuIx0xlmtlxAFfEDMtSOvGyqnatSAHB7Co8TUJUmAg2ec/Poz7SFBDAHG5Je1Xh458Bu8+yM19UaAiZCBQ==", "transaction"=>{"currency"=>"USD", "amount"=>"10.5", "recipient_name"=>"Daooo", "recipient"=>"1234123", "reference"=>"For Macbook Air 2020 13 inch"}, "commit"=>"Make transaction"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/transactions_controller.rb:27:in `create'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:27:in `create'
+  [1m[36mTransaction Create (4.9ms)[0m  [1m[32mINSERT INTO "transactions" ("currency", "amount", "recipient_name", "recipient", "reference", "date", "bank_account_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING "id"[0m  [["currency", "USD"], ["amount", 10], ["recipient_name", "Daooo"], ["recipient", 1234123], ["reference", "For Macbook Air 2020 13 inch"], ["date", "2020-12-14 19:26:10.225067"], ["bank_account_id", 2], ["created_at", "2020-12-14 19:26:10.228409"], ["updated_at", "2020-12-14 19:26:10.228409"]]
+  ↳ app/controllers/transactions_controller.rb:27:in `create'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/transactions_controller.rb:27:in `create'
+Redirected to http://localhost:3000/bank_accounts/2
+Completed 302 Found in 14ms (ActiveRecord: 6.6ms | Allocations: 4689)
+
+
+Started GET "/bank_accounts/2" for 127.0.0.1 at 2020-12-15 03:26:10 +0800
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:8:in `show'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/controllers/bank_accounts_controller.rb:23:in `count_balance'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[36mBankAccount Update (0.3ms)[0m  [1m[33mUPDATE "bank_accounts" SET "amount" = $1, "updated_at" = $2 WHERE "bank_accounts"."account_id" = $3[0m  [["amount", "10.0"], ["updated_at", "2020-12-14 19:26:10.263315"], ["account_id", 2]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[35m (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 1.2ms | Allocations: 583)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 24ms (Views: 8.1ms | ActiveRecord: 2.7ms | Allocations: 13828)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-12-15 03:30:17 +0800
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.3.4) lib/active_record/migration.rb:586:in `check_pending!'
+activerecord (6.0.3.4) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.3.4) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3341651547447395700)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to ChangeNumericFieldInTransactions (20201214192701)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (23.2ms)[0m  [1m[35mALTER TABLE "transactions" ALTER COLUMN "amount" TYPE decimal(10,2)[0m
+  [1m[36mprimary::SchemaMigration Create (1.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201214192701"]]
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(3341651547447395700)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/admin" for 127.0.0.1 at 2020-12-15 03:30:37 +0800
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::SessionsController#new as HTML
+  [1m[36mAdministrator Load (0.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+Redirected to http://localhost:3000/admin/dashboard
+Completed 302 Found in 18ms (ActiveRecord: 6.5ms | Allocations: 5701)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-15 03:30:37 +0800
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/application
+  Rendered admin/dashboard/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 316)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 35ms (Views: 29.5ms | ActiveRecord: 2.7ms | Allocations: 15592)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-15 03:33:36 +0800
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 13.9ms | Allocations: 5800)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 29ms (Views: 21.9ms | ActiveRecord: 2.4ms | Allocations: 13099)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-15 03:34:48 +0800
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1334)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 15ms (Views: 11.0ms | ActiveRecord: 1.1ms | Allocations: 8733)
+
+
+Started GET "/admin/bank_accounts/1" for 127.0.0.1 at 2020-12-15 03:36:41 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.8ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (7.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 16.6ms | Allocations: 4949)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 47ms (Views: 22.1ms | ActiveRecord: 10.8ms | Allocations: 14218)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-15 03:36:43 +0800
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1095)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 12ms (Views: 9.1ms | ActiveRecord: 1.8ms | Allocations: 7031)
+
+
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 03:36:45 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 15.7ms | Allocations: 7080)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 30ms (Views: 25.0ms | ActiveRecord: 2.3ms | Allocations: 13384)
+
+
+Started GET "/transactions/1" for 127.0.0.1 at 2020-12-15 03:36:50 +0800
+Processing by TransactionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:10:in `show'
+  Rendering transactions/show.html.erb within layouts/application
+  Rendered transactions/show.html.erb within layouts/application (Duration: 1.3ms | Allocations: 280)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 18ms (Views: 9.8ms | ActiveRecord: 0.9ms | Allocations: 7625)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-15 03:37:08 +0800
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:4:in `index'
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (1.1ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1 ORDER BY date DESC[0m  [["bank_account_id", 2]]
+  ↳ app/views/transactions/index.html.erb:13
+  Rendered transactions/index.html.erb within layouts/application (Duration: 4.0ms | Allocations: 1055)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 17ms (Views: 12.4ms | ActiveRecord: 1.6ms | Allocations: 7695)
+
+
+Started GET "/transactions/1" for 127.0.0.1 at 2020-12-15 03:37:12 +0800
+Processing by TransactionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:10:in `show'
+  Rendering transactions/show.html.erb within layouts/application
+  Rendered transactions/show.html.erb within layouts/application (Duration: 0.3ms | Allocations: 74)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 14ms (Views: 11.5ms | ActiveRecord: 0.5ms | Allocations: 6462)
+
+
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 03:41:05 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:34
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4838)
+Completed 500 Internal Server Error in 14ms (ActiveRecord: 0.9ms | Allocations: 7482)
+
+
+  
+ActionView::Template::Error (undefined method `indexOf' for #<Transaction::ActiveRecord_Associations_CollectionProxy:0x00007fce70b30d80>
+Did you mean?  index):
+    33:     </tr>
+    34:     <% @transactions.each do |transaction|%>
+    35:     <tr>
+    36:         <td class="p-2"> <%= @transactions.indexOf(transaction)%></td>
+    37:         <td class="p-2"> <%= transaction.date%></td>
+    38:         <td class="p-2"> <%= transaction.currency%></td>
+    39:         <td class="p-2"> <%= transaction.amount%></td>
+  
+app/views/admin/bank_accounts/show.html.erb:36
+app/views/admin/bank_accounts/show.html.erb:34
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 03:41:21 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:34
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 9.2ms | Allocations: 4822)
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 3.2ms | Allocations: 7463)
+
+
+  
+ActionView::Template::Error (undefined method `indexof' for #<Transaction::ActiveRecord_Associations_CollectionProxy:0x00007fce70d6e8e0>
+Did you mean?  index):
+    33:     </tr>
+    34:     <% @transactions.each do |transaction|%>
+    35:     <tr>
+    36:         <td class="p-2"> <%= @transactions.indexof(transaction)%></td>
+    37:         <td class="p-2"> <%= transaction.date%></td>
+    38:         <td class="p-2"> <%= transaction.currency%></td>
+    39:         <td class="p-2"> <%= transaction.amount%></td>
+  
+app/views/admin/bank_accounts/show.html.erb:36
+app/views/admin/bank_accounts/show.html.erb:34
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 03:42:06 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:34
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 2079)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 1.1ms | Allocations: 9991)
+
+
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 03:42:23 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:34
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2076)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 17ms (Views: 13.4ms | ActiveRecord: 0.9ms | Allocations: 9944)
+
+
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 03:51:31 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (1.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 4.4ms | Allocations: 2141)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 20ms (Views: 13.1ms | ActiveRecord: 3.3ms | Allocations: 10173)
+
+
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 04:05:37 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1279)
+Completed 500 Internal Server Error in 7ms (ActiveRecord: 1.1ms | Allocations: 4092)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1>Show the Bank account details</h1>
+<%= link_to("Back to users index page", admin_bank_accounts_path)%>
+<table summary="Bank Accounts">
+  <tr>
+    <th class="p-2">User Id</th>
+    <th class="p-2">Account Id</th>
+    <th class="p-2">Holder</th>
+    <th class="p-2">Currency</th>
+    <th class="p-2">Amount</th>
+    <th class="p-2">Type of account</th>
+  </tr>
+  <tr>
+    <td class="p-2"><%= @bankAccount.user_id%></td>
+    <td class="p-2"><%= @bankAccount.account_id%></td>
+    <td class="p-2"><%= link_to(@bankAccount.user.username, admin_user_path(@bankAccount.user_id)) %></td>
+    <td class="p-2"><%= @bankAccount.currency%></td>
+    <td class="p-2"><%= @bankAccount.amount%></td><br>
+    <td class="p-2"><%= @bankAccount.type_of_account%></td>
+    <td class="p-2"><%= link_to("Edit", edit_admin_bank_account_path(@bankAccount))%></td>
+  </tr>
+</table>
+<h2>Recent transactions:</h2>
+<table>
+    <tr>
+        <th class="p-2"> No.</th>
+        <th class="p-2"> Date</th>
+        <th class="p-2"> Currency</th>
+        <th class="p-2"> Amount</th>
+        <th class="p-2"> Recipient name</th>
+        <th class="p-2"> Recipient</th>
+        <th class="p-2"> Reference</th>
+    </tr>
+    <% @transactions.each do |transaction|%>
+    <tr>
+        <%= link_to "
+        <td class="p-2"> <%= @transactions.find_index(transaction) + 1%></td>
+        <td class="p-2"> <%= transaction.date%></td>
+        <td class="p-2"> <%= transaction.currency%></td>
+        <td class="p-2"> <%= transaction.amount%></td>
+        <td class="p-2"> <%= transaction.recipient_name%></td>
+        <td class="p-2"> <%= transaction.recipient%></td>
+        <td class="p-2"> <%= transaction.reference%></td> ", ""%>
+        <td class="p-2"> <%= link_to "Show transaction", admin_transaction_path(transaction.id), class: "btn btn-primary"%></td>
+    </tr>
+    <%end%>
+</table>
+
+):
+1:    <h1>Show the Bank account details</h1>
+2:    <%= link_to("Back to users index page", admin_bank_accounts_path)%>
+3:    <table summary="Bank Accounts">
+4:      <tr>
+5:        <th class="p-2">User Id</th>
+6:        <th class="p-2">Account Id</th>
+7:        <th class="p-2">Holder</th>
+8:        <th class="p-2">Currency</th>
+9:        <th class="p-2">Amount</th>
+10:        <th class="p-2">Type of account</th>
+11:      </tr>
+12:      <tr>
+13:        <td class="p-2"><%= @bankAccount.user_id%></td>
+14:        <td class="p-2"><%= @bankAccount.account_id%></td>
+15:        <td class="p-2"><%= link_to(@bankAccount.user.username, admin_user_path(@bankAccount.user_id)) %></td>
+16:        <td class="p-2"><%= @bankAccount.currency%></td>
+17:        <td class="p-2"><%= @bankAccount.amount%></td><br>
+18:        <td class="p-2"><%= @bankAccount.type_of_account%></td>
+19:        <td class="p-2"><%= link_to("Edit", edit_admin_bank_account_path(@bankAccount))%></td>
+20:      </tr>
+21:    </table>
+22:    <h2>Recent transactions:</h2>
+23:    <table>
+24:        <tr>
+25:            <th class="p-2"> No.</th>
+26:            <th class="p-2"> Date</th>
+27:            <th class="p-2"> Currency</th>
+28:            <th class="p-2"> Amount</th>
+29:            <th class="p-2"> Recipient name</th>
+30:            <th class="p-2"> Recipient</th>
+31:            <th class="p-2"> Reference</th>
+32:        </tr>
+33:        <% @transactions.each do |transaction|%>
+34:        <tr>
+35:            <%= link_to "
+36:            <td class="p-2"> <%= @transactions.find_index(transaction) + 1%></td>
+37:            <td class="p-2"> <%= transaction.date%></td>
+38:            <td class="p-2"> <%= transaction.currency%></td>
+39:            <td class="p-2"> <%= transaction.amount%></td>
+40:            <td class="p-2"> <%= transaction.recipient_name%></td>
+41:            <td class="p-2"> <%= transaction.recipient%></td>
+42:            <td class="p-2"> <%= transaction.reference%></td> ", ""%>
+43:            <td class="p-2"> <%= link_to "Show transaction", admin_transaction_path(transaction.id), class: "btn btn-primary"%></td>
+44:        </tr>
+45:        <%end%>
+46:    </table>
+  
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected '>'
+app/views/admin/bank_accounts/show.html.erb:44: unknown regexp options - tr
+app/views/admin/bank_accounts/show.html.erb:49: unterminated regexp meets end of file
+app/views/admin/bank_accounts/show.html.erb:49: syntax error, unexpected end-of-input, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected '>'
+app/views/admin/bank_accounts/show.html.erb:44: unknown regexp options - tr
+app/views/admin/bank_accounts/show.html.erb:49: unterminated regexp meets end of file
+app/views/admin/bank_accounts/show.html.erb:49: syntax error, unexpected end-of-input, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected '>'
+app/views/admin/bank_accounts/show.html.erb:44: unknown regexp options - tr
+app/views/admin/bank_accounts/show.html.erb:49: unterminated regexp meets end of file
+app/views/admin/bank_accounts/show.html.erb:49: syntax error, unexpected end-of-input, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected '>'
+app/views/admin/bank_accounts/show.html.erb:44: unknown regexp options - tr
+app/views/admin/bank_accounts/show.html.erb:49: unterminated regexp meets end of file
+app/views/admin/bank_accounts/show.html.erb:49: syntax error, unexpected end-of-input, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected '>'
+app/views/admin/bank_accounts/show.html.erb:44: unknown regexp options - tr
+app/views/admin/bank_accounts/show.html.erb:49: unterminated regexp meets end of file
+app/views/admin/bank_accounts/show.html.erb:49: syntax error, unexpected end-of-input, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:36: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:37: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:38: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:39: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:40: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:41: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected local variable or method, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected string literal, expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected ',', expecting ')'
+app/views/admin/bank_accounts/show.html.erb:42: syntax error, unexpected '>'
+app/views/admin/bank_accounts/show.html.erb:44: unknown regexp options - tr
+app/views/admin/bank_accounts/show.html.erb:49: unterminated regexp meets end of file
+app/views/admin/bank_accounts/show.html.erb:49: syntax error, unexpected end-of-input, expecting ')'
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 04:06:45 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 7.9ms | Allocations: 2142)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 20ms (Views: 16.0ms | ActiveRecord: 1.2ms | Allocations: 10065)
+
+
+Started GET "/admin/transactions/1" for 127.0.0.1 at 2020-12-15 04:06:48 +0800
+Processing by Admin::TransactionsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/transactions/show.html.erb within layouts/application
+  Rendered admin/transactions/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 76)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 12ms (Views: 9.5ms | ActiveRecord: 0.7ms | Allocations: 6517)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-15 04:07:03 +0800
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1336)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 15ms (Views: 11.7ms | ActiveRecord: 1.4ms | Allocations: 7404)
+
+
+Started GET "/admin/bank_accounts/1" for 127.0.0.1 at 2020-12-15 04:07:06 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (2.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 5.5ms | Allocations: 1603)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 15ms (Views: 9.3ms | ActiveRecord: 3.4ms | Allocations: 7984)
+
+
+Started GET "/admin/bank_accounts/1" for 127.0.0.1 at 2020-12-15 04:07:32 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1986)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 17ms (Views: 14.0ms | ActiveRecord: 1.0ms | Allocations: 9849)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-15 04:07:59 +0800
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1332)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 16ms (Views: 13.2ms | ActiveRecord: 1.0ms | Allocations: 7392)
+
+
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 04:08:01 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1693)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 19ms (Views: 15.7ms | ActiveRecord: 1.1ms | Allocations: 8124)
+
+
+Started GET "/admin/bank_accounts/2" for 127.0.0.1 at 2020-12-15 04:08:23 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 4.6ms | Allocations: 2082)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 16ms (Views: 12.4ms | ActiveRecord: 1.1ms | Allocations: 9993)
+
+
+Started GET "/admin/users/1" for 127.0.0.1 at 2020-12-15 04:08:25 +0800
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:9:in `show'
+  Rendering admin/users/show.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/admin/users/show.html.erb:37
+  Rendered admin/users/show.html.erb within layouts/application (Duration: 5.2ms | Allocations: 1656)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 20ms (Views: 14.8ms | ActiveRecord: 1.0ms | Allocations: 9156)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-15 04:09:00 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:12
+  Rendered admin/users/index.html.erb within layouts/application (Duration: 3.3ms | Allocations: 1237)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 14ms (Views: 11.3ms | ActiveRecord: 1.0ms | Allocations: 7290)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-15 04:09:07 +0800
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/application
+  Rendered admin/dashboard/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 296)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 0.7ms | Allocations: 7721)
+
+
+Started GET "/admin/transactions" for 127.0.0.1 at 2020-12-15 04:09:09 +0800
+Processing by Admin::TransactionsController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/transactions/index.html.erb within layouts/application
+  Rendered admin/transactions/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 76)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 13ms (Views: 10.9ms | ActiveRecord: 0.6ms | Allocations: 6549)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-15 04:09:11 +0800
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1332)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 1.0ms | Allocations: 7386)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-15 04:09:13 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:12
+  Rendered admin/users/index.html.erb within layouts/application (Duration: 9.2ms | Allocations: 967)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 23ms (Views: 18.5ms | ActiveRecord: 2.5ms | Allocations: 6936)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2020-12-15 04:09:17 +0800
+Processing by Admin::AdministratorsController#index as HTML
+  [1m[36mAdministrator Load (0.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/administrators/index.html.erb within layouts/application
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" ORDER BY id ASC[0m
+  ↳ app/views/admin/administrators/index.html.erb:10
+  Rendered admin/administrators/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1038)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 14ms (Views: 10.9ms | ActiveRecord: 1.2ms | Allocations: 7506)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2020-12-15 04:10:01 +0800
+Processing by Admin::AdministratorsController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/administrators/index.html.erb within layouts/application
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" ORDER BY id ASC[0m
+  ↳ app/views/admin/administrators/index.html.erb:10
+  Rendered admin/administrators/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1030)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 15ms (Views: 12.2ms | ActiveRecord: 0.9ms | Allocations: 8430)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-15 04:10:08 +0800
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/application
+  Rendered admin/dashboard/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 296)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 0.7ms | Allocations: 7720)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-15 04:11:41 +0800
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/application
+  Rendered admin/dashboard/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 298)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 0.6ms | Allocations: 8634)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-15 04:12:36 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:12
+  Rendered admin/users/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1236)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 16ms (Views: 13.1ms | ActiveRecord: 1.4ms | Allocations: 8650)
+
+
+Started GET "/admin/users/3/delete" for 127.0.0.1 at 2020-12-15 04:12:39 +0800
+Processing by Admin::UsersController#delete as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:56:in `delete'
+  Rendering admin/users/delete.html.erb within layouts/application
+  Rendered admin/users/delete.html.erb within layouts/application (Duration: 9.9ms | Allocations: 4353)
+Completed 500 Internal Server Error in 16ms (ActiveRecord: 0.5ms | Allocations: 6105)
+
+
+  
+ActionView::Template::Error (undefined method `USERNAME' for #<User:0x000055b65f971e98>
+Did you mean?  username?
+               username=):
+    2: <h1>Are your sure to delete this user below from database?</h1>
+    3: <%= form_for(@user, :url=>admin_user_path,:method => "delete") do |f|%>
+    4:   <%= f.label :username%><br>
+    5:   <%= f.text_field :username.upcase, :readonly => true%><br>
+    6:   <%= f.label "first name"%> <br>
+    7:   <%= f.text_field :first_name, :readonly => true%><br>
+    8:   <%= f.label "last name"%> <br>
+  
+app/views/admin/users/delete.html.erb:5
+app/views/admin/users/delete.html.erb:3
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-15 04:13:45 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:12
+  Rendered admin/users/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1236)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 1.4ms | Allocations: 8691)
+
+
+Started GET "/admin/users/3/delete" for 127.0.0.1 at 2020-12-15 04:13:48 +0800
+Processing by Admin::UsersController#delete as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:56:in `delete'
+  Rendering admin/users/delete.html.erb within layouts/application
+  Rendered admin/users/delete.html.erb within layouts/application (Duration: 3.2ms | Allocations: 2215)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 14ms (Views: 9.9ms | ActiveRecord: 1.3ms | Allocations: 8830)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-15 04:13:51 +0800
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/application
+  Rendered admin/dashboard/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 298)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 14ms (Views: 10.8ms | ActiveRecord: 0.5ms | Allocations: 7728)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-15 04:13:53 +0800
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1332)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 20ms (Views: 16.2ms | ActiveRecord: 1.9ms | Allocations: 7842)
+
+
+Started GET "/admin/bank_accounts/1" for 127.0.0.1 at 2020-12-15 04:13:54 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1990)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 16ms (Views: 12.6ms | ActiveRecord: 1.3ms | Allocations: 8533)
+
+
+Started GET "/admin/users/1" for 127.0.0.1 at 2020-12-15 04:14:15 +0800
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:9:in `show'
+  Rendering admin/users/show.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.8ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/admin/users/show.html.erb:37
+  Rendered admin/users/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1473)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 17ms (Views: 12.3ms | ActiveRecord: 2.2ms | Allocations: 8124)
+
+
+Started GET "/admin/users/1" for 127.0.0.1 at 2020-12-15 04:14:25 +0800
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:9:in `show'
+  Rendering admin/users/show.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.8ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/admin/users/show.html.erb:37
+  Rendered admin/users/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 17ms (Views: 13.2ms | ActiveRecord: 1.5ms | Allocations: 7605)
+
+
+Started GET "/admin/users/1" for 127.0.0.1 at 2020-12-15 04:14:28 +0800
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:9:in `show'
+  Rendering admin/users/show.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/admin/users/show.html.erb:37
+  Rendered admin/users/show.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 1.8ms | Allocations: 7632)
+
+
+Started GET "/admin/users/1" for 127.0.0.1 at 2020-12-15 04:14:31 +0800
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:9:in `show'
+  Rendering admin/users/show.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/admin/users/show.html.erb:37
+  Rendered admin/users/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 19ms (Views: 14.0ms | ActiveRecord: 2.9ms | Allocations: 7610)
+
+
+Started GET "/admin/bank_accounts/17336930" for 127.0.0.1 at 2020-12-15 04:14:45 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"17336930"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.1ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 17336930], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:15
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 17336930]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:33
+  Rendered admin/bank_accounts/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 1609)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 15ms (Views: 10.3ms | ActiveRecord: 1.9ms | Allocations: 8002)
+
+
+Started GET "/admin/users/1" for 127.0.0.1 at 2020-12-15 04:14:46 +0800
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:9:in `show'
+  Rendering admin/users/show.html.erb within layouts/application
+  [1m[36mBankAccount Load (1.1ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/admin/users/show.html.erb:37
+  Rendered admin/users/show.html.erb within layouts/application (Duration: 6.3ms | Allocations: 1101)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 23ms (Views: 15.7ms | ActiveRecord: 2.4ms | Allocations: 7664)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2020-12-15 04:14:53 +0800
+Processing by Admin::AdministratorsController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/administrators/index.html.erb within layouts/application
+  [1m[36mAdministrator Load (1.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" ORDER BY id ASC[0m
+  ↳ app/views/admin/administrators/index.html.erb:10
+  Rendered admin/administrators/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1036)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 11ms (Views: 7.6ms | ActiveRecord: 2.1ms | Allocations: 7530)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-15 04:14:55 +0800
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/application
+  Rendered admin/dashboard/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 124)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 17ms (Views: 12.8ms | ActiveRecord: 1.5ms | Allocations: 6976)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-15 04:14:59 +0800
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:10
+  Rendered admin/bank_accounts/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1099)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 13ms (Views: 9.9ms | ActiveRecord: 1.1ms | Allocations: 7026)
+
+
+Started GET "/bank_accounts" for 127.0.0.1 at 2020-12-15 04:15:10 +0800
+Processing by BankAccountsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/bank_accounts/index.html.erb:5
+  Rendered bank_accounts/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1179)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.5ms | Allocations: 7857)
+
+
+Started GET "/bank_accounts/17336930" for 127.0.0.1 at 2020-12-15 04:15:42 +0800
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"17336930"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 17336930], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:8:in `show'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 17336930]]
+  ↳ app/controllers/bank_accounts_controller.rb:23:in `count_balance'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[36mBankAccount Update (2.4ms)[0m  [1m[33mUPDATE "bank_accounts" SET "amount" = $1, "updated_at" = $2 WHERE "bank_accounts"."account_id" = $3[0m  [["amount", "0.0"], ["updated_at", "2020-12-14 20:15:42.511674"], ["account_id", 17336930]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 3.5ms | Allocations: 494)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 27ms (Views: 12.2ms | ActiveRecord: 4.1ms | Allocations: 11195)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-15 04:15:46 +0800
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 17336930], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:4:in `index'
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1 ORDER BY date DESC[0m  [["bank_account_id", 17336930]]
+  ↳ app/views/transactions/index.html.erb:13
+  Rendered transactions/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 970)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 1.1ms | Allocations: 8082)
+
+
+Started GET "/bank_accounts" for 127.0.0.1 at 2020-12-15 04:15:51 +0800
+Processing by BankAccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/bank_accounts/index.html.erb:5
+  Rendered bank_accounts/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 963)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 16ms (Views: 14.2ms | ActiveRecord: 0.6ms | Allocations: 6831)
+
+
+Started GET "/bank_accounts/3" for 127.0.0.1 at 2020-12-15 04:15:53 +0800
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:8:in `show'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 3]]
+  ↳ app/controllers/bank_accounts_controller.rb:23:in `count_balance'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[36mBankAccount Update (1.0ms)[0m  [1m[33mUPDATE "bank_accounts" SET "amount" = $1, "updated_at" = $2 WHERE "bank_accounts"."account_id" = $3[0m  [["amount", "0.0"], ["updated_at", "2020-12-14 20:15:53.654781"], ["account_id", 3]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 91)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 25ms (Views: 9.7ms | ActiveRecord: 3.0ms | Allocations: 10586)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-15 04:15:54 +0800
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 1622)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.2ms | Allocations: 7574)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-15 04:16:01 +0800
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.5ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:4:in `index'
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (5.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1 ORDER BY date DESC[0m  [["bank_account_id", 3]]
+  ↳ app/views/transactions/index.html.erb:13
+  Rendered transactions/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 715)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 31ms (Views: 19.2ms | ActiveRecord: 6.7ms | Allocations: 7231)
+
+
+Started GET "/bank_accounts" for 127.0.0.1 at 2020-12-15 04:19:49 +0800
+Processing by BankAccountsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering bank_accounts/index.html.erb within layouts/application
+  Rendered bank_accounts/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1539)
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.3ms | Allocations: 3656)
+
+
+  
+ActionView::Template::Error (uninitialized constant #<Class:0x00007fce70ddef28>::ID):
+    4: 
+    5:    <div class="row">
+    6: 
+    7:        <div class="col-2"><%= Account ID%></div>
+    8:        <div class="col-2"><%= Currency%></div>
+    9:        <div class="col-2"><%= Account Type%></div>
+   10:        <div class="col-2"><%= Balance%></div>
+  
+app/views/bank_accounts/index.html.erb:7
+Started GET "/bank_accounts" for 127.0.0.1 at 2020-12-15 04:20:15 +0800
+Processing by BankAccountsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/bank_accounts/index.html.erb:13
+  Rendered bank_accounts/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1179)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 13ms (Views: 10.8ms | ActiveRecord: 0.5ms | Allocations: 8566)
+
+
+Started GET "/bank_accounts/62179214" for 127.0.0.1 at 2020-12-15 04:24:46 +0800
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"62179214"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179214], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:8:in `show'
+  [1m[36mTransaction Load (1.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 62179214]]
+  ↳ app/controllers/bank_accounts_controller.rb:23:in `count_balance'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[35m (3.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[36mBankAccount Update (0.4ms)[0m  [1m[33mUPDATE "bank_accounts" SET "amount" = $1, "updated_at" = $2 WHERE "bank_accounts"."account_id" = $3[0m  [["amount", "0.0"], ["updated_at", "2020-12-14 20:24:46.464664"], ["account_id", 62179214]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 1.0ms | Allocations: 498)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (2.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 33ms (Views: 16.0ms | ActiveRecord: 7.9ms | Allocations: 12441)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-15 04:24:51 +0800
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179214], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:4:in `index'
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1 ORDER BY date DESC[0m  [["bank_account_id", 62179214]]
+  ↳ app/views/transactions/index.html.erb:13
+  Rendered transactions/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 969)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 14ms (Views: 9.6ms | ActiveRecord: 0.8ms | Allocations: 8065)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-15 04:25:29 +0800
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179214], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:4:in `index'
+  Rendering transactions/index.html.erb within layouts/application
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1 ORDER BY date DESC[0m  [["bank_account_id", 62179214]]
+  ↳ app/views/transactions/index.html.erb:13
+  Rendered transactions/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 975)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 15ms (Views: 10.1ms | ActiveRecord: 0.8ms | Allocations: 8968)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-15 04:29:56 +0800
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 2.3ms | Allocations: 1568)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.3ms | Allocations: 7547)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-15 04:30:04 +0800
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1224)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 14ms (Views: 12.4ms | ActiveRecord: 0.2ms | Allocations: 7054)
+
+
+Started GET "/bank_accounts/62179214" for 127.0.0.1 at 2020-12-15 04:30:11 +0800
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"62179214"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179214], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:8:in `show'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 62179214]]
+  ↳ app/controllers/bank_accounts_controller.rb:23:in `count_balance'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 495)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 22ms (Views: 15.6ms | ActiveRecord: 0.9ms | Allocations: 9347)
+
+
+Started GET "/bank_accounts" for 127.0.0.1 at 2020-12-15 04:30:13 +0800
+Processing by BankAccountsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.6ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/bank_accounts/index.html.erb:13
+  Rendered bank_accounts/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1182)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 14ms (Views: 11.1ms | ActiveRecord: 0.9ms | Allocations: 7197)
+
+
+Started GET "/bank_accounts/2" for 127.0.0.1 at 2020-12-15 04:30:24 +0800
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:8:in `show'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE "transactions"."bank_account_id" = $1[0m  [["bank_account_id", 2]]
+  ↳ app/controllers/bank_accounts_controller.rb:23:in `count_balance'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:27:in `count_balance'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 152)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+Completed 200 OK in 16ms (Views: 9.7ms | ActiveRecord: 0.9ms | Allocations: 8460)
+
+

@@ -1,4 +1,4 @@
-class Admin::AdministratorsController < ApplicationController
+class Admin::AdministratorsController < Admin::AdminController
   include Admin::SessionsHelper
   def index
     @administrators = Administrator.order("id ASC")

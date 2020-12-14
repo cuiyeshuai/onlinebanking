@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::AdminController
   def index
     @gender = ["-","Male","Female"]
     @users = User.order("id ASC")

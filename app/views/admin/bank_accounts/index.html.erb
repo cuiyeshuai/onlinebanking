@@ -3,18 +3,17 @@
 <%= link_to("Create a new bank account", {:action => "new"})%>
 <table summary=" Bank accounts List">
   <tr>
-    <th>Account Id</th>
-    <th>Currency </th>
-    <th>Amount </th>
+    <th class="p-2">Account Id</th>
+    <th class="p-2">Currency </th>
+    <th class="p-2">Amount </th>
   </tr>
   <% @bankAccounts.each do |bankAccount|%>
   <tr>
-    <td><%= bankAccount.account_id%></td>
-    <td><%= bankAccount.currency%></td>
-    <td><%= bankAccount.amount%></td>
-    <td><%= link_to("Show", admin_bank_account_path(bankAccount)) %></td>
-    <td><%= link_to("Edit", edit_admin_bank_account_path(bankAccount))%></td>
-    <td><%= link_to("Delete", delete_admin_bank_account_path(bankAccount)) %></td>
+    <td class="p-2"><%= bankAccount.account_id%></td>
+    <td class="p-2"><%= bankAccount.currency%></td>
+    <td class="p-2"><%= bankAccount.amount%></td>
+    <td class="p-2"><%= link_to("Manage", admin_bank_account_path(bankAccount)) %></td>
+    <td class="p-2"><%= link_to("Delete", delete_admin_bank_account_path(bankAccount)) %></td>
   </tr>
   <% end %>
 </table>
