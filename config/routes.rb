@@ -43,8 +43,7 @@ Rails.application.routes.draw do
 
   resources :transactions, :only => [:index, :show, :new, :create]
 
-  get 'l_page', to: 'l_page#index'
-  get 'success', to: 'l_page#index'
+  get '/dashboard', to: 'l_page#index'
 
   get '/login', to: 'sessions#login'
   get '/success', to: 'sessions#success'
@@ -54,9 +53,9 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # For static/dummy pages
-  get '/pages/:page' => "pages#show"
+  get '/pages/:page' => 'pages#show'
   # Show welcome page
-  get '/pages/welcomepage' => "pages#showWelcome"
+  get '/pages/welcomepage' => 'pages#showWelcome'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
