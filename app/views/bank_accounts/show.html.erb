@@ -35,20 +35,22 @@
         <th class="p-2"> Date</th>
         <th class="p-2"> Currency</th>
         <th class="p-2"> Amount</th>
-        <th class="p-2"> Recipient Name</th>
+        <th class="p-2"> Remitter</th>
+        <th class="p-2"> Remitter Account</th>
         <th class="p-2"> Recipient</th>
+        <th class="p-2"> Recipient Account</th>
         <th class="p-2"> Reference</th>
-        <th class="p-2"> Bank Account ID</th>
     </tr>
     <% @transactions.each do |transaction|%>
     <tr>
-        <td class="p-2"> <%= transaction.date%></td>
+        <td class="p-2"> <%= transaction.created_at%></td>
         <td class="p-2"> <%= transaction.currency%></td>
         <td class="p-2"> <%= transaction.amount%></td>
-        <td class="p-2"> <%= transaction.recipient_name%></td>
+        <td class="p-2"> <%= transaction.remitter%></td>
+        <td class="p-2"> <%= transaction.remitter_account%></td>
         <td class="p-2"> <%= transaction.recipient%></td>
+        <td class="p-2"> <%= transaction.recipient_account%></td>
         <td class="p-2"> <%= transaction.reference%></td>
-        <td class="p-2"> <%= transaction.bank_account_id%></td>
         <td class="p-2"> <%= link_to "Show transaction", transaction_path(transaction.id), class: "btn btn-primary"%></td>
     </tr>
     <%end%>

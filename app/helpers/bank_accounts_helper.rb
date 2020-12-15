@@ -6,11 +6,11 @@ module BankAccountsHelper
     end
 
     def current_account
-        
+
     end
 
     def get_account
-        
+
     end
 
 end

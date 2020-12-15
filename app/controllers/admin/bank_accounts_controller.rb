@@ -18,7 +18,7 @@ class Admin::BankAccountsController < Admin::AdminController
     @bankAccount.user_id = params[:bank_account][:user_id]
     @bankAccount.type_of_account = params[:bank_account][:type_of_account]
     @bankAccount.currency = params[:bank_account][:currency]
-    @bankAccount.amount = params[:bank_account][:amount]
+    @bankAccount.amount = 0
     if (@bankAccount.save)
       redirect_to admin_bank_accounts_path
     else
@@ -38,7 +38,6 @@ class Admin::BankAccountsController < Admin::AdminController
       @bankAccount= BankAccount.find(params[:id])
       @bankAccount.type_of_account = params[:bank_account][:type_of_account]
       @bankAccount.currency = params[:bank_account][:currency]
-      @bankAccount.amount = params[:bank_account][:amount]
      if (@bankAccount.save)
       redirect_to (admin_bank_accounts_path)
     end
