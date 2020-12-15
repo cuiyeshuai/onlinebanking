@@ -1,13 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<%= stylesheet_link_tag "sessions" %>
+</head>
+
+
+<div class="main">
 <!--link to previous page-->
 <h1>All Transactions</h1>
-<%= link_to("Make a new transaction", new_transaction_path) %>
-<%= link_to("Go back", bank_accounts_path) %>
-<table>
+<button>
+<%= link_to("BACK", bank_accounts_path) %>
+</button>
+<button>
+<%= link_to("TRASFER", new_transaction_path) %>
+</button>
+
+<table class="table">
   <tr>
     <th>Date</th>
     <th>Recipient</th>
-    <th>Amount</th>
     <th>Currency</th>
+    <th>Amount</th>
     <th>Transaction reference</th>
   </tr>
   <% @transactions.each do |transaction| %>
@@ -21,3 +35,12 @@
   </tr>
   <%end%>
 </table>
+
+
+
+</div>
+
+
+
+<body>
+</html>

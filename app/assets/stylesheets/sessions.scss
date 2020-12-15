@@ -43,17 +43,8 @@ font-family: sans-serif;
 {
     background-color: white;
     border-bottom: rgb(0, 6, 90);
-
-    
-
 }
 
-
-ul {
-    
-    color: rgb(16, 17, 83);
-   
-}
 
 
 header{
@@ -68,6 +59,8 @@ header{
 .logo
 {
     cursor: pointer;
+    width:auto;
+    height:80px;
 }
 
 .nav__links{
@@ -91,7 +84,7 @@ header{
     font-family: sans-serif;
 }
 
-.nav__links li a:link:hover{
+.nav__links li a:hover{
     text-decoration:none; 
     font-weight: bold;
     margin-left: -3px;
@@ -105,5 +98,105 @@ header{
    
 }
 
+p{
 
+    margin-top: 30px;
+}
+.sidenav {
+    margin-top: 100px;
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 200px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: rgb(0, 16, 85); /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+  }
   
+  /* The navigation menu links */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 15px;
+    color: #ffffff;
+    display: block;
+    margin-top: 20px;
+    font-family: sans-serif;
+  }
+  
+  /* When you mouse over the navigation links, change their color */
+  .sidenav a:hover {
+    color: #b8b8b8;
+    font-size: 16px;
+    background-color: rgb(15, 31, 100);
+  }
+  
+  /* Style page content */
+  .main {
+    margin-left: 220px; /* Same as the width of the sidebar */
+    padding: 20px 10px;
+  }
+  
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  }
+  
+  
+  .account{
+    padding: 20px 20px 20px 20px;
+  
+  }
+  
+  .table{
+    margin-top: 30px;
+    border-collapse:collapse;
+    width: 100%;
+    border: 1px solid gray;
+  }
+  
+  td,th{
+    border: 1px solid gray;
+    text-align: left;
+    padding: 10px 10px 10px 10px;
+  }
+  
+  .recenttransaction{
+    margin-top: 40px;
+    padding: 20px 20px 20px 20px;
+  
+  }
+  
+  .transactions{
+    margin-top: 40px;
+    justify-content: space-between;
+    align-items: center;
+    display:inline-block;
+  
+  }
+  
+  button{
+    margin-top: 20px;
+    width: 200px;
+    background-color: rgb(211, 220, 224);
+    height: 35px;
+  }
+  
+  button:hover{
+    background-color: rgb(173, 199, 211);
+    height: 35px;
+  }
+  
+   button a:link{
+     text-decoration: none;
+     color: white;
+   }
+
+
+   .newTransfer p{
+
+    margin-top: 20px;
+   }

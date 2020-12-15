@@ -1,6 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<%= stylesheet_link_tag "l_page" %>
+</head>
+<body>
+<% provide(:title, "Dashboard") %>
+<div class="main">
+
+
 <%= link_to "All Transactions", transactions_path, class: "btn btn-primary"%>
 <h2>Transaction Details</h2>
-<table>
+<table class="table">
   <tr>
     <th>Recipient</th>
     <td><%= @transaction.recipient_name%></td>
@@ -26,3 +38,8 @@
     <td><%= @transaction.date%></td>
   </tr>
 </table>
+
+
+</div>
+<body>
+</html>

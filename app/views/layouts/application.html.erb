@@ -29,30 +29,53 @@
   <!-- Navigation bar for the top -->
   <div class="navigationbar">
   <header>
-  <img class="logo" src="/assets/logo.PNG" width="auto" height="80px" >
+  <img class="logo" src="/assets/logo.PNG" >
     <nav >
       <div >
         <ul class="nav__links">
+
           <% if logged_in? %>
           <li class="links">
           <!-- When bank account page is created change link directory -->
-            <%= link_to "My bank account", "" %>
+            <%= link_to "MY ACCOUNTS", "/l_page" %>
           </li>
           <% end %>
+
+          <% if logged_in? %>
+          
+          <% else %>
           <li class="links">
-            <%= link_to "Home page", "/pages/landing" %>
-          </li class="links">
-          <li >
-            <%= link_to "Invest", "/pages/fees" %>
-          </li class="links">
-          <li >
-            <%= link_to "Fees", "/pages/fees" %>
+            <%= link_to "HOME PAGE", "/" %>
+          </li >
+          <% end %>
+
+
+          <% if logged_in? %>
+          <li class="links">
+          <p>YOUR PROFILE</p>
+        </li>
+          <% else %>
+          <li class="links">
+            <%= link_to "INVEST", "/pages/invest" %>
+          </li >
+          <% end %>
+
+          <% if logged_in? %>
+          <li class="links">
+          <p>HELP AND SUPPORT</p>
+        </li>
+          <% else %>
+          <li class="links">
+            <%= link_to "FEES", "/pages/fees" %>
           </li>
+          <% end %>
+
+
           <li class="loginlink">
             <% if logged_in? %>
-              <%= link_to "Log out", logout_path, method: :delete%>
+              <%= link_to "LOG OUT", logout_path, method: :delete%>
             <% else %>
-              <%= link_to "Log in", login_path%>
+              <%= link_to "LOG IN", login_path%>
             <% end %>
           </li>
         </ul>
@@ -60,8 +83,21 @@
     </nav>
     </div>
     </header>
-    <div class="container">
+    
+    <% if logged_in? %>
+    <div class="sidenav">
+    <%= link_to "MY BANK ACCOUNT", bank_accounts_path, class: "btn btn-primary"%>
+    <%= link_to "TRANSACTIONS", "/transactions" %>
+    <%= link_to "FEES", "/pages/fees" %>
+    <%= link_to "INVEST", "/pages/fees" %>
+    </div>
+    <% else %>
+    
+    <% end %>
 
+   
+
+    <div class="container">
       <div class="row">
         <div class="col-sm-12">
           <%= yield %>
@@ -71,6 +107,11 @@
   </div>
   </div>
   </body>
+
+
+
+
+
   <footer class="row fixed-bottom">
     <!-- Helpful for debugging -->
     <div class="container text-center">

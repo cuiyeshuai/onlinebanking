@@ -7,17 +7,15 @@
 <%= stylesheet_link_tag "welcome_page" %>
 <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet">
 </head>
-<body >
+<body>
 
 
 <div class="background"> 
-<div class="loginform">
-<div class="login">
-<div class="header">
 
-</div>
 <%if !logged_in? %>
-<div class="container">
+<div class="loginform">
+
+<div class="login">
   <div class="row">
   <h4>LOGIN TO YOUR ACCOUNT</h4><br>
     <div class="col">
@@ -26,7 +24,7 @@
     <div class="col">
         <%= link_to 'ADMINISTRATOR', {:controller => 'admin/sessions', :action => 'new'}, class: "btn btn-primary" %>
     </div>
-  </div>
+
 </div>
 </div>
 </div>

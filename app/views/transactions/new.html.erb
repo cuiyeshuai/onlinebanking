@@ -1,26 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<%= stylesheet_link_tag "l_page" %>
+</head>
+<body>
+<% provide(:title, "Dashboard") %>
+
+
+<div class="main">
+
 <% provide(:title, "New transaction")%>
     <h1>New transaction</h1>
     <p>Current account balance: </p>
 <!-- For test --> 
 <h1><%= @bank %></h1>
-<%= link_to  "Go back", transactions_path %>
+<button>
+<%= link_to  "BACK", transactions_path %>
+</button>
 <!-- end--> 
-    <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
 
-    <%= t.label :currency %>
-    <%= t.select :currency, [['$','USD'],['£','GBP'],['€','EUR']]%>
-    <br/>
-    <%= t.label :amount %>
-    <%= t.text_field :amount %>
-    <br/>
-    <%= t.label :recipient_name %>
-    <%= t.text_field :recipient_name %>
-    <br/>
-    <%= t.label :recipient %>
-    <%= t.text_field :recipient %>
-    <br/>
-    <%= t.label :reference %>
-    <%= t.text_field :reference %>
-    <br/>
-    <%= t.submit "Make transaction"%>
+
+<div class="login">
+
+<%= form_with scope: :@transaction, url: transactions_path, local: true do |t|%>
+
+<p><%= t.label :currency %>
+<%= t.select :currency, [['$','USD'],['£','GBP'],['€','EUR']]%></p>
+
+<p><%= t.label :amount %>
+<%= t.text_field :amount %></p>
+
+<p><%= t.label :recipient_name %>
+<%= t.text_field :recipient_name %></p>
+
+<p><%= t.label :recipient %>
+    <%= t.text_field :recipient %></p>
+
+    <p><%= t.label :reference %>
+    <%= t.text_field :reference %></p>
+
+    <button> <%= t.submit "Make transaction" %> </button>
     <%end%>
+    </div>
+
+    </div>
+<body>
+</html>
