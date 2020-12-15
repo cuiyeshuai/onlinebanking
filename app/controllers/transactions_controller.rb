@@ -1,6 +1,6 @@
 class TransactionsController < UserController
   include SessionsHelper
-  include BankAccountsHelper
+  include TransactionsHelper
   # Show transactions for selected bank account
   def index
     @bankAccount = BankAccount.find(session[:current_bank_account_id])
@@ -15,11 +15,12 @@ class TransactionsController < UserController
   def new
     @transaction = Transaction.new
     @bank = session[:current_bank_account_id]
+    @transaction.currency = BankAccount.find(@bank).currency
   end
 
   def create
     @transaction = Transaction.new
-    @transaction.currency = params[:transaction][:currency]
+    @transaction.currency = BankAccount.find(@bank).currency
     @transaction.amount = params[:transaction][:amount]
     @transaction.remitter = current_user.username
     @transaction.remitter_account = session[:current_bank_account_id]

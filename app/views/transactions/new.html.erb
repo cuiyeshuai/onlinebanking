@@ -8,7 +8,7 @@
     <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
 
     <%= t.label :Currency %>
-    <%= t.select :currency, [['$','USD'],['£','GBP'],['€','EUR']]%>
+    <%= t.text_field :currency, :readonly=>true%>
     <br/>
     <%= t.label :Amount %>
     <%= t.text_field :amount %>
