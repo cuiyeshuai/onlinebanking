@@ -1,18 +1,100 @@
 
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+<%= stylesheet_link_tag "welcome_page" %>
+<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet">
+</head>
+<body >
+
+
+<div class="background"> 
+<div class="loginform">
+<div class="login">
 <div class="header">
-  <h1>My Bank</h1>
-  <p>Welcome to My Bank. Please Login below.</p>
+
 </div>
 <%if !logged_in? %>
 <div class="container">
-  <div class="row justify-content-center">
-    <div class="col-xs-4">
-      <%= link_to 'User LogIn', {:controller => 'sessions', :action => 'login'}, class: "btn btn-primary" %>
-    </div>
-    <div class="col-xs-4">
-        <%= link_to 'Admin LogIn', {:controller => 'admin/sessions', :action => 'new'}, class: "btn btn-primary" %>
+  <div class="row">
+  <h4>LOGIN TO YOUR ACCOUNT</h4><br>
+    <div class="col">
+      <%= link_to 'USER', {:controller => 'sessions', :action => 'login'}, class: "btn btn-primary" %>
+    </div><br>
+    <div class="col">
+        <%= link_to 'ADMINISTRATOR', {:controller => 'admin/sessions', :action => 'new'}, class: "btn btn-primary" %>
     </div>
   </div>
 </div>
+</div>
+</div>
+<div class="bank">
+<p>Welcome to Quail Bank</p>
+<p class="small">Make payments everywhere,send your loved ones a gift this year with Quail Bank<br>
+We are here to help you
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="information">
+
+<div class="image" ><img src="/assets/shakinghands.jpg" width="auto" height="300px" ></div>
+
+<div class="text">
+<h2>The bank for your needs</h2><br>
+<p>We offer one of the best services and customer service around the globe<p>
+<p>Do you have family and friends overseas and need to send them money?  <br>
+Whatever the reason, our services are fast, efficient and secure <br>
+We have different kind of bank accounts.
+Are you saving money for a new house?<br>
+Use our saving account without nay fees and 2% annual interest</p>
+
+</div>
+
+</div>
+
+
+
+<div class="information">
+
+<div class="text">
+<h2>Join us</h2><br>
+<p>Our rates allows to a high return when you invest with us<p>
+<p>If you want to invest with us we offer high return when investing in stocks <br>
+Whatever the reason, our services are fast, efficient and secure </p>
+</div>
+<div class="image" ><img src="/assets/invest.jpg" width="auto" height="300px" ></div>
+
+</div>
+
+
+
+
+<div class="information">
+
+<div class="image" ><img src="/assets/savings.jpg" width="auto" height="300px" ></div>
+
+<div class="text">
+<h2>The best bank for your business</h2><br>
+<p>Do you need a loan for your new projects<p>
+<p>We offer loans up to 100.000$ with an annual interest of only 0.2% <br>
+Learn more about our fees. </p>
+</div>
+
+</div>
+
+
+
+
+
+</body>
+
 <%end%>
    

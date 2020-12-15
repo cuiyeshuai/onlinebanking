@@ -1,10 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<%= stylesheet_link_tag "sessions" %>
+</head>
+<div class="background"> 
+<body>
+<div class="loginform">
+<div class="login">
 <% provide(:title, "Login") %>
 
-<h1>Login</h1>
-   <%= form_tag '/login' do %>
-   <%= label_tag :username%><br>
-   <%= text_field_tag :username %><br>
-   <%= label_tag :password%><br>
-   <%= password_field_tag :password%><br>
-   <%= submit_tag "Login"%><br>
+<img class="logo" src="/assets/logo.PNG" width="auto" height="80px"><br><br><br><br>
+<h1>Log in to your account</h1><br><br><br>
+   <p><%= form_tag '/login' do %> </p>
+   <%= label_tag :"USERNAME"%><br><br>
+   <%= text_field_tag :username %><br><br>
+   <%= label_tag :"PASSWORD"%><br><br>
+   <%= password_field_tag :password%><br><br>
+<input type="checkbox"  >
+<label for="vehicle1"> Remember me</label><br><br><br>
+<div class="loginbutton"><%= submit_tag "Login"%><br><br><br>
+
+
+<%= label_tag "Forgotten password?" %><br>
+
 <%end%>
+</div>
+</div>
+</div>
+</body>
+</html>

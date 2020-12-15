@@ -5,12 +5,11 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+ 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+  
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -22,29 +21,34 @@
 
     <!-- Font awesome -->
     <!--<script src='https://kit.fontawesome.com/a076d05399.js'></script>-->
+
+    <%= stylesheet_link_tag 'sessions' %>
   </head>
 
   <body>
   <!-- Navigation bar for the top -->
-    <nav class="navbar navbar-expand-sm bg-dark text-light">
-      <div class="container navbar-collapse collapse ">
-        <ul class="navbar-nav ml-auto">
+  <div class="navigationbar">
+  <header>
+  <img class="logo" src="/assets/logo.PNG" width="auto" height="80px" >
+    <nav >
+      <div >
+        <ul class="nav__links">
           <% if logged_in? %>
-          <li class="nav-item m-2">
-            <%= link_to "Home page", "/dashboard" %>
-            <%= link_to "My bank account", bank_accounts_path %>
+          <li class="links">
+          <!-- When bank account page is created change link directory -->
+            <%= link_to "My bank account", "" %>
           </li>
           <% end %>
-          <li class="nav-item m-2">
-            <%= link_to "Welcome page", "/pages/welcomepage" %>
-          </li>
-          <li class="nav-item m-2">
-            <%= link_to "Invest", "/pages/invest" %>
-          </li>
-          <li class="nav-item m-2">
+          <li class="links">
+            <%= link_to "Home page", "/pages/landing" %>
+          </li class="links">
+          <li >
+            <%= link_to "Invest", "/pages/fees" %>
+          </li class="links">
+          <li >
             <%= link_to "Fees", "/pages/fees" %>
           </li>
-          <li class="nav-item m-2">
+          <li class="loginlink">
             <% if logged_in? %>
               <%= link_to "Log out", logout_path, method: :delete%>
             <% else %>
@@ -54,16 +58,25 @@
         </ul>
       </div>
     </nav>
-    <div class="container overflow-auto">
-      <%= yield %>
+    </div>
+    </header>
+    <div class="container">
+
+      <div class="row">
+        <div class="col-sm-12">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </div>
   </div>
   </body>
-  <footer class="row">
+  <footer class="row fixed-bottom">
     <!-- Helpful for debugging -->
     <div class="container text-center">
+      <div class="row">
         <%= debug(params) if Rails.env.development? %>
+      </div>
     </div>
   </footer>
 </html>

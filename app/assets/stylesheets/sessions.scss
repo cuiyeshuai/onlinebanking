@@ -1,3 +1,109 @@
-// Place all the styles related to the sessions controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
+
+
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+font-style: normal;
+font-family: sans-serif;
+
+} 
+
+
+.login{
+    color: black;
+    font-style: normal;
+    font-family: sans-serif;
+    padding: 20px 40px 40px 20px;
+}
+
+
+
+.loginform{
+    border: 1px solid black;
+    padding: 40px 40px 20px 40px;
+    background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(176, 176, 209));
+    border-radius: 20px;
+    opacity: 95%;
+    margin-left: 400px;
+    margin-right: 400px;
+}
+
+
+.background{
+    padding: 40px 40px 40px 40px;
+    background-image: linear-gradient(to bottom, rgb(0, 6, 90), rgb(18, 18, 41));
+    font-style: normal;
+    font-family: sans-serif;
+}
+
+
+.navigationbar
+{
+    background-color: white;
+    border-bottom: rgb(0, 6, 90);
+
+    
+
+}
+
+
+ul {
+    
+    color: rgb(16, 17, 83);
+   
+}
+
+
+header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px ;
+
+
+}
+
+.logo
+{
+    cursor: pointer;
+}
+
+.nav__links{
+    list-style: none;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: none;
+}
+
+.nav__links li a:link{
+    text-decoration:none;
+    padding: 4px 4px 4px 4px;
+} 
+
+.nav__links li{
+    display: inline-block;
+    padding:0px 15px;
+    margin-left: 3px;
+    color: black;
+    font-style: normal;
+    font-family: sans-serif;
+}
+
+.nav__links li a:link:hover{
+    text-decoration:none; 
+    font-weight: bold;
+    margin-left: -3px;
+}
+
+.loginlink{
+    
+    border: 2px solid rgb(130, 47, 148);
+    border-radius: 5px;
+    
+   
+}
+
+
+  
