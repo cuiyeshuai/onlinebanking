@@ -1,2 +1,26 @@
-<h1>Admin::Transactions#show</h1>
-<p>Find me in app/views/admin/transactions/show.html.erb</p>
+<%= link_to("Back to all", admin_transactions_path, :class => 'back-link') %>
+
+<h1>Details</h1>
+
+<table summary="transaction details">
+  <tr>
+    <th>Date</th>
+    <td><%= @transaction.created_at %></td>
+  </tr>
+  <tr>
+    <th>Account Number</th>
+    <td><%= @transaction.bank_account_id %></td>
+  </tr>
+  <tr>
+    <th>Recipient</th>
+    <td><%= @transaction.recipient_name %></td>
+  </tr>
+  <tr>
+    <th>Amount</th>
+    <td><%= @transaction.amount %></td>
+  </tr>
+  <tr>
+    <th>Reference</th>
+    <td><%= @transaction.reference %></td>
+  </tr>
+</table>
