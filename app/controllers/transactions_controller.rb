@@ -1,4 +1,4 @@
-class TransactionsController < ApplicationController
+class TransactionsController < UserController
   # Show transactions for selected bank account
   def index
     bankAccount = BankAccount.find(session[:current_bank_account_id])

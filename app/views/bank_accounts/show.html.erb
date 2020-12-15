@@ -1,15 +1,15 @@
 <% provide(:title, @bankAccount.type_of_account) %>
 
 <h1><%= @bankAccount.type_of_account%> account</h1>
-<!-- For test --> 
+<!-- For test -->
 <h1><%= @bankAcc.id%></h1>
-<!-- end--> 
-<table> 
+<!-- end-->
+<table>
     <tr>
-        <th class="p-2"> Account id</th>
+        <th class="p-2"> Account ID</th>
         <th class="p-2"> Currency</th>
-        <th class="p-2"> Type of Account</th>
-        <th class="p-2"> Amount</th>
+        <th class="p-2"> Account Type</th>
+        <th class="p-2"> Balance</th>
     </tr>
     <tr>
         <td class="p-2"> <%= @bankAccount.id%></td>
@@ -30,15 +30,15 @@
 </div>
 
 <h2>Recent transactions: </h2>
-<table> 
+<table>
     <tr>
         <th class="p-2"> Date</th>
         <th class="p-2"> Currency</th>
         <th class="p-2"> Amount</th>
-        <th class="p-2"> Recipient name</th>
+        <th class="p-2"> Recipient Name</th>
         <th class="p-2"> Recipient</th>
         <th class="p-2"> Reference</th>
-        <th class="p-2"> Bank account id</th>
+        <th class="p-2"> Bank Account ID</th>
     </tr>
     <% @transactions.each do |transaction|%>
     <tr>

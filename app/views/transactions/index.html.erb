@@ -4,20 +4,20 @@
 <%= link_to("Go back", bank_accounts_path) %>
 <table>
   <tr>
-    <th>Date</th>
-    <th>Recipient</th>
-    <th>Amount</th>
-    <th>Currency</th>
-    <th>Transaction reference</th>
+    <th class="p-2">Date</th>
+    <th class="p-2">Recipient</th>
+    <th class="p-2">Amount</th>
+    <th class="p-2">Currency</th>
+    <th class="p-2">Transaction Reference</th>
   </tr>
   <% @transactions.each do |transaction| %>
   <tr>
-    <td><%= transaction.date%></td>
-    <td><%= transaction.recipient_name%></td>
-    <td><%= transaction.currency%></td>
-    <td><%= transaction.amount%></td>
-    <td><%= transaction.reference%></td>
-    <td><%= link_to "View", transaction_path(transaction.id), class: "btn btn-primary"%>
+    <td class="p-2"><%= transaction.date%></td>
+    <td class="p-2"><%= transaction.recipient_name%></td>
+    <td class="p-2"><%= transaction.currency%></td>
+    <td class="p-2"><%= transaction.amount%></td>
+    <td class="p-2"><%= transaction.reference%></td>
+    <td class="p-2"><%= link_to "View", transaction_path(transaction.id), class: "btn btn-primary"%>
   </tr>
   <%end%>
 </table>

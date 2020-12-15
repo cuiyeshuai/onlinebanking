@@ -24,13 +24,19 @@ class Admin::SessionsController < ApplicationController
   end
 
   def verification
+    if (!session[:admin_id_for_further_verfication])
+      render :file => 'public/404.html', status => :not_found, :layout => false
+    end
 
 
   end
 
   def authenticate
+    if (!session[:admin_id_for_further_verfication])
+      render :file => 'public/404.html', status => :not_found, :layout => false
+    end
     id = session[:admin_id_for_further_verfication]
-    puts (id)
+
     administrator = Administrator.find_by(id: id)
     session.delete(:admin_id_for_further_verfication)
     puts(administrator)

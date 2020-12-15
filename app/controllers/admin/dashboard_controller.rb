@@ -1,4 +1,4 @@
-class Admin::DashboardController < ApplicationController
+class Admin::DashboardController < Admin::AdminController
   include Admin::SessionsHelper
   def index
     if (!logged_in_as_administrator?)

@@ -3,17 +3,17 @@
 <%= link_to("Create a new administrator", {:action => "new"})%>
 <table summary="User List">
   <tr>
-    <th>#</th>
-    <th>Administrator name </th>
-    <th>Second secure password enabled?</th>
+    <th class="p-2">#</th>
+    <th class="p-2">Administrator name </th>
+    <th class="p-2">Second secure password enabled?</th>
   </tr>
   <% @administrators.each do |administrator|%>
   <tr>
-    <td><%= administrator.id%></td>
-    <td><%= administrator.administratorname%></td>
-    <td><%= administrator.second_password_enabled%></td>
-    <td><%= link_to("Edit", edit_admin_administrator_path(administrator))%></td>
-    <td><%= link_to("Delete", delete_admin_administrator_path(administrator)) %></td>
+    <td class="p-2"><%= administrator.id%></td>
+    <td class="p-2"><%= administrator.administratorname.upcase%></td>
+    <td class="p-2"><%= administrator.second_password_enabled%></td>
+    <td class="p-2"><%= link_to("Edit", edit_admin_administrator_path(administrator))%></td>
+    <td class="p-2"><%= link_to("Delete", delete_admin_administrator_path(administrator)) %></td>
   </tr>
   <% end %>
 </table>
