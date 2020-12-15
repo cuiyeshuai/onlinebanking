@@ -1,0 +1,40 @@
+<%= link_to("Back to all", admintransaction_path, :class => 'back-link') %>
+
+<h1>Details</h1>
+
+<table summary="transaction details">
+  <tr>
+    <th>Date</th>
+    <td><%= @admintransaction.created_at %></td>
+  </tr>
+  <tr>
+    <th>Account Number</th>
+    <td><%= @admintransaction.bank_account_id %></td>
+  </tr>
+  <tr>
+    <th>Recipient</th>
+    <td><%= @admintransaction.recipient_name %></td>
+  </tr>
+  <tr>
+    <th>Amount</th>
+    <td><%= @admintransaction.amount %></td>
+  </tr>
+  <tr>
+    <th>Reference Number</th>
+    <td><%= @admintransaction.reference %></td>
+  </tr>
+
+
+
+
+
+  t.string "currency", null: false
+  t.decimal "amount", precision: 2, null: false
+  t.string "recipient_name", null: false
+  t.integer "recipient", null: false
+  t.string "reference"
+  t.datetime "date"
+  t.bigint "bank_account_id"
+  t.datetime "created_at", precision: 6, null: false
+  t.datetime "updated_at", precision: 6, null: false
+  t.index ["bank_account_id"], name: "index_transactions_on_bank_account_id"

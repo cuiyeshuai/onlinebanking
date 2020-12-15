@@ -53,5 +53,7 @@ Rails.application.routes.draw do
 
   get '/welcome', to: 'welcome#welcomepage'
 
+  get '/admin_transactions', to: 'admin_transactions#index'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -1,0 +1,23 @@
+<h1>transactions</h1>
+
+<%= link_to("Generate new transactions", '#', :class => 'action new') %>
+
+<table class="listing" summary="all transactions">
+  <tr class="header">
+    <th>Date</th>
+    <th>Account Number</th>
+    <th>Amount</th>
+  </tr>
+  <%= @admintransactions.each do |admintransaction| %>
+  <tr>
+    <td><%= admintransaction.created_at %></td>
+    <td><%= admintransaction.bank_account_id %></td>
+    <td><%= admintransaction.amount %></td>
+    <td class="actions">
+      <%= link_to("Details", admintransaction_path(admintransaction.id), :class => 'actions show') %>
+      <%= link_to("Edit", edit_admintransaction_path(admintransaction), :class => 'actions edit') %>
+      <%= link_to("Delete", delete_admintransaction_path(admintransaction), :class => 'actions delete') %>
+    </td>
+  </tr>
+</table>
+<%end%>
