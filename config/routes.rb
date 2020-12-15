@@ -53,9 +53,22 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   # For static/dummy pages
+<<<<<<< HEAD
   get '/pages/:page' => 'pages#show'
   # Show welcome page
   get '/pages/welcomepage' => 'pages#showWelcome'
   
+=======
+  get '/pages/:page' => "pages#show"
+
+  get '/welcome', to: 'welcome#welcomepage'
+
+  resources :admin_transactions do
+    member do
+      get :delete
+    end
+  end
+
+>>>>>>> e19c4bf832d27dd502e1536c9a6a779fc3137d35
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
