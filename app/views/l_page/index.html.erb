@@ -8,8 +8,28 @@
 
 <div class="main">
 
+<table class="table">
+
+   <tr>
+    <th>No. ID</th>
+       <th>Account ID</th>
+       <th>Currency</th>
+       <th>Account Type</th>
+       <th>Balance</th>
+   </tr>
+   <% @bankAccounts.each do |acc|%>
+   <tr>
+        <td><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></td>
+        <td><%= acc.id%></td>
+        <td><%= acc.currency%></td>
+        <td><%= acc.type_of_account%></td>
+        <td><%= acc.amount%></td>
+        </tr>
 
 
+    <% end%>
+
+</table>
 
 
 </div>

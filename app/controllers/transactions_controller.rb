@@ -1,8 +1,7 @@
 class TransactionsController < UserController
   # Show transactions for selected bank account
   def index
-    bankAccount = BankAccount.find(session[:current_bank_account_id])
-    @transactions = bankAccount.transactions.order('date DESC')
+    @transactions = Transaction.all #To do retrieve transactions of for the current user
   end
 
   # Show selected bank account
