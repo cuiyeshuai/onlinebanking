@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
-
+    include Admin::SessionsHelper
     # Shows pages
-    def show 
+    def show
         if valid_page?
             render template: "pages/#{params[:page]}"
         else
@@ -14,8 +14,8 @@ class PagesController < ApplicationController
         render template: "pages/welcomepage"
     end
 
-    
-    private 
+
+    private
     # Checks whether the page user has entered exists
     def valid_page?
         File.exist?(Pathname.new(Rails.root + "app/views/pages/#{params[:page]}.html.erb"))
