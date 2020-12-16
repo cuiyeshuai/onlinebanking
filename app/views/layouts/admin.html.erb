@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+ 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <!-- Navigation bar for the top -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <!-- If logged in redirect to profile when clicked if not redirect to welcome page -->
+        <a class="navbar-brand" href="/">
+        <img src="/assets/logo.PNG" class="logo" alt="">
+        </a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+        <% if logged_in_as_administrator? %>
+            <%= link_to "Back to website", "/admin/logout", method: :delete%>
+            <%= link_to "LOG OUT", "/admin/logout", method: :delete%>
+        <% end %>
+        </div>
+    </nav>
+    <nav>
+
+   
+
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <footer class="container-fluid text-center">
+      <div class="container text-center">
+        <div class="row">
+            <%= debug(params) if Rails.env.development? %>
+        </div>
+      </div>
+    </footer>
+
+
+
+  </body>
+</html>

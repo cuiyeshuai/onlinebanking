@@ -1,45 +1,27 @@
-
-
-
-<!DOCTYPE html>
-<html>
-  <head>
-<%= stylesheet_link_tag "welcome_page" %>
-<link href="https://fonts.googleapis.com/css?family=Crimson+Text|Work+Sans:400,700" rel="stylesheet">
-</head>
-<body>
-
-
-<div class="background"> 
+<div class="background background-image"> 
 
 <%if !logged_in? %>
-<div class="loginform">
+  <div class="loginform">
+    <div class="login">
+      <div class="row">
+        <h4>LOGIN TO YOUR ACCOUNT</h4><br>
+        <div class="col">
+          <%= link_to 'USER', {:controller => 'sessions', :action => 'login'}, class: "btn btn-primary" %>
+        </div>
+        <div class="col">
+            <%= link_to 'ADMINISTRATOR', {:controller => 'admin/sessions', :action => 'new'}, class: "btn btn-primary" %>
+        </div>
+      </div>
+  </div>
+<%end%>
 
-<div class="login">
-  <div class="row">
-  <h4>LOGIN TO YOUR ACCOUNT</h4><br>
-    <div class="col">
-      <%= link_to 'USER', {:controller => 'sessions', :action => 'login'}, class: "btn btn-primary" %>
-    </div><br>
-    <div class="col">
-        <%= link_to 'ADMINISTRATOR', {:controller => 'admin/sessions', :action => 'new'}, class: "btn btn-primary" %>
-    </div>
-
-</div>
-</div>
 </div>
 <div class="bank">
-<p>Welcome to Quail Bank</p>
-<p class="small">Make payments everywhere,send your loved ones a gift this year with Quail Bank<br>
-We are here to help you
-</p>
-
+  <p>Welcome to Quail Bank</p>
+  <p class="small">Make payments everywhere,send your loved ones a gift this year with Quail Bank<br>
+  We are here to help you
+  </p>
 </div>
-
-</div>
-
-</div>
-
 
 <div class="information">
 
@@ -87,12 +69,3 @@ Learn more about our fees. </p>
 </div>
 
 </div>
-
-
-
-
-
-</body>
-
-<%end%>
-   

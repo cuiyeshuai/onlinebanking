@@ -1,0 +1,307 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+ @import "bootstrap/scss/bootstrap";
+ @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
+//<!-- Font awesome -->
+//<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+// Background
+.background-image {
+  max-width: 100%;
+  max-height: 100%;
+}
+//??
+.background {
+  padding: 40px 40px 40px 40px;
+  background-image: linear-gradient(to bottom, rgb(0, 6, 90), rgb(18, 18, 41));
+  font-style: normal;
+  font-family: sans-serif;
+}
+
+.background{
+  padding: 40px 40px 40px 40px;
+  background-image: url(quail.jpg);
+  margin-top: 0px ;
+  font-family:serif;
+  width: 100%;
+  
+}
+
+.login{
+  color: black;
+  font-style: normal;
+  font-family: sans-serif;
+  padding: 20px 40px 40px 20px;
+}
+
+.loginform{
+  border: 1px solid black;
+  padding: 40px 40px 20px 40px;
+  background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(176, 176, 209));
+  border-radius: 20px;
+  opacity: 95%;
+  margin-left: 400px;
+  margin-right: 400px;
+}
+
+.pt-76 {
+  padding-top: 76px !important;
+}
+
+.logo{
+  cursor: pointer;
+  width:auto;
+  height:50px;
+}
+
+.nav__links{
+  list-style: none;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: none;
+}
+
+.nav__links li a:link{
+  text-decoration:none;
+  padding: 4px 4px 4px 4px;
+} 
+
+.nav__links li{
+  display: inline-block;
+  padding:0px 15px;
+  margin-left: 3px;
+  color: black;
+  font-style: normal;
+  font-family: sans-serif;
+}
+
+.nav__links li a:hover{
+  text-decoration:none; 
+  font-weight: bold;
+  margin-left: -3px;
+}
+
+.loginlink{
+  border: 2px solid rgb(130, 47, 148);
+  border-radius: 5px;
+}
+
+.sidenav {
+  margin-top: 100px;
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: rgb(0, 16, 85); /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #ffffff;
+  display: block;
+  margin-top: 20px;
+  font-family: sans-serif;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #b8b8b8;
+  font-size: 16px;
+  background-color: rgb(15, 31, 100);
+}
+
+/* Style page content */
+.main {
+  margin-left: 220px; /* Same as the width of the sidebar */
+  padding: 20px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+.information{
+  margin-top: 30px;
+  font-size: 15px;
+  font-weight: normal;
+  padding: 15px ;
+  margin-left: 60px;
+  display: inline-block;  
+  vertical-align: middle;
+  font-family:serif;
+  }
+
+  .text{
+    font-family:serif;
+    font-size: 17px;
+  }
+
+.account{
+  padding: 20px 20px 20px 20px;
+
+}
+
+.table{
+  margin-top: 30px;
+  border-collapse:collapse;
+  width: 100%;
+  border: 1px solid gray;
+  
+}
+
+td,th{
+  border: 1px solid gray;
+  text-align: left;
+  padding: 10px 10px 10px 10px;
+}
+
+.recenttransaction{
+  margin-top: 40px;
+  padding: 20px 20px 20px 20px;
+
+}
+
+.transactions{
+  margin-top: 40px;
+  justify-content: space-between;
+  align-items: center;
+  display:inline-block;
+
+}
+
+button{
+  margin-top: 20px;
+  width: 200px;
+  background-color: rgb(211, 220, 224);
+  height: 35px; 
+  margin-bottom: 20px;
+}
+
+button:hover{
+  background-color: rgb(173, 199, 211);
+  height: 35px;
+}
+
+  button a:link{
+    text-decoration: none;
+    color: white;
+  }
+
+
+  .newTransfer {
+  color: black;
+  font-style: normal;
+  font-family: sans-serif;
+  padding: 20px 40px 40px 20px;
+  margin-top: 10px;
+  }
+
+.i{
+  margin-top: 30px;
+}
+
+.image{
+  width:auto;
+    height:300px; 
+}
+
+.login{
+    color: black;
+    font-style: normal;
+    font-family:serif;
+}
+
+
+
+.loginform{
+    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+    background-image: linear-gradient(to bottom, white, #ffffff);
+    border-radius: 5%;
+    margin-left: 1000px;
+    margin-right: 0px;
+    opacity: 90%;
+    border: 0px;
+    font-size: 16px;
+    font-family:serif;
+
+}
+
+.bank{
+
+
+    font-weight: bold;
+    font-size: 30px;
+    color:white;
+    padding:  30px 30px 30px 30px ;
+    margin-top: 200px;
+    margin-right: 700px;
+    font-family:serif;
+
+
+}
+.small{
+  font-weight: normal;
+  font-size: 17px;
+}
+
+
+.information{
+margin-top: 30px;
+font-size: 15px;
+font-weight: normal;
+padding: 15px ;
+margin-left: 60px;
+display: inline-block;  
+vertical-align: middle;
+font-family:serif;
+}
+
+.image{
+  box-shadow:  3px 3px 5px 6px #ccc;
+}
+.image,.text{
+  display: inline-block;
+  margin: 15px;
+  vertical-align: middle;
+
+
+}
+.text{
+  font-family:serif;
+  font-size: 17px;
+}
+
+.col a:link{
+  text-decoration:none;
+  padding: 4px 4px 4px 4px;
+} 
+
+
+.col a:link:hover{
+  text-decoration:none;
+  font-size: 18px;
+} 
+

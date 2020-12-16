@@ -4,3 +4,7 @@
 <%= link_to('Transaction Management' , admin_transactions_path) %> <br/>
 <%= link_to('Administrator Management' , admin_administrators_path) %> <br/>
 <%= link_to('Style Settings' , '') %> <br/>
+
+<% if logged_in_as_administrator? %>
+    <%= link_to "LOG OUT", "/admin/logout", method: :delete%>
+<% end %>
