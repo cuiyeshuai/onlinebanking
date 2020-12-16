@@ -16,15 +16,19 @@
 
 
  @import "bootstrap/scss/bootstrap";
- @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+ //@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200&display=swap');
 //<!-- Font awesome -->
 //<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-
+*{
+  font-family: 'Open Sans', sans-serif;
+}
 // Background
 .background-image {
   max-width: 100%;
   max-height: 100%;
 }
+
 //??
 .background {
   padding: 40px 40px 40px 40px;
@@ -33,40 +37,73 @@
   font-family: sans-serif;
 }
 
+.height{
+  height: 500px;
+  padding: 40px 40px 40px 40px;
+}
+
 .background{
   padding: 40px 40px 40px 40px;
-  background-image: url(quail.jpg);
+  background-image: url(quail2.jpeg);
   margin-top: 0px ;
   font-family:serif;
   width: 100%;
   
 }
 
+.welcome-image {
+  height: 150px;
+
+}
+
 .login{
   color: black;
-  font-style: normal;
-  font-family: sans-serif;
-  padding: 20px 40px 40px 20px;
+  padding: 20px;
 }
+
 
 .loginform{
-  border: 1px solid black;
-  padding: 40px 40px 20px 40px;
-  background-image: linear-gradient(to bottom, rgb(255, 255, 255), rgb(176, 176, 209));
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(to bottom, white, #ffffff);
   border-radius: 20px;
-  opacity: 95%;
-  margin-left: 400px;
-  margin-right: 400px;
+  opacity: 90%;
+  border: 0px;
+  position: fixed;
+  top: 25%;
+  right: 15%;
+  width: 400px;
+  height: 150px;
 }
 
-.pt-76 {
-  padding-top: 76px !important;
+.loginform2{
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(to bottom, white, #ffffff);
+  border-radius: 20px;
+  height: 500px;
+}
+
+.adminloginform2{
+  box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(to bottom, white, #ffffff);
+  border-radius: 20px;
+  height: 430px;
+}
+
+.pt-85 {
+  padding-top: 85px !important;
 }
 
 .logo{
   cursor: pointer;
   width:auto;
   height:50px;
+  margin-left: 17%;
+}
+
+.login-logo{
+  width:auto;
+  height:100px;
+  margin: auto;
 }
 
 .nav__links{
@@ -102,12 +139,11 @@
 }
 
 .sidenav {
-  margin-top: 100px;
   height: 100%; /* Full-height: remove this if you want "auto" height */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
   left: 0;
-  background-color: rgb(0, 16, 85); /* Black */
+  border-radius: 10px;
+  position: fixed;
+  background-color: #5688e6; /* Black */
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 20px;
 }
@@ -127,7 +163,7 @@
 .sidenav a:hover {
   color: #b8b8b8;
   font-size: 16px;
-  background-color: rgb(15, 31, 100);
+  background-color: #2941aa;
 }
 
 /* Style page content */
@@ -228,25 +264,10 @@ button:hover{
     height:300px; 
 }
 
-.login{
-    color: black;
-    font-style: normal;
-    font-family:serif;
-}
-
-
-
-.loginform{
-    box-shadow: 5px 5px 5px 5px rgba(0, 0, 0, 0.3);
-    background-image: linear-gradient(to bottom, white, #ffffff);
-    border-radius: 5%;
-    margin-left: 1000px;
-    margin-right: 0px;
-    opacity: 90%;
-    border: 0px;
-    font-size: 16px;
-    font-family:serif;
-
+.navbar-nav>a{
+  margin-right: 4px;
+  margin-left: 4px;
+  color: white;
 }
 
 .bank{

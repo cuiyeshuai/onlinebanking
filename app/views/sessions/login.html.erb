@@ -1,29 +1,26 @@
-<!DOCTYPE html>
-<html>
-  <head>
-</head>
-<div class="background"> 
-<body>
-<div class="loginform">
-<div class="login">
-<% provide(:title, "Login") %>
-
-<img class="logo" src="/assets/logo.PNG" >
-   <p><h1>Log in to your account</h1></p>
-   <p><%= form_tag '/login' do %> </p>
-    <p><%= label_tag :Username%></p>
-    <p><%= text_field_tag :username %></p>
-    <p><%= label_tag :"Password"%></p>
-    <p><%= password_field_tag :password%></p>
-    <p><input type="checkbox"><label> Remember me</label></p>
-    <p><div class="loginbutton"><%= submit_tag "Login"%></p>
-
-
-    <p><%= "Forgotten password?" %></p>
-
-<%end%>
+<div class="row justify-content-center text-center">
+  <div class="col-sm-4">
+    <div class="loginform2">
+      <div class="login">
+        <% provide(:title, "Login") %>
+          <img class="login-logo" src="/assets/logo.PNG" >
+          <h1>Log in to your account</h1>
+          <%= form_tag '/login' do %> 
+            <%= label_tag :Username%>
+            <br/>
+            <%= text_field_tag :username %>
+            <br/>
+            <%= label_tag :Password%>
+            <br/>
+            <%= password_field_tag :password%>
+            <br/>
+            <label><input type="checkbox" class="m-1">Remember me</label>
+            <br/>
+            <%= submit_tag "Login"%>
+            <br/>
+            <%= link_to "Forgotten password?" %>
+        <%end%>
+      </div>
+    </div>
+  </div>
 </div>
-</div>
-</div>
-</body>
-</html>

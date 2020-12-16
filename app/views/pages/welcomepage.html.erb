@@ -1,21 +1,25 @@
-<div class="background background-image"> 
-
+<div class="row justify-content-center">
+  <div class="col-sm-8 height"> 
+    <img class="img-fluid rounded mx-auto d-block" src="/assets/quail2.jpeg">
+  </div>
+</div>
 <%if !logged_in? %>
-  <div class="loginform">
+  <div class="loginform text-center">
     <div class="login">
       <div class="row">
-        <h4>LOGIN TO YOUR ACCOUNT</h4><br>
+        <h4>LOGIN TO YOUR ACCOUNT</h4>
+        <br>
         <div class="col">
           <%= link_to 'USER', {:controller => 'sessions', :action => 'login'}, class: "btn btn-primary" %>
         </div>
         <div class="col">
-            <%= link_to 'ADMINISTRATOR', {:controller => 'admin/sessions', :action => 'new'}, class: "btn btn-primary" %>
+          <%= link_to 'ADMINISTRATOR', {:controller => 'admin/sessions', :action => 'new'}, class: "btn btn-primary" %>
         </div>
       </div>
+    </div>
   </div>
 <%end%>
 
-</div>
 <div class="bank">
   <p>Welcome to Quail Bank</p>
   <p class="small">Make payments everywhere,send your loved ones a gift this year with Quail Bank<br>
@@ -68,4 +72,3 @@ Whatever the reason, our services are fast, efficient and secure </p>
 Learn more about our fees. </p>
 </div>
 
-</div>

@@ -17,7 +17,7 @@
       <img src="/assets/logo.PNG" class="logo" alt="">
     </a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto">
+    <div class="navbar-nav ml-auto ">
       <% if logged_in? %>
         <%= link_to "My account", "/dashboard", class: "nav-item nav-link" %>
         <%= link_to "Profile", "/profile", class: "nav-item nav-link" %>
@@ -29,17 +29,19 @@
         <%= link_to "Fees", "/pages/fees", class: "nav-item nav-link" %>
         <%= link_to "Open a bank account", "/pages/contact_us", class: "nav-item nav-link" %>
         <%= link_to "Contact us", "/pages/contact_us", class: "nav-item nav-link" %>
-        <%= link_to "LOG IN", login_path, class: "nav-item nav-link"%>
+        <%= link_to "LOG IN", login_path, class: "btn btn-primary nav-item"%>
       <% end %>
     </div>
   </nav>
 
   
-  <div class="container-fluid pt-76">
+  <div class="container pt-85">
+    
+
     <div class="row">
       <% if logged_in? %>
         <div class="col-sm-2 sidenav">
-          <%= render "shared/sidebar" %>
+          <%= render "shared/user_sidebar" %>
         </div>
         <div class="col-sm-10"> 
           <%= yield %>
