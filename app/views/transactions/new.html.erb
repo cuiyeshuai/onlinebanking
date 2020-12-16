@@ -6,6 +6,8 @@
 <% provide(:title, "Dashboard") %>
 
 
+
+
 <div class="main">
 
 <button>
@@ -14,30 +16,31 @@
 
 <% provide(:title, "New transaction")%>
     <h1>New transaction</h1>
+    <p>Current account balance: </p>
 
 
-<div class="newTransfer">
+    <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
+    
+    <div class="newTransfer">
 <h4>Current account balance: </h4>
 <h3><%= @bank %></h3>
 
-<%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
-
-<p><%= t.label :currency %>
-<%= t.select :currency, [['$','USD'],['£','GBP'],['€','EUR']]%></p>
-
-<p><%= t.label :amount %>
-<%= t.text_field :amount %></p>
-
-<p><%= t.label :recipient_name %>
-<%= t.text_field :recipient_name %></p>
-
-<p><%= t.label :recipient %>
-    <%= t.text_field :recipient %></p>
-
-    <p><%= t.label :reference %>
-    <%= t.text_field :reference %></p>
-
-  <p class="i"><%= t.submit "Make transaction" %> </p>
+    <%= t.label :Currency %>
+    <%= t.text_field :currency, :readonly=>true%>
+    <br/>
+    <%= t.label :Amount %>
+    <%= t.text_field :amount %>
+    <br/>
+    <%= t.label "Recipient Name" %>
+    <%= t.text_field :recipient %>
+    <br/>
+    <%= t.label "Recipient Account" %>
+    <%= t.text_field :recipient_account %>
+    <br/>
+    <%= t.label :Reference %>
+    <%= t.text_field :reference %>
+    <br/>
+    <%= t.submit "Make transaction"%>
     <%end%>
     </div>
 

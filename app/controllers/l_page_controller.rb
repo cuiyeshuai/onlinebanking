@@ -1,7 +1,7 @@
 class LPageController < UserController
 
   def index
-    @transactions = bankAccount.transactions.order('date DESC')
+    #To do Show all bank accounts,transaction for current user
   end
 
 
