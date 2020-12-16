@@ -50,6 +50,6 @@ class Admin::SessionsController < ApplicationController
 
   def destroy
     log_out_from_administrator
-    redirect_to 'new'
+    redirect_to '/admin/'
   end
 end

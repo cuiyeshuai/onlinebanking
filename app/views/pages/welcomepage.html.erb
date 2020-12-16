@@ -10,9 +10,9 @@
 <body>
 
 
-<div class="background"> 
+<div class="background">
 
-<%if !logged_in? %>
+<%if !(logged_in? || logged_in_as_administrator?) %>
 <div class="loginform">
 
 <div class="login">
@@ -95,4 +95,3 @@ Learn more about our fees. </p>
 </body>
 
 <%end%>
-   

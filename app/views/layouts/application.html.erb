@@ -4,11 +4,11 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
- 
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
     <!-- Latest compiled and minified CSS -->
-  
+
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
@@ -41,7 +41,7 @@
           <% end %>
 
           <% if logged_in? %>
-          
+
           <% else %>
           <li class="links">
             <%= link_to "HOME PAGE", "/" %>
@@ -71,8 +71,8 @@
 
 
           <li class="loginlink">
-            <% if logged_in? %>
-              <%= link_to "LOG OUT", logout_path, method: :delete%>
+            <% if logged_in? || logged_in_as_administrator? %>
+              <%= link_to "LOG OUT", logged_in? ? logout_path : admin_logout_path, method: :delete%>
             <% else %>
               <%= link_to "LOG IN", login_path%>
             <% end %>
@@ -82,7 +82,7 @@
     </nav>
     </div>
     </header>
-    
+
     <% if logged_in? %>
     <div class="sidenav">
     <%= link_to "MY BANK ACCOUNT", bank_accounts_path, class: "btn btn-primary"%>
@@ -91,10 +91,10 @@
     <%= link_to "INVEST", "/pages/invest" %>
     </div>
     <% else %>
-    
+
     <% end %>
 
-   
+
 
     <div class="container">
       <div class="row">
@@ -134,5 +134,5 @@
 
 
 
-  
+
 </html>
