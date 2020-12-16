@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<%= stylesheet_link_tag "l_page" %>
 </head>
 <body>
 <% provide(:title, "Dashboard") %>
@@ -11,20 +8,19 @@
 
 <div class="main">
 
-<% provide(:title, "New transaction")%>
-    <h1>New transaction</h1>
-    <p>Current account balance: </p>
-<!-- For test --> 
-<h1><%= @bank %></h1>
 <button>
 <%= link_to  "BACK", transactions_path %>
 </button>
-<!-- end--> 
+
+<% provide(:title, "New transaction")%>
+    <h1>New transaction</h1>
 
 
-<div class="login">
+<div class="newTransfer">
+<h4>Current account balance: </h4>
+<h3><%= @bank %></h3>
 
-<%= form_with scope: :@transaction, url: transactions_path, local: true do |t|%>
+<%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
 
 <p><%= t.label :currency %>
 <%= t.select :currency, [['$','USD'],['£','GBP'],['€','EUR']]%></p>
@@ -41,7 +37,7 @@
     <p><%= t.label :reference %>
     <%= t.text_field :reference %></p>
 
-    <button> <%= t.submit "Make transaction" %> </button>
+  <p class="i"><%= t.submit "Make transaction" %> </p>
     <%end%>
     </div>
 

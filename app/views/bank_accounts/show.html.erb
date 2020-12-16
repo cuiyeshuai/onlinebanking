@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<%= stylesheet_link_tag "l_page" %>
 </head>
 
 <body>
@@ -47,16 +45,19 @@
 <h2>Recent transactions: </h2>
 <table class="table"> 
     <tr>
-        <th class="p-1"> Date</th>
+        <th > No.</th>
+        <th > Date</th>
         <th> Currency</th>
         <th> Amount</th>
         <th> Recipient name</th>
         <th> Recipient</th>
         <th> Reference</th>
         <th> Bank account id</th>
+
     </tr>
     <% @transactions.each do |transaction|%>
     <tr>
+        <td> <%= link_to  @transactions.find_index(transaction)+1,transaction_path(transaction.id)%></td>
         <td> <%= transaction.date%></td>
         <td> <%= transaction.currency%></td>
         <td> <%= transaction.amount%></td>
@@ -64,10 +65,12 @@
         <td> <%= transaction.recipient%></td>
         <td> <%= transaction.reference%></td>
         <td> <%= transaction.bank_account_id%></td>
-        <td> <%= link_to "Show transaction", transaction_path(transaction.id), class: "btn btn-primary"%></td>
     </tr>
-    <%end%>
-</table>
+
+    <% end %>
+    </table>
+   
+
 </div>
 
 

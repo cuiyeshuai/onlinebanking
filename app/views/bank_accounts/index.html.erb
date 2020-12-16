@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<%= stylesheet_link_tag "l_page" %>
 </head>
 
 <body>
@@ -13,20 +11,28 @@
 <div class="main">
 
 <% provide(:title, "Dashboard") %>
-          
-<div class="container">
 
+<table class="table">
+
+   <tr>
+
+       <th>Account ID</th>
+       <th>Currency</th>
+       <th>Account Type</th>
+       <th>Balance</th>
+
+   </tr>
    <% @bankAccounts.each do |acc|%>
     <div class="row">
-        <div class="col-2"><%= acc.id%></div>
-        <div class="col-2"><%= acc.currency%></div>
-        <div class="col-2"><%= acc.type_of_account%></div>
-        <div class="col-2"><%= acc.amount%></div>
+        <td><%= acc.id%></td>
+        <td><%= acc.currency%></td>
+        <td><%= acc.type_of_account%></td>
+        <td><%= acc.amount%></td>
     </div>
-    <button><%= link_to "Show", bank_account_path(acc), class:"btn btn-primary"%></button>
+    <button><%= link_to "SHOW BANK ACCOUNT", bank_account_path(acc), class:"btn btn-primary"%></button>
     <% end%>
 
-</div>
+</table>
 
 </div>
 

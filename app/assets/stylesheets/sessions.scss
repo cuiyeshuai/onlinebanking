@@ -11,6 +11,36 @@ font-family: sans-serif;
 } 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 .login{
     color: black;
     font-style: normal;
@@ -145,6 +175,22 @@ p{
     .sidenav a {font-size: 18px;}
   }
   
+
+  .information{
+    margin-top: 30px;
+    font-size: 15px;
+    font-weight: normal;
+    padding: 15px ;
+    margin-left: 60px;
+    display: inline-block;  
+    vertical-align: middle;
+    font-family:serif;
+    }
+
+    .text{
+      font-family:serif;
+      font-size: 17px;
+    }
   
   .account{
     padding: 20px 20px 20px 20px;
@@ -156,6 +202,7 @@ p{
     border-collapse:collapse;
     width: 100%;
     border: 1px solid gray;
+    
   }
   
   td,th{
@@ -182,7 +229,8 @@ p{
     margin-top: 20px;
     width: 200px;
     background-color: rgb(211, 220, 224);
-    height: 35px;
+    height: 35px; 
+    margin-bottom: 20px;
   }
   
   button:hover{
@@ -196,7 +244,19 @@ p{
    }
 
 
-   .newTransfer p{
-
-    margin-top: 20px;
+   .newTransfer {
+    color: black;
+    font-style: normal;
+    font-family: sans-serif;
+    padding: 20px 40px 40px 20px;
+    margin-top: 10px;
    }
+
+  .i{
+    margin-top: 30px;
+  }
+
+  .image{
+    width:auto;
+     height:300px; 
+  }

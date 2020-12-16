@@ -10,9 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_12_12_030648) do
-
+ActiveRecord::Schema.define(version: 2020_12_14_192701) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +20,8 @@ ActiveRecord::Schema.define(version: 2020_12_12_030648) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "second_password_digest", default: ""
+    t.boolean "second_password_enabled", default: false
   end
 
   create_table "bank_accounts", primary_key: "account_id", id: :serial, force: :cascade do |t|
@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 2020_12_12_030648) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "currency", null: false
-    t.decimal "amount", precision: 2, null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
     t.string "recipient_name", null: false
     t.integer "recipient", null: false
     t.string "reference"

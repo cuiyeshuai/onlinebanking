@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-<%= stylesheet_link_tag "sessions" %>
 </head>
 
 
@@ -18,6 +16,7 @@
 
 <table class="table">
   <tr>
+    <th>No.</th>
     <th>Date</th>
     <th>Recipient</th>
     <th>Currency</th>
@@ -26,12 +25,12 @@
   </tr>
   <% @transactions.each do |transaction| %>
   <tr>
+  <td><%= link_to @transactions.find_index(transaction)+1, transaction_path(transaction.id), class: "btn btn-primary"%></td>
     <td><%= transaction.date%></td>
     <td><%= transaction.recipient_name%></td>
     <td><%= transaction.currency%></td>
     <td><%= transaction.amount%></td>
     <td><%= transaction.reference%></td>
-    <td><%= link_to "View", transaction_path(transaction.id), class: "btn btn-primary"%>
   </tr>
   <%end%>
 </table>

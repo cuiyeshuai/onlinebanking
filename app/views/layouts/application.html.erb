@@ -4,7 +4,6 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
  
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
 
@@ -37,7 +36,7 @@
           <% if logged_in? %>
           <li class="links">
           <!-- When bank account page is created change link directory -->
-            <%= link_to "MY ACCOUNTS", "/l_page" %>
+            <%= link_to "MY ACCOUNT", "/dashboard" %>
           </li>
           <% end %>
 
@@ -89,7 +88,7 @@
     <%= link_to "MY BANK ACCOUNT", bank_accounts_path, class: "btn btn-primary"%>
     <%= link_to "TRANSACTIONS", "/transactions" %>
     <%= link_to "FEES", "/pages/fees" %>
-    <%= link_to "INVEST", "/pages/fees" %>
+    <%= link_to "INVEST", "/pages/invest" %>
     </div>
     <% else %>
     
@@ -120,4 +119,20 @@
       </div>
     </div>
   </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 </html>

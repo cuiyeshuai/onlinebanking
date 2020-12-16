@@ -1,4 +1,4 @@
-class Admin::BankAccountsController < ApplicationController
+class Admin::BankAccountsController < Admin::AdminController
   def index
     @bankAccounts = BankAccount.order("bank_accounts.account_id ASC")
   end
@@ -6,6 +6,7 @@ class Admin::BankAccountsController < ApplicationController
 
   def show
     @bankAccount= BankAccount.find(params[:id])
+    @transactions = @bankAccount.transactions
   end
 
   def new

@@ -1,7 +1,7 @@
-class LPageController < ApplicationController
+class LPageController < UserController
 
   def index
-    
+
   end
 
 
