@@ -1,25 +1,25 @@
 <% provide(:title, "New transaction")%>
     <h1>New transaction</h1>
     <p>Current account balance: </p>
-<!-- For test --> 
+<!-- For test -->
 <h1><%= @bank %></h1>
 <%= link_to  "Go back", transactions_path %>
-<!-- end--> 
+<!-- end-->
     <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
 
-    <%= t.label :currency %>
-    <%= t.select :currency, [['$','USD'],['£','GBP'],['€','EUR']]%>
+    <%= t.label :Currency %>
+    <%= t.text_field :currency, :readonly=>true%>
     <br/>
-    <%= t.label :amount %>
+    <%= t.label :Amount %>
     <%= t.text_field :amount %>
     <br/>
-    <%= t.label :recipient_name %>
-    <%= t.text_field :recipient_name %>
-    <br/>
-    <%= t.label :recipient %>
+    <%= t.label "Recipient Name" %>
     <%= t.text_field :recipient %>
     <br/>
-    <%= t.label :reference %>
+    <%= t.label "Recipient Account" %>
+    <%= t.text_field :recipient_account %>
+    <br/>
+    <%= t.label :Reference %>
     <%= t.text_field :reference %>
     <br/>
     <%= t.submit "Make transaction"%>

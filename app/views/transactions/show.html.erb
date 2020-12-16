@@ -2,12 +2,20 @@
 <h2>Transaction Details</h2>
 <table>
   <tr>
+    <th>Remitter</th>
+    <td><%= @transaction.remitter%></td>
+  </tr>
+  <tr>
+    <th>Remitter Account</th>
+    <td><%= @transaction.remitter_account%></td>
+  </tr>
+  <tr>
     <th>Recipient</th>
-    <td><%= @transaction.recipient_name%></td>
+    <td><%= @transaction.recipient%></td>
   </tr>
   <tr>
     <th>Recipient Account</th>
-    <td><%= @transaction.recipient%></td>
+    <td><%= @transaction.recipient_account%></td>
   </tr>
   <tr>
     <th>Reference</th>
@@ -23,6 +31,6 @@
   </tr>
   <tr>
     <th>Date</th>
-    <td><%= @transaction.date%></td>
+    <td><%= @transaction.created_at%></td>
   </tr>
 </table>

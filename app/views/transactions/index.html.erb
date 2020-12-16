@@ -5,6 +5,7 @@
 <table>
   <tr>
     <th class="p-2">Date</th>
+    <th class="p-2">Remitter</th>
     <th class="p-2">Recipient</th>
     <th class="p-2">Amount</th>
     <th class="p-2">Currency</th>
@@ -12,8 +13,9 @@
   </tr>
   <% @transactions.each do |transaction| %>
   <tr>
-    <td class="p-2"><%= transaction.date%></td>
-    <td class="p-2"><%= transaction.recipient_name%></td>
+    <td class="p-2"><%= transaction.created_at%></td>
+    <td class="p-2"><%= transaction.remitter%></td>
+    <td class="p-2"><%= transaction.recipient%></td>
     <td class="p-2"><%= transaction.currency%></td>
     <td class="p-2"><%= transaction.amount%></td>
     <td class="p-2"><%= transaction.reference%></td>
