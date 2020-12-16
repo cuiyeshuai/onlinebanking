@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-</head>
-<body>
-<% provide(:title, "Dashboard") %>
-
-
-
-
 <div class="main">
 
 <button>
@@ -19,31 +9,39 @@
     <p>Current account balance: </p>
 
 
-    <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
+  <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
     
     <div class="newTransfer">
-<h4>Current account balance: </h4>
-<h3><%= @bank %></h3>
-
-    <%= t.label :Currency %>
-    <%= t.text_field :currency, :readonly=>true%>
-    <br/>
-    <%= t.label :Amount %>
-    <%= t.text_field :amount %>
-    <br/>
-    <%= t.label "Recipient Name" %>
-    <%= t.text_field :recipient %>
-    <br/>
-    <%= t.label "Recipient Account" %>
-    <%= t.text_field :recipient_account %>
-    <br/>
-    <%= t.label :Reference %>
-    <%= t.text_field :reference %>
-    <br/>
-    <%= t.submit "Make transaction"%>
-    <%end%>
+      <h4>Current account balance: </h4>
+      <h3><%= @bank %></h3>
+      <div class="form-group">
+        <%= t.label :Currency %>
+        <%= t.text_field :currency, :readonly=>true%>
+      </div>
+      
+      <div class="form-group">
+        <%= t.label :Amount %>
+        <%= t.text_field :amount, {class: "form-control", placeholder: "Enter amount"} %>
+      </div>
+      
+      <div class="form-group">
+        <%= t.label "Recipient Name" %>
+        <%= t.text_field :recipient, {class: "form-control", placeholder: "Enter recipient"} %>
+      </div>
+      
+      <div class="form-group">
+        <%= t.label "Recipient Account" %>
+        <%= t.text_field :recipient_account, {class: "form-control", placeholder: "Enter recipient account"} %>
+      </div>
+      
+      <div class="form-group">
+        <%= t.label :Reference %>
+        <%= t.text_field :reference , {class: "form-control", placeholder: "Enter reference"}%>
+      </div>
+      
+      <%= t.submit "Make transaction", class: "btn btn-outline-success"%>
     </div>
+  <%end%>
+  
 
-    </div>
-<body>
-</html>
+</div>

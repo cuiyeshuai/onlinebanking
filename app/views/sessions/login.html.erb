@@ -6,16 +6,17 @@
           <img class="login-logo" src="/assets/logo.PNG" >
           <h1>Log in to your account</h1>
           <%= form_tag '/login' do %> 
-            <%= label_tag :Username%>
-            <br/>
-            <%= text_field_tag :username %>
-            <br/>
-            <%= label_tag :Password%>
-            <br/>
-            <%= password_field_tag :password%>
-            <br/>
+            <div class="form-group">
+              <%= label_tag :Username%>
+              <%= text_field_tag :username , {class: "form-control", placeholder: "Enter username"}%>
+            </div>
+            <div class="form-group">
+              <%= label_tag :Password%>
+              <%= password_field_tag :password, {class: "form-control", placeholder: "Enter password"}%>
+            </div>
+            <div class="form-group">
             <label><input type="checkbox" class="m-1">Remember me</label>
-            <br/>
+            </div>
             <%= submit_tag "Login"%>
             <br/>
             <%= link_to "Forgotten password?" %>
