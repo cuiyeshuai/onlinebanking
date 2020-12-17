@@ -1,43 +1,24 @@
 require 'test_helper'
 
 class TransactionsControllerTest < ActionDispatch::IntegrationTest
+
   test "should get index" do
-    get transactions_index_url
-    assert_response :success
-  end
-
-  test "should get show" do
-    get transactions_show_url
-    assert_response :success
-  end
-
-  test "should get new" do
-    get transactions_new_url
+    get transactions_url
     assert_response :success
   end
 
   test "should get create" do
-    get transactions_create_url
+    post transactions_url
     assert_response :success
   end
 
-  test "should get edit" do
-    get transactions_edit_url
+  test "should get new" do
+    get new_transaction_url
     assert_response :success
   end
 
-  test "should get update" do
-    get transactions_update_url
-    assert_response :success
-  end
-
-  test "should get delete" do
-    get transactions_delete_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get transactions_destroy_url
+  test "should get show" do
+    get "/transactions/1"
     assert_response :success
   end
 

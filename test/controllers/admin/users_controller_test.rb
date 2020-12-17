@@ -2,43 +2,44 @@ require 'test_helper'
 
 class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    get admin_users_index_url
+    get admin_users_url
     assert_response :success
   end
 
   test "should get show" do
-    get admin_users_show_url
+    get "/admin/users/1"
     assert_response :success
   end
 
   test "should get new" do
-    get admin_users_new_url
+    get new_admin_user_url
     assert_response :success
   end
 
   test "should get create" do
-    get admin_users_create_url
+    assert_difference('User.count', 1) do
+      post admin_users_url, params: {user: {username: "ahmed", first_name: "patricia", last_name: "pickles", password_digest: "$2a$12$QQWIIPONC.Q2kKY/q6rEFeuFTkVWac", gender: 1, date_of_birth: 1990-01-01, phone_number: "090078601", address: "Mohatta P"}}
+    end
     assert_response :success
   end
 
   test "should get edit" do
-    get admin_users_edit_url
-    assert_response :success
+    get "/admin/users/1/edit"
+    assert_response :missing
   end
+
 
   test "should get update" do
-    get admin_users_update_url
+    patch "/admin/users/1"
     assert_response :success
   end
 
-  test "should get delete" do
-    get admin_users_delete_url
-    assert_response :success
-  end
-
-  test "should get destroy" do
-    get admin_users_destroy_url
-    assert_response :success
+  test "should delete user" do
+    user = users(:one)
+    assert_difference('User.count', -1) do
+      delete admin_user_url(user)
+    end
+    assert_redirected_to admin_users_url
   end
 
 end
