@@ -12,6 +12,9 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
   <!-- Navigation bar for the top -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
   <!-- If logged in redirect to profile when clicked if not redirect to welcome page -->

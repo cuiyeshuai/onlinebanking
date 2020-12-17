@@ -9,6 +9,7 @@ class LPageController < UserController
     @bankAccounts.each do |acc|
       @transactions += acc.transactions
     end
+    @transactions = @transactions.uniq
     @transactions.sort {|a,b| a.created_at <=> b.created_at}
 
   end

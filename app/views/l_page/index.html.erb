@@ -1,5 +1,6 @@
 <% provide(:title, "Dashboard") %>
 
+<<<<<<< HEAD
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>
@@ -14,17 +15,45 @@
     <% @bankAccounts.each do |acc|%>
     <tr>
         <th scope="row"><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></th>
+=======
+
+<div class="main">
+<h1 class="mb-3">Your Bank Accounts:</h1>
+<table class="table">
+
+   <tr>
+    <th>No. ID</th>
+       <th>Account ID</th>
+       <th>Currency</th>
+       <th>Account Type</th>
+       <th>Balance</th>
+   </tr>
+   <% @bankAccounts.each do |acc|%>
+   <tr>
+        <td><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></td>
+>>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
         <td><%= acc.id%></td>
         <td><%= acc.currency%></td>
         <td><%= acc.type_of_account%></td>
         <td><%= acc.amount%></td>
+<<<<<<< HEAD
     </tr>
+=======
+   </tr>
+
+
+>>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
     <% end%>
   </tbody>
 </table>
 
+<<<<<<< HEAD
 <table class="table table-striped">
  <thead class="thead-light">
+=======
+<h1 class="mb-3">Recent Transactions:</h1>
+<table class="table">
+>>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
   <tr>
     <th scope="col">Date</th>
     <th scope="col">Remitter</th>
