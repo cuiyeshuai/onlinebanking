@@ -14,10 +14,10 @@
     <!-- Navigation bar for the top -->
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <!-- If logged in redirect to profile when clicked if not redirect to welcome page -->
-      <a class="navbar-brand" href="/">
+      <a class="navbar-brand">
         <img src="/assets/logo.PNG" class="logo" alt="">
       </a>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="collapse navbar-collapse ml-80" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto ">
       <!-- Temporary, for development, improve later-->
       <h3><%= (Administrator.find(session[:administrator_id])).administratorname%></h3>
@@ -29,13 +29,13 @@
     </nav>
 
 <!-- Main content-->
-    <div class="container-fluid pt-85">
+    <div class="container-fluid ">
       <div class="row">
         <!-- Sidebar -->
-          <div class="col-sm-2 sidebar">
+          <div class="col-sm-2 sidebar mb-40">
             <%= render "shared/admin_sidebar" %>
           </div>
-          <div class="col-sm-10"> 
+          <div class="col-sm-10 ml-200"> 
             <%= yield %>
           </div>
       </div>

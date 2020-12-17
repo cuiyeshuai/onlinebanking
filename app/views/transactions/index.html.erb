@@ -7,16 +7,13 @@
 <div class="main">
 <!--link to previous page-->
 <h1>All Transactions</h1>
-<button>
-<%= link_to("BACK", bank_accounts_path) %>
-</button>
-<button>
-<%= link_to("TRASFER", new_transaction_path) %>
-</button>
+
+<%= link_to"BACK", bank_accounts_path, class: "btn btn-primary" %>
 
 <table class="table table-striped" >
-  <thead class="thead-light">
+  <thead class="table">
     <tr>
+      <th scope="col">View</th>
       <th scope="col">Date</th>
       <th scope="col">Remitter</th>
       <th scope="col">Recipient</th>
@@ -28,14 +25,14 @@
     <tbody>
     <% @transactions.each do |transaction| %>
     <tr>
+    <td ><%= link_to @transactions.find_index(transaction)+1, transaction_path(transaction.id) %></td>
       <th scope="row"><%= transaction.created_at%></th>
       <td ><%= transaction.remitter%></td>
       <td ><%= transaction.recipient%></td>
       <td ><%= transaction.currency%></td>
       <td ><%= transaction.amount%></td>
       <td ><%= transaction.reference%></td>
-      <td ><%= link_to "View", transaction_path(transaction.id), class: "btn btn-primary"%>
-    </tr>
+      </tr>
     <%end%>
      </tbody>
 </table>

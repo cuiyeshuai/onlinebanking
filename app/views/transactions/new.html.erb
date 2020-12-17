@@ -1,23 +1,21 @@
 <div class="main">
 
-<button>
-<%= link_to  "BACK", transactions_path %>
-</button>
+
+<%= link_to  "BACK", transactions_path,  class: "btn btn-primary"%>
 
 <% provide(:title, "New transaction")%>
     <h1>New transaction</h1>
-    <p>Current account balance: </p>
     
 
 
   <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
     
     <div class="newTransfer">
-      <h4>Current account balance: </h4>
+
       <h3><%= @bank %></h3>
       <div class="form-group">
-        <%= t.label :Currency %>
-        <%= t.text_field :currency, :readonly=>true%>
+        <%= t.label :"Currency:" %>
+        <%= t.text_field :currency, :readonly=>true %>
       </div>
       
       <div class="form-group">

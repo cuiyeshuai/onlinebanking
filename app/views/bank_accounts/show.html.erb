@@ -6,25 +6,6 @@
 
 <div class="account">
 <h1 class="mb-3">Your Account</h1>
-<<<<<<< HEAD
-<table class="table table-striped" > 
-    <thead class="thead-light">
-        <tr>
-            <th scope="col"> Account id</th>
-            <th scope="col"> Currency</th>
-            <th scope="col"> Type of Account</th>
-            <th scope="col"> Amount</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row"> <%= @bankAccount.id%></th>
-            <td> <%= @bankAccount.currency%></td>
-            <td> <%= @bankAccount.type_of_account%></td>
-            <td> <%= @bankAccount.amount%></td>
-        </tr>
-        </tbody>
-=======
 <table class="table">
     <tr>
         <th> Account id</th>
@@ -38,13 +19,12 @@
         <td> <%= @bankAccount.type_of_account%></td>
         <td> <%= @bankAccount.amount%></td>
     </tr>
->>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
 </table>
 
 
 <div class="transactions">
 
-    <button><%= link_to "New transaction", new_transaction_path, class: "btn btn-primary" %></button>
+ <%= link_to "New transaction", new_transaction_path, class: "btn btn-primary " %>
 
 </div>
 
@@ -53,40 +33,9 @@
 
 <div class="recenttransaction">
 <h2>Recent transactions: </h2>
-<<<<<<< HEAD
-    <table class="table table-striped"> 
-        <thead class="thead-light">
-            <tr>
-                <th scope="col"> No.</th>
-                <th scope="col"> Date</th>
-                <th scope="col"> Currency</th>
-                <th scope="col"> Amount</th>
-                <th scope="col"> Remitter</th>
-                <th scope="col"> Remitter Account</th>
-                <th scope="col"> Recipient</th>
-                <th scope="col"> Recipient Account</th>
-                <th scope="col"> Reference</th>
-            </tr>
-            <% @transactions.each do |transaction|%>
-            <tr>
-                <th scope="row"> <%= link_to  @transactions.find_index(transaction)+1,transaction_path(transaction.id)%></th>
-                <td > <%= transaction.created_at%></td>
-                <td > <%= transaction.currency%></td>
-                <td > <%= transaction.amount%></td>
-                <td > <%= transaction.remitter%></td>
-                <td > <%= transaction.remitter_account%></td>
-                <td > <%= transaction.recipient%></td>
-                <td > <%= transaction.recipient_account%></td>
-                <td > <%= transaction.reference%></td>
-                <td > <%= link_to "Show transaction", transaction_path(transaction.id), class: "btn btn-primary"%></td>
-            </tr>
-            <% end %>
-        </tbody>
-    </table>
-=======
 <table class="table">
     <tr>
-        <th > No.</th>
+        <th >View</th>
         <th class="p-2"> Date</th>
         <th class="p-2"> Currency</th>
         <th class="p-2"> Amount</th>
@@ -114,5 +63,4 @@
     </table>
 
 
->>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
 </div>

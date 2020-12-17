@@ -1,28 +1,12 @@
 <% provide(:title, "Dashboard") %>
 
-<<<<<<< HEAD
-<table class="table table-striped">
-  <thead class="thead-light">
-    <tr>
-      <th>No. ID</th>
-        <th scope="col">Account ID</th>
-        <th scope="col">Currency</th>
-        <th scope="col">Account Type</th>
-        <th scope="col">Balance</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @bankAccounts.each do |acc|%>
-    <tr>
-        <th scope="row"><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></th>
-=======
 
 <div class="main">
 <h1 class="mb-3">Your Bank Accounts:</h1>
 <table class="table">
 
    <tr>
-    <th>No. ID</th>
+       <th>No. ID</th>
        <th>Account ID</th>
        <th>Currency</th>
        <th>Account Type</th>
@@ -31,30 +15,22 @@
    <% @bankAccounts.each do |acc|%>
    <tr>
         <td><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></td>
->>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
         <td><%= acc.id%></td>
         <td><%= acc.currency%></td>
         <td><%= acc.type_of_account%></td>
         <td><%= acc.amount%></td>
-<<<<<<< HEAD
-    </tr>
-=======
    </tr>
 
 
->>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
     <% end%>
   </tbody>
 </table>
 
-<<<<<<< HEAD
-<table class="table table-striped">
- <thead class="thead-light">
-=======
 <h1 class="mb-3">Recent Transactions:</h1>
 <table class="table">
->>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
   <tr>
+    <th>No.</th>
+    <th scope="col">View</th>
     <th scope="col">Date</th>
     <th scope="col">Remitter</th>
     <th scope="col">Recipient</th>
@@ -66,14 +42,14 @@
     <tbody>
   <% @transactions.each do |transaction| %>
   <tr>
-    <th scope="row"><%= transaction.created_at%></th>
+  <td ><%= link_to @transactions.find_index(transaction)+1, transaction_path(transaction.id) %></td>
+    <td scope="row"><%= transaction.created_at%></td>
     <td ><%= transaction.remitter%></td>
     <td ><%= transaction.recipient%></td>
     <td ><%= transaction.currency%></td>
     <td ><%= transaction.amount%></td>
     <td ><%= transaction.reference%></td>
-    <td ><%= link_to "View", transaction_path(transaction.id), class: "btn btn-primary"%>
-  </tr>
+   
   <%end%>
   </tbody>
 </table>

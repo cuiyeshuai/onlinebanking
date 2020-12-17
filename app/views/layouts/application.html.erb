@@ -16,26 +16,28 @@
       <%= content_tag :div, msg, class: name %>
     <% end -%>
   <!-- Navigation bar for the top -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-0">
   <!-- If logged in redirect to profile when clicked if not redirect to welcome page -->
-    <a class="navbar-brand" href="/">
-      <img src="/assets/logo.PNG" class="logo" alt="">
+    <a class="navbar-brand p-0" href="/">
+    <img src="/assets/logo.PNG" class="logo"  href="/">
     </a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav ml-auto ">
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto float-right">
+
       <% if logged_in? %>
-        <%= link_to "My account", "/dashboard", class: "nav-item nav-link" %>
+        <%= link_to "My account", "/dashboard", class: "nav-item nav-link " %>
         <%= link_to "Profile", "/profile", class: "nav-item nav-link" %>
-        <%= link_to "Help and support", "/help_and_support", class: "nav-item nav-link" %>
+        <%= link_to "Help and support", "/pages/help_and_support", class: "nav-item nav-link" %>
         <%= link_to "LOG OUT", logout_path, method: :delete, class: "btn btn-primary"%>
       <% else %>
         <%= link_to "Home page", "/", class: "nav-item nav-link" %>
         <%= link_to "Invest", "/pages/invest", class: "nav-item nav-link" %>
         <%= link_to "Fees", "/pages/fees", class: "nav-item nav-link" %>
-        <%= link_to "Open a bank account", "/pages/contact_us", class: "nav-item nav-link" %>
-        <%= link_to "Contact us", "/pages/contact_us", class: "nav-item nav-link" %>
+        <%= link_to "Open a bank account", "/pages/help_and_support", class: "nav-item nav-link" %>
+        <%= link_to "Contact us", "/pages/help_and_support", class: "nav-item nav-link" %>
         <%= link_to "LOG IN", login_path, class: "btn btn-primary nav-item"%>
       <% end %>
+
     </div>
   </nav>
 

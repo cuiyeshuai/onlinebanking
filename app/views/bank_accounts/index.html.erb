@@ -1,31 +1,9 @@
 <% provide(:title, "Dashboard") %>
-<<<<<<< HEAD
-
-<table class="table table-striped">
-  <thead class="thead-light">
-    <tr>
-      <th scope="col">No. ID</th>
-      <th scope="col">Account ID</th>
-      <th scope="col">Currency</th>
-      <th scope="col">Account Type</th>
-      <th scope="col">Balance</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @bankAccounts.each do |acc|%>
-    <tr>
-      <th scope="row"><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></th>
-      <td><%= acc.id%></td>
-      <td><%= acc.currency%></td>
-      <td><%= acc.type_of_account%></td>
-      <td><%= acc.amount%></td>
-    </tr>
-=======
 <h1 class="mb-3">Bank Accounts:</h1>
 <table class="table">
 
    <tr>
-    <th>No. ID</th>
+    <th>View</th>
        <th>Account ID</th>
        <th>Currency</th>
        <th>Account Type</th>
@@ -41,7 +19,6 @@
         </tr>
 
 
->>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
     <% end%>
     </tbody>
 </table>
