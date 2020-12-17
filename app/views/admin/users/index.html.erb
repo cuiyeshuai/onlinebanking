@@ -1,23 +1,27 @@
 <%= link_to("Back to dashboard", "/admin/dashboard")%> <br/>
 <h1> User Management</h1>
 <%= link_to("Create a new user", {:action => "new"})%>
-<table summary="User List">
-  <tr>
-    <th class="p-2">#</th>
-    <th class="p-2">Username </th>
-    <th class="p-2">First name </th>
-    <th class="p-2">Last name </th>
-    <th class="p-2">Gender </th>
-  </tr>
-  <% @users.each do |user|%>
-  <tr>
-    <td class="p-2"><%= user.id%></td>
-    <td class="p-2"><%= user.username.upcase%></td>
-    <td class="p-2"><%= user.first_name%></td>
-    <td class="p-2"><%= user.last_name%></td>
-    <td class="p-2"><%= @gender[user.gender]%></td>
-    <td class="p-2"><%= link_to("Manage", admin_user_path(user)) %></td>
-    <td class="p-2"><%= link_to("Delete", delete_admin_user_path(user)) %></td>
-  </tr>
-  <% end %>
+<table class="table table-striped" summary="User List">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Username </th>
+      <th scope="col">First name </th>
+      <th scope="col">Last name </th>
+      <th scope="col">Gender </th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @users.each do |user|%>
+    <tr>
+      <th scope="row" ><%= user.id%></th>
+      <td ><%= user.username.upcase%></td>
+      <td ><%= user.first_name%></td>
+      <td ><%= user.last_name%></td>
+      <td ><%= @gender[user.gender]%></td>
+      <td ><%= link_to("Manage", admin_user_path(user)) %></td>
+      <td ><%= link_to("Delete", delete_admin_user_path(user)) %></td>
+    </tr>
+    <% end %>
+    </tbody>
 </table>

@@ -1,42 +1,24 @@
-<!DOCTYPE html>
-<html>
-  <head>
-</head>
-
-<body>
-
-
-
-
-<div class="main">
-
 <% provide(:title, "Dashboard") %>
 
-<table class="table">
-
-   <tr>
-    <th>No. ID</th>
-       <th>Account ID</th>
-       <th>Currency</th>
-       <th>Account Type</th>
-       <th>Balance</th>
-   </tr>
-   <% @bankAccounts.each do |acc|%>
-   <tr>
-        <td><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></td>
-        <td><%= acc.id%></td>
-        <td><%= acc.currency%></td>
-        <td><%= acc.type_of_account%></td>
-        <td><%= acc.amount%></td>
-        </tr>
-
-
+<table class="table table-striped">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">No. ID</th>
+      <th scope="col">Account ID</th>
+      <th scope="col">Currency</th>
+      <th scope="col">Account Type</th>
+      <th scope="col">Balance</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @bankAccounts.each do |acc|%>
+    <tr>
+      <th scope="row"><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></th>
+      <td><%= acc.id%></td>
+      <td><%= acc.currency%></td>
+      <td><%= acc.type_of_account%></td>
+      <td><%= acc.amount%></td>
+    </tr>
     <% end%>
-
+    </tbody>
 </table>
-
-</div>
-
-
-</body>
-</html>

@@ -183,12 +183,10 @@
   margin-top: 30px;
   font-size: 15px;
   font-weight: normal;
-  padding: 15px ;
-  margin-left: 60px;
+  padding: 15px;
   display: inline-block;  
   vertical-align: middle;
-  font-family:serif;
-  }
+}
 
   .text{
     font-family:serif;
@@ -270,6 +268,16 @@ button:hover{
   color: white;
 }
 
+.static-pages {
+  background: rgba(233, 233, 233, 0.671);
+  border-radius: 2;
+}
+
+.static-small-modals{
+  background: rgba(182, 178, 178, 0.815);
+  border-radius: 2;
+}
+
 .bank{
 
 
@@ -289,17 +297,6 @@ button:hover{
 }
 
 
-.information{
-margin-top: 30px;
-font-size: 15px;
-font-weight: normal;
-padding: 15px ;
-margin-left: 60px;
-display: inline-block;  
-vertical-align: middle;
-font-family:serif;
-}
-
 .image{
   box-shadow:  3px 3px 5px 6px #ccc;
 }
@@ -309,10 +306,6 @@ font-family:serif;
   vertical-align: middle;
 
 
-}
-.text{
-  font-family:serif;
-  font-size: 17px;
 }
 
 .col a:link{
@@ -325,4 +318,3 @@ font-family:serif;
   text-decoration:none;
   font-size: 18px;
 } 
-

@@ -7,6 +7,8 @@
     
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- Bootstrap icons/glyphhicons-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
 
   <body>
@@ -34,13 +36,12 @@
     </div>
   </nav>
 
-  
-  <div class="container pt-85">
-    
-
+  <!-- Main content-->
+  <div class="container-fluid pt-85">
     <div class="row">
       <% if logged_in? %>
-        <div class="col-sm-2 sidenav">
+        <!-- Sidebar -->
+        <div class="col-sm-2 sidebar">
           <%= render "shared/user_sidebar" %>
         </div>
         <div class="col-sm-10"> 
@@ -53,7 +54,7 @@
       <% end %>
     </div>
   </div>
-
+<!-- END main content-->
 
     <footer class="container-fluid text-center">
       <div class="container text-center">
@@ -64,18 +65,5 @@
     </footer>
 
 
-<<<<<<< HEAD
   </body>
-=======
-
-
-
-
-
-
-
-
-
-
->>>>>>> 880ccabd00e13450b0886ea91b41268b7079e40e
 </html>
