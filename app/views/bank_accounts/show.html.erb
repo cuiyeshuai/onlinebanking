@@ -6,7 +6,6 @@
 
 <div class="account">
 <h1 class="mb-3">Your Account</h1>
-<<<<<<< HEAD
 <table class="table table-striped" > 
     <thead class="thead-light">
         <tr>
@@ -24,21 +23,6 @@
             <td> <%= @bankAccount.amount%></td>
         </tr>
         </tbody>
-=======
-<table class="table">
-    <tr>
-        <th> Account id</th>
-        <th> Currency</th>
-        <th> Type of Account</th>
-        <th> Amount</th>
-    </tr>
-    <tr>
-        <td> <%= @bankAccount.id%></td>
-        <td> <%= @bankAccount.currency%></td>
-        <td> <%= @bankAccount.type_of_account%></td>
-        <td> <%= @bankAccount.amount%></td>
-    </tr>
->>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
 </table>
 
 
@@ -53,7 +37,6 @@
 
 <div class="recenttransaction">
 <h2>Recent transactions: </h2>
-<<<<<<< HEAD
     <table class="table table-striped"> 
         <thead class="thead-light">
             <tr>
@@ -83,36 +66,4 @@
             <% end %>
         </tbody>
     </table>
-=======
-<table class="table">
-    <tr>
-        <th > No.</th>
-        <th class="p-2"> Date</th>
-        <th class="p-2"> Currency</th>
-        <th class="p-2"> Amount</th>
-        <th class="p-2"> Remitter</th>
-        <th class="p-2"> Remitter Account</th>
-        <th class="p-2"> Recipient</th>
-        <th class="p-2"> Recipient Account</th>
-        <th class="p-2"> Reference</th>
-    </tr>
-    <% @transactions.each do |transaction|%>
-    <tr>
-        <td> <%= link_to  @transactions.find_index(transaction)+1,transaction_path(transaction.id)%></td>
-        <td class="p-2"> <%= transaction.created_at%></td>
-        <td class="p-2"> <%= transaction.currency%></td>
-        <td class="p-2"> <%= transaction.amount%></td>
-        <td class="p-2"> <%= transaction.remitter%></td>
-        <td class="p-2"> <%= transaction.remitter_account%></td>
-        <td class="p-2"> <%= transaction.recipient%></td>
-        <td class="p-2"> <%= transaction.recipient_account%></td>
-        <td class="p-2"> <%= transaction.reference%></td>
-        <td class="p-2"> <%= link_to "Show transaction", transaction_path(transaction.id), class: "btn btn-primary"%></td>
-    </tr>
-
-    <% end %>
-    </table>
-
-
->>>>>>> 333a7d17da9353469f019dca4571cb4e1b6152a5
 </div>
