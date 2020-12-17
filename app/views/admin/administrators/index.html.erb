@@ -1,8 +1,8 @@
 <%= link_to("Back to dashboard", "/admin/dashboard")%> <br/>
 <h1> Administrator Management</h1>
-<%= link_to("Create a new administrator", {:action => "new"})%>
+<%= link_to("Create a new administrator", {:action => "new"},class: "btn btn-primary")%>
 <table class="table table-striped" summary="User List">
-  <thead class="thead-light">
+  <thead class="table">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Administrator name </th>

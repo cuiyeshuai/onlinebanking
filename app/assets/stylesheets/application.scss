@@ -30,7 +30,18 @@ $blue:#00065a;
   filter: brightness(70%);
 }
 
-.mr-60{
+.whitebackground{
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background-color: white;
+  padding:30px ;
+}
+
+.blacktext{
+color: black;
+}
+
+.mr-40{
   margin-right: 40px;
 }
 
@@ -38,14 +49,25 @@ $blue:#00065a;
   margin-top: 40px;
 }
 
-.ml-200{
-  margin-left: 200px;
+.mt-20{
+  margin-top: 20px;
 }
-
 
 .mb-40{
   margin-bottom: 40px;
 }
+
+.ml-40{
+  margin-left: 40px;
+}
+
+.bottom-left {
+  position: absolute;
+  top: 30%;
+  left: 4%;
+  color: white;
+}
+
 .dim{
   filter: brightness(70%);
 }
@@ -58,9 +80,6 @@ $blue:#00065a;
   background-image: linear-gradient(to bottom, #478eff, #1055c4);
 }
 
-.welcome-image {
-  height: 150px;
-}
 
 .login{
   color:black;
@@ -97,7 +116,6 @@ $blue:#00065a;
   margin: auto;
 }
 
-
 .sidebar {
   height: 400px; 
   left: 0;
@@ -105,7 +123,6 @@ $blue:#00065a;
   position: fixed;
   background-color: $blue; 
   padding-top: 20px;
-  position: absolute;
 }
 
 /* The navigation menu links */
@@ -215,11 +232,6 @@ button:hover{
   }
 
 
-.image{
-  width:auto;
-  height:300px; 
-  transform: rotate(5deg)
-}
 
 .navbar-nav>a{
   margin-right: 4px;
@@ -237,10 +249,27 @@ button:hover{
   border-radius: 2;
 }
 
+.imgfix {
+  width: 100%;
+  height: auto;
+  padding-top: 20px;
+}
+
+ .buttonsize{
+   width:80px
+ }
+
+ .containerheight{
+   height: 150px;
+ }
+ 
 .image{
   box-shadow:  3px 3px 5px 6px #ccc;
   border: 1px grey;
   padding: 20px 20px 20px 20px;
+  width:auto;
+  height:300px; 
+  transform: rotate(5deg)
 }
 .image,.text{
   display: inline-block;
