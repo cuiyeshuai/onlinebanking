@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
   def destroy
     log_out
     # Redirect to landing page
-    redirect_to '/login'
+    redirect_to '/login', notice: "You have logged out successfully!"
   end
 
 end

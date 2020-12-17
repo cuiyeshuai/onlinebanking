@@ -25,6 +25,9 @@
   </head>
 
   <body>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
   <!-- Navigation bar for the top -->
   <div class="navigationbar">
   <header>
@@ -51,7 +54,7 @@
 
           <% if logged_in? %>
           <li class="links">
-          <p>YOUR PROFILE</p>
+          <%= link_to "YOUR PROFILE", "/profile" %>
         </li>
           <% else %>
           <li class="links">

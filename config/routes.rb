@@ -49,6 +49,8 @@ Rails.application.routes.draw do
   get '/success', to: 'sessions#success'
   post '/login', to: 'sessions#verification'
 
+  get '/profile', to: 'users#show'
+
   # Delete current session
   delete '/logout', to: 'sessions#destroy'
 
@@ -56,6 +58,6 @@ Rails.application.routes.draw do
   get '/pages/:page' => 'pages#show'
   # Show welcome page
   get '/pages/welcomepage' => 'pages#showWelcome'
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
