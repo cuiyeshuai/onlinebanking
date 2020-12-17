@@ -1,9 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  administratorname: MyString
-  password_digest: MyString
+  administratorname: liujianlong
+  password_digest: Administrator.digest("123456")
+  id: 1
 
 two:
-  administratorname: MyString
-  password_digest: MyString
+  administratorname: lixin
+  password_digest: Administrator.digest("123456")
+  second_password_digest: Administrator.digest("123456")
+  second_password_enabled: true
+  id: 2

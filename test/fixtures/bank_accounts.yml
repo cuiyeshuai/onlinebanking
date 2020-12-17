@@ -1,13 +1,13 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  amount: 7.5
-  currency: MyString
-  type_of_account: MyString
-  user: one
+bank1: 
+  amount: 6.5
+  currency: "EUR"
+  type_of_account: "Savings"
+  user_id: 1
 
-two:
-  amount: 5.5
-  currency: MyString
-  type_of_account: MyString
-  user: two
+bank2:
+  amount: 6.5
+  currency: "EUR"
+  type_of_account: "Savings"
+  user_id: 2
