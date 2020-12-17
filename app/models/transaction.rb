@@ -1,5 +1,6 @@
 class Transaction < ApplicationRecord
   validate :amount_should_be_less_than_or_equal_to_remitter_balance, on: :create
+  validate :remitter_and_recipient_account_currenncy_type_should_be_the_same, on: :create
   before_create do
     remitter = BankAccount.find(self.remitter_account)  rescue nil
     if !remitter.nil?
@@ -41,5 +42,14 @@ class Transaction < ApplicationRecord
       end
     end
 
+    def remitter_and_recipient_account_currenncy_type_should_be_the_same
+      remitter= BankAccount.find(self.remitter_account)  rescue nil
+      recipient = BankAccount.find(self.recipient_account)  rescue nil
+      if !(remitter.nil? || recipient.nil?)
+        if remitter.currency != recipient.currency
+          errors.add(:currency, "can't make transactions to accounts of different currnecy")
+        end
+      end
+    end
 
 end

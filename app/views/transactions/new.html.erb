@@ -17,13 +17,14 @@
 <% provide(:title, "New transaction")%>
     <h1>New transaction</h1>
     <p>Current account balance: </p>
+    
 
 
     <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
-    
+
     <div class="newTransfer">
-<h4>Current account balance: </h4>
-<h3><%= @bank %></h3>
+    <h4>Current account: </h4>
+    <h3><%= @bank %></h3>
 
     <%= t.label :Currency %>
     <%= t.text_field :currency, :readonly=>true%>
