@@ -37,6 +37,11 @@ $blue:#00065a;
   padding:30px ;
 }
 
+.carouselbuttons{
+  top: 80%;
+  width: 60px;
+}
+
 .blacktext{
 color: black;
 }
@@ -256,7 +261,8 @@ button:hover{
 }
 
  .buttonsize{
-   width:80px
+   width:100px;
+   height: 45px;
  }
 
  .containerheight{
