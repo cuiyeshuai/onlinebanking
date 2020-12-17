@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < Admin::AdminController
   def index
     @gender = ["-","Male","Female"]
     @users = User.order("id ASC")
@@ -7,6 +7,7 @@ class Admin::UsersController < ApplicationController
   def show
     @gender = ["-","Male","Female"]
     @user = User.find(params[:id])
+    @bankAccounts = @user.bank_accounts
   end
 
   def new

@@ -1,2 +1,19 @@
-<h1>Admin::BankAccounts#index</h1>
-<p>Find me in app/views/admin/bank_accounts/index.html.erb</p>
+<%= link_to("Back to dashboard", "/admin/dashboard")%> <br/>
+<h1> Bank account Management</h1>
+<%= link_to("Create a new bank account", {:action => "new"})%>
+<table summary=" Bank accounts List">
+  <tr>
+    <th class="p-2">Account Id</th>
+    <th class="p-2">Currency </th>
+    <th class="p-2">Amount </th>
+  </tr>
+  <% @bankAccounts.each do |bankAccount|%>
+  <tr>
+    <td class="p-2"><%= bankAccount.account_id%></td>
+    <td class="p-2"><%= bankAccount.currency%></td>
+    <td class="p-2"><%= bankAccount.amount%></td>
+    <td class="p-2"><%= link_to("Manage", admin_bank_account_path(bankAccount)) %></td>
+    <td class="p-2"><%= link_to("Delete", delete_admin_bank_account_path(bankAccount)) %></td>
+  </tr>
+  <% end %>
+</table>

@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
-  root 'welcome#welcomepage'
+  root 'pages#showWelcome'
+
   namespace :admin do
     root 'sessions#new'
 
@@ -21,7 +22,8 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :administrators do
+    resources :administrators, :except=>[:show] do
+
       member do
         get :delete
       end
@@ -29,6 +31,8 @@ Rails.application.routes.draw do
 
     get '/new', to: 'sessions#new'
     get '/success', to: 'sessions#success'
+    get '/verification', to: 'sessions#verification'
+    post '/verification', to: 'sessions#authenticate'
     get '/dashboard', to: 'dashboard#index'
     get 'dashboard/index'
     post '/new', to: 'sessions#create'
@@ -39,25 +43,19 @@ Rails.application.routes.draw do
 
   resources :transactions, :only => [:index, :show, :new, :create]
 
-
   get '/dashboard', to: 'l_page#index'
 
   get '/login', to: 'sessions#login'
   get '/success', to: 'sessions#success'
   post '/login', to: 'sessions#verification'
+
   # Delete current session
   delete '/logout', to: 'sessions#destroy'
 
   # For static/dummy pages
-  get '/pages/:page' => "pages#show"
-
-  get '/welcome', to: 'welcome#welcomepage'
-
-  resources :admin_transactions do
-    member do
-      get :delete
-    end
-  end
+  get '/pages/:page' => 'pages#show'
+  # Show welcome page
+  get '/pages/welcomepage' => 'pages#showWelcome'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
