@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class Admin::AdministratorsControllerTest < ActionDispatch::IntegrationTest
-<<<<<<< HEAD
   test "should get index" do
     get "/admin/administrators"
     assert_response :success
@@ -14,7 +13,8 @@ class Admin::AdministratorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get new" do
     get "/admin/administrators/new"
-=======
+  end
+
   test "should get admin root path" do
     get admin_root_path
     assert_response :success
@@ -37,7 +37,6 @@ class Admin::AdministratorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should get admin administrator new" do
     get new_admin_administrator_path
->>>>>>> 8d95ceddd2611dc36749c21970f376cb80471720
     assert_response :success
   end
 
@@ -45,7 +44,7 @@ class Admin::AdministratorsControllerTest < ActionDispatch::IntegrationTest
     post admin_administrators_url, params: {administrator: {administratorname: "John", password_digest: "password"}}
     assert_response :success
   end
-  
+
   test "should get edit" do
     get "/admin/administrators/1/edit"
     assert_response :success
