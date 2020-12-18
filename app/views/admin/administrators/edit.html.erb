@@ -1,0 +1,38 @@
+<h1>Edit an administrator</h1>
+<%= link_to("Back to administrators index page", admin_administrators_path)%>
+<% flash.each do |type, msg| %>
+  <div>
+    <% msg.split('@').each do |f| %>
+      <%= f =%>
+    <% end %>
+  </div>
+<% end %>
+<%= form_for @administrator, :url=> admin_administrator_path do |f|%>
+  <div class="form-group">
+    <%= f.label :administratorname%>
+    <%= f.text_field :administratorname , {class: "form-control", placeholder: "Enter administrator name"}%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "reset the password"%>
+    <%= f.password_field :password, {class: "form-control", placeholder: "Enter password"}%>
+    
+    <%= f.label "password confirmation"%>
+    <%= f.password_field :password_confirmation, {class: "form-control", placeholder: "Enter password confirmation"}%>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "Enable the second secure password"%>
+    <%= f.radio_button :second_password_enabled, true%> Enable
+    <%= f.radio_button :second_password_enabled, false%> Disable
+  </div>
+  
+  <div class="form-group">
+    <%= f.label "reset the second secure password if enabled"%>
+    <%= f.label "second password"%>
+    <%= f.password_field :second_password, {class: "form-control", placeholder: "Enter second password"}%>
+    <%= f.label "second password confirmation"%>
+    <%= f.password_field :second_password_confirmation, {class: "form-control", placeholder: "Enter second password confirmation"}%>
+  </div>
+  <%= f.submit "Update", class: "btn btn-outline-success"%>
+<%end%>

@@ -1,0 +1,55 @@
+<% provide(:title, "Dashboard") %>
+
+
+<div class="main">
+<h1 class="mb-3">Your Bank Accounts:</h1>
+<table class="table">
+
+   <tr>
+       <th>No. ID</th>
+       <th>Account ID</th>
+       <th>Currency</th>
+       <th>Account Type</th>
+       <th>Balance</th>
+   </tr>
+   <% @bankAccounts.each do |acc|%>
+   <tr>
+        <td><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></td>
+        <td><%= acc.id%></td>
+        <td><%= acc.currency%></td>
+        <td><%= acc.type_of_account%></td>
+        <td><%= acc.amount%></td>
+   </tr>
+
+
+    <% end%>
+  </tbody>
+</table>
+
+<h1 class="mb-3">Recent Transactions:</h1>
+<table class="table">
+  <tr>
+    <th>No.</th>
+    <th scope="col">View</th>
+    <th scope="col">Date</th>
+    <th scope="col">Remitter</th>
+    <th scope="col">Recipient</th>
+    <th scope="col">Amount</th>
+    <th scope="col">Currency</th>
+    <th scope="col">Transaction Reference</th>
+  </tr>
+  </thead>
+    <tbody>
+  <% @transactions.each do |transaction| %>
+  <tr>
+  <td ><%= link_to @transactions.find_index(transaction)+1, transaction_path(transaction.id) %></td>
+    <td scope="row"><%= transaction.created_at%></td>
+    <td ><%= transaction.remitter%></td>
+    <td ><%= transaction.recipient%></td>
+    <td ><%= transaction.currency%></td>
+    <td ><%= transaction.amount%></td>
+    <td ><%= transaction.reference%></td>
+   
+  <%end%>
+  </tbody>
+</table>

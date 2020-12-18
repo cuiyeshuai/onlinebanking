@@ -1,0 +1,26 @@
+<% provide(:title, "Dashboard") %>
+<div>
+<h1 class="mb-3">Bank Accounts:</h1>
+<table class="table">
+
+   <tr>
+    <th>View</th>
+       <th>Account ID</th>
+       <th>Currency</th>
+       <th>Account Type</th>
+       <th>Balance</th>
+   </tr>
+   <% @bankAccounts.each do |acc|%>
+   <tr>
+        <td><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></td>
+        <td><%= acc.id%></td>
+        <td><%= acc.currency%></td>
+        <td><%= acc.type_of_account%></td>
+        <td><%= acc.amount%></td>
+        </tr>
+
+
+    <% end%>
+    </tbody>
+</table>
+</div>

@@ -1,0 +1,36 @@
+<h1>Create a new bank account</h1>
+<%= link_to("Back to bank account index page", admin_bank_accounts_path)%>
+<% flash.each do |type, msg| %>
+  <div>
+    <% msg.split('@').each do |f| %>
+      <%= f =%>
+    <% end %>
+  </div>
+<% end %>
+
+<%= form_for @bankAccount, :url=> admin_bank_accounts_path do |f|%>
+<div class="form-group">
+  <%= f.label :"User id "%>
+  <%= f.text_field :user_id, {class: "form-control", placeholder: "Enter user ID"}%>
+</div>
+<div class="form-group">
+  <%= f.label :"Type of account" %>
+  <%= f.select :type_of_account,[
+    "Normal",
+    "Savings",
+    "Student",
+    "Child",
+    "Current"
+  ]%>
+</div>
+<div class="form-group">
+  <%= f.label :Currency%>
+  <%= f.select :currency,[
+    "USD",
+    'EUR',
+    'GBP',
+    'JPY'
+    ]%>
+</div>
+  <%= f.submit %>
+<%end%>

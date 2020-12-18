@@ -1,0 +1,9 @@
+<h1>Second Secure Password required</h1>
+<p>Please your second secure password!</p>
+ <%= form_tag '/admin/verification' do %>
+ <div class="form-group">
+    <%= label_tag :second_password%>
+    <%= password_field_tag :second_password%>
+ </div>
+ <%= submit_tag "Verify", class: "btn btn-outline-success"%>
+<%end%>

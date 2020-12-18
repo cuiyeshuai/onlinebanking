@@ -10,20 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_204936) do
+ActiveRecord::Schema.define(version: 2020_12_15_212846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "administrators", force: :cascade do |t|
-    t.string "username"
-    t.string "password"
+    t.string "administratorname"
+    t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "second_password_digest", default: ""
+    t.boolean "second_password_enabled", default: false
   end
 
   create_table "bank_accounts", primary_key: "account_id", id: :serial, force: :cascade do |t|
-    t.decimal "amount", precision: 2, null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
     t.string "currency", null: false
     t.string "type_of_account", null: false
     t.bigint "user_id"
@@ -34,22 +36,21 @@ ActiveRecord::Schema.define(version: 2020_11_17_204936) do
 
   create_table "transactions", force: :cascade do |t|
     t.string "currency", null: false
-    t.decimal "amount", precision: 2, null: false
-    t.string "recipient_name", null: false
-    t.integer "recipient", null: false
+    t.decimal "amount", precision: 10, scale: 2, null: false
+    t.string "recipient", null: false
+    t.integer "recipient_account", null: false
     t.string "reference"
-    t.datetime "date"
-    t.bigint "bank_account_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["bank_account_id"], name: "index_transactions_on_bank_account_id"
+    t.integer "remitter_account"
+    t.string "remitter"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "password", null: false
+    t.string "password_digest", null: false
     t.integer "gender", null: false
     t.date "date_of_birth", null: false
     t.string "phone_number", null: false

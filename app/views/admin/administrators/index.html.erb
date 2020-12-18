@@ -1,0 +1,23 @@
+<%= link_to("Back to dashboard", "/admin/dashboard")%> <br/>
+<h1> Administrator Management</h1>
+<%= link_to("Create a new administrator", {:action => "new"},class: "btn btn-primary")%>
+<table class="table table-striped" summary="User List">
+  <thead class="table">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Administrator name </th>
+      <th scope="col">Second secure password enabled?</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @administrators.each do |administrator|%>
+    <tr>
+      <th scope="row"><%= administrator.id%></th>
+      <td ><%= administrator.administratorname.upcase%></td>
+      <td ><%= administrator.second_password_enabled%></td>
+      <td ><%= link_to("Edit", edit_admin_administrator_path(administrator))%></td>
+      <td ><%= link_to("Delete", delete_admin_administrator_path(administrator)) %></td>
+    </tr>
+    <% end %>
+    </tbody>
+</table>

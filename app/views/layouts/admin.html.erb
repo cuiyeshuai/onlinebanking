@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+   <head>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+ 
+    <%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+    <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+
+
+    <script>
+
+
+ </script>
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Open+Sans:ital,wght@0,300;1,300&family=Padauk&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&family=Padauk&display=swap" rel="stylesheet">
+
+
+
+  </head>
+
+  <body>
+    <!-- Navigation bar for the top -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <!-- If logged in redirect to profile when clicked if not redirect to welcome page -->
+      <a class="navbar-brand">
+        <img src="/assets/logo.PNG" class="logo" alt="">
+      </a>
+      <div class="collapse navbar-collapse ml-80" id="navbarNavAltMarkup">
+      <div class="navbar-nav ml-auto ">
+      <!-- Temporary, for development, improve later-->
+      <h3><%= (Administrator.find(session[:administrator_id])).administratorname %></h3>
+
+        <% if logged_in_as_administrator? %>
+            <%= link_to "Back to website", "/admin/logout", method: :delete, class: "blacktext" %>
+            <%= link_to "LOG OUT", "/admin/logout", method: :delete, class: "btn btn-primary" %>
+        <% end %>
+        </div>
+    </nav>
+
+<!-- Main content-->
+    <div class="container-fluid pt-86">
+      <div class="row">
+        <!-- Sidebar -->
+          <div class="col-sm-2 sidebar">
+            <%= render "shared/admin_sidebar" %>
+          </div>
+          <div class="col-sm-10 "> 
+            <%= yield %>
+          </div>
+      </div>
+    </div>
+<!-- END main content-->
+
+
+
+    <footer class="container-fluid text-center">
+      <div class="container text-center">
+        <div class="row">
+            <%= debug(params) if Rails.env.development? %>
+        </div>
+      </div>
+    </footer>
+
+
+
+  </body>
+</html>

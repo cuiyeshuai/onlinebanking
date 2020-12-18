@@ -1,0 +1,39 @@
+<h1>All Transactions</h1>
+
+<h4>Generate transactions</h4>
+<%= form_tag(admin_transactions_path, method: :post) do %>
+    <%=label_tag "Amount of transactions" %>
+    <%= number_field_tag :amount%>
+    <%=label_tag "User ID" %>
+    <%= text_field_tag :user %>
+    <%=label_tag "Bank account ID" %>
+    <%= text_field_tag :bankacc %>
+    <%= submit_tag "Submit", class: "btn btn-primary" %>
+<% end %>
+
+<table class="table table-striped" >
+  <thead class="table">
+    <tr>
+      <th scope="col">View</th>
+      <th scope="col">Date</th>
+      <th scope="col">Remitter</th>
+      <th scope="col">Recipient</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Currency</th>
+      <th scope="col">Transaction Reference</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @transactions.each do |transaction| %>
+    <tr>
+    <td ><%= link_to @transactions.find_index(transaction)+1, transaction_path(transaction.id) %></td>
+      <th scope="row"><%= transaction.created_at%></th>
+      <td ><%= transaction.remitter%></td>
+      <td ><%= transaction.recipient%></td>
+      <td ><%= transaction.currency%></td>
+      <td ><%= transaction.amount%></td>
+      <td ><%= transaction.reference%></td>
+      </tr>
+    <%end%>
+     </tbody>
+</table>
