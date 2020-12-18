@@ -6,7 +6,8 @@ class Admin::TransactionsController < Admin::AdminController
   end
 
   def show
-    
+    @transaction = Transaction.find(params[:id])
+
   end
 
   def new

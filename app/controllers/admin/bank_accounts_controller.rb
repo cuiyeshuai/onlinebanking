@@ -24,21 +24,22 @@ class Admin::BankAccountsController < Admin::AdminController
     else
       err = ''
       @bankAccount.errors.messages.each do |f|
-      err += String(f[0])+":"+String(f[1][0]) + "@"
+        err += String(f[0])+":"+String(f[1][0]) + "@"
       end
       flash.alert = err
       render "new"
+    end
   end
 
   def edit
-      @bankAccount= BankAccount.find(params[:id])
+    @bankAccount= BankAccount.find(params[:id])
   end
 
   def update
-      @bankAccount= BankAccount.find(params[:id])
-      @bankAccount.type_of_account = params[:bank_account][:type_of_account]
-      @bankAccount.currency = params[:bank_account][:currency]
-     if (@bankAccount.save)
+    @bankAccount= BankAccount.find(params[:id])
+    @bankAccount.type_of_account = params[:bank_account][:type_of_account]
+    @bankAccount.currency = params[:bank_account][:currency]
+    if (@bankAccount.save)
       redirect_to (admin_bank_accounts_path)
     end
     puts(@bankAccount.errors.messages)
@@ -46,17 +47,14 @@ class Admin::BankAccountsController < Admin::AdminController
 
 
   def delete
-      @bankAccount= BankAccount.find(params[:id])
+    @bankAccount= BankAccount.find(params[:id])
   end
 
   def destroy
-      @bankAccount= BankAccount.find(params[:id])
-      @bankAccount.destroy
-      redirect_to(admin_bank_accounts_path)
+    @bankAccount= BankAccount.find(params[:id])
+    @bankAccount.destroy
+    redirect_to(admin_bank_accounts_path)
   end
 
 
-
-
-end
 end
