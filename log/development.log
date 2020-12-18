@@ -26412,3 +26412,388 @@ Processing by PagesController#show as HTML
 Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 7485)
 
 
+Started GET "/" for 127.0.0.1 at 2020-12-18 14:12:48 +0000
+  [1m[35m (16.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#showWelcome as HTML
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 49.3ms | Allocations: 1333)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 6717ms (Views: 6689.9ms | ActiveRecord: 0.0ms | Allocations: 107539)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-18 14:13:07 +0000
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.6ms | Allocations: 638)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 30ms (Views: 29.0ms | ActiveRecord: 0.0ms | Allocations: 8678)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-12-18 14:13:12 +0000
+Processing by Admin::SessionsController#new as HTML
+  [1m[36mAdministrator Load (4.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+Redirected to http://127.0.0.1:3000/admin/dashboard
+Completed 302 Found in 126ms (ActiveRecord: 62.6ms | Allocations: 6306)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-18 14:13:12 +0000
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 0.4ms | Allocations: 67)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 1.1ms | Allocations: 271)
+Completed 200 OK in 185ms (Views: 161.2ms | ActiveRecord: 0.6ms | Allocations: 11339)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-18 14:13:59 +0000
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 0.7ms | Allocations: 66)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 1.3ms | Allocations: 260)
+Completed 200 OK in 187ms (Views: 165.7ms | ActiveRecord: 0.9ms | Allocations: 11220)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-18 14:14:20 +0000
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/admin
+  [1m[36mBankAccount Load (4.9ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:15
+  Rendered admin/bank_accounts/index.html.erb within layouts/admin (Duration: 43.0ms | Allocations: 5225)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.2ms | Allocations: 106)
+Completed 200 OK in 84ms (Views: 59.7ms | ActiveRecord: 7.3ms | Allocations: 15291)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-18 14:16:10 +0000
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (1.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/admin
+  [1m[36mBankAccount Load (1.8ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:15
+  Rendered admin/bank_accounts/index.html.erb within layouts/admin (Duration: 21.1ms | Allocations: 935)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.4ms | Allocations: 102)
+Completed 200 OK in 3376ms (Views: 3361.5ms | ActiveRecord: 3.2ms | Allocations: 65576)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-18 14:16:34 +0000
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (1.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/admin
+  [1m[36mBankAccount Load (1.1ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:15
+  Rendered admin/bank_accounts/index.html.erb within layouts/admin (Duration: 39.0ms | Allocations: 1201)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 1.2ms | Allocations: 252)
+Completed 200 OK in 183ms (Views: 169.3ms | ActiveRecord: 2.6ms | Allocations: 11415)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-18 14:16:38 +0000
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/admin
+  [1m[36mBankAccount Load (2.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:15
+  Rendered admin/bank_accounts/index.html.erb within layouts/admin (Duration: 7.8ms | Allocations: 939)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 1.0ms | Allocations: 102)
+Completed 200 OK in 93ms (Views: 82.0ms | ActiveRecord: 2.8ms | Allocations: 10061)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-18 14:16:39 +0000
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Load (9.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:17
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 112.9ms | Allocations: 7121)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 2.2ms | Allocations: 106)
+Completed 200 OK in 271ms (Views: 217.2ms | ActiveRecord: 18.7ms | Allocations: 17841)
+
+
+Started GET "/admin/transactions" for 127.0.0.1 at 2020-12-18 14:16:41 +0000
+Processing by Admin::TransactionsController#index as HTML
+  [1m[36mAdministrator Load (9.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/transactions/index.html.erb within layouts/admin
+  Rendered admin/transactions/index.html.erb within layouts/admin (Duration: 15.3ms | Allocations: 76)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 2.2ms | Allocations: 119)
+Completed 200 OK in 136ms (Views: 112.0ms | ActiveRecord: 10.0ms | Allocations: 9483)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2020-12-18 14:16:43 +0000
+Processing by Admin::AdministratorsController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/administrators/index.html.erb within layouts/admin
+  [1m[36mAdministrator Load (1.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" ORDER BY id ASC[0m
+  ↳ app/views/admin/administrators/index.html.erb:13
+  Rendered admin/administrators/index.html.erb within layouts/admin (Duration: 11.8ms | Allocations: 1053)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.4ms | Allocations: 106)
+Completed 200 OK in 97ms (Views: 79.7ms | ActiveRecord: 1.7ms | Allocations: 10451)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-18 14:16:44 +0000
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (3.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/admin
+  [1m[36mBankAccount Load (19.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:15
+  Rendered admin/bank_accounts/index.html.erb within layouts/admin (Duration: 71.8ms | Allocations: 942)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.5ms | Allocations: 106)
+Completed 200 OK in 328ms (Views: 284.7ms | ActiveRecord: 22.9ms | Allocations: 10073)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-18 14:18:16 +0000
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (1.9ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/admin
+  [1m[36mBankAccount Load (0.6ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:15
+  Rendered admin/bank_accounts/index.html.erb within layouts/admin (Duration: 4.9ms | Allocations: 932)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.5ms | Allocations: 102)
+Completed 200 OK in 3483ms (Views: 3466.3ms | ActiveRecord: 2.6ms | Allocations: 65926)
+
+
+Started GET "/admin/logout" for 127.0.0.1 at 2020-12-18 14:20:23 +0000
+Processing by Admin::SessionsController#destroy as HTML
+Redirected to http://127.0.0.1:3000/admin/
+Completed 302 Found in 9ms (ActiveRecord: 0.0ms | Allocations: 271)
+
+
+Started GET "/admin/" for 127.0.0.1 at 2020-12-18 14:20:23 +0000
+Processing by Admin::SessionsController#new as HTML
+  Rendering admin/sessions/new.html.erb within layouts/application
+  Rendered admin/sessions/new.html.erb within layouts/application (Duration: 35.8ms | Allocations: 518)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 2863ms (Views: 2859.0ms | ActiveRecord: 0.0ms | Allocations: 64846)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-18 14:20:34 +0000
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 10.6ms | Allocations: 600)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 121ms (Views: 118.7ms | ActiveRecord: 0.0ms | Allocations: 8593)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-18 14:20:41 +0000
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"vaT/Max8zGOOPGfs6N9qGPKmr+5esMR8sSUI6Dlxkj36nkz98NeBxJtTLMW1eEQbJNDMMyyDLKKln+5LZ0yseQ==", "username"=>"justinas", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (2.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "justinas"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://127.0.0.1:3000/dashboard
+Completed 302 Found in 447ms (ActiveRecord: 2.3ms | Allocations: 1083)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-18 14:20:42 +0000
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (6.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:9:in `index'
+  [1m[36mTransaction Load (7.1ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 10000000 or recipient_account = 10000000)[0m
+  ↳ app/controllers/l_page_controller.rb:10:in `+'
+  [1m[36mTransaction Load (1.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 10000001 or recipient_account = 10000001)[0m
+  ↳ app/controllers/l_page_controller.rb:10:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 41.8ms | Allocations: 1918)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 7.8ms | Allocations: 231)
+Completed 200 OK in 301ms (Views: 105.1ms | ActiveRecord: 29.3ms | Allocations: 23981)
+
+
+Started GET "/logout" for 127.0.0.1 at 2020-12-18 14:22:23 +0000
+Processing by SessionsController#destroy as HTML
+Redirected to http://127.0.0.1:3000/login
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms | Allocations: 282)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-18 14:22:23 +0000
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 10.0ms | Allocations: 597)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 237ms (Views: 233.9ms | ActiveRecord: 0.0ms | Allocations: 9451)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-18 14:22:26 +0000
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 2.2ms | Allocations: 337)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 56ms (Views: 51.7ms | ActiveRecord: 0.0ms | Allocations: 7765)
+
+
+Started GET "/" for 127.0.0.1 at 2020-12-18 14:22:31 +0000
+Processing by PagesController#showWelcome as HTML
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 9.8ms | Allocations: 428)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 240ms (Views: 237.7ms | ActiveRecord: 0.0ms | Allocations: 8420)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-12-18 14:22:35 +0000
+Processing by Admin::SessionsController#new as HTML
+  Rendering admin/sessions/new.html.erb within layouts/application
+  Rendered admin/sessions/new.html.erb within layouts/application (Duration: 7.7ms | Allocations: 504)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 157ms (Views: 144.7ms | ActiveRecord: 0.0ms | Allocations: 8521)
+
+
+Started POST "/admin/new" for 127.0.0.1 at 2020-12-18 14:22:40 +0000
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"wtfKtQFB2ZhV+bRjRoXqbIJ33/U2a2u10khXpI7e0TFdm6PVKCYkus7H3ub/X94z4CAwNzKt1IHVmKXkr5BgLg==", "administratorname"=>"justinas", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mAdministrator Load (2.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."administratorname" = $1 LIMIT $2[0m  [["administratorname", "justinas"], ["LIMIT", 1]]
+  ↳ app/controllers/admin/sessions_controller.rb:11:in `create'
+Redirected to http://127.0.0.1:3000/admin/dashboard
+Completed 302 Found in 377ms (ActiveRecord: 2.7ms | Allocations: 1163)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-18 14:22:40 +0000
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (3.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 0.5ms | Allocations: 66)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 1.1ms | Allocations: 260)
+Completed 200 OK in 63ms (Views: 31.6ms | ActiveRecord: 3.9ms | Allocations: 11194)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-18 14:22:45 +0000
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:17
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 4.6ms | Allocations: 1125)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.3ms | Allocations: 106)
+Completed 200 OK in 54ms (Views: 50.5ms | ActiveRecord: 1.2ms | Allocations: 10554)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-18 14:22:47 +0000
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.5ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/admin
+  [1m[36mBankAccount Load (2.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:15
+  Rendered admin/bank_accounts/index.html.erb within layouts/admin (Duration: 13.6ms | Allocations: 1225)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.2ms | Allocations: 106)
+Completed 200 OK in 55ms (Views: 49.0ms | ActiveRecord: 2.5ms | Allocations: 10632)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-18 14:23:36 +0000
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (1.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/admin
+  [1m[36mBankAccount Load (1.1ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:15
+  Rendered admin/bank_accounts/index.html.erb within layouts/admin (Duration: 14.4ms | Allocations: 1197)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 11.1ms | Allocations: 251)
+Completed 200 OK in 78ms (Views: 69.3ms | ActiveRecord: 2.1ms | Allocations: 11412)
+
+

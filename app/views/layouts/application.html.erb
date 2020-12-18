@@ -26,7 +26,7 @@
       <%= content_tag :div, msg, class: name %>
     <% end -%>
   <!-- Navigation bar for the top -->
-  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-0">
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
   <!-- If logged in redirect to profile when clicked if not redirect to welcome page -->
     <a class="navbar-brand p-0" href="/">
     <img src="/assets/logo.PNG" class="logo"  href="/">
@@ -52,7 +52,7 @@
   </nav>
 
   <!-- Main content-->
-  <div class="container-fluid pt-85">
+  <div class="container-fluid">
     <div class="row">
       <% if logged_in? %>
         <!-- Sidebar -->
