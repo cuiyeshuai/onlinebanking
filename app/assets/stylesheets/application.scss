@@ -17,6 +17,7 @@
 
  @import "bootstrap/scss/bootstrap";
  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+ 
 *{
   font-family: 'Open Sans', sans-serif;
 }
@@ -138,7 +139,6 @@ color: black;
   color: #ffffff;
   display: block;
   margin-top: 20px;
-  font-family: sans-serif;
 }
 
 /* When you mouse over the navigation links, change their color */
@@ -172,7 +172,6 @@ color: black;
 }
 
   .text{
-    font-family:serif;
     font-size: 17px;
   }
 
@@ -227,16 +226,14 @@ button:hover{
     color: white;
   }
 
-
+/*
   .newTransfer {
   color: black;
   font-style: normal;
-  font-family: sans-serif;
   padding: 20px 40px 40px 20px;
   margin-top: 10px;
   }
-
-
+*/
 
 .navbar-nav>a{
   margin-right: 4px;
