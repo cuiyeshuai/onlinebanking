@@ -46,7 +46,6 @@ puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
 puma (4.3.6) lib/puma/server.rb:472:in `process_client'
 puma (4.3.6) lib/puma/server.rb:328:in `block in run'
 puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
-<<<<<<< HEAD
   [1m[35m (1.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3341651547447395700)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to UpdateAndAddExtraColumnsToBankAccounts (20201215135103)
@@ -67,7 +66,6 @@ Hash: f40f62d7b0181b90ed2e
 Version: webpack 4.44.2
 Time: 4297ms
 Built at: 12/17/2020 10:03:56 AM
-=======
   [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3341651547447395700)[0m
   [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
 Migrating to UpdateAndAddExtraColumnsToBankAccounts (20201215135103)
@@ -88,7 +86,6 @@ Hash: 3b65a0aa3df7f32b595a
 Version: webpack 4.44.2
 Time: 3490ms
 Built at: 12/17/2020 11:37:49 PM
->>>>>>> b04e51cc730a07464a34519c6809c40b5ba5261b
                                      Asset       Size       Chunks                         Chunk Names
     js/application-b7afd81d65ecc539140e.js    663 KiB  application  [emitted] [immutable]  application
 js/application-b7afd81d65ecc539140e.js.map    776 KiB  application  [emitted] [dev]        application
