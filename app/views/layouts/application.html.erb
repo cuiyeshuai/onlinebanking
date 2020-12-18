@@ -5,65 +5,80 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+<script>
+</script> 
 
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- Font awesome -->
-    <!--<script src='https://kit.fontawesome.com/a076d05399.js'></script>-->
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Open+Sans:ital,wght@0,300;1,300&family=Padauk&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&family=Padauk&display=swap" rel="stylesheet">
+<%= stylesheet_link_tag "application", media: "all", 'data-turbolinks-track': "reload" %>
+ <%= javascript_pack_tag "application", 'data-turbolinks-track': "reload" %>
+<!-- Bootstrap icons/glyphhicons-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   </head>
 
+
+
   <body>
+    <% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: name %>
+    <% end -%>
   <!-- Navigation bar for the top -->
-    <nav class="navbar navbar-expand-sm bg-dark text-light">
-      <div class="container navbar-collapse collapse ">
-        <ul class="navbar-nav ml-auto">
-          <% if logged_in? %>
-          <li class="nav-item m-2">
-            <%= link_to "Home page", "/dashboard" %>
-            <%= link_to "My bank account", bank_accounts_path %>
-          </li>
-          <% end %>
-          <li class="nav-item m-2">
-            <%= link_to "Welcome page", "/pages/welcomepage" %>
-          </li>
-          <li class="nav-item m-2">
-            <%= link_to "Invest", "/pages/invest" %>
-          </li>
-          <li class="nav-item m-2">
-            <%= link_to "Fees", "/pages/fees" %>
-          </li>
-          <li class="nav-item m-2">
-            <% if logged_in? %>
-              <%= link_to "Log out", logout_path, method: :delete%>
-            <% else %>
-              <%= link_to "Log in", login_path%>
-            <% end %>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <div class="container overflow-auto">
-      <%= yield %>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+  <!-- If logged in redirect to profile when clicked if not redirect to welcome page -->
+    <a class="navbar-brand p-0" href="/">
+    <img src="/assets/logo.PNG" class="logo"  href="/">
+    </a>
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+    <div class="navbar-nav ml-auto float-right">
+
+      <% if logged_in? %>
+        <%= link_to "My account", "/dashboard", class: "nav-item nav-link " %>
+        <%= link_to "Profile", "/profile", class: "nav-item nav-link" %>
+        <%= link_to "Help and support", "/pages/help_and_support", class: "nav-item nav-link" %>
+        <%= link_to "LOG OUT", logout_path, method: :delete, class: "btn btn-primary" %>
+      <% else %>
+        <%= link_to "Home page", "/", class: "nav-item nav-link" %>
+        <%= link_to "Invest", "/pages/invest", class: "nav-item nav-link" %>
+        <%= link_to "Fees", "/pages/fees", class: "nav-item nav-link" %>
+        <%= link_to "Open a bank account", "/pages/open_a_bank_account", class: "nav-item nav-link" %>
+        <%= link_to "Contact us", "/pages/help_and_support", class: "nav-item nav-link" %>
+        <%= link_to "LOG IN", login_path, class: "btn btn-primary nav-item" %>
+      <% end %>
+
+    </div>
+  </nav>
+
+  <!-- Main content-->
+  <div class="container-fluid">
+    <div class="row">
+      <% if logged_in? %>
+        <!-- Sidebar -->
+        <div class="col-sm-2 sidebar">
+          <%= render "shared/user_sidebar" %>
+        </div>
+        <div class="col-sm-10"> 
+          <%= yield %>
+        </div>
+      <% else %>
+        <div class="col-sm-12"> 
+          <%= yield %>
+        </div>
+      <% end %>
     </div>
   </div>
-  </div>
-  </body>
-  <footer class="row">
-    <!-- Helpful for debugging -->
-    <div class="container text-center">
+<!-- END main content-->
+
+    <footer class="container-fluid text-center">
+      <div class="container text-center">
+      <div class="row">
         <%= debug(params) if Rails.env.development? %>
+      </div>
     </div>
-  </footer>
+    </footer>
+
+
+  </body>
 </html>

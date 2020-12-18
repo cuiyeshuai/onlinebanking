@@ -1,45 +1,53 @@
 <h1>Show the Bank account details</h1>
 <%= link_to("Back to bank accounts index page", admin_bank_accounts_path)%>
-<table summary="Bank Accounts">
-  <tr>
-    <th class="p-2">User Id</th>
-    <th class="p-2">Account Id</th>
-    <th class="p-2">Holder</th>
-    <th class="p-2">Currency</th>
-    <th class="p-2">Amount</th>
-    <th class="p-2">Type of account</th>
-  </tr>
-  <tr>
-    <td class="p-2"><%= @bankAccount.user_id%></td>
-    <td class="p-2"><%= @bankAccount.account_id%></td>
-    <td class="p-2"><%= link_to(@bankAccount.user.username.upcase, admin_user_path(@bankAccount.user_id)) %></td>
-    <td class="p-2"><%= @bankAccount.currency%></td>
-    <td class="p-2"><%= @bankAccount.amount%></td><br>
-    <td class="p-2"><%= @bankAccount.type_of_account%></td>
-    <td class="p-2"><%= link_to("Edit", edit_admin_bank_account_path(@bankAccount))%></td>
-  </tr>
+<table class="table table-striped" summary="Bank Accounts">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">User Id</th>
+      <th scope="col">Account Id</th>
+      <th scope="col">Holder</th>
+      <th scope="col">Currency</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Type of account</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <th scope="row"><%= @bankAccount.user_id%></td>
+      <td ><%= @bankAccount.account_id%></td>
+      <td ><%= link_to(@bankAccount.user.username.upcase, admin_user_path(@bankAccount.user_id)) %></td>
+      <td ><%= @bankAccount.currency%></td>
+      <td ><%= @bankAccount.amount%></td><br>
+      <td ><%= @bankAccount.type_of_account%></td>
+      <td ><%= link_to("Edit", edit_admin_bank_account_path(@bankAccount))%></td>
+    </tr>
+    </tbody>
 </table>
 <h2>Recent transactions:</h2>
-<table>
+<table class="table table-striped">
+  <thead class="thead-light">
     <tr>
-        <th class="p-2"> No.</th>
-        <th class="p-2"> Date</th>
-        <th class="p-2"> Currency</th>
-        <th class="p-2"> Amount</th>
-        <th class="p-2"> Recipient name</th>
-        <th class="p-2"> Recipient</th>
-        <th class="p-2"> Reference</th>
+        <th scope="col"> No.</th>
+        <th scope="col"> Date</th>
+        <th scope="col"> Currency</th>
+        <th scope="col"> Amount</th>
+        <th scope="col"> Recipient name</th>
+        <th scope="col"> Recipient</th>
+        <th scope="col"> Reference</th>
     </tr>
+    </thead>
+    <tbody>
     <% @transactions.each do |transaction|%>
     <tr>
-        <td class="p-2"> <%= @transactions.find_index(transaction) + 1%></td>
-        <td class="p-2"> <%= transaction.date%></td>
-        <td class="p-2"> <%= transaction.currency%></td>
-        <td class="p-2"> <%= transaction.amount%></td>
-        <td class="p-2"> <%= transaction.recipient_name%></td>
-        <td class="p-2"> <%= transaction.recipient%></td>
-        <td class="p-2"> <%= transaction.reference%></td>
-        <td class="p-2"> <%= link_to "Show transaction", admin_transaction_path(transaction.id), class: "btn btn-primary"%></td>
+        <th scope="row"> <%= @transactions.find_index(transaction) + 1%></th>
+        <td > <%= transaction.date%></td>
+        <td > <%= transaction.currency%></td>
+        <td > <%= transaction.amount%></td>
+        <td > <%= transaction.recipient_name%></td>
+        <td > <%= transaction.recipient%></td>
+        <td > <%= transaction.reference%></td>
+        <td > <%= link_to "Show transaction", admin_transaction_path(transaction.id), class: "btn btn-primary"%></td>
     </tr>
     <%end%>
+    </tbody>
 </table>

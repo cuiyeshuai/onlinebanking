@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+    get 'styles/index'
+  end
+  get 'view/new'
+  get 'view/create'
   root 'pages#showWelcome'
 
   namespace :admin do
@@ -37,11 +42,13 @@ Rails.application.routes.draw do
     get 'dashboard/index'
     post '/new', to: 'sessions#create'
     delete '/logout', to: 'sessions#destroy'
+    get '/logout', to: 'sessions#destroy'
   end
 
   resources :bank_accounts, :only =>[:index, :show]
 
   resources :transactions, :only => [:index, :show, :new, :create]
+
 
   get '/dashboard', to: 'l_page#index'
 
@@ -49,13 +56,15 @@ Rails.application.routes.draw do
   get '/success', to: 'sessions#success'
   post '/login', to: 'sessions#verification'
 
+  get '/profile', to: 'users#show'
+
   # Delete current session
   delete '/logout', to: 'sessions#destroy'
-
+  get '/logout', to: 'sessions#destroy'
   # For static/dummy pages
   get '/pages/:page' => 'pages#show'
   # Show welcome page
   get '/pages/welcomepage' => 'pages#showWelcome'
-  
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

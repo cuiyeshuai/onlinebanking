@@ -38,18 +38,17 @@ class Admin::SessionsController < ApplicationController
     id = session[:admin_id_for_further_verfication]
 
     administrator = Administrator.find_by(id: id)
-    session.delete(:admin_id_for_further_verfication)
-    puts(administrator)
     if administrator && administrator.authenticate_second_password(params[:second_password])
+      session.delete(:admin_id_for_further_verfication)
       log_in_as_administrator(administrator)
       redirect_to '/admin/dashboard'
     else
-      render 'verification'
+      render 'verification' and return
     end
   end
 
   def destroy
     log_out_from_administrator
-    redirect_to 'new'
+    redirect_to '/admin/'
   end
 end

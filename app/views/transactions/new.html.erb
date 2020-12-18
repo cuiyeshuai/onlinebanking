@@ -1,26 +1,46 @@
-<% provide(:title, "New transaction")%>
-    <h1>New transaction</h1>
-    <p>Current account balance: </p>
-<!-- For test -->
-<h1><%= @bank %></h1>
-<%= link_to  "Go back", transactions_path %>
-<!-- end-->
-    <%= form_with scope: :transaction, url: transactions_path, local: true do |t|%>
+<div class="main">
 
-    <%= t.label :Currency %>
-    <%= t.text_field :currency, :readonly=>true%>
-    <br/>
-    <%= t.label :Amount %>
-    <%= t.text_field :amount %>
-    <br/>
-    <%= t.label "Recipient Name" %>
-    <%= t.text_field :recipient %>
-    <br/>
-    <%= t.label "Recipient Account" %>
-    <%= t.text_field :recipient_account %>
-    <br/>
-    <%= t.label :Reference %>
-    <%= t.text_field :reference %>
-    <br/>
-    <%= t.submit "Make transaction"%>
-    <%end%>
+
+<%= link_to "BACK", transactions_path, class: "btn btn-primary" %>
+
+<% provide(:title, "New transaction") %>
+    <h1>New transaction</h1>
+    
+
+
+  <%= form_with scope: :transaction, url: transactions_path, local: true do |t| %>
+    
+    <div class="newTransfer">
+      <h2>Your current balance</h2>
+      <h3><%= @bank %></h3>
+      <div class="form-group">
+        <%= t.label :"Currency:" %>
+        <%= t.text_field :currency, :readonly => true %>
+      </div>
+      
+      <div class="form-group">
+        <%= t.label :Amount %>
+        <%= t.text_field :amount, { class: "form-control", placeholder: "Enter amount" } %>
+      </div>
+      
+      <div class="form-group">
+        <%= t.label "Recipient Name" %>
+        <%= t.text_field :recipient, { class: "form-control", placeholder: "Enter recipient" } %>
+      </div>
+      
+      <div class="form-group">
+        <%= t.label "Recipient Account" %>
+        <%= t.text_field :recipient_account, { class: "form-control", placeholder: "Enter recipient account" } %>
+      </div>
+      
+      <div class="form-group">
+        <%= t.label :Reference %>
+        <%= t.text_field :reference, { class: "form-control", placeholder: "Enter reference" } %>
+      </div>
+      
+      <%= t.submit "Make transaction", class: "btn btn-outline-success" %>
+    </div>
+  <% end %>
+  
+
+</div>

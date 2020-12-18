@@ -1,25 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+</head>
+
+
+<div class="main">
 <!--link to previous page-->
 <h1>All Transactions</h1>
-<%= link_to("Make a new transaction", new_transaction_path) %>
-<%= link_to("Go back", bank_accounts_path) %>
-<table>
-  <tr>
-    <th class="p-2">Date</th>
-    <th class="p-2">Remitter</th>
-    <th class="p-2">Recipient</th>
-    <th class="p-2">Amount</th>
-    <th class="p-2">Currency</th>
-    <th class="p-2">Transaction Reference</th>
-  </tr>
-  <% @transactions.each do |transaction| %>
-  <tr>
-    <td class="p-2"><%= transaction.created_at%></td>
-    <td class="p-2"><%= transaction.remitter%></td>
-    <td class="p-2"><%= transaction.recipient%></td>
-    <td class="p-2"><%= transaction.currency%></td>
-    <td class="p-2"><%= transaction.amount%></td>
-    <td class="p-2"><%= transaction.reference%></td>
-    <td class="p-2"><%= link_to "View", transaction_path(transaction.id), class: "btn btn-primary"%>
-  </tr>
-  <%end%>
+
+<%= link_to"BACK", bank_accounts_path, class: "btn btn-primary" %>
+
+<table class="table table-striped" >
+  <thead class="table">
+    <tr>
+      <th scope="col">View</th>
+      <th scope="col">Date</th>
+      <th scope="col">Remitter</th>
+      <th scope="col">Recipient</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Currency</th>
+      <th scope="col">Transaction Reference</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @transactions.each do |transaction| %>
+    <tr>
+    <td ><%= link_to @transactions.find_index(transaction)+1, transaction_path(transaction.id) %></td>
+      <th scope="row"><%= transaction.created_at%></th>
+      <td ><%= transaction.remitter%></td>
+      <td ><%= transaction.recipient%></td>
+      <td ><%= transaction.currency%></td>
+      <td ><%= transaction.amount%></td>
+      <td ><%= transaction.reference%></td>
+      </tr>
+    <%end%>
+     </tbody>
 </table>
+
+
+
+</div>
+
+
+
+<body>
+</html>

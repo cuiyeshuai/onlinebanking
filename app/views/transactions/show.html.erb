@@ -1,24 +1,26 @@
+<% provide(:title, "Dashboard") %>
+
 <%= link_to "All Transactions", transactions_path, class: "btn btn-primary"%>
 <h2>Transaction Details</h2>
-<table>
+<table class="table table-striped" >
   <tr>
-    <th>Remitter</th>
+    <th scope="col">Remitter</th>
     <td><%= @transaction.remitter%></td>
   </tr>
   <tr>
-    <th>Remitter Account</th>
+    <th scope="col">Remitter Account</th>
     <td><%= @transaction.remitter_account%></td>
   </tr>
   <tr>
-    <th>Recipient</th>
+    <th scope="col">Recipient</th>
     <td><%= @transaction.recipient%></td>
   </tr>
   <tr>
-    <th>Recipient Account</th>
+    <th scope="col">Recipient Account</th>
     <td><%= @transaction.recipient_account%></td>
   </tr>
   <tr>
-    <th>Reference</th>
+    <th scope="col">Reference</th>
     <td><%= @transaction.reference%></td>
   </tr>
   <tr>
@@ -26,11 +28,11 @@
     <td><%= @transaction.amount%></td>
   </tr>
   <tr>
-    <th>Currency</th>
+    <th scope="col">Currency</th>
     <td><%= @transaction.currency%></td>
   </tr>
   <tr>
-    <th>Date</th>
+    <th scope="col">Date</th>
     <td><%= @transaction.created_at%></td>
   </tr>
 </table>

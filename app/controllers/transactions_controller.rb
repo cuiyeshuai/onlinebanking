@@ -3,8 +3,15 @@ class TransactionsController < UserController
   include TransactionsHelper
   # Show transactions for selected bank account
   def index
-    @bankAccount = BankAccount.find(session[:current_bank_account_id])
-    @transactions = @bankAccount.transactions
+    # To do show all transaction for current user
+    @bankAccounts = current_user.bank_accounts
+
+    @transactions = []
+    @bankAccounts.each do |acc|
+      @transactions += acc.transactions
+    end
+    @transactions = @transactions.uniq
+    @transactions.sort {|a,b| a.created_at <=> b.created_at}
   end
 
   # Show selected bank account
@@ -20,14 +27,13 @@ class TransactionsController < UserController
 
   def create
     @transaction = Transaction.new
-    @transaction.currency = BankAccount.find(@bank).currency
+    @transaction.currency = BankAccount.find(session[:current_bank_account_id]).currency
     @transaction.amount = params[:transaction][:amount]
     @transaction.remitter = current_user.username
     @transaction.remitter_account = session[:current_bank_account_id]
     @transaction.recipient = params[:transaction][:recipient]
     @transaction.recipient_account = params[:transaction][:recipient_account]
     @transaction.reference = params[:transaction][:reference]
-    @transaction.bank_account_id = session[:current_bank_account_id]
 
 
     if @transaction.save
