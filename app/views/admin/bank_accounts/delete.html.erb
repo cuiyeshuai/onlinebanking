@@ -1,6 +1,6 @@
 <%= link_to("Back to bank account index page", admin_bank_accounts_path) %>
 <h1>Are your sure to delete this bank account below from database?</h1>
-<%= form_for@bankAccount, :url=>admin_bank_account_path,:method => "delete" do |f|%>
+<%= form_for @bankAccount, :url=>admin_bank_account_path,:method => "delete" do |f|%>
   <div class="form-group">
     <%= f.label :"User id"%>
     <%= f.text_field :user_id, :readonly => true%>
@@ -10,7 +10,7 @@
     <%= f.text_field :type_of_account, :readonly => true%>
   </div>
   <div class="form-group">
-    <%= f.label :"Currency "%> 
+    <%= f.label :"Currency "%>
     <%= f.text_field :currency, :readonly => true%>
   </div>
   <div class="form-group">
