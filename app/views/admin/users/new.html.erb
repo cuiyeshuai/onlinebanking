@@ -1,5 +1,5 @@
 <h1>Create a new user</h1>
-<%= link_to("Back to users index page", admin_users_path)%>
+<%= link_to "Back to users index page", admin_users_path, class: "btn btn-primary"%>
 <% flash.each do |type, msg| %>
   <div>
     <% msg.split('@').each do |f| %>

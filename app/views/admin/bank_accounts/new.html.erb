@@ -1,5 +1,5 @@
 <h1>Create a new bank account</h1>
-<%= link_to("Back to bank account index page", admin_bank_accounts_path)%>
+<%= link_to "Back to bank account index page", admin_bank_accounts_path, class: "btn btn-primary"%>
 <% flash.each do |type, msg| %>
   <div>
     <% msg.split('@').each do |f| %>
