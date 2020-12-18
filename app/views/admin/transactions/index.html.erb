@@ -1,2 +1,23 @@
-<h1>Admin::Transactions#index</h1>
-<p>Find me in app/views/admin/transactions/index.html.erb</p>
+<h1>transactions</h1>
+
+<%= link_to("Generate new transactions", '#', :class => 'action new') %>
+
+<table class="listing" summary="all transactions">
+  <tr class="header">
+    <th>Date</th>
+    <th>Account Number</th>
+    <th>Amount</th>
+  </tr>
+  <% @transactions.each do |transaction| %>
+  <tr>
+    <td><%= transaction.created_at %></td>
+    <td><%= transaction.bank_account_id %></td>
+    <td><%= transaction.amount %></td>
+    <td class="actions">
+      <%= link_to("Details", admin_transaction_path(transaction.id), :class => 'actions show') %>
+      <%= link_to("Edit", edit_admin_transaction_path(transaction), :class => 'actions edit') %>
+      <%= link_to("Delete", delete_admin_transaction_path(transaction), :class => 'actions delete') %>
+    </td>
+  </tr>
+</table>
+<%end%>
