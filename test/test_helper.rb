@@ -20,3 +20,13 @@ class ActiveSupport::TestCase
   end
 
 end
+
+class ActionDispatch::IntegrationTest
+  def log_in_as_user(user, password)
+    post login_url, params: { username: user,  password: password}
+  end
+
+  def log_in_as_admin(admin, password)
+    post admin_new_url, params: { administratorname: admin, password: password}
+  end
+end

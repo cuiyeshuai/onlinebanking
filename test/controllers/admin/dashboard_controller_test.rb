@@ -4,7 +4,7 @@ class Admin::DashboardControllerTest < ActionDispatch::IntegrationTest
 
   test "should get index" do
     get admin_dashboard_url
-    assert_response :redirect
+    assert_response :success
   end
 
 end

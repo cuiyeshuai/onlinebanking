@@ -1,19 +1,15 @@
 require 'test_helper'
 
 class Admin::SessionsControllerTest < ActionDispatch::IntegrationTest
-  test "should get new" do
+  test "should get login page" do
     get admin_new_url
     assert_response :success
   end
 
-  test "should get create" do
-    post admin_dashboard_index
-    assert_response :success
+  test "should redirect to dashboard when logged in" do
+    post admin_new_url params: {administratorname: "liujianlong", password: "123456"}
+    assert_redirected_to '/admin/dashboard'
   end
 
-  test "should get destroy" do
-    delete admin_logout_url
-    assert_response :redirect
-  end
 
 end

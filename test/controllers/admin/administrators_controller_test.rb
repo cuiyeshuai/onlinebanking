@@ -6,10 +6,6 @@ class Admin::AdministratorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
-    get "/admin/administrators/1"
-    assert_response :success
-  end
 
   test "should get new" do
     get "/admin/administrators/new"
@@ -21,7 +17,8 @@ class Admin::AdministratorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get delete admin administrator" do
-    get delete_admin_administrator_path
+    admin = administrators(:one)
+    get delete_admin_administrator_path(admin)
     assert_response :success
   end
 

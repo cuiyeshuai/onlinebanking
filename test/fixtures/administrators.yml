@@ -2,6 +2,7 @@
 one:
   administratorname: "liujianlong"
   password_digest: <%=Administrator.digest("123456") %>
+  id: 1
 
 
 two:

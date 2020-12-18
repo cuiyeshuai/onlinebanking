@@ -17,8 +17,8 @@ class Admin::BankAccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
-    assert_dfference('BankAccount'.count, 1) do
-      post "/admin/bank_accounts"
+    assert_difference('BankAccount.count', 1) do
+      post "/admin/bank_accounts", params: {  currency: "EUR",amount: 5, recipient: "wuhu",recipient_account: 1, reference: "wuhu", remitter_account: 2,remitter: "giao"}
     end
     assert_response :success
   end
@@ -34,8 +34,9 @@ class Admin::BankAccountsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "delete should remove bank account" do
-    assert_dfference('BankAccount'.count, -1) do
-      delete "/admin/bank_accounts/1"
+    bank = bank_accounts(:bank1)
+    assert_difference('BankAccount.count', -1) do
+      delete admin_bank_account_url(bank)
     end
     assert_response :success
   end
