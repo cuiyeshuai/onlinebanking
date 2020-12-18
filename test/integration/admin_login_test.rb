@@ -2,8 +2,6 @@ require 'test_helper'
 
 class AdminLoginTest < ActionDispatch::IntegrationTest
   test "login with valid credential" do
-    admin = Administrator.new({administratorname: "liujianlong", password: "123456", password_confirmation: "123456"})
-    admin.save
     get admin_new_url
     assert_response :success
     assert_not admin_is_logged_in?
@@ -15,8 +13,6 @@ class AdminLoginTest < ActionDispatch::IntegrationTest
     assert admin_is_logged_in?
   end
   test "login with invalid credential" do
-    admin = Administrator.new({administratorname: "liujianlong", password: "123456", password_confirmation: "123456"})
-    admin.save
     get admin_new_url
     assert_response :success
     assert_not admin_is_logged_in?
