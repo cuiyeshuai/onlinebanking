@@ -6,7 +6,7 @@ one:
 
 two:
   administratorname: lixin
-  password_digest: Administrator.digest("123456")
-  second_password_digest: Administrator.digest("123456")
+  password_digest: <%=Administrator.digest("123456")%>
+  second_password_digest: <%=Administrator.digest("123456")%>
   second_password_enabled: true
   id: 2
