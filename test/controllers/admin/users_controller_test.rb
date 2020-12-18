@@ -24,10 +24,9 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
-    admin = administrators(:one)
-    log_in_as_admin(admin, "123456")
+    log_in_as_admin("liujianlong", "123456")
     assert_difference('User.count', 1) do
-      post admin_users_url, params: {user: {username: "ahmed", first_name: "patricia", last_name: "pickles", password: "123456", password_confirmation: "123456", gender: 1, date_of_birth: 1990-01-01, phone_number: "090078601", address: "Mohatta P"}}
+      post admin_users_url, params: {user: {username: "ahmed", first_name: "patricia", last_name: "pickles", password: "123456", password_confirmation: "123456", gender: 1, date_of_birth: DateTime.current(), phone_number: "090078601", address: "Mohatta P"}}
     end
     assert_response :success
   end
@@ -44,8 +43,7 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should delete user" do
-    admin = administrators(:one)
-    log_in_as_admin(admin, "123456")
+    log_in_as_admin("liujianlong", "123456")
     user = users(:user1)
     assert_difference('User.count', -1) do
       delete admin_user_url(user)
