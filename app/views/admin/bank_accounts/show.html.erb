@@ -31,7 +31,7 @@
         <th scope="col"> Date</th>
         <th scope="col"> Currency</th>
         <th scope="col"> Amount</th>
-        <th scope="col"> Recipient name</th>
+        <th scope="col"> Remitter</th>
         <th scope="col"> Recipient</th>
         <th scope="col"> Reference</th>
     </tr>
@@ -40,10 +40,10 @@
     <% @transactions.each do |transaction|%>
     <tr>
         <th scope="row"> <%= @transactions.find_index(transaction) + 1%></th>
-        <td > <%= transaction.date%></td>
+        <td > <%= transaction.created_at%></td>
         <td > <%= transaction.currency%></td>
         <td > <%= transaction.amount%></td>
-        <td > <%= transaction.recipient_name%></td>
+        <td > <%= transaction.remitter%></td>
         <td > <%= transaction.recipient%></td>
         <td > <%= transaction.reference%></td>
         <td > <%= link_to "Show transaction", admin_transaction_path(transaction.id), class: "btn btn-primary"%></td>
