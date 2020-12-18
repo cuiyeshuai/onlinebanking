@@ -5,7 +5,6 @@ class TransactionsController < UserController
   def index
     # To do show all transaction for current user
     @bankAccounts = current_user.bank_accounts
-
     @transactions = []
     @bankAccounts.each do |acc|
       @transactions += acc.transactions
