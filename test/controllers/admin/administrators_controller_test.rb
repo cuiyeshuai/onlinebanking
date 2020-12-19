@@ -1,13 +1,24 @@
 require 'test_helper'
 
 class Admin::AdministratorsControllerTest < ActionDispatch::IntegrationTest
+  test "should get index" do
+    get "/admin/administrators"
+    assert_response :success
+  end
+
+
+  test "should get new" do
+    get "/admin/administrators/new"
+  end
+
   test "should get admin root path" do
     get admin_root_path
     assert_response :success
   end
 
   test "should get delete admin administrator" do
-    get delete_admin_administrator_path
+    admin = administrators(:one)
+    get delete_admin_administrator_path(admin)
     assert_response :success
   end
 
@@ -27,27 +38,22 @@ class Admin::AdministratorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get create" do
-    get admin_administrators_create_url
+    post admin_administrators_url, params: {administrator: {administratorname: "John", password_digest: "password"}}
     assert_response :success
   end
-  
+
   test "should get edit" do
-    get admin_administrators_edit_url
+    get "/admin/administrators/1/edit"
     assert_response :success
   end
 
   test "should get update" do
-    get admin_administrators_update_url
-    assert_response :success
-  end
-
-  test "should get delete" do
-    get admin_administrators_delete_url
+    patch "/admin/administrators/1"
     assert_response :success
   end
 
   test "should get destroy" do
-    get admin_administrators_destroy_url
+    delete "/admin/administrators/1"
     assert_response :success
   end
 
