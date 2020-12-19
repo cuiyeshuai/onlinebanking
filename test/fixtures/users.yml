@@ -1,21 +1,23 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  username: MyString1
+user1:
+  username: mystring1
   first_name: MyString
   last_name: MyString
-  password_digest: "$2a$12$QQWIIPONC.Q2kKY/q6rEFeuFTkVWac/sfzn8I0xDTw8H2DmwvQbFG"
+  password_digest: <%= User.digest("password") %>
   gender: 1
   date_of_birth: 2020-11-17
   phone_number: MyString
   address: MyString
+  id: 1
 
-two:
-  username: MyString2
+user2:
+  username: mystring2
   first_name: MyString
   last_name: MyString
-  password_digest: "$2a$12$QQWIIPONC.Q2kKY/q6rEFeuFTkVWac/sfzn8I0xDTw8H2DmwvQbFG"
+  password_digest: <%= User.digest("123456") %>
   gender: 1
   date_of_birth: 2020-11-17
   phone_number: MyString
   address: MyString
+  id: 2
