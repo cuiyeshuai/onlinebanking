@@ -11,6 +11,7 @@
       <th scope="col">First name </th>
       <th scope="col">Last name </th>
       <th scope="col">Gender </th>
+      <th scope="col">Last logged in in </th>
     </tr>
     </thead>
     <tbody>
@@ -21,6 +22,7 @@
       <td ><%= user.first_name %></td>
       <td ><%= user.last_name %></td>
       <td ><%= @gender[user.gender] %></td>
+      <td ><%= user.last_logged_in_location %></td>
       <td ><%= link_to("Manage", admin_user_path(user)) %></td>
       <td ><%= link_to("Delete", delete_admin_user_path(user)) %></td>
     </tr>

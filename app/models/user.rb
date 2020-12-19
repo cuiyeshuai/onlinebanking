@@ -4,7 +4,7 @@ class User < ApplicationRecord
                          length: { minimum: 4, maximum: 30},
                          uniqueness: {case_sensitive: false}
     validates :password, presence: true,
-                         length: { minimum: 6}
+                         length: { minimum: 6}, :if => :password
     before_save :downcase_username
 
     private
