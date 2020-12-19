@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+   <%= favicon_link_tag %>
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -31,7 +32,6 @@
     <a class="navbar-brand p-0" href="/">
     <img src="<%= image_path("logo.PNG") %>" class="logo"  href="/">
     </a>
-    <p class="mt-20">QUAIL BANK</p>
     <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
     <div class="navbar-nav ml-auto float-right">
 
