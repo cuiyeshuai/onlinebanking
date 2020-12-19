@@ -28,6 +28,7 @@ module SessionsHelper
 
   def log_out
     session.delete(:user_id)
+    session.delete(:last_logged_in_location)
   end
 
 end
