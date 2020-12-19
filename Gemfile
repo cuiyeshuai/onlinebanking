@@ -37,6 +37,10 @@ gem "rails-controller-testing"
 gem 'faker'
 gem 'populator'
 
+# For using API from other websites
+gem 'httparty'
+gem 'figaro'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

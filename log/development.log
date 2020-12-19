@@ -37350,3 +37350,1702 @@ Processing by Admin::TransactionsController#show as HTML
 Completed 200 OK in 23ms (Views: 17.4ms | ActiveRecord: 3.2ms | Allocations: 10593)
 
 
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3341651547447395700)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddLastLoggedInLocationColumnToUsers (20201219174854)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (13.9ms)[0m  [1m[35mALTER TABLE "users" ADD "last_logged_in_location" character varying DEFAULT ' -- -- '[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20201219174854"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3341651547447395700)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2020-12-20 02:14:51 +0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#showWelcome as HTML
+  Rendering pages/welcomepage.html.erb within layouts/application
+  Rendered pages/welcomepage.html.erb within layouts/application (Duration: 256.4ms | Allocations: 19963)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 310ms (Views: 298.3ms | ActiveRecord: 0.0ms | Allocations: 32750)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:14:58 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 2.0ms | Allocations: 638)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 42ms (Views: 40.1ms | ActiveRecord: 0.0ms | Allocations: 9100)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:15:04 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"N3m7B6F7/aIZPxagEq2c9Ubwbx+OLBxFtv3YZDDANqJb5WZR2M2k7NYuNlXwIVSWFo+MBJeEnx5Ku8Im795rnA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 938ms (ActiveRecord: 12.6ms | Allocations: 12035)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:15:05 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  [1m[36mBankAccount Load (1.6ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (1.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1824)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.9ms | Allocations: 231)
+Completed 200 OK in 60ms (Views: 15.1ms | ActiveRecord: 8.6ms | Allocations: 32332)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:16:09 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qQsXs5fhJLTdN97NZjjgaeUKe9NaXpRYSw25wfI5RTGDY44Ioiem12G1/jwTSRYIvttXyKMLD+XE5ZPCwIDbIQ=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 325)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:16:09 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1103)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.8ms | ActiveRecord: 0.0ms | Allocations: 9163)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:16:14 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"verUj7uMw/B46MMy9BkMKSsaXLdQGHhqun4ejHqvRj2Xgk00jkpBk8Rq48OBaPpIcMtwrKlN49c1ljSPSBbYLQ==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 926ms (ActiveRecord: 7.1ms | Allocations: 10573)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:16:15 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 3.5ms | Allocations: 1425)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 61ms (Views: 22.9ms | ActiveRecord: 6.3ms | Allocations: 28421)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:21:17 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"PKVUsB5rCTfJ2gSx1UfvfM6Js+YOSlVmxajGtlxXgp4Wzc0LK62LVHVYJECgNhkdlVif/fcfzttKQOy1bu4cjg=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 336)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:21:17 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.7ms | ActiveRecord: 0.0ms | Allocations: 9257)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:21:22 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"LKgLhh9zv7SVupS5tot8bzXS3Ijm9RvI/qYdP1wHjHgGwJI9KrU91yk4tEjD+ooObgPwkx+ggHVxTjc8br4SaA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 900ms (ActiveRecord: 5.0ms | Allocations: 10628)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:21:23 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1425)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 46ms (Views: 13.5ms | ActiveRecord: 5.5ms | Allocations: 28404)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:30:48 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pZdeRf9wP6OYAeGlM2NkiOMhKrR2cZpp4FTv5k6zaGCP/8f+yra9wCSDwVRGEpLpuPAGr48kAdRvvMXlfAr2cA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms | Allocations: 336)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:30:48 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1101)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 21.7ms | ActiveRecord: 0.0ms | Allocations: 9346)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:30:53 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"SGMcKpPUiv1pKCpyWpmQLHUDmUWbDsitKgHZvQatkYFiC4WRphIIntWqCoMv6GZNLtK1XmJbUxCl6fO+NBQPkQ==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 902ms (ActiveRecord: 1.4ms | Allocations: 10503)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:30:54 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `current_user'
+  [1m[36mBankAccount Load (0.7ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (1.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.6ms | Allocations: 75)
+Completed 200 OK in 91ms (Views: 32.7ms | ActiveRecord: 6.2ms | Allocations: 28090)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:34:36 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3QnyWiOiV7tFHFCbmdFA6HJPUgkBul4V1w9S3UFxb8v3YWvhFmTV2PmecGrsoLaJKZ5+EvjvxahY53jec8jx2w=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 338)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:34:36 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 9331)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:34:44 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"UHMbdpNA0/SvO53/3NWSr+50K51M3Xv5ii83VARb0Vp6G4LNpoZRlxO5vQ6ppGTOtaUHhrWI4EQFxx1XNuJPSg==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Completed 500 Internal Server Error in 895ms (ActiveRecord: 9.7ms | Allocations: 12276)
+
+
+  
+NoMethodError (undefined method `ip' for #<String:0x00007f1ba816ad08>):
+  
+app/helpers/sessions_helper.rb:10:in `log_in'
+app/controllers/sessions_controller.rb:8:in `verification'
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:35:01 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"UHMbdpNA0/SvO53/3NWSr+50K51M3Xv5ii83VARb0Vp6G4LNpoZRlxO5vQ6ppGTOtaUHhrWI4EQFxx1XNuJPSg==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Completed 500 Internal Server Error in 1308ms (ActiveRecord: 2.9ms | Allocations: 11219)
+
+
+  
+TypeError (no implicit conversion of Symbol into Integer):
+  
+app/helpers/sessions_helper.rb:10:in `[]'
+app/helpers/sessions_helper.rb:10:in `log_in'
+app/controllers/sessions_controller.rb:8:in `verification'
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:35:53 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"UHMbdpNA0/SvO53/3NWSr+50K51M3Xv5ii83VARb0Vp6G4LNpoZRlxO5vQ6ppGTOtaUHhrWI4EQFxx1XNuJPSg==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 1285ms (ActiveRecord: 2.7ms | Allocations: 10779)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:35:54 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:16:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:16:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1426)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:16:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:16:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 49ms (Views: 12.2ms | ActiveRecord: 5.9ms | Allocations: 28586)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:36:31 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"fIfvWIQelq3tsvqTFYRY/2ENLG+4j+Z/6I3z6NBO+h1W73bjsdgUzlEw2mJg9a6eOtwAdEHafcJnZdnr4vdkDQ=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 338)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:36:31 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.0ms | Allocations: 9173)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:36:39 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"8pyW9DaazV/vPbzmU9KLN5zeiS+I2SC70rfyzCGHw6LY9A9PA1xPPFO/nBcmo31Wxw+lNHGMuwZdX9jPEz5dsg==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 1139ms (ActiveRecord: 0.4ms | Allocations: 3170)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:36:40 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:16:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:16:in `current_user'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:16:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:16:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 74)
+Completed 200 OK in 26ms (Views: 12.8ms | ActiveRecord: 2.7ms | Allocations: 17411)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:37:02 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"IqVBg2YKAEVLYBLN2zF8gdhBt5HKIGNtt8Cw/Z88sYUIzdg4U8yCJvfiMjyuQIrgg5CbijN1+NA4KJr+rYUvlQ=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 344)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:37:02 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.9ms | ActiveRecord: 0.0ms | Allocations: 9366)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:37:09 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"9EQqmgPld/jDaDJZj8t6hhyPScNudPmuufeUbI7n0A7eLLMhNiP1m3/qEqj6uoznR15l2JchYhM2H75vvF5OHg==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 909ms (ActiveRecord: 4.2ms | Allocations: 10834)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:37:10 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 46ms (Views: 13.0ms | ActiveRecord: 6.3ms | Allocations: 28511)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:37:51 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"WJbBifIRqsxWOgo2+x2oryfOQPCnusy73RcFRdrWxSxy/lgyx9cor+q4KseObF7OfB9s617vVwZS/y9G6G9bPA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:37:51 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 9359)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:37:55 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"0wd4VUCaknHpaMbPti508dnyve38294DV7LCnWJ0bEH5b+HudVwQElXq5j7DX4KQgiOR9gWORb7YWuieUM3yUQ==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 1151ms (ActiveRecord: 5.0ms | Allocations: 10891)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:37:56 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:17:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 49ms (Views: 13.3ms | ActiveRecord: 6.6ms | Allocations: 28511)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:42:54 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"S//R2zDLuG1hehRlEwnS/OpAjX6ZAKASaukk5YGUBlFhl0hgBQ06Dt34NJRmeCSdsZGhZWBVO6/lAQ7msy2YQQ=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 338)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:42:54 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 9363)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:42:58 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"Q+jvuASfGmayFpsPPPs9pxY9e5T1Laoh8tLqeG9eUtBpgHYDMVmYBQ6Uu/5JisvGTexXjwx4MZx9OsB7XefMwA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Completed 500 Internal Server Error in 674ms (ActiveRecord: 4.1ms | Allocations: 11391)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/helpers/sessions_helper.rb:12:in `+'
+app/helpers/sessions_helper.rb:12:in `log_in'
+app/controllers/sessions_controller.rb:8:in `verification'
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:44:06 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"Q+jvuASfGmayFpsPPPs9pxY9e5T1Laoh8tLqeG9eUtBpgHYDMVmYBQ6Uu/5JisvGTexXjwx4MZx9OsB7XefMwA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Completed 500 Internal Server Error in 898ms (ActiveRecord: 3.5ms | Allocations: 11337)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/helpers/sessions_helper.rb:12:in `+'
+app/helpers/sessions_helper.rb:12:in `log_in'
+app/controllers/sessions_controller.rb:8:in `verification'
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:44:43 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"Q+jvuASfGmayFpsPPPs9pxY9e5T1Laoh8tLqeG9eUtBpgHYDMVmYBQ6Uu/5JisvGTexXjwx4MZx9OsB7XefMwA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Completed 500 Internal Server Error in 894ms (ActiveRecord: 3.4ms | Allocations: 11418)
+
+
+  
+TypeError (no implicit conversion of nil into String):
+  
+app/helpers/sessions_helper.rb:12:in `+'
+app/helpers/sessions_helper.rb:12:in `log_in'
+app/controllers/sessions_controller.rb:8:in `verification'
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:45:28 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"Q+jvuASfGmayFpsPPPs9pxY9e5T1Laoh8tLqeG9eUtBpgHYDMVmYBQ6Uu/5JisvGTexXjwx4MZx9OsB7XefMwA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 1137ms (ActiveRecord: 10.4ms | Allocations: 219810)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:45:29 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:18:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:18:in `current_user'
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:18:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:18:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 84ms (Views: 23.7ms | ActiveRecord: 11.9ms | Allocations: 28589)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:45:35 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"9OM2YYk64Oo1hBIGeAkkoTecwYMymVjymJznzI3T2UTei6/avPxiiYkGMvcNeNLAbE3tmMvMw08XdM3Pv2pHVA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 334)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:45:35 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 9163)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:45:39 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"D3c8MP3YYmXGrK8qmSFgpLUgPKBoUE7dp0OdZwwDl+YlH6WLyB7gBnouj9vsUJbF7vEQu5EF1WAoq7dkProJ9g==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 900ms (ActiveRecord: 0.8ms | Allocations: 7117)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:45:40 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:18:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:18:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:18:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:18:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 74)
+Completed 200 OK in 22ms (Views: 11.1ms | ActiveRecord: 2.1ms | Allocations: 17417)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:46:27 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"7eAlw9G1bfchKbHn5Iq4+qPnzgynZry1XWxRAWkw4MfHiLx45HPvlJ2rkRaR+06b+DbiF14zJwjShHsCW4l+1w=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 330)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:46:27 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.0ms | Allocations: 9159)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:46:31 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"FwkZMHAB9rKjcElEmy7RwLE9OGerIMbUIP8eBGlBZcs9YYCLRcd00R/yabXuXyeh6uwUfFJ1XWmvFzQHW/j72w==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 931ms (ActiveRecord: 4.1ms | Allocations: 14934)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:46:32 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 54ms (Views: 21.2ms | ActiveRecord: 6.0ms | Allocations: 28320)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:47:50 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"/pIJEycbz9RD61+KpKjbsbv6uMjWp/HUOox69n+U/TzU+pCoEt1Nt/9pf3vR2S3Q4CuU0y/yamm1ZFD1TS1jLA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 334)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:47:50 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.0ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.7ms | ActiveRecord: 0.0ms | Allocations: 9151)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:47:55 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"vCT7M/HqRG1lnQfebAU74hfaBD+9o/i7ltWavoeUPN6WTGKIxCzGDtkfJy8ZdM2DTAsoJET2YwYZPbC9tS2izg==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 902ms (ActiveRecord: 4.2ms | Allocations: 15362)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:47:56 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 40ms (Views: 12.0ms | ActiveRecord: 5.1ms | Allocations: 28337)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:48:20 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VcYT4GYYR/2HTYTtSh+IYIUUkdTbH1GmVLNrhQMpdhZ/ropbU97FnjvPpBw/bn4B3sW9zyJKyhvbW0GGMZDoBg=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 321)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:48:20 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.5ms | Allocations: 332)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.4ms | ActiveRecord: 0.0ms | Allocations: 8217)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:48:25 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"CegzNDuMm8YlM06gGjqjqV3XJ4cx0LU0V0g71KgWPYQjgKqPDkoZpZmxblFvS1XIBgYLnMiFLonYoBHXmq+jlA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 928ms (ActiveRecord: 1.0ms | Allocations: 7506)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:48:26 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (1.9ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 74)
+Completed 200 OK in 38ms (Views: 16.4ms | ActiveRecord: 4.8ms | Allocations: 17418)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:50:25 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"D/mb4RAgBOxMJuD2wJXujrRYbdHoE+Ad8S6qHc5yBB0lkQJaJeaGj/CkwAe15Bjv74lByhFGe6B+xoAe/MuaDQ=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 322)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:50:25 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 9.3ms | ActiveRecord: 0.0ms | Allocations: 9371)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:50:29 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"Nb4TkJI9EhKyIhcVDY5vTVs7EMvstoB6QjN/PG4XDLMf1oorp/uQcQ6gN+R4/5ksAOo80BXjG8fN21U/XK6Sow==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (1.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[35m (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 1047ms (ActiveRecord: 5.3ms | Allocations: 16072)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:50:30 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 45ms (Views: 12.9ms | ActiveRecord: 5.6ms | Allocations: 28209)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:50:33 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"ki0sRiVRhXfN6tktCe4uFBhphhOc2/3xJuPYbQBRmTS4RbX9EJcHFHFo+dx8n9h1Q7iqCGWOZkypC/JuMugHJA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 327)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:50:33 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.7ms | Allocations: 332)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 8213)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:50:37 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"YIkdx3H1PaZoNzgxclGEnQ7TB2XxYyW3uq4JjG/AbnhK4YR8RDO/xdS1GMAHIHL8VQIrfgg2vgo1RiOPXXnwaA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+  [1m[36mUser Exists? (1.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/helpers/sessions_helper.rb:12:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 949ms (ActiveRecord: 2.4ms | Allocations: 8115)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:50:38 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (2.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (1.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 7.7ms | Allocations: 1407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:19:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 74)
+Completed 200 OK in 58ms (Views: 25.7ms | ActiveRecord: 6.9ms | Allocations: 17417)
+
+
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:53:14 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"1ct/BD/YMw5IafCbwLT7lM9lv3ZqX6aXpc25/OgWCpP/o+a/Ch6xbfTr0Gq1xQ31lLSTbZMKPSoqJZP/2q+Ugw=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 5ms (ActiveRecord: 0.0ms | Allocations: 344)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:53:14 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 20ms (Views: 19.5ms | ActiveRecord: 0.0ms | Allocations: 9371)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:53:19 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"IWFHL4fbcMMwT1AD8wcn4dZkmzCnxCDKVEk17lYPBIALCd6Ush3yoIzNcPKGdtGAjbW3K16Ru3fboR/tZLaakA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 922ms (ActiveRecord: 6.1ms | Allocations: 16032)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:53:20 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 52ms (Views: 13.1ms | ActiveRecord: 8.2ms | Allocations: 28516)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:55:32 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"uwHHSo8iTWa0wkpak6ibc6D+RVFsPAcqUSq9vVj9tASRaV7xuuTPBQhAaqvm2W0S+y9pSpVpnJfewpe+akQqFA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 340)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:55:32 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.0ms | Allocations: 9171)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:55:37 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"2kc8PLHqGmZjtTYqvrdXP4YZtlnvsxN10p79EV7s++PwL6WHhCyYBd83FtvLxqFe3ciaQhbmiMhddtcSbFVl8w==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[36mUser Update (6.7ms)[0m  [1m[33mUPDATE "users" SET "last_logged_in_location" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["last_logged_in_location", "Singapore -- Singapore"], ["updated_at", "2020-12-19 18:55:38.507140"], ["id", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[35m (1.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 944ms (ActiveRecord: 13.8ms | Allocations: 15897)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:55:38 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 48ms (Views: 18.1ms | ActiveRecord: 5.8ms | Allocations: 28330)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:57:47 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"VwxyWhOt3jPOed2wCEqtXCAw+p9QPq4J78dDgAnGbHJ9ZOvhJmtcUHL7/UF9O1s9e+HWhKlrNbRgL2mDO3/yYg=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:57:47 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.6ms | Allocations: 332)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 0.0ms | Allocations: 8413)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:57:51 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"m6GLPw1Fz+3NNyInhLZvsbKgGpI7/dsOoaTatX3cw/mxyRKEOINNjnG1Atbxx5nQ6XE2icKoQLMuTPC2T2Vd6Q==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 1068ms (ActiveRecord: 1.6ms | Allocations: 6990)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:57:52 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.6ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.8ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.2ms | Allocations: 74)
+Completed 200 OK in 42ms (Views: 19.3ms | ActiveRecord: 4.5ms | Allocations: 17407)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:58:49 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"e5H3G8n8bEBhKWF80AltuSs1du0CTIRH+5eb7xzv7oJR+W6g/DruI92rQY2leJvYcORa9vsZH/p0f7HsLlZwkg=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 348)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:58:50 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.3ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 9257)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:58:55 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"M2p6EGn0wu9R7WT4Zs6N8DJz4s0yxnk0eRXeaICooXMZAuOrXDJAjO1vRAkTv3uRaaLO1suT4on2/fRrshE/Yw==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (2.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 933ms (ActiveRecord: 6.5ms | Allocations: 15011)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:58:55 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 45ms (Views: 13.2ms | ActiveRecord: 5.8ms | Allocations: 28336)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 02:59:23 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"G1vD0El11OHKpenhocZbpe0k8M+0pI+tolgaSONTv0AxM1prfLNWgnYnyRDUt63EtvXc1E3xFBAtsDBL0eohUA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 333)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 02:59:23 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.6ms | Allocations: 332)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 18.1ms | ActiveRecord: 0.0ms | Allocations: 8318)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 02:59:28 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"PVRrvUUkTjWFfuYfAUp37huZtyNij7WHcN0eX0RtzwEXPPIGcOLMVjn8xu50O4GPQEibOJvaLjr/NTRcdtRREQ==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 955ms (ActiveRecord: 1.3ms | Allocations: 6968)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 02:59:29 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 74)
+Completed 200 OK in 24ms (Views: 12.2ms | ActiveRecord: 2.5ms | Allocations: 17608)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 03:00:44 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (1.1ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1424)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 96ms (Views: 19.7ms | ActiveRecord: 11.8ms | Allocations: 35938)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 03:00:45 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"3xRaeDA2x4UBRlNTCpgKm7g53YbO7RV17hTUKPecn9H1fMPDBfBF5r3Ec6J/6fz64+jxnTe4jshh/P4rxSUBwQ=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 337)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 03:00:45 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.2ms | Allocations: 1100)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.0ms | Allocations: 9153)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 03:00:49 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"6jz2cnphzIcKnHK3Jm8dCjU8Yxjn/nfouPsLzW/YscfAVG/JT6dO5LYeUkZTHutrbu1PAx6r7FU3EyHOXWEv1w==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[36mUser Exists? (0.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "last_logged_in_location" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["last_logged_in_location", "Kaifeng -- China"], ["updated_at", "2020-12-19 19:00:50.638649"], ["id", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[35m (0.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 766ms (ActiveRecord: 2.4ms | Allocations: 8094)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 03:00:50 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 74)
+Completed 200 OK in 35ms (Views: 13.4ms | ActiveRecord: 2.5ms | Allocations: 17623)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 03:00:52 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"k13HHcgMuHpsIbeMEuF5TIHza/AkW4IUf7wgSCyO6+e5NV6m/co6GdCjl31nkI8t2iJH690OGanwVApLHjd19w=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 327)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 03:00:52 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 0.5ms | Allocations: 332)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 0.0ms | Allocations: 8230)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-20 03:00:56 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"y1YNzCXhYNJftC4QMj7lbzb/6fdWGfzLvLDxenfaJTjhPpR3ECfiseM2DuFHTxMObS7F7K9MZ3YzWNt5RWO7KA==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:13:in `log_in'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE LOWER("users"."username") = LOWER($1) AND "users"."id" != $2 LIMIT $3[0m  [["username", "jiaqing"], ["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/helpers/sessions_helper.rb:14:in `log_in'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 789ms (ActiveRecord: 1.2ms | Allocations: 6798)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 03:00:57 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.6ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1407)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 74)
+Completed 200 OK in 23ms (Views: 11.9ms | ActiveRecord: 2.6ms | Allocations: 17610)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 03:02:03 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (3.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.7ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1800)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 1.2ms | Allocations: 225)
+Completed 200 OK in 37ms (Views: 21.2ms | ActiveRecord: 6.2ms | Allocations: 19789)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-20 03:02:22 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:11:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:12:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1793)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:21:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.4ms | Allocations: 225)
+Completed 200 OK in 33ms (Views: 19.3ms | ActiveRecord: 2.6ms | Allocations: 19876)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2020-12-20 03:02:50 +0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"HZQA1JxtAbbS6DkdDDS4ANAreYYiKVLmIRkFGSHq7yw3/JlvqauD1W5qGex5RU5hi/pVndt8yVuu8S8aE1NxPA=="}
+Redirected to http://localhost:3000/login
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 337)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-20 03:02:50 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.8ms | Allocations: 597)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 18ms (Views: 17.4ms | ActiveRecord: 0.0ms | Allocations: 9165)
+
+
+Started GET "/admin" for 127.0.0.1 at 2020-12-20 03:02:54 +0800
+Processing by Admin::SessionsController#new as HTML
+  Rendering admin/sessions/new.html.erb within layouts/application
+  Rendered admin/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 513)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 14.2ms | ActiveRecord: 0.0ms | Allocations: 8922)
+
+
+Started POST "/admin/new" for 127.0.0.1 at 2020-12-20 03:02:58 +0800
+Processing by Admin::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"ocH7IEQyMQ0g824oV74HoZmoMrd7o37f85QUc1YiGkGLqWKbcfSzbpxxTtkiz/HAwnkerIL25WJ8fD5wZJuEUQ==", "administratorname"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mAdministrator Load (1.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."administratorname" = $1 LIMIT $2[0m  [["administratorname", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/admin/sessions_controller.rb:11:in `create'
+Redirected to http://localhost:3000/admin/dashboard
+Completed 302 Found in 222ms (ActiveRecord: 3.7ms | Allocations: 5513)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-20 03:02:58 +0800
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 0.2ms | Allocations: 69)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 1.1ms | Allocations: 271)
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.8ms | Allocations: 12114)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-20 03:03:00 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:17
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 3.0ms | Allocations: 1286)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.1ms | Allocations: 106)
+Completed 200 OK in 18ms (Views: 14.6ms | ActiveRecord: 1.4ms | Allocations: 11133)
+
+
+Started GET "/admin/users/1" for 127.0.0.1 at 2020-12-20 03:03:03 +0800
+Processing by Admin::UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/admin/users_controller.rb:9:in `show'
+  Rendering admin/users/show.html.erb within layouts/admin
+  [1m[36mBankAccount Load (0.1ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/admin/users/show.html.erb:44
+  Rendered admin/users/show.html.erb within layouts/admin (Duration: 2.8ms | Allocations: 1614)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.2ms | Allocations: 105)
+Completed 200 OK in 17ms (Views: 14.3ms | ActiveRecord: 0.6ms | Allocations: 11890)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-20 03:03:08 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:17
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 2.0ms | Allocations: 990)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.5ms | Allocations: 102)
+Completed 200 OK in 31ms (Views: 28.8ms | ActiveRecord: 0.7ms | Allocations: 10720)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-20 03:04:30 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:18
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 2.1ms | Allocations: 1293)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.4ms | Allocations: 251)
+Completed 200 OK in 17ms (Views: 14.8ms | ActiveRecord: 0.6ms | Allocations: 11941)
+
+
+Started GET "/admin/users" for 127.0.0.1 at 2020-12-20 03:05:01 +0800
+Processing by Admin::UsersController#index as HTML
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/index.html.erb within layouts/admin
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY id ASC[0m
+  ↳ app/views/admin/users/index.html.erb:18
+  Rendered admin/users/index.html.erb within layouts/admin (Duration: 1.8ms | Allocations: 999)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.2ms | Allocations: 102)
+Completed 200 OK in 15ms (Views: 12.8ms | ActiveRecord: 0.6ms | Allocations: 10552)
+
+
+Started GET "/admin/dashboard" for 127.0.0.1 at 2020-12-20 03:05:02 +0800
+Processing by Admin::DashboardController#index as HTML
+  [1m[36mAdministrator Load (0.2ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/dashboard/index.html.erb within layouts/admin
+  Rendered admin/dashboard/index.html.erb within layouts/admin (Duration: 0.2ms | Allocations: 65)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.5ms | Allocations: 118)
+Completed 200 OK in 18ms (Views: 14.5ms | ActiveRecord: 0.3ms | Allocations: 10944)
+
+
