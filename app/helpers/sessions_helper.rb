@@ -11,7 +11,7 @@ module SessionsHelper
     puts (response)
 
     curr_user = User.find(user.id)
-    curr_user.update({last_logged_in_location:response["city"]+" -- " + response["country_name"]})
+    curr_user.update({last_logged_in_location:response["city"]+", " + response["country_name"]})
 
 
   end
