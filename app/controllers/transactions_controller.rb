@@ -21,6 +21,7 @@ class TransactionsController < UserController
   def new
     @transaction = Transaction.new
     @bank = session[:current_bank_account_id]
+    @bankAccount = BankAccount.find(@bank)
     @transaction.currency = BankAccount.find(@bank).currency
   end
 
