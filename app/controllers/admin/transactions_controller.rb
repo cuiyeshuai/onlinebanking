@@ -11,6 +11,7 @@ class Admin::TransactionsController < Admin::AdminController
   end
 
   def new
+    @transaction = Transaction.new
   end
 
   def create
@@ -22,14 +23,28 @@ class Admin::TransactionsController < Admin::AdminController
   end
 
   def edit
+    @transaction = Transaction.find(params[:id])
   end
 
   def update
+    @transaction = Transaction.find(params[:id])
+    if @transaction.update
+      redirect_to(admin_transaction_path(@transaction))
+    else
+      render('edit')
+    end
   end
 
   def delete
+    @transaction = Transaction.find(params[:id])
   end
 
   def destroy
+    @transaction = Transaction.find(params[:id])
+    if @transaction.destroy
+      redirect_to(admin_transactions_path)
+    else
+      render('delete')
+    end
   end
 end
