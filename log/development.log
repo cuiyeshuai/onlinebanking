@@ -34269,3 +34269,250 @@ Processing by Admin::UsersController#new as HTML
 Completed 200 OK in 251ms (Views: 249.3ms | ActiveRecord: 0.4ms | Allocations: 220076)
 
 
+Started GET "/admin/users/new" for 127.0.0.1 at 2020-12-19 08:14:05 +0800
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::UsersController#new as HTML
+  [1m[36mAdministrator Load (1.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/users/new.html.erb within layouts/admin
+  Rendered admin/users/new.html.erb within layouts/admin (Duration: 153.5ms | Allocations: 210784)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.6ms | Allocations: 260)
+Completed 200 OK in 277ms (Views: 227.6ms | ActiveRecord: 17.2ms | Allocations: 244894)
+
+
+Started GET "/admin/bank_accounts" for 127.0.0.1 at 2020-12-19 08:14:08 +0800
+Processing by Admin::BankAccountsController#index as HTML
+  [1m[36mAdministrator Load (0.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/bank_accounts/index.html.erb within layouts/admin
+  [1m[36mBankAccount Load (2.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" ORDER BY bank_accounts.account_id ASC[0m
+  ↳ app/views/admin/bank_accounts/index.html.erb:15
+  Rendered admin/bank_accounts/index.html.erb within layouts/admin (Duration: 14.2ms | Allocations: 6522)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.2ms | Allocations: 106)
+Completed 200 OK in 31ms (Views: 22.4ms | ActiveRecord: 3.3ms | Allocations: 16693)
+
+
+Started GET "/admin/bank_accounts/62179215" for 127.0.0.1 at 2020-12-19 08:14:10 +0800
+Processing by Admin::BankAccountsController#show as HTML
+  Parameters: {"id"=>"62179215"}
+  [1m[36mAdministrator Load (0.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179215], ["LIMIT", 1]]
+  ↳ app/controllers/admin/bank_accounts_controller.rb:8:in `show'
+  Rendering admin/bank_accounts/show.html.erb within layouts/admin
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/admin/bank_accounts/show.html.erb:18
+  [1m[36mTransaction Load (2.1ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/views/admin/bank_accounts/show.html.erb:40
+  Rendered admin/bank_accounts/show.html.erb within layouts/admin (Duration: 27.0ms | Allocations: 10309)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:35
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.2ms | Allocations: 105)
+Completed 200 OK in 47ms (Views: 32.5ms | ActiveRecord: 5.8ms | Allocations: 20539)
+
+
+Started GET "/admin/logout" for 127.0.0.1 at 2020-12-19 08:14:13 +0800
+Processing by Admin::SessionsController#destroy as HTML
+Redirected to http://localhost:3000/admin/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms | Allocations: 337)
+
+
+Started GET "/admin/" for 127.0.0.1 at 2020-12-19 08:14:13 +0800
+Processing by Admin::SessionsController#new as HTML
+  Rendering admin/sessions/new.html.erb within layouts/application
+  Rendered admin/sessions/new.html.erb within layouts/application (Duration: 1.3ms | Allocations: 522)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.7ms | ActiveRecord: 0.0ms | Allocations: 9399)
+
+
+Started GET "/login" for 127.0.0.1 at 2020-12-19 08:14:15 +0800
+Processing by SessionsController#login as HTML
+  Rendering sessions/login.html.erb within layouts/application
+  Rendered sessions/login.html.erb within layouts/application (Duration: 1.6ms | Allocations: 615)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 8807)
+
+
+Started POST "/login" for 127.0.0.1 at 2020-12-19 08:14:19 +0800
+Processing by SessionsController#verification as HTML
+  Parameters: {"authenticity_token"=>"twegrZ40//NGLShiZ8KtozJ++x4flT/2eyQzoTAR0gg6amZjn3GQts7jJdOHwabkCUKhm+fwBwUgZenc43bFMg==", "username"=>"jiaqing", "password"=>"[FILTERED]", "commit"=>"Login"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "jiaqing"], ["LIMIT", 1]]
+  ↳ app/controllers/sessions_controller.rb:6:in `verification'
+Redirected to http://localhost:3000/dashboard
+Completed 302 Found in 209ms (ActiveRecord: 0.3ms | Allocations: 1081)
+
+
+Started GET "/dashboard" for 127.0.0.1 at 2020-12-19 08:14:19 +0800
+Processing by LPageController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/l_page_controller.rb:9:in `index'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/l_page_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/l_page_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/l_page_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/l_page_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.2ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/l_page_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/l_page_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/l_page_controller.rb:10:in `+'
+  Rendering l_page/index.html.erb within layouts/application
+  Rendered l_page/index.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1791)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 1.2ms | Allocations: 231)
+Completed 200 OK in 34ms (Views: 17.7ms | ActiveRecord: 2.2ms | Allocations: 19849)
+
+
+Started GET "/bank_accounts/62179218" for 127.0.0.1 at 2020-12-19 08:14:29 +0800
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"62179218"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179218], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:8:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/views/bank_accounts/show.html.erb:48
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 4.9ms | Allocations: 1102)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 35ms (Views: 25.6ms | ActiveRecord: 1.0ms | Allocations: 11609)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-19 08:14:31 +0800
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179218], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:24:in `new'
+  [1m[36mCACHE BankAccount Load (0.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179218], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:25:in `new'
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 4.6ms | Allocations: 1924)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 23ms (Views: 19.4ms | ActiveRecord: 0.5ms | Allocations: 12731)
+
+
+Started GET "/transactions" for 127.0.0.1 at 2020-12-19 08:15:04 +0800
+Processing by TransactionsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/controllers/transactions_controller.rb:9:in `index'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179218 or recipient_account = 62179218)[0m
+  ↳ app/controllers/transactions_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179217 or recipient_account = 62179217)[0m
+  ↳ app/controllers/transactions_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179214 or recipient_account = 62179214)[0m
+  ↳ app/controllers/transactions_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.4ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179216 or recipient_account = 62179216)[0m
+  ↳ app/controllers/transactions_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/controllers/transactions_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 17336930 or recipient_account = 17336930)[0m
+  ↳ app/controllers/transactions_controller.rb:10:in `+'
+  [1m[36mTransaction Load (0.3ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179219 or recipient_account = 62179219)[0m
+  ↳ app/controllers/transactions_controller.rb:10:in `+'
+  Rendering transactions/index.html.erb within layouts/application
+  Rendered transactions/index.html.erb within layouts/application (Duration: 4.3ms | Allocations: 1410)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.2ms | Allocations: 74)
+Completed 200 OK in 62ms (Views: 43.1ms | ActiveRecord: 3.0ms | Allocations: 17160)
+
+
+Started GET "/bank_accounts" for 127.0.0.1 at 2020-12-19 08:15:05 +0800
+Processing by BankAccountsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendering bank_accounts/index.html.erb within layouts/application
+  [1m[36mBankAccount Load (0.4ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/bank_accounts/index.html.erb:13
+  Rendered bank_accounts/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1274)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 17ms (Views: 14.7ms | ActiveRecord: 0.8ms | Allocations: 10741)
+
+
+Started GET "/bank_accounts/62179215" for 127.0.0.1 at 2020-12-19 08:15:07 +0800
+Processing by BankAccountsController#show as HTML
+  Parameters: {"id"=>"62179215"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.2ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179215], ["LIMIT", 1]]
+  ↳ app/controllers/bank_accounts_controller.rb:8:in `show'
+  Rendering bank_accounts/show.html.erb within layouts/application
+  [1m[36mTransaction Load (1.0ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions" WHERE (remitter_account = 62179215 or recipient_account = 62179215)[0m
+  ↳ app/views/bank_accounts/show.html.erb:48
+  Rendered bank_accounts/show.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2240)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 74)
+Completed 200 OK in 17ms (Views: 13.0ms | ActiveRecord: 1.4ms | Allocations: 12210)
+
+
+Started GET "/transactions/new" for 127.0.0.1 at 2020-12-19 08:15:08 +0800
+Processing by TransactionsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mBankAccount Load (0.3ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179215], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:24:in `new'
+  [1m[36mCACHE BankAccount Load (0.0ms)[0m  [1m[34mSELECT "bank_accounts".* FROM "bank_accounts" WHERE "bank_accounts"."account_id" = $1 LIMIT $2[0m  [["account_id", 62179215], ["LIMIT", 1]]
+  ↳ app/controllers/transactions_controller.rb:25:in `new'
+  Rendering transactions/new.html.erb within layouts/application
+  Rendered transactions/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1275)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/sessions_helper.rb:8:in `current_user'
+  Rendered shared/_user_sidebar.html.erb (Duration: 0.1ms | Allocations: 75)
+Completed 200 OK in 16ms (Views: 12.2ms | ActiveRecord: 0.5ms | Allocations: 11524)
+
+
