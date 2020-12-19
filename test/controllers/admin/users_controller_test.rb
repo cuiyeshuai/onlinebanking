@@ -26,9 +26,9 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
   test "should get create" do
     log_in_as_admin("liujianlong", "123456")
     assert_difference('User.count', 1) do
-      post admin_users_url, params: {user: {username: "ahmed", first_name: "patricia", last_name: "pickles", password: "123456", password_confirmation: "123456", gender: 1, date_of_birth: DateTime.current(), phone_number: "090078601", address: "Mohatta P"}}
+      post admin_users_url, params: {user: {username: "ahmed", first_name: "patricia", last_name: "pickles", password: "123456", password_confirmation: "123456", gender: 1, "date_of_birth(1i)":2000, "date_of_birth(2i)":01,"date_of_birth(3i)":20,phone_number: "090078601", address: "Mohatta P"}}
     end
-    assert_response :success
+    assert_redirected_to '/admin/users'
   end
 
   test "should get edit" do
