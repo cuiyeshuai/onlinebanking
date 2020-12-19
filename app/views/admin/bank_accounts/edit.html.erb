@@ -1,24 +1,24 @@
-<%= link_to("Back to bank account index page", admin_bank_accounts_path)%>
+<%= link_to "Back to bank account index page", admin_bank_accounts_path, class: "btn btn-primary" %>
 <h1>Edit bank account</h1>
-<%= form_for @bankAccount, :url=> admin_bank_account_path do |f|%>
+<%= form_for @bankAccount, :url => admin_bank_account_path do |f| %>
 <div class="form-group">
   <%= f.label :"Type of account" %>
-  <%= f.select :type_of_account,[
-    "Normal",
-    "Savings",
-    "Student",
-    "Child",
-    "Current"
-    ]%>
+  <%= f.select :type_of_account, [
+                 "Normal",
+                 "Savings",
+                 "Student",
+                 "Child",
+                 "Current",
+               ] %>
 </div>
 <div class="form-group">
-  <%= f.label :Currency%>
-  <%= f.select :currency,[
-    "USD",
-    'EUR',
-    'GBP',
-    'JPY'
-    ]%>
+  <%= f.label :Currency %>
+  <%= f.select :currency, [
+                 "USD",
+                 "EUR",
+                 "GBP",
+                 "JPY",
+               ] %>
 </div>
-  <%= f.submit "Update bank account", class: "btn btn-outline-success"  %>
-<%end%>
+  <%= f.submit "Update bank account", class: "btn btn-outline-success" %>
+<% end %>

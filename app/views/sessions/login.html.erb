@@ -4,7 +4,7 @@
     <div class="loginform2 mt-40 mb-40">
       <div class="login">
         <% provide(:title, "Login") %>
-          <img class="login-logo" src="/assets/logo.PNG" >
+          <img src="<%= image_path("logo.PNG") %>"class="login-logo" >
           <h1>Log in to your account</h1>
           <%= form_tag "/login" do %> 
             <div class="form-group mt-40">

@@ -1,7 +1,7 @@
 <div class="main">
-<%= link_to("Back to dashboard", "/admin/dashboard")%> <br/>
+<%= link_to "Back to dashboard", "/admin/dashboard", class: "btn btn-primary" %> <br/>
 <h1> Bank account Management</h1>
-<%= link_to("Create a new bank account", {:action => "new"}, class: "btn btn-primary")%>
+<%= link_to("Create a new bank account", { :action => "new" }, class: "btn btn-primary") %>
 <table class="table table-striped" summary=" Bank accounts List">
   <thead class="table">
   <tr>
@@ -12,12 +12,12 @@
   </tr>
   </thead>
   <tbody>
-  <% @bankAccounts.each do |bankAccount|%>
+  <% @bankAccounts.each do |bankAccount| %>
   <tr>
-     <td><%= link_to  @bankAccounts.find_index(bankAccount)+1, admin_bank_account_path(bankAccount)%></td>
-    <td ><%= bankAccount.account_id%></th>
-    <td ><%= bankAccount.currency%></td>
-    <td ><%= bankAccount.amount%></td>
+     <td><%= link_to @bankAccounts.find_index(bankAccount) + 1, admin_bank_account_path(bankAccount) %></td>
+    <td ><%= bankAccount.account_id %></th>
+    <td ><%= bankAccount.currency %></td>
+    <td ><%= bankAccount.amount %></td>
     <td ><%= link_to("Manage", admin_bank_account_path(bankAccount)) %></td>
     <td ><%= link_to("Delete", delete_admin_bank_account_path(bankAccount)) %></td>
   </tr>

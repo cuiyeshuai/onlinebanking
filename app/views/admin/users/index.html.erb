@@ -1,26 +1,28 @@
 <div class="main">
 
-<%= link_to("Back to dashboard", "/admin/dashboard")%> <br/>
+<%= link_to "Back to dashboard", "/admin/dashboard", class: "btn btn-primary" %> <br/>
 <h1> User Management</h1>
-<%= link_to("Create a new user", {:action => "new"})%>
+<%= link_to("Create a new user", { :action => "new" }, class: "btn btn-primary") %>
 <table class="table table-striped" summary="User List">
-  <thead class="thead-light">
+  <thead class="table">
     <tr>
       <th scope="col">#</th>
       <th scope="col">Username </th>
       <th scope="col">First name </th>
       <th scope="col">Last name </th>
       <th scope="col">Gender </th>
+      <th scope="col">Last logged in in </th>
     </tr>
     </thead>
     <tbody>
-    <% @users.each do |user|%>
+    <% @users.each do |user| %>
     <tr>
-      <th scope="row" ><%= user.id%></th>
-      <td ><%= user.username.upcase%></td>
-      <td ><%= user.first_name%></td>
-      <td ><%= user.last_name%></td>
-      <td ><%= @gender[user.gender]%></td>
+      <th scope="row" ><%= user.id %></th>
+      <td ><%= user.username.upcase %></td>
+      <td ><%= user.first_name %></td>
+      <td ><%= user.last_name %></td>
+      <td ><%= @gender[user.gender] %></td>
+      <td ><%= user.last_logged_in_location %></td>
       <td ><%= link_to("Manage", admin_user_path(user)) %></td>
       <td ><%= link_to("Delete", delete_admin_user_path(user)) %></td>
     </tr>

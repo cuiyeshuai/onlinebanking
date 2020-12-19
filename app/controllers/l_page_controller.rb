@@ -3,7 +3,9 @@ class LPageController < UserController
 
   def index
     #To do Show all bank accounts,transaction for current user
-    @bankAccounts = current_user.bank_accounts
+    @user = current_user
+    @last_logged_in_location = session[:last_logged_in_location]
+    @bankAccounts = @user.bank_accounts
 
     @transactions = []
     @bankAccounts.each do |acc|
