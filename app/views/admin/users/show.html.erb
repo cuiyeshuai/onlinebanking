@@ -30,6 +30,7 @@
 
 
 <h2><%= @user.username.upcase %> 's bank accounts: </h2>
+<%= link_to("Create a new bank account", { :controller=>"bank_accounts",:action => "new", :id=> @user.id }, class: "btn btn-primary") %>
 
 <table class="table table-striped">
   <thead class="thead-light">

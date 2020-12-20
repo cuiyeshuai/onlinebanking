@@ -49,14 +49,14 @@
 
     </div>
   </nav>
-
+  <!-- Notification and alert area -->
   <% flash.each do |type, msg| %>
     <% if type == "alert" %>
       <div class="row alert alert-danger alert-dismissible show" role="alert" style="margin-bottom: 0">
         <%msg.split(";").each do |m|%>
-          <%= m %>
-          <a href="#" data-dismiss="alert" class="close">×</a>
+          <%= m %><br/>
         <% end %>
+        <a href="#" data-dismiss="alert" class="close">×</a>
       </div>
     <% elsif type == "notice" %>
       <div class="row alert alert-success alert-dismissible show" role="alert" style="margin-bottom: 0">
