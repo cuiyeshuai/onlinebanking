@@ -15,10 +15,11 @@ class Admin::SessionsController < ApplicationController
         redirect_to '/admin/verification'
       else
         log_in_as_administrator(administrator)
-        redirect_to '/admin/dashboard'
+        redirect_to '/admin/dashboard', notice: "You have logged in as an Administrator successfully!"
       end
 
     else
+      flash.now[:alert] = "Invalid administrator name or password! Please try again..."
       render 'new'
     end
   end
@@ -41,14 +42,16 @@ class Admin::SessionsController < ApplicationController
     if administrator && administrator.authenticate_second_password(params[:second_password])
       session.delete(:admin_id_for_further_verfication)
       log_in_as_administrator(administrator)
+      flash[:notice] = "You have logged in as an Administrator successfully!"
       redirect_to '/admin/dashboard'
     else
-      render 'verification' and return
+      flash.now[:alert] = "The secure password is incorrect! Please try again..."
+      render 'verification'
     end
   end
 
   def destroy
     log_out_from_administrator
-    redirect_to '/admin/'
+    redirect_to '/admin/', notice: "You have logged out successfully!"
   end
 end

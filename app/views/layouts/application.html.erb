@@ -7,10 +7,10 @@
     <%= csp_meta_tag %>
 
 <script>
-</script> 
+</script>
 
 
-<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Padauk&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital@1&family=Open+Sans:ital,wght@0,300;1,300&family=Padauk&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;1,300&family=Padauk&display=swap" rel="stylesheet">
@@ -23,9 +23,7 @@
 
 
   <body>
-    <% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: name %>
-    <% end -%>
+
   <!-- Navigation bar for the top -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
   <!-- If logged in redirect to profile when clicked if not redirect to welcome page -->
@@ -52,6 +50,21 @@
     </div>
   </nav>
 
+  <% flash.each do |type, msg| %>
+    <% if type == "alert" %>
+      <div class="row alert alert-danger alert-dismissible show" role="alert" style="margin-bottom: 0">
+        <%msg.split(";").each do |m|%>
+          <%= m %>
+          <a href="#" data-dismiss="alert" class="close">×</a>
+        <% end %>
+      </div>
+    <% elsif type == "notice" %>
+      <div class="row alert alert-success alert-dismissible show" role="alert" style="margin-bottom: 0">
+        <strong><%= msg %></strong>
+        <a href="#" data-dismiss="alert" class="close">×</a>
+      </div>
+    <% end %>
+  <% end %>
   <!-- Main content-->
   <div class="container-fluid">
     <div class="row">
@@ -60,11 +73,11 @@
         <div class="col-sm-2 sidebar">
           <%= render "shared/user_sidebar" %>
         </div>
-        <div class="col-sm-10"> 
+        <div class="col-sm-10">
           <%= yield %>
         </div>
       <% else %>
-        <div class="col-sm-12"> 
+        <div class="col-sm-12">
           <%= yield %>
         </div>
       <% end %>

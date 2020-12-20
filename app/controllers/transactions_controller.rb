@@ -22,7 +22,7 @@ class TransactionsController < UserController
     @transaction = Transaction.new
     @bank = session[:current_bank_account_id]
     @bankAccount = BankAccount.find(@bank)
-    @transaction.currency = BankAccount.find(@bank).currency
+    @transaction.currency = @bankAccount.currency
   end
 
   def create
@@ -39,6 +39,13 @@ class TransactionsController < UserController
     if @transaction.save
       redirect_to bank_account_path(session[:current_bank_account_id])
     else
+      puts @transaction.errors.messages
+      alert = ""
+      @transaction.errors.messages.each do |att, reason|
+        alert += (String(att) + ": " + reason[0] +";")
+      end
+      flash.now[:alert] = alert
+      new
       render 'new'
     end
   end
