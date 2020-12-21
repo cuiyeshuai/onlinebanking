@@ -4,16 +4,16 @@ one:
   currency: "EUR"
   amount: 5
   recipient: "wuhu"
-  recipient_account: 1
+  recipient_account: 10000000
   reference: "wuhu"
-  remitter_account: 2
+  remitter_account: 20000000
   remitter: "giao"
 
 two:
   currency: "EUR"
   amount: 5
   recipient: "giao"
-  recipient_account: 2
+  recipient_account: 20000000
   reference: "giao"
-  remitter_account: 1
+  remitter_account: 10000000
   remitter: "wuhu"
