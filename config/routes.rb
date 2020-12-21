@@ -61,6 +61,9 @@ Rails.application.routes.draw do
   # Delete current session
   delete '/logout', to: 'sessions#destroy'
   get '/logout', to: 'sessions#destroy'
+
+  # For currency rates page
+  get '/pages/currency_rates'
   # For static/dummy pages
   get '/pages/:page' => 'pages#show'
   # Show welcome page

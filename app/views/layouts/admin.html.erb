@@ -35,7 +35,18 @@
       <div class="collapse navbar-collapse ml-80" id="navbarNavAltMarkup">
       <div class="navbar-nav ml-auto ">
       <!-- Temporary, for development, improve later-->
-      <h3><%= (Administrator.find(session[:administrator_id])).administratorname %></h3>
+      <% @t =  Time.now.hour%>
+      <% @greeting = "" %>
+      <% if @t>=0 && @t<6%>
+        <% @greeting = "Time to sleep, " %>
+      <% elsif @t>=6 && @t<12%>
+        <% @greeting = "Good morning, " %>
+      <% elsif @t>=12 && @t<18%>
+        <% @greeting = "Good afternoon, " %>
+      <% else %>
+        <% @greeting = "Good evening, " %>
+      <% end %>
+      <h3><%= @greeting + (Administrator.find(session[:administrator_id])).administratorname.upcase %>!</h3>
 
         <% if logged_in_as_administrator? %>
             <%= link_to "Back to website", "/admin/logout", method: :delete, class: "blacktext" %>
@@ -72,18 +83,11 @@
             <%= yield %>
           </div>
       </div>
+      <%= render "shared/footer" %>
     </div>
 <!-- END main content-->
 
-
-
-    <footer class="container-fluid text-center">
-      <div class="container text-center">
-        <div class="row">
-            <%= debug(params) if Rails.env.development? %>
-        </div>
-      </div>
-    </footer>
+<!-- footer -->
 
 
 
