@@ -2,10 +2,22 @@
 
 
 <div class="main">
+<% @t =  Time.now.hour%>
+<% @greeting = "" %>
+<% if @t>=0 && @t<6%>
+  <% @greeting = "Time to sleep, " %>
+<% elsif @t>=6 && @t<12%>
+  <% @greeting = "Good morning, " %>
+<% elsif @t>=12 && @t<18%>
+  <% @greeting = "Good afternoon, " %>
+<% else %>
+  <% @greeting = "Good evening, " %>
+<% end %>
+<h3><%= @greeting + (User.find(session[:user_id])).username.upcase %>!</h3>
 <p>You last logged in in:</p><h3><%=@last_logged_in_location%></h3>
 <h1 class="mb-3">Your Bank Accounts:</h1>
 <table class="table">
-
+  <thead>
    <tr>
        <th>No. ID</th>
        <th>Account ID</th>
@@ -13,6 +25,8 @@
        <th>Account Type</th>
        <th>Balance</th>
    </tr>
+   </thead>
+   <tbody>
    <% @bankAccounts.each do |acc|%>
    <tr>
         <td><%= link_to  @bankAccounts.find_index(acc)+1, bank_account_path(acc)%></td>
@@ -29,6 +43,7 @@
 
 <h1 class="mb-3">Recent Transactions:</h1>
 <table class="table">
+  <thead>
   <tr>
     <th>No.</th>
     <th scope="col">Date</th>

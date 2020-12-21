@@ -34,6 +34,7 @@
     <div class="navbar-nav ml-auto float-right">
 
       <% if logged_in? %>
+
         <%= link_to "My account", "/dashboard", class: "nav-item nav-link " %>
         <%= link_to "Profile", "/profile", class: "nav-item nav-link" %>
         <%= link_to "Help and support", "/pages/help_and_support", class: "nav-item nav-link" %>
@@ -41,6 +42,7 @@
       <% else %>
         <%= link_to "Home page", "/", class: "nav-item nav-link" %>
         <%= link_to "Invest", "/pages/invest", class: "nav-item nav-link" %>
+        <%= link_to "Currency rates", "/pages/currency_rates", class: "nav-item nav-link" %>
         <%= link_to "Fees", "/pages/fees", class: "nav-item nav-link" %>
         <%= link_to "Open a bank account", "/pages/open_a_bank_account", class: "nav-item nav-link" %>
         <%= link_to "Contact us", "/pages/help_and_support", class: "nav-item nav-link" %>
@@ -49,6 +51,7 @@
 
     </div>
   </nav>
+
   <!-- Notification and alert area -->
   <% flash.each do |type, msg| %>
     <% if type == "alert" %>
@@ -76,23 +79,23 @@
         <div class="col-sm-10">
           <%= yield %>
         </div>
+
       <% else %>
         <div class="col-sm-12">
           <%= yield %>
         </div>
       <% end %>
+
     </div>
+
+
   </div>
 <!-- END main content-->
+  <div class="col-sm-12">
+    <!-- footer -->
+    <%= render "shared/footer" %>
+  </div>
 
-    <footer class="container-fluid text-center">
-      <div class="container text-center">
-      <div class="row">
-        <%= debug(params) if Rails.env.development? %>
-      </div>
-    </div>
-    </footer>
+ </body>
 
-
-  </body>
 </html>
