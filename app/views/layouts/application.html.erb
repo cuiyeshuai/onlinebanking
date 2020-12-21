@@ -51,6 +51,7 @@
 
     </div>
   </nav>
+
   <!-- Notification and alert area -->
   <% flash.each do |type, msg| %>
     <% if type == "alert" %>
@@ -86,14 +87,15 @@
       <% end %>
 
     </div>
-    <!-- footer -->
-    <%= render "shared/footer" %>
 
 
   </div>
 <!-- END main content-->
+  <div class="col-sm-12">
+    <!-- footer -->
+    <%= render "shared/footer" %>
+  </div>
 
+ </body>
 
-
-  </body>
 </html>
