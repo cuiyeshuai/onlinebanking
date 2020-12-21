@@ -1,17 +1,16 @@
 <h1>Create a new bank account</h1>
 <%= link_to "Back to bank account index page", admin_bank_accounts_path, class: "btn btn-primary"%>
-<% flash.each do |type, msg| %>
-  <div>
-    <% msg.split('@').each do |f| %>
-      <%= f =%>
-    <% end %>
-  </div>
-<% end %>
 
 <%= form_for @bankAccount, :url=> admin_bank_accounts_path do |f|%>
 <div class="form-group">
-  <%= f.label :"User id "%>
-  <%= f.text_field :user_id, {class: "form-control", placeholder: "Enter user ID"}%>
+  <%= f.label :"Bank account owner"%> <br/>
+  <% if !@user.nil? %>
+    <h3><%= @user.username%></h3>
+    <%= hidden_field_tag "user_id", @user.id%>
+  <% else %>
+    <%=f.select :user_id, @users %>
+  <% end %>
+
 </div>
 <div class="form-group">
   <%= f.label :"Type of account" %>
