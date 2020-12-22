@@ -4,6 +4,29 @@
          <%= favicon_link_tag "favicon.ico" %>
     <title>
 
+
+
+    <script>
+if($.cookie('remember_select') != null) {
+
+    // set the option to selected that corresponds to what the cookie is set to
+
+    $('.select_class option[value="' + $.cookie('remember_select') + '"]').attr('selected', 'selected');
+
+}
+
+// when a new option is selected this is triggered
+
+$('.select_class').change(function() {
+
+    // new cookie is set when the option is changed
+
+    $.cookie('remember_select', $('.select_class option:selected').val());
+
+});
+    
+    </script>
+
     <%= full_title(yield(:title)) %>
     </title>
     <%= csrf_meta_tags %>
@@ -43,10 +66,10 @@
       <% else %>
         <% @greeting = "Good evening, " %>
       <% end %>
-      <h3><%= @greeting + (Administrator.find(session[:administrator_id])).administratorname.upcase %>!</h3>
+      <h3 class="mr-40"><%= @greeting + (Administrator.find(session[:administrator_id])).administratorname.upcase %></h3>
 
         <% if logged_in_as_administrator? %>
-            <%= link_to "Back to website", "/admin/logout", method: :delete, class: "blacktext" %>
+            <%= link_to "Back to website", "/admin/logout", method: :delete, class: "btn btn-primary " %>
             <%= link_to "LOG OUT", "/admin/logout", method: :delete, class: "btn btn-primary" %>
         <% end %>
         </div>
