@@ -1,0 +1,78 @@
+# For USD currency restaurant and company names
+faker:
+  restaurant:
+    name:
+      -"L&L Hawaiian Barbecue"
+      -"Manchu Wok"
+      -"Pei Wei Asian Diner"
+      -"Bruegger's Bagels"
+      -"Auntie Anne's"
+      -"Insomnia Cookies"
+      -"Einstein Bros. Bagels"
+      -"Wetzel's Pretzels"
+      -"Argo Tea"
+      -"Dunkin' Donuts"
+      -"Coffee Beanery"
+      -"Seattle's Best Coffee"
+      -"KFC"
+      -"Chicken Express"
+      -"Golden Chick"
+      -"Smithfield's Chicken 'N Bar-B-Q"
+      -"Golden Spoon"
+      -"Rita's Italian Ice"
+      -"A&W Restaurants"
+      -"Freddy's Frozen Custard & Steakburgers"
+    
+
+
+
+
+  company:
+    name:
+      -"APS Payroll"
+      -"Copeland's"
+      -"Freeport-McMoRan"
+      -"The Shaw Group"
+      -"Taylor Energy"
+      -"BlueHippo Funding"
+      -"GEICO"
+      -"Super Fresh"
+      -"Under Armour"
+      -"Big Sky Airlines"
+      -"Big Sky Brewing Company"
+      -"Conlin's Furniture"
+      -"Berkshire Hathaway"
+      -"Affiliated Foods Midwest"
+      -"Kiewit Corporation"
+      -"Union Pacific"
+      -"Xtra Airways"
+      -"Amy's Kitchen"
+      -"Autodesk"
+      -"ARC Document Solutions"
+      -"Amazon"
+      
+
+
+
+  name:
+    name:
+      -"James Smith"
+      -"Maria Rodriguez"
+      -"Michael Smith"
+      -"Robert Smith"
+      -"Maria Garcia"
+      -"David Smith"
+      -"Mary Smith"
+      -"Maria Hernandez"
+      -"James Johnson"
+      -"Emma Madison"
+      -"Emily	Isabella"
+      -"Sophia	Katherine"
+      -"Alexander	Michael"
+      -"Matthew	William"
+      -"William	James"
+      -"John	Jacob"
+      -"Gabriel	Ethan"
+      -"Isabella	Ava"
+      -"Avery	Alexis"
+      -"Anthony	Matthew"

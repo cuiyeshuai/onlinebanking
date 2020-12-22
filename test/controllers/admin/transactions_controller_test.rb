@@ -18,8 +18,9 @@ test "should get new" do
 end
 
 test "should get create" do
-  post admin_transactions_url
-  assert_response :success
+  log_in_as_admin("liujianlong", "123456")
+  post admin_transactions_url, params: {transaction: {amount: 200, remitter: "qwert", remitter_account:10000000, recipient: "asdfg", recipient_account: 20000000, reference: "finally"}}
+  assert_response :redirect
 end
 
 test "should get edit" do
@@ -38,8 +39,12 @@ test "should get delete" do
 end
 
 test "should get destroy" do
-  delete "/admin/transactions/1"
-  assert_response :success
+  log_in_as_admin("liujianlong", "123456")
+    tran = transactions(:one)
+    assert_difference('Transaction.count', -1) do
+      delete admin_transaction_url(tran)
+    end
+    assert_redirected_to admin_transactions_url
 end
 
 end

@@ -36,6 +36,7 @@ gem "rails-controller-testing"
 # For transaction history generation
 gem 'faker'
 gem 'populator'
+gem 'i18n'
 
 # For using API from other websites
 gem 'httparty'
@@ -45,6 +46,8 @@ gem 'figaro'
 gem 'chartkick'
 gem 'groupdate'
 
+
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
