@@ -38,8 +38,9 @@ class Admin::UsersControllerTest < ActionDispatch::IntegrationTest
 
 
   test "should get update" do
-    patch "/admin/users/1"
-    assert_response :success
+    log_in_as_admin("liujianlong", "123456")
+    patch "/admin/users/1", params: { user: {username: "ahmed", first_name: "patricia", last_name: "pickles", password: "123456", password_confirmation: "123456", gender: 1, "date_of_birth(1i)":2002, "date_of_birth(2i)":01,"date_of_birth(3i)":20,phone_number: "090078601", address: "Mohatta P"}}
+    assert_redirected_to admin_users_path
   end
 
   test "should delete user" do

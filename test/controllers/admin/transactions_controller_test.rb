@@ -38,8 +38,12 @@ test "should get delete" do
 end
 
 test "should get destroy" do
-  delete "/admin/transactions/1"
-  assert_response :success
+  log_in_as_admin("liujianlong", "123456")
+    tran = transactions(:one)
+    assert_difference('Transaction.count', -1) do
+      delete admin_transaction_url(tran)
+    end
+    assert_redirected_to admin_transactions_url
 end
 
 end
