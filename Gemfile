@@ -36,7 +36,7 @@ gem "rails-controller-testing"
 # For transaction history generation
 gem 'faker'
 gem 'populator'
-
+gem 'i18n'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
