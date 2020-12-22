@@ -26,5 +26,7 @@
       |      |          |              |
   
 - Reused code declaration:
-
-
+https://getbootstrap.com/docs/4.1/examples/
+https://www.technicalkeeda.com/html-tutorials/all-countries-drop-down-list-in-html
+https://www.help.cms-tool.net/blog/723615
+https://github.com/rails/rails/blob/master/activemodel/lib/active_model/secure_password.rb
