@@ -8,6 +8,7 @@ one:
   reference: "wuhu"
   remitter_account: 20000000
   remitter: "giao"
+  id: 1
 
 two:
   currency: "EUR"
@@ -17,3 +18,4 @@ two:
   reference: "giao"
   remitter_account: 10000000
   remitter: "wuhu"
+  id: 2
