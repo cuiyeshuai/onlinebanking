@@ -34,6 +34,8 @@ Rails.application.routes.draw do
       end
     end
 
+    get '/index', to: 'styles#index'
+
     get '/new', to: 'sessions#new'
     get '/success', to: 'sessions#success'
     get '/verification', to: 'sessions#verification'
