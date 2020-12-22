@@ -34,11 +34,11 @@ class Admin::TransactionsController < Admin::AdminController
     if alert == ""
       user = @bank.user_id.to_i
       generate_transactions(amount, user, bankacc)
-      redirect_to session.delete(:previous_page)
+      redirect_to '/admin/bank_accounts/'+String(bankacc)
     else
 
       flash[:alert] = alert
-      redirect_to session.delete(:previous_page)
+      redirect_to '/admin/transactions/'
     end
   end
 
