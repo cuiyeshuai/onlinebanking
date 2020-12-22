@@ -26,20 +26,39 @@
 
 $blue:#00065a;
 
-$primary-color: white;
-$secondary-color: red;
 
 
 *{
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif ;
+  
+  
 }
 
-.trial {
-  background: $secondary-color;
+h1{
+  font-size: 40px !important;
+}
+h2{
+  font-size: 25px !important;
+}
+h3{
+  font-size: 20px !important;
 }
 
-.trial2 {
-  background: $primary-color;
+p{
+  font-size: 20px !important;
+}
+
+li{
+font-size: 15px !important;
+}
+
+label{
+  font-size: 15px !important;
+}
+
+
+.btn {
+  font-size: 15px !important;
 }
 
 .background-image {
@@ -50,7 +69,7 @@ $secondary-color: red;
 }
 
 .pt-86 {
-  padding-top: 86px;
+  padding-top: 86px !important;
 }
 
 .whitebackground{
@@ -74,29 +93,29 @@ color: black;
 }
 
 .mr-40{
-  margin-right: 40px;
+  margin-right: 40px !important;
 }
 
 .mt-40{
-  margin-top: 40px;
+  margin-top: 40px !important;
 }
 
 .mt-20{
-  margin-top: 20px;
+  margin-top: 20px !important;
 }
 
 .mb-40{
-  margin-bottom: 40px;
+  margin-bottom: 40px !important;
 }
 
 .ml-40{
-  margin-left: 40px;
+  margin-left: 40px !important;
 }
 
 .bottom-left {
-  position: absolute;
-  top: 30%;
-  left: 4%;
+  position: absolute !important;
+  top: 30% !important;
+  left: 4% !important
 }
 
 .dim{
@@ -111,10 +130,10 @@ color: black;
 
 .loginform{
   background-color: white;
-  border: 2px grey;
-  position: absolute;
-  top: 10%;
-  right: 5%;
+  border: 2px grey !important;
+  position: absolute !important;
+  top: 10% !important;
+  right: 5% !important;
   width: auto;
   height: auto;
 }
@@ -124,6 +143,7 @@ color: black;
   background-color: white;
   border-radius: 20px;
   height: auto;
+  font-size: 15px!important;
 
 }
 .logo{
@@ -245,19 +265,15 @@ button:hover{
     color: white;
   }
 
-/*
-  .newTransfer {
-  color: black;
-  font-style: normal;
-  padding: 20px 40px 40px 20px;
-  margin-top: 10px;
-  }
-*/
 
 .navbar-nav>a{
   margin-right: 4px;
   margin-left: 4px;
   color: white;
+}
+
+.navbar a{
+  font-size: 15px!important;
 }
 
 .static-pages {
