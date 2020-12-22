@@ -16,6 +16,34 @@ class Transaction < ApplicationRecord
     end
   end
 
+  before_update do
+    @pre = Transaction.find(self.id)
+    remitter = BankAccount.find(self.remitter_account)  rescue nil
+    if !remitter.nil?
+      remitter.amount += @pre.amount
+      remitter.save
+    end
+
+    recipient = BankAccount.find(self.recipient_account) rescue nil
+    if !recipient.nil?
+      recipient.amount -= @pre.amount
+      recipient.save
+    end
+  end
+
+  after_update do
+    remitter = BankAccount.find(self.remitter_account)  rescue nil
+    if !remitter.nil?
+      remitter.amount -= self.amount
+      remitter.save
+    end
+
+    recipient = BankAccount.find(self.recipient_account) rescue nil
+    if !recipient.nil?
+      recipient.amount += self.amount
+      recipient.save
+    end
+  end
 
   before_destroy do
     remitter = BankAccount.find(self.remitter_account)  rescue nil

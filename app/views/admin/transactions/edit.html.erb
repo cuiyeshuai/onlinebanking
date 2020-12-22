@@ -2,15 +2,12 @@
 
 <h1>Edit Transactions</h1>
 
-<%= form_for(@transaction) do |f| %>
+<%= form_for(@transaction, :url => admin_transaction_path) do |f| %>
 <table>
   <tr>
     <th>Currency</th>
     <td>
-      <select id = "transaction_currency",name = "transaction[currency]">
-        <option value = "$">$</option>
-        <option value = "£">£</option>
-      </select>
+      <%= @transaction.currency %>
     </td>
   </tr>
   <tr>
@@ -18,12 +15,20 @@
     <td><%= f.text_field(:amount) %></td>
   </tr>
   <tr>
+    <th>Remitter</th>
+    <td><%= f.text_field(:remitter) %></td>
+  </tr>
+  <tr>
+    <th>Remitter's Account</th>
+    <td><%= f.text_field(:remitter_account)%></td>
+  </tr>
+  <tr>
     <th>Recipient</th>
-    <td><%= f.text_field(:recipient_name) %></td>
+    <td><%= f.text_field(:recipient) %></td>
   </tr>
   <tr>
     <th>Recipient's Account</th>
-    <td><%= f.text_field(:recipient)%></td>
+    <td><%= f.text_field(:recipient_account)%></td>
   </tr>
   <tr>
     <th>Reference</th>
