@@ -1,41 +1,43 @@
 <h1>Create a new user</h1>
-<%= link_to "Back to users index page", admin_users_path, class: "btn btn-primary"%>
-<%= form_for @user, :url=> admin_users_path do |f|%>
+<%= link_to "Back to users index page", admin_users_path, class: "btn btn-primary" %>
+<%= form_for @user, :url => admin_users_path do |f| %>
   <div class="form-group">
-    <%= f.label :username%>
-    <%= f.text_field :username , {class: "form-control", placeholder: "Enter username"}%>
+    <%= f.label :username %>
+    <%= f.text_field :username, { class: "form-control", placeholder: "Enter username" } %>
   </div>
   <div class="form-group">
-    <%= f.label :password%>
-    <%= f.password_field :password, {class: "form-control", placeholder: "Enter password"}%>
+    <%= f.label :password %>
+    <%= f.password_field :password, { class: "form-control", placeholder: "Enter password" } %>
   </div>
   <div class="form-group">
-    <%= f.label "password confirmation"%>
-    <%= f.password_field :password_confirmation, {class: "form-control", placeholder: "Enter password confirmation"}%>
+    <%= f.label "password confirmation" %>
+    <%= f.password_field :password_confirmation, { class: "form-control", placeholder: "Enter password confirmation" } %>
   </div>
   <div class="form-group">
-    <%= f.label "first name"%>
-    <%= f.text_field :first_name, {class: "form-control", placeholder: "Enter first name"}%>
+    <%= f.label "first name" %>
+    <%= f.text_field :first_name, { class: "form-control", placeholder: "Enter first name" } %>
   </div>
   <div class="form-group">
-    <%= f.label "last name"%>
-    <%= f.text_field :last_name, {class: "form-control", placeholder: "Enter last name"} %>
+    <%= f.label "last name" %>
+    <%= f.text_field :last_name, { class: "form-control", placeholder: "Enter last name" } %>
   </div>
   <div class="form-group">
-    <%= f.radio_button :gender, "0"%> Don't want to say
-    <%= f.radio_button :gender, "1"%> Male
-    <%= f.radio_button :gender, "2"%> Female
+    <%= f.label "Gender" %><br>
+    <%= f.radio_button :gender, "0" %> Don't want to say
+    <%= f.radio_button :gender, "1" %> Male
+    <%= f.radio_button :gender, "2" %> Female
   </div>
   <div class="form-group">
-    <%= f.date_select :date_of_birth, :class => "", :start_year => 1900, :end_year => 2020%>
+    <%= f.label "Date of Birth" %><br>
+    <%= f.date_select :date_of_birth, :class => "", :start_year => 1900, :end_year => 2020 %>
   </div>
   <div class="form-group">
-    <%= f.label "phone number"%>
-    <%= f.text_field :phone_number, {class: "form-control", placeholder: "Enter phone number"} %>
+    <%= f.label "Phone number" %>
+    <%= f.text_field :phone_number, { class: "form-control", placeholder: "Enter phone number" } %>
   </div>
   <div class="form-group">
-    <%= f.label :address%>
-    <%= f.text_field :address, {class: "form-control", placeholder: "Enter address"} %>
+    <%= f.label :address %>
+    <%= f.text_field :address, { class: "form-control", placeholder: "Enter address" } %>
   </div>
   <%= f.submit "Create new user", class: "btn btn-outline-success" %>
-<%end%>
+<% end %>

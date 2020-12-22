@@ -8,19 +8,16 @@
 
       <ul class="list-unstyled mb-0">
         <li>
-          <%= link_to "INVEST", "/pages/invest", class: "text-blue"  %>
+          <%= link_to("Transaction Management", admin_transactions_path, class: "text-blue") %>
         </li>
         <li>
-          <%= link_to "CURRENCY RATES", "/pages/currency_rates", class: "text-blue"  %>
+          <%= link_to("Administrator Management", admin_administrators_path, class: "text-blue") %>
         </li>
         <li>
-          <%= link_to "FEES", "/pages/fees", class: "text-blue"  %>
+          <%= link_to("Style Settings", "/admin/styles/index", class: "text-blue") %>
         </li>
         <li>
-              <%= link_to "MY BANK ACCOUNT", bank_accounts_path, class: "text-blue" %>
-        </li>
-        <li>
-          <%= link_to "TRANSACTIONS", "/transactions", class: "text-blue" %>
+           <%= link_to("User Management", admin_users_path, class: "text-blue") %>
         </li>
       </ul>
     </div>
