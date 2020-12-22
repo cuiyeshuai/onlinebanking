@@ -1,35 +1,34 @@
 <h1>Create a new bank account</h1>
-<%= link_to "Back to bank account index page", admin_bank_accounts_path, class: "btn btn-primary"%>
+<%= link_to "Back to bank account index page", admin_bank_accounts_path, class: "btn btn-primary" %>
 
-<%= form_for @bankAccount, :url=> admin_bank_accounts_path do |f|%>
+<%= form_for @bankAccount, :url => admin_bank_accounts_path do |f| %>
 <div class="form-group">
-  <%= f.label :"Bank account owner"%> <br/>
+  <%= f.label :"Bank account owner" %> <br/>
   <% if !@user.nil? %>
-    <h3><%= @user.username%></h3>
-    <%= hidden_field_tag "user_id", @user.id%>
+    <h3><%= @user.username %></h3>
+    <%= hidden_field_tag "user_id", @user.id %>
   <% else %>
-    <%=f.select :user_id, @users %>
+    <%= f.select :user_id, @users %>
   <% end %>
 
 </div>
 <div class="form-group">
   <%= f.label :"Type of account" %>
-  <%= f.select :type_of_account,[
-    "Normal",
-    "Savings",
-    "Student",
-    "Child",
-    "Current"
-  ]%>
+  <%= f.select :type_of_account, [
+                 "Normal",
+                 "Savings",
+                 "Student",
+                 "Child",
+                 "Current",
+               ] %>
 </div>
 <div class="form-group">
-  <%= f.label :Currency%>
-  <%= f.select :currency,[
-    "USD",
-    'EUR',
-    'GBP',
-    'JPY'
-    ]%>
+  <%= f.label :Currency %>
+  <%= f.select :currency, [
+                 "USD",
+                 "EUR",
+                 "GBP",
+               ] %>
 </div>
   <%= f.submit %>
-<%end%>
+<% end %>
