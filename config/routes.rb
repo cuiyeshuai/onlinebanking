@@ -33,8 +33,10 @@ Rails.application.routes.draw do
         get :delete
       end
     end
-
+    
     get '/index', to: 'styles#index'
+    post '/index', to: 'styles#create'
+    
 
     get '/new', to: 'sessions#new'
     get '/success', to: 'sessions#success'

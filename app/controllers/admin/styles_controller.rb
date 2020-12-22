@@ -1,6 +1,5 @@
 class Admin::StylesController < Admin::AdminController
-  def index
-
-    
+  def create
+    cookies[:style] = params[:style_theme]
   end
 end

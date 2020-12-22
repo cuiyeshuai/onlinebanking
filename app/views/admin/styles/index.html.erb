@@ -1,47 +1,17 @@
-<script>
-var themes = {
-    "default": "",
-    "cerulean" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css",
-    "cosmo" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css",
-    "cyborg" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cyborg/bootstrap.min.css",
-    "flatly" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css",
-    "journal" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/journal/bootstrap.min.css",
-    "simplex" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/simplex/bootstrap.min.css",
-    "slate" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/slate/bootstrap.min.css",
-    "litera" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css",
-    "spacelab" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/spacelab/bootstrap.min.css",
-    "united" : "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/united/bootstrap.min.css"
-}
-$(function(){
-   var themesheet = $('<link href="'+themes['default']+'" rel="stylesheet" />');
-    themesheet.appendTo('head');
-    $('.theme-link').click(function(){
-       var themeurl = themes[$(this).attr('data-theme')]; 
-        themesheet.attr('href',themeurl);
-    });
-});
-</script>
-<div class="row justify-content-center">
-    <h1>Choose theme: </h1>
-    <div class="row" style="height: 150px; width:200px; position:relative; top:120px;">
-        <ul class="">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Themes <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                <li><a href="#" data-theme="default" class="theme-link">Default</a></li>
-                <li><a href="#" data-theme="amelia" class="theme-link">Amelia</a></li>
-                <li><a href="#" data-theme="cerulean" class="theme-link">Cerulean</a></li>
-                <li><a href="#" data-theme="cosmo" class="theme-link">Cosmo</a></li>
-                <li><a href="#" data-theme="cyborg" class="theme-link">Cyborg</a></li>
-                <li><a href="#" data-theme="flatly" class="theme-link">Flatly</a></li>
-                <li><a href="#" data-theme="journal" class="theme-link">Journal</a></li>
-                <li><a href="#" data-theme="readable" class="theme-link">Readable</a></li>
-                <li><a href="#" data-theme="simplex" class="theme-link">Simplex</a></li>
-                    <li><a href="#" data-theme="slate" class="theme-link">Slate</a></li>
-                    <li><a href="#" data-theme="spacelab" class="theme-link">Spacelab</a></li>
-                    <li><a href="#" data-theme="united" class="theme-link">United</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
+
+<h1>Choose theme:</h1>
+<%=form_tag(admin_index_path, method: :post) do%>%
+  <%= label_tag'Select theme' %>
+  <%= select_tag :style_theme, raw("<option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css'>cerulean</option>
+  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css'>cosmo</option>
+  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cyborg/bootstrap.min.css'>cyborg</option>
+  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css'>flatly</option>
+  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/journal/bootstrap.min.css'>journal</option>
+  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/simplex/bootstrap.min.css'>simplex</option>
+  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/slate/bootstrap.min.css'>slate</option>
+  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css'>litera</option>
+  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/spacelab/bootstrap.min.css'>spacelab</option>
+  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/united/bootstrap.min.css'>united</option>
+  ")%>
+  <%= submit_tag 'Select', class: "btn btn-primary" %>
+<% end %>

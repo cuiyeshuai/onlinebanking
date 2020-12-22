@@ -9,4 +9,8 @@ module ApplicationHelper
         end
     end
 
+    def style_cookies
+        cookies[:style] = { :value => "https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cyborg/bootstrap.min.css"}
+      end
+
 end
