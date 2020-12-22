@@ -1,18 +1,6 @@
-class Admin::StylesController < ApplicationController
-  def index
-  end
-  def show
-  end
-  def new
-  end
+class Admin::StylesController < Admin::AdminController
   def create
-  end
-  def edit
-  end
-  def update
-  end
-  def delete
-  end
-  def destroy
+    cookies[:style] = params[:style_theme]
+    redirect_to admin_index_path
   end
 end

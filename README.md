@@ -3,7 +3,7 @@
 
 - **Application URL**: 
 - **Accounts**：
-  - Administrator:
+  - Administrator: administratorname: Quail, password: 123456
   - User:
 
 - Reused code declaration:

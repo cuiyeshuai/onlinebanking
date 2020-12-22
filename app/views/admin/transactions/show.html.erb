@@ -26,6 +26,8 @@
       <td ><%= @transaction.currency%></td>
       <td ><%= @transaction.amount%></td>
       <td ><%= @transaction.reference%></td>
+      <td ><%= link_to "Edit", edit_admin_transaction_path%></td>
+      <td ><%= link_to "Delete", delete_admin_transaction_path%></td>
       </tr>
 
      </tbody>
