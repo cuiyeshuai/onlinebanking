@@ -18,11 +18,29 @@
  @import "bootstrap/scss/bootstrap";
  @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
  
+
+
+
+
+// Variables
+
+$blue:#00065a;
+
+$primary-color: white;
+$secondary-color: red;
+
+
 *{
   font-family: 'Open Sans', sans-serif;
 }
 
-$blue:#00065a;
+.trial {
+  background: $secondary-color;
+}
+
+.trial2 {
+  background: $primary-color;
+}
 
 .background-image {
   max-width: 100%;
@@ -43,8 +61,13 @@ $blue:#00065a;
 }
 
 .carouselbuttons{
-  top: 80%;
+  top: 80% !important;
   width: 60px;
+}
+
+.carousel-button-size {
+  width: 60px;
+  height: 140px;
 }
 
 .blacktext{
