@@ -1,3 +1,4 @@
+<% provide(:title, "Delete user") %>
 <%= link_to "Back to users index page", admin_users_path, class: "btn btn-primary" %>
 <h1>Are your sure to delete this user below from database?</h1>
 <%= form_for(@user, :url => admin_user_path, :method => "delete") do |f| %>
