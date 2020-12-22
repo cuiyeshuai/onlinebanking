@@ -76,7 +76,7 @@ Group by Currency
 Expenditure
 </div>
 <div class="card-body">
-<%= pie_chart Transaction.where(remitter_account: @user.bank_accounts.map{|a| a.account_id}).group(:recipient_account).count %>
+<%= pie_chart Transaction.where(remitter_account: @user.bank_accounts.map{|a| a.account_id}).group(:remitter_account).sum(:amount) %>
 </div>
 </div>
 </div>
@@ -88,7 +88,7 @@ Expenditure
 Income
 </div>
 <div class="card-body">
-<%= pie_chart Transaction.where(recipient_account: @user.bank_accounts.map{|a| a.account_id}).group(:remitter_account).count %>
+<%= pie_chart Transaction.where(recipient_account: @user.bank_accounts.map{|a| a.account_id}).group(:recipient_account).sum(:amount) %>
 </div>
 </div>
 </div>
