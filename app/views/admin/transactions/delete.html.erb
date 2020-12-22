@@ -2,7 +2,7 @@
 <h1>Are your sure to delete this transaction below from database?</h1>
 <%= form_for @transaction, :url=>admin_transaction_path,:method => "delete" do |f|%>
   <div class="form-group">
-    <%= f.label :"Currency "%> 
+    <%= f.label :Currency%> 
     <%= f.text_field :currency, :readonly => true%>
   </div>
   <div class="form-group">
@@ -10,19 +10,19 @@
     <%= f.text_field :amount, :readonly => true%>
   </div>
   <div class="form-group">
-    <%= f.label :"Remitter"%>
+    <%= f.label :Remitter%>
     <%= f.text_field :remitter, :readonly => true%>
   </div>
   <div class="form-group">
-    <%= f.label :"Remitter account"%>
+    <%= f.label :Remitter account%>
     <%= f.text_field :remitter_account, :readonly => true%>
   </div>
   <div class="form-group">
-    <%= f.label :"Recipient"%>
+    <%= f.label :Recipient%>
     <%= f.text_field :recipient, :readonly => true%>
   </div>
   <div class="form-group">
-    <%= f.label :"Recipient account"%>
+    <%= f.label :Recipient account%>
     <%= f.text_field :recipient_account, :readonly => true%>
   </div>
   <div class="form-group">

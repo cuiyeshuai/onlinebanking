@@ -30,12 +30,13 @@ class Admin::UsersController < Admin::AdminController
     if (@user.save)
       redirect_to admin_users_path
     else
-      err = ''
-      @user.errors.messages.each do |f|
-      err += String(f[0])+":"+String(f[1][0]) + "@"
+      alert = ""
+      @user.errors.messages.each do |att, reason|
+        alert += (String(att) + ": " + reason[0] +";")
       end
-      flash.alert = err
-      render "new"
+      flash.now[:alert] = alert
+
+      render 'new'
     end
 
   end
@@ -48,8 +49,17 @@ class Admin::UsersController < Admin::AdminController
     @user = User.find(params[:id])
     @user.date_of_birth = Time.local(Integer(params[:user]["date_of_birth(1i)"]),Integer(params[:user]["date_of_birth(2i)"]),Integer(params[:user]["date_of_birth(3i)"]))
     @user.gender = Integer(params[:user]["gender"])
-    @user.update((params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :phone_number, :address)))
-    redirect_to admin_users_path
+    if @user.update((params.require(:user).permit(:username, :password, :password_confirmation, :first_name, :last_name, :phone_number, :address)))
+      redirect_to admin_users_path
+    else
+      alert = ""
+      @user.errors.messages.each do |att, reason|
+        alert += (String(att) + ": " + reason[0] +";")
+      end
+      flash.now[:alert] = alert
+
+      render 'edit'
+    end
   end
 
   def delete

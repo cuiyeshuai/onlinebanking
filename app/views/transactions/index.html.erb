@@ -10,6 +10,32 @@
 
 <%= link_to "BACK", bank_accounts_path, class: "btn btn-primary" %>
 
+<div class="row" style="margin-top: 20px;">
+<div class="col-sm-6">
+<div class="card mb-4">
+<div class="card-header">
+<i class="fas fa-chart-area mr-1"></i>
+Expenditure
+</div>
+<div class="card-body">
+<%= pie_chart Transaction.where(remitter_account: @user.bank_accounts.map{|a| a.account_id}).group(:recipient_account).count %>
+</div>
+</div>
+</div>
+
+<div class="col-sm-6">
+<div class="card mb-4">
+<div class="card-header">
+<i class="fas fa-chart-area mr-1"></i>
+Income
+</div>
+<div class="card-body">
+<%= pie_chart Transaction.where(recipient_account: @user.bank_accounts.map{|a| a.account_id}).group(:remitter_account).count %>
+</div>
+</div>
+</div>
+</div>
+
 <table class="table table-striped" >
   <thead class="table">
     <tr>

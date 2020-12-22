@@ -13,7 +13,7 @@
     </thead>
     <tbody>
     <tr>
-      <th scope="row"><%= @bankAccount.user_id %></td>
+      <th scope="row"><%= @bankAccount.user_id %></th>
       <td ><%= @bankAccount.account_id %></td>
       <td ><%= link_to(@bankAccount.user.username.upcase, admin_user_path(@bankAccount.user_id)) %></td>
       <td ><%= @bankAccount.currency %></td>
@@ -24,6 +24,7 @@
     </tbody>
 </table>
 <h2>Recent transactions:</h2>
+<%= link_to("Generate random transactions", { :controller=>"transactions",:action => "create", :amount =>2, :bankacc =>@bankAccount.id }, method: :post, class: "btn btn-primary") %>
 <table class="table table-striped">
   <thead class="thead-light">
     <tr>

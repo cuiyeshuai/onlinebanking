@@ -18,10 +18,18 @@ class Admin::AdministratorsController < Admin::AdminController
       @administrator.second_password_confirmation = ""
 
     end
-    puts (@administrator.second_password_enabled)
-    @administrator.save
-    puts(@administrator.errors.messages)
-    redirect_to admin_administrators_path
+
+    if @administrator.save
+      redirect_to admin_administrators_path
+    else
+      alert = ""
+      @administrator.errors.messages.each do |att, reason|
+        alert += (String(att) + ": " + reason[0] +";")
+      end
+      flash.now[:alert] = alert
+
+      render 'new'
+    end
   end
 
   def edit
@@ -43,9 +51,17 @@ class Admin::AdministratorsController < Admin::AdminController
       @administrator.second_password = ""
       @administrator.second_password_confirmation = ""
     end
-    @administrator.update(params.require(:administrator).permit(:administratorname, :second_password_enabled, :password, :password_confirmation))
-
-    redirect_to admin_administrators_path
+    if @administrator.update(params.require(:administrator).permit(:administratorname, :second_password_enabled, :password, :password_confirmation))
+      redirect_to admin_administrators_path
+    else
+      alert = ""
+      @administrator.errors.messages.each do |att, reason|
+        alert += (String(att) + ": " + reason[0] +";")
+      end
+      flash.now[:alert] = alert
+      
+      render 'edit'
+    end
   end
 
   def delete

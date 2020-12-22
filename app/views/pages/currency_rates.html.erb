@@ -1,0 +1,48 @@
+<div class="row justify-content-center mt-40 mb-40 ">
+    <div class="col-md-8 text-center static-pages border border-light rounded " >
+      <h1 class="mt-40 mb-40">Today's online sell rates:</h1>
+      <img src="<%= image_path("currency.jpeg") %>" class="image ">
+      <table class="table table-striped" >
+        <thead class="table">
+          <tr>
+            <th scope="col">Foreign Currency</th>
+            <th scope="col">Symbol</th>
+            <th scope="col">Rates</th>
+          </tr>
+          </thead>
+
+        <tbody>
+          <tr>
+            <td >USD</td>
+            <td >$</td>
+            <td ><%= @g2u %></td>
+          </tr>
+          <tr>
+            <td >EUR</td>
+            <td >€</td>
+            <td ><%= @g2e %></td>
+          </tr>
+          <tr>
+            <td >CHY</td>
+            <td >¥</td>
+            <td ><%= @g2c %></td>
+          </tr>
+          <tr>
+            <td >JPY</td>
+            <td >¥</td>
+            <td ><%= @g2j %></td>
+          </tr>
+          <tr>
+            <td >RUB</td>
+            <td >руб</td>
+            <td ><%= @g2r %></td>
+          </tr>
+          <tr>
+            <td >HKD</td>
+            <td >$</td>
+            <td ><%= @g2h %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

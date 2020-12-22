@@ -4,8 +4,6 @@
 <%= form_tag(admin_transactions_path, method: :post) do %>
     <%= label_tag "Amount of transactions" %>
     <%= number_field_tag :amount %>
-    <%= label_tag "User ID" %>
-    <%= text_field_tag :user %>
     <%= label_tag "Bank account ID" %>
     <%= text_field_tag :bankacc %>
     <%= submit_tag "Generate", class: "btn btn-primary" %>
