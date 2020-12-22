@@ -8,7 +8,7 @@ module SessionsHelper
     ip = request.remote_ip
     # ip = "11.194.128.24"
     response = JSON.parse(HTTParty.get("http://api.ipstack.com/#{ip}?access_key=#{token}&format=1").to_json)
-    puts (response)
+    # puts (response)
 
     curr_user = User.find(user.id)
     if response["region_name"].nil?
