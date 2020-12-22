@@ -41,6 +41,10 @@ gem 'populator'
 gem 'httparty'
 gem 'figaro'
 
+# For charts
+gem 'chartkick'
+gem 'groupdate'
+
 
 gem 'jquery-rails'
 

@@ -16,9 +16,5 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_template 'sessions/login'
   end
 
-  test "should get success" do
-    get '/success'
-    assert_response :success
-  end
 
 end

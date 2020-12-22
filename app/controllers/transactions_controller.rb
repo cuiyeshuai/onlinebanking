@@ -3,7 +3,7 @@ class TransactionsController < UserController
   include TransactionsHelper
   # Show transactions for selected bank account
   def index
-    # To do show all transaction for current user
+    @user = current_user
     @bankAccounts = current_user.bank_accounts
     @transactions = []
     @bankAccounts.each do |acc|
