@@ -18,8 +18,9 @@ test "should get new" do
 end
 
 test "should get create" do
-  post admin_transactions_url
-  assert_response :success
+  log_in_as_admin("liujianlong", "123456")
+  post admin_transactions_url, params: {transaction: {amount: 200, remitter: "qwert", remitter_account:10000000, recipient: "asdfg", recipient_account: 20000000, reference: "finally"}}
+  assert_response :redirect
 end
 
 test "should get edit" do
