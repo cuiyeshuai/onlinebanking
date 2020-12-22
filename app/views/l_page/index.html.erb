@@ -16,6 +16,32 @@
 <h3><%= @greeting + (User.find(session[:user_id])).username.upcase %>!</h3>
 <p>You last logged in in:</p><h3><%=@last_logged_in_location%></h3>
 <h1 class="mb-3">Your Bank Accounts:</h1>
+
+<div class="col-sm-6">
+<div class="card mb-4">
+<div class="card-header">
+<i class="fas fa-chart-area mr-1"></i>
+Group by Balance
+</div>
+<div class="card-body">
+<%= pie_chart BankAccount.where(:user_id => @user.id).group(:account_id).sum(:amount) %>
+</div>
+</div>
+</div>
+
+<div class="col-sm-6">
+<div class="card mb-4">
+<div class="card-header">
+<i class="fas fa-chart-area mr-1"></i>
+Group by Currency
+</div>
+<div class="card-body">
+<%= pie_chart BankAccount.where(:user_id => @user.id).group(:currency).count %>
+</div>
+
+</div>
+</div>
+
 <table class="table">
   <thead>
    <tr>
@@ -42,6 +68,31 @@
 </table>
 
 <h1 class="mb-3">Recent Transactions:</h1>
+
+<div class="col-sm-6">
+<div class="card mb-4">
+<div class="card-header">
+<i class="fas fa-chart-area mr-1"></i>
+Expenditure
+</div>
+<div class="card-body">
+<%= pie_chart Transaction.where(remitter_account: @user.bank_accounts.map{|a| a.account_id}).group(:recipient_account).count %>
+</div>
+</div>
+</div>
+
+<div class="col-sm-6">
+<div class="card mb-4">
+<div class="card-header">
+<i class="fas fa-chart-area mr-1"></i>
+Income
+</div>
+<div class="card-body">
+<%= pie_chart Transaction.where(recipient_account: @user.bank_accounts.map{|a| a.account_id}).group(:remitter_account).count %>
+</div>
+</div>
+</div>
+
 <table class="table">
   <thead>
   <tr>
