@@ -61,8 +61,13 @@ $secondary-color: red;
 }
 
 .carouselbuttons{
-  top: 80%;
+  top: 80% !important;
   width: 60px;
+}
+
+.carousel-button-size {
+  width: 60px;
+  height: 140px;
 }
 
 .blacktext{

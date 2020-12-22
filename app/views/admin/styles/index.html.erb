@@ -1,17 +1,24 @@
-
-<h1>Choose theme:</h1>
-<%=form_tag(admin_index_path, method: :post) do%>%
-  <%= label_tag'Select theme' %>
-  <%= select_tag :style_theme, raw("<option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css'>cerulean</option>
-  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css'>cosmo</option>
-  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cyborg/bootstrap.min.css'>cyborg</option>
-  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css'>flatly</option>
-  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/journal/bootstrap.min.css'>journal</option>
-  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/simplex/bootstrap.min.css'>simplex</option>
-  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/slate/bootstrap.min.css'>slate</option>
-  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css'>litera</option>
-  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/spacelab/bootstrap.min.css'>spacelab</option>
-  <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/united/bootstrap.min.css'>united</option>
-  ")%>
-  <%= submit_tag 'Select', class: "btn btn-primary" %>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <h1>Choose theme:</h1>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-md-4 text-center">
+    <%=form_tag(admin_index_path, method: :post) do%>
+      <%= label_tag'Select theme' %>
+      <%= select_tag :style_theme, raw("<option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cerulean/bootstrap.min.css'>cerulean</option>
+      <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css'>cosmo</option>
+      <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cyborg/bootstrap.min.css'>cyborg</option>
+      <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/flatly/bootstrap.min.css'>flatly</option>
+      <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/journal/bootstrap.min.css'>journal</option>
+      <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/simplex/bootstrap.min.css'>simplex</option>
+      <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/slate/bootstrap.min.css'>slate</option>
+      <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css'>litera</option>
+      <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/spacelab/bootstrap.min.css'>spacelab</option>
+      <option value='https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/united/bootstrap.min.css'>united</option>
+      ")%>
+      <%= submit_tag 'Select', class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
