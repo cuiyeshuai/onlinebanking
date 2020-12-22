@@ -1,15 +1,15 @@
-<%= link_to("Back to administrators index page", admin_administrators_path)%>
+<%= link_to "Back to administrators index page", admin_administrators_path, class: "btn btn-primary" %>
 <h1>Are your sure to delete this administrator below from database?</h1>
-<%= form_for(@administrator, :url=>admin_administrator_path,:method => "delete") do |f|%>
+<%= form_for(@administrator, :url => admin_administrator_path, :method => "delete") do |f| %>
 <div class="form-group">
-    <%= f.label :administratorname%>
-    <%= f.text_field :administratorname, {class: "form-control", placeholder: "Enter amount"} %>
+    <%= f.label :administratorname %>
+    <%= f.text_field :administratorname, { class: "form-control", placeholder: "Enter amount" } %>
 </div>
 <div class="form-group">
-    <%= f.label "Enable the second secure password"%>
-    <%= f.radio_button :second_password_enabled, true%> Enable
-    <%= f.radio_button :second_password_enabled, false%> Disable<br/>
+    <%= f.label "Enable the second secure password" %>
+    <%= f.radio_button :second_password_enabled, true %> Enable
+    <%= f.radio_button :second_password_enabled, false %> Disable<br/>
 </div>
 
 <%= f.submit "Delete", class: "btn btn-outline-success" %>
-<%end%>
+<% end %>

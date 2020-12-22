@@ -1,5 +1,5 @@
 <h1>Show the Bank account details</h1>
-<%= link_to("Back to bank accounts index page", admin_bank_accounts_path)%>
+<%= link_to "Back to bank accounts index page", admin_bank_accounts_path, class: "btn btn-primary" %>
 <table class="table table-striped" summary="Bank Accounts">
   <thead class="thead-light">
     <tr>
@@ -13,13 +13,13 @@
     </thead>
     <tbody>
     <tr>
-      <th scope="row"><%= @bankAccount.user_id%></td>
-      <td ><%= @bankAccount.account_id%></td>
+      <th scope="row"><%= @bankAccount.user_id %></td>
+      <td ><%= @bankAccount.account_id %></td>
       <td ><%= link_to(@bankAccount.user.username.upcase, admin_user_path(@bankAccount.user_id)) %></td>
-      <td ><%= @bankAccount.currency%></td>
-      <td ><%= @bankAccount.amount%></td><br>
-      <td ><%= @bankAccount.type_of_account%></td>
-      <td ><%= link_to("Edit", edit_admin_bank_account_path(@bankAccount))%></td>
+      <td ><%= @bankAccount.currency %></td>
+      <td ><%= @bankAccount.amount %></td><br>
+      <td ><%= @bankAccount.type_of_account %></td>
+      <td ><%= link_to("Edit", edit_admin_bank_account_path(@bankAccount)) %></td>
     </tr>
     </tbody>
 </table>
@@ -31,23 +31,23 @@
         <th scope="col"> Date</th>
         <th scope="col"> Currency</th>
         <th scope="col"> Amount</th>
-        <th scope="col"> Recipient name</th>
+        <th scope="col"> Remitter</th>
         <th scope="col"> Recipient</th>
         <th scope="col"> Reference</th>
     </tr>
     </thead>
     <tbody>
-    <% @transactions.each do |transaction|%>
+    <% @transactions.each do |transaction| %>
     <tr>
-        <th scope="row"> <%= @transactions.find_index(transaction) + 1%></th>
-        <td > <%= transaction.date%></td>
-        <td > <%= transaction.currency%></td>
-        <td > <%= transaction.amount%></td>
-        <td > <%= transaction.recipient_name%></td>
-        <td > <%= transaction.recipient%></td>
-        <td > <%= transaction.reference%></td>
-        <td > <%= link_to "Show transaction", admin_transaction_path(transaction.id), class: "btn btn-primary"%></td>
+        <th scope="row"> <%= @transactions.find_index(transaction) + 1 %></th>
+        <td > <%= transaction.created_at %></td>
+        <td > <%= transaction.currency %></td>
+        <td > <%= transaction.amount %></td>
+        <td > <%= transaction.remitter %></td>
+        <td > <%= transaction.recipient %></td>
+        <td > <%= transaction.reference %></td>
+        <td > <%= link_to "Show transaction", admin_transaction_path(transaction.id), class: "btn btn-primary" %></td>
     </tr>
-    <%end%>
+    <% end %>
     </tbody>
 </table>

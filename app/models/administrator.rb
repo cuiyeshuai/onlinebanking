@@ -8,4 +8,8 @@ class Administrator < ApplicationRecord
     def downcase_administratorname
       self.administratorname = administratorname.downcase
     end
+    def Administrator.digest(passphrase)
+      cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST : BCrypt::Engine.cost
+      BCrypt::Password.create(passphrase, cost: cost)
+    end
 end

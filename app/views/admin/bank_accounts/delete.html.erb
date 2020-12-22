@@ -1,22 +1,22 @@
-<%= link_to("Back to bank account index page", admin_bank_accounts_path) %>
+<%= link_to "Back to bank account index page", admin_bank_accounts_path, class: "btn btn-primary" %>
 <h1>Are your sure to delete this bank account below from database?</h1>
-<%= form_for@bankAccount, :url=>admin_bank_account_path,:method => "delete" do |f|%>
+<%= form_for @bankAccount, :url => admin_bank_account_path, :method => "delete" do |f| %>
   <div class="form-group">
-    <%= f.label :"User id"%>
-    <%= f.text_field :user_id, :readonly => true%>
+    <%= f.label :"User id" %>
+    <%= f.text_field :user_id, :readonly => true %>
   </div>
   <div class="form-group">
-    <%= f.label :"Type of account"%>
-    <%= f.text_field :type_of_account, :readonly => true%>
+    <%= f.label :"Type of account" %>
+    <%= f.text_field :type_of_account, :readonly => true %>
   </div>
   <div class="form-group">
-    <%= f.label :"Currency "%> 
-    <%= f.text_field :currency, :readonly => true%>
+    <%= f.label :"Currency " %>
+    <%= f.text_field :currency, :readonly => true %>
   </div>
   <div class="form-group">
-    <%= f.label :Amount%>
-    <%= f.text_field :amount, :readonly => true%>
+    <%= f.label :Amount %>
+    <%= f.text_field :amount, :readonly => true %>
   </div>
 
-  <%= f.submit "Delete bank account", class: "btn btn-outline-success"  %>
-<%end%>
+  <%= f.submit "Delete bank account", class: "btn btn-outline-success" %>
+<% end %>

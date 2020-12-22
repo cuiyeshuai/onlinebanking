@@ -1,4 +1,4 @@
-<%= link_to("Back to transactions page", admin_transactions_path) %>
+<%= link_to("Back to list", admin_transactions_path, :class => 'back-link') %>
 <h1>Are your sure to delete this transaction below from database?</h1>
 <%= form_for @transaction, :url=>admin_transaction_path,:method => "delete" do |f|%>
   <div class="form-group">
@@ -30,5 +30,7 @@
     <%= f.text_field :reference, :readonly => true%>
   </div>
 
+<div>
   <%= f.submit "Delete transaction", class: "btn btn-outline-success"  %>
+</div>
 <%end%>
