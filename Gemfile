@@ -36,6 +36,7 @@ gem "rails-controller-testing"
 # For transaction history generation
 gem 'faker'
 gem 'populator'
+gem 'i18n'
 
 # For using API from other websites
 gem 'httparty'

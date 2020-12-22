@@ -1,18 +1,36 @@
 <%= link_to("Back to list", admin_transactions_path, :class => 'back-link') %>
+<h1>Are your sure to delete this transaction below from database?</h1>
+<%= form_for @transaction, :url=>admin_transaction_path,:method => "delete" do |f|%>
+  <div class="form-group">
+    <%= f.label :Currency%> 
+    <%= f.text_field :currency, :readonly => true%>
+  </div>
+  <div class="form-group">
+    <%= f.label :Amount%>
+    <%= f.text_field :amount, :readonly => true%>
+  </div>
+  <div class="form-group">
+    <%= f.label :Remitter%>
+    <%= f.text_field :remitter, :readonly => true%>
+  </div>
+  <div class="form-group">
+    <%= f.label :Remitter account%>
+    <%= f.text_field :remitter_account, :readonly => true%>
+  </div>
+  <div class="form-group">
+    <%= f.label :Recipient%>
+    <%= f.text_field :recipient, :readonly => true%>
+  </div>
+  <div class="form-group">
+    <%= f.label :Recipient account%>
+    <%= f.text_field :recipient_account, :readonly => true%>
+  </div>
+  <div class="form-group">
+    <%= f.label :Reference%>
+    <%= f.text_field :reference, :readonly => true%>
+  </div>
 
-<h1>Delete Transactions</h1>
-
-<%= form_for(@transaction, :url=> admin_transaction_path ,:method => 'delete') do |f| %>
-
-<p>Are you sure you want to permentantly delete this transaction</p>
-<%= label_tag "Remitter" %>
-<p><%= @transaction.remitter %></p>
-<%= label_tag "Recipient" %>
-<p><%= @transaction.recipient %></p>
-<%= label_tag "Amount" %>
-<p><%= @transaction.amount %></p>
-<%= label_tag "Reference" %>
-<p><%= @transaction.reference %></p>
-
-<div><%= f.submit("delete") %></div>
+<div>
+  <%= f.submit "Delete transaction", class: "btn btn-outline-success"  %>
+</div>
 <%end%>
