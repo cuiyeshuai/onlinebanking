@@ -19,9 +19,9 @@ class Admin::BankAccountsControllerTest < ActionDispatch::IntegrationTest
   test "should get create" do
     log_in_as_admin("liujianlong", "123456")
     assert_difference('BankAccount.count', 1) do
-      post "/admin/bank_accounts", params: {bank_account: {  currency: "EUR",amount: 1, recipient: "wuhu",recipient_account: 1, reference: "wuhu", remitter_account: 2,remitter: "giao"}}
+      post "/admin/bank_accounts", params: {bank_account: {  user_id: 1, type_of_account: "Savings", currency: "EUR"}}
     end
-    assert_response :success
+    assert_redirected_to(admin_bank_accounts_path)
   end
 
   test "should get edit" do
@@ -40,7 +40,7 @@ class Admin::BankAccountsControllerTest < ActionDispatch::IntegrationTest
     assert_difference('BankAccount.count', -1) do
       delete admin_bank_account_url(bank)
     end
-    assert_response :success
+    assert_redirected_to(admin_bank_accounts_path)
   end
 
 end

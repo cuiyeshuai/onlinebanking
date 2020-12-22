@@ -5,11 +5,11 @@ bank1:
   currency: "EUR"
   type_of_account: "Savings"
   user_id: 1
-  account_id: 1
+  account_id: 10000000
 
 bank2:
   amount: 6.5
   currency: "EUR"
   type_of_account: "Savings"
   user_id: 2
-  account_id: 2
+  account_id: 20000000

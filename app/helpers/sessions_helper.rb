@@ -6,18 +6,18 @@ module SessionsHelper
 
     token = '4de722a5796753d1a1cada57d284da87'
     ip = request.remote_ip
-    # ip = "11.194.128.24"
+    
     response = JSON.parse(HTTParty.get("http://api.ipstack.com/#{ip}?access_key=#{token}&format=1").to_json)
-    puts (response)
+    # puts (response)
 
     curr_user = User.find(user.id)
     if response["region_name"].nil?
-      response["region_name"] = "__"
+      response["region_name"] = "____"
     end
     if response["country_name"].nil?
-      response["country_name"] = "__"
+      response["country_name"] = "____"
     end
-    curr_user.update({last_logged_in_location:response["region_name"]+", " + response["country_name"]})
+    curr_user.update({last_logged_in_location:response["region_name"]+"  ,  " + response["country_name"]})
 
 
   end
