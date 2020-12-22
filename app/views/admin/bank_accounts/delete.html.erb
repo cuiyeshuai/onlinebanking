@@ -1,3 +1,4 @@
+<% provide(:title, "Delete bank acc") %>
 <%= link_to "Back to bank account index page", admin_bank_accounts_path, class: "btn btn-primary" %>
 <h1>Are your sure to delete this bank account below from database?</h1>
 <%= form_for @bankAccount, :url => admin_bank_account_path, :method => "delete" do |f| %>
