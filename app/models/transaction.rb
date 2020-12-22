@@ -1,5 +1,6 @@
 class Transaction < ApplicationRecord
   validate :amount_should_be_less_than_or_equal_to_remitter_balance, on: :create
+  validate :amount_should_be_positive, on: :create
   validate :remitter_and_recipient_account_currenncy_type_should_be_the_same, on: :create
   before_create do
     remitter = BankAccount.find(self.remitter_account)  rescue nil
@@ -39,6 +40,13 @@ class Transaction < ApplicationRecord
         if (amount > remitter.amount)
           errors.add(:amount, "can't exceed the remitter's balance")
         end
+      end
+    end
+
+    def amount_should_be_positive
+      amount = self.amount
+      if (amount <= 0)
+        errors.add(:amount, "can't be negative")
       end
     end
 

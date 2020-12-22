@@ -7,8 +7,9 @@ class SessionsController < ApplicationController
     if @user && @user.authenticate(params[:password])
        log_in(@user)
 
-       redirect_to '/dashboard'
+       redirect_to '/dashboard', notice: "You have logged in successfully!"
     else
+       flash.now[:alert] = "Invalid username or password! Please try again..."
        render 'login'
     end
   end

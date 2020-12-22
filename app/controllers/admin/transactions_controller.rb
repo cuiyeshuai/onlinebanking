@@ -15,11 +15,31 @@ class Admin::TransactionsController < Admin::AdminController
   end
 
   def create
+
     amount = params[:amount].to_i
-    user = params[:user].to_i
     bankacc = params[:bankacc].to_i
-    generate_transactions(amount, user, bankacc)
-    redirect_to admin_transactions_path
+
+
+    alert = ""
+    if amount <=0
+      alert += "amount: cannot be negative!;"
+    end
+
+    @bank = BankAccount.find(bankacc) rescue nil
+    if @bank.nil?
+      alert += "bank account: does not exist!"
+    end
+
+    puts (alert)
+    if alert == ""
+      user = @bank.user_id.to_i
+      generate_transactions(amount, user, bankacc)
+      redirect_to session.delete(:previous_page)
+    else
+
+      flash[:alert] = alert
+      redirect_to session.delete(:previous_page)
+    end
   end
 
   def edit
