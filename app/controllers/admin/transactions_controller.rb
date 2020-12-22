@@ -30,7 +30,7 @@ class Admin::TransactionsController < Admin::AdminController
       alert += "bank account: does not exist!"
     end
 
-    puts (alert)
+    #puts (alert)
     if alert == ""
       user = @bank.user_id.to_i
       generate_transactions(amount, user, bankacc)
