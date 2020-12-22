@@ -239,6 +239,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chartkick
   faker
+  i18n
   figaro
   groupdate
   httparty
