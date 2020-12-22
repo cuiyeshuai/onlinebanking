@@ -239,10 +239,10 @@ DEPENDENCIES
   capybara (>= 2.15)
   chartkick
   faker
-  i18n
   figaro
   groupdate
   httparty
+  i18n
   jbuilder (~> 2.7)
   jquery-rails
   listen (~> 3.2)

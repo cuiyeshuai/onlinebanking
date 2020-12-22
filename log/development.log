@@ -1,0 +1,198 @@
+Started GET "/admin/index" for 127.0.0.1 at 2020-12-22 15:52:16 +0000
+  [1m[35m (11.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Admin::StylesController#index as HTML
+  [1m[36mAdministrator Load (6.6ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/styles/index.html.erb within layouts/admin
+  Rendered admin/styles/index.html.erb within layouts/admin (Duration: 41.3ms | Allocations: 596)
+Started GET "/admin/index" for 127.0.0.1 at 2020-12-22 15:52:26 +0000
+Processing by Admin::StylesController#index as HTML
+  [1m[36mAdministrator Load (3.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/styles/index.html.erb within layouts/admin
+  Rendered admin/styles/index.html.erb within layouts/admin (Duration: 2.5ms | Allocations: 245)
+[Webpacker] Compiling...
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/justinas/onlineBanking/public/packs
+[Webpacker] Hash: dc25462cd82baa6a855b
+Version: webpack 4.44.2
+Time: 107480ms
+Built at: 12/22/2020 3:54:40 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-d6962d14de75cc5f44c3.js    1.9 MiB  application  [emitted] [immutable]  application
+js/application-d6962d14de75cc5f44c3.js.map   2.14 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-d6962d14de75cc5f44c3.js js/application-d6962d14de75cc5f44c3.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 898 bytes {application} [built]
+[./node_modules/moment/locale sync recursive ^\.\/.*$] ./node_modules/moment/locale sync ^\.\/.*$ 3.21 KiB {application} [optional] [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 144 hidden modules
+
+  [1m[36mCACHE Administrator Load (0.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:47
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 11.5ms | Allocations: 266)
+  Rendered shared/_admin_footer.html.erb (Duration: 4.4ms | Allocations: 365)
+Completed 200 OK in 134405ms (Views: 134341.6ms | ActiveRecord: 16.4ms | Allocations: 151981)
+
+
+[Webpacker] Compiled all packs in /home/justinas/onlineBanking/public/packs
+[Webpacker] Hash: dc25462cd82baa6a855b
+Version: webpack 4.44.2
+Time: 109531ms
+Built at: 12/22/2020 3:54:42 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-d6962d14de75cc5f44c3.js    1.9 MiB  application  [emitted] [immutable]  application
+js/application-d6962d14de75cc5f44c3.js.map   2.14 MiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-d6962d14de75cc5f44c3.js js/application-d6962d14de75cc5f44c3.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 898 bytes {application} [built]
+[./node_modules/moment/locale sync recursive ^\.\/.*$] ./node_modules/moment/locale sync ^\.\/.*$ 3.21 KiB {application} [optional] [built]
+[./node_modules/webpack/buildin/global.js] (webpack)/buildin/global.js 905 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 144 hidden modules
+
+  [1m[36mCACHE Administrator Load (0.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:47
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.5ms | Allocations: 104)
+  Rendered shared/_admin_footer.html.erb (Duration: 1.0ms | Allocations: 113)
+Completed 200 OK in 144011ms (Views: 143705.2ms | ActiveRecord: 109.3ms | Allocations: 226372)
+
+
+Started GET "/admin/index" for 127.0.0.1 at 2020-12-22 15:54:44 +0000
+Processing by Admin::StylesController#index as HTML
+  [1m[36mAdministrator Load (13.7ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/styles/index.html.erb within layouts/admin
+  Rendered admin/styles/index.html.erb within layouts/admin (Duration: 2.7ms | Allocations: 241)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:47
+  [1m[36mCACHE Administrator Load (0.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 1.4ms | Allocations: 103)
+  Rendered shared/_admin_footer.html.erb (Duration: 13.2ms | Allocations: 113)
+Completed 200 OK in 471ms (Views: 434.7ms | ActiveRecord: 13.8ms | Allocations: 14479)
+
+
+Started GET "/js/bootstrap.min.js" for 127.0.0.1 at 2020-12-22 15:54:46 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/js/bootstrap.min.js"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/js/bootstrap.min.js" for 127.0.0.1 at 2020-12-22 15:54:50 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/js/bootstrap.min.js"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.1.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.1.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.1.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+webpacker (4.3.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/pages/invest" for 127.0.0.1 at 2020-12-22 15:55:00 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"invest"}
+  Rendering pages/invest.html.erb within layouts/application
+  Rendered pages/invest.html.erb within layouts/application (Duration: 27.3ms | Allocations: 704)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_footer.html.erb (Duration: 3.9ms | Allocations: 399)
+Completed 200 OK in 238ms (Views: 205.1ms | ActiveRecord: 0.0ms | Allocations: 15235)
+
+
+Started GET "/admin/administrators" for 127.0.0.1 at 2020-12-22 15:58:52 +0000
+Processing by Admin::AdministratorsController#index as HTML
+  [1m[36mAdministrator Load (2.4ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/administrators/index.html.erb within layouts/admin
+  [1m[36mAdministrator Load (5.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" ORDER BY id ASC[0m
+  ↳ app/views/admin/administrators/index.html.erb:12
+  Rendered admin/administrators/index.html.erb within layouts/admin (Duration: 23.5ms | Allocations: 1839)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mCACHE Administrator Load (0.1ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/admin.html.erb:47
+  [1m[36mCACHE Administrator Load (0.0ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendered shared/_admin_sidebar.html.erb (Duration: 0.5ms | Allocations: 107)
+  Rendered shared/_admin_footer.html.erb (Duration: 0.5ms | Allocations: 113)
+Completed 200 OK in 179ms (Views: 142.8ms | ActiveRecord: 8.0ms | Allocations: 16453)
+
+
+Started GET "/admin/transactions" for 127.0.0.1 at 2020-12-22 15:58:54 +0000
+Processing by Admin::TransactionsController#index as HTML
+  [1m[36mAdministrator Load (14.3ms)[0m  [1m[34mSELECT "administrators".* FROM "administrators" WHERE "administrators"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/helpers/admin/sessions_helper.rb:8:in `current_administrator'
+  Rendering admin/transactions/index.html.erb within layouts/admin
+  [1m[36mTransaction Load (75.5ms)[0m  [1m[34mSELECT "transactions".* FROM "transactions"[0m
+  ↳ app/views/admin/transactions/index.html.erb:27
+Started GET "/pages/fees" for 127.0.0.1 at 2020-12-22 15:58:56 +0000
+Processing by PagesController#show as HTML
+  Parameters: {"page"=>"fees"}
+  Rendering pages/fees.html.erb within layouts/application
+  Rendered pages/fees.html.erb within layouts/application (Duration: 409.2ms | Allocations: 7639)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered shared/_footer.html.erb (Duration: 0.5ms | Allocations: 120)
+Completed 200 OK in 1378ms (Views: 1373.9ms | ActiveRecord: 0.0ms | Allocations: 36795)
+
+
