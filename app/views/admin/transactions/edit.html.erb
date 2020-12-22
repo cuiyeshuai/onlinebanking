@@ -1,2 +1,33 @@
-<h1>Admin::Transactions#edit</h1>
-<p>Find me in app/views/admin/transactions/edit.html.erb</p>
+<%= link_to("Back to bank account index page", admin_transactions_path)%>
+<h1>Edit bank account</h1>
+<%= form_for @transaction, :url=> admin_transaction_path do |f|%>
+<div class="form-group">
+    <%= f.label :"Currency "%> 
+    <%= f.text_field :currency%>
+  </div>
+  <div class="form-group">
+    <%= f.label :Amount%>
+    <%= f.text_field :amount%>
+  </div>
+  <div class="form-group">
+    <%= f.label :"Remitter"%>
+    <%= f.text_field :remitter%>
+  </div>
+  <div class="form-group">
+    <%= f.label :"Remitter account"%>
+    <%= f.text_field :remitter_account%>
+  </div>
+  <div class="form-group">
+    <%= f.label :"Recipient"%>
+    <%= f.text_field :recipient%>
+  </div>
+  <div class="form-group">
+    <%= f.label :"Recipient account"%>
+    <%= f.text_field :recipient_account%>
+  </div>
+  <div class="form-group">
+    <%= f.label :Reference%>
+    <%= f.text_field :reference%>
+  </div>
+  <%= f.submit "Update transaction", class: "btn btn-outline-success"  %>
+<%end%>

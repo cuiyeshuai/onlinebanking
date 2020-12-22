@@ -5,9 +5,6 @@ class Admin::TransactionsController < Admin::AdminController
     @transactions = Transaction.all
   end
 
-  def show
-    
-  end
 
   def new
   end
@@ -21,14 +18,26 @@ class Admin::TransactionsController < Admin::AdminController
   end
 
   def edit
+    @transaction = Transaction.find(params[:id])
   end
 
   def update
+    @transaction= Transaction.find(params[:id])
+      @transaction.amount = params[:transaction[:type_of_account]
+      @transaction.currency = params[:transaction][:currency]
+    if (@transaction.save)
+      redirect_to (admin_transactions_path)
+    end
+    puts(@transaction.errors.messages)
   end
 
   def delete
+    @transaction = Transaction.find(params[:id])
   end
 
   def destroy
+    @transaction = Transaction.find(params[:id])
+    @transaction.destroy
+      redirect_to(admin_transactions_path)
   end
 end
